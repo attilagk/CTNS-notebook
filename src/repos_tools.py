@@ -19,7 +19,10 @@ def plot_proximity_results(prox):
     ax[0].set_xlabel('distance')
     ax[1].set_xlabel('z-score')
     ax[2].set_xlabel('p-value')
+    ax[0].grid(True, axis='y')
+    ax[1].grid(True, axis='y')
+    ax[2].grid(True, axis='y')
     handles, labels = ax[0].get_legend_handles_labels()
-    fig.legend(handles, labels, loc='upper center', ncol=3, title='AD genes')
+    fig.legend(handles, labels, loc='upper center', ncol=2)
+    #fig.legend(handles, labels, loc='upper center', ncol=2, title='AD genes')
     return((fig, ax))
-
