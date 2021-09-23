@@ -1,6 +1,9 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import xml.etree.ElementTree as ET
+import collections
+import re
 
 def drop_genes_notin_network(genes, network):
     kept_genes = [y for y in genes if y in network.nodes]
@@ -20,3 +23,95 @@ def plot_proximity_results(prox, jitter=True):
     handles, labels = ax[0].get_legend_handles_labels()
     fig.legend(handles, labels, loc='upper center', ncol=2)
     return((fig, ax))
+
+
+def get_drugbank_xml_root(xml_path='/home/attila/CTNS/resources/drugbank/drugbank.5.1.8.xml'):
+    '''
+    Get root element of drugbank.xml; see
+    https://github.com/dhimmel/drugbank/blob/gh-pages/parse.ipynb
+    '''
+    with open(xml_path) as xml_file:
+        tree = ET.parse(xml_file)
+    root = tree.getroot()
+    return(root)
+
+
+def get_drugbank_drugs(root):
+    '''
+    Get all drugs from drugbank; see
+    https://github.com/dhimmel/drugbank/blob/gh-pages/parse.ipynb
+    '''
+    ns='{http://www.drugbank.ca}'
+    inchikey_template = "{ns}calculated-properties/{ns}property[{ns}kind='InChIKey']/{ns}value"
+    inchi_template = "{ns}calculated-properties/{ns}property[{ns}kind='InChI']/{ns}value"
+    rows = list()
+    for i, drug in enumerate(root):
+        row = collections.OrderedDict()
+        assert drug.tag == ns + 'drug'
+        row['type'] = drug.get('type')
+        row['drugbank_id'] = drug.findtext(ns + "drugbank-id[@primary='true']")
+        row['name'] = drug.findtext(ns + "name")
+        row['description'] = drug.findtext(ns + "description")
+        row['groups'] = [group.text for group in drug.findall("{ns}groups/{ns}group".format(ns = ns))]
+        row['atc_codes'] = [code.get('code') for code in
+                            drug.findall("{ns}atc-codes/{ns}atc-code".format(ns = ns))]
+        row['categories'] = [x.findtext(ns + 'category') for x in
+                             drug.findall("{ns}categories/{ns}category".format(ns = ns))]
+        row['inchi'] = drug.findtext(inchi_template.format(ns = ns))
+        row['inchikey'] = drug.findtext(inchikey_template.format(ns = ns))
+        # Add drug aliases
+        aliases = {
+            elem.text for elem in
+            drug.findall("{ns}international-brands/{ns}international-brand".format(ns = ns)) +
+            drug.findall("{ns}synonyms/{ns}synonym[@language='English']".format(ns = ns)) +
+            drug.findall("{ns}international-brands/{ns}international-brand".format(ns = ns)) +
+            drug.findall("{ns}products/{ns}product/{ns}name".format(ns = ns))
+        }
+        aliases.add(row['name'])
+        row['aliases'] = sorted(aliases)
+        rows.append(row)
+    def collapse_list_values(row):
+        for key, value in row.items():
+            if isinstance(value, list):
+                row[key] = '|'.join(value)
+                return(row)
+    rows = list(map(collapse_list_values, rows))
+    columns = ['drugbank_id', 'name', 'type', 'groups', 'atc_codes',
+               'categories', 'inchikey', 'inchi', 'description']
+    drugbank_df = pd.DataFrame.from_dict(rows)[columns]
+    drugbank_df = drugbank_df.set_index('drugbank_id')
+    return(drugbank_df)
+
+
+def get_drugbank_proteins(root):
+    '''
+    Get all proteins from drugbank; see
+    https://github.com/dhimmel/drugbank/blob/gh-pages/parse.ipynb
+    '''
+    ns='{http://www.drugbank.ca}'
+    protein_rows = list()
+    for i, drug in enumerate(root):
+        drugbank_id = drug.findtext(ns + "drugbank-id[@primary='true']")
+        for category in ['target', 'enzyme', 'carrier', 'transporter']:
+            proteins = drug.findall('{ns}{cat}s/{ns}{cat}'.format(ns=ns, cat=category))
+            for protein in proteins:
+                row = {'drugbank_id': drugbank_id, 'category': category}
+                row['organism'] = protein.findtext('{}organism'.format(ns))
+                row['known_action'] = protein.findtext('{}known-action'.format(ns))
+                actions = protein.findall('{ns}actions/{ns}action'.format(ns=ns))
+                row['actions'] = '|'.join(action.text for action in actions)
+                row['name'] = protein.findtext('{}name'.format(ns))
+                uniprot_ids = [polypep.text for polypep in protein.findall(
+                    "{ns}polypeptide/{ns}external-identifiers/{ns}external-identifier[{ns}resource='UniProtKB']/{ns}identifier".format(ns=ns))]
+                if len(uniprot_ids) != 1:
+                    continue
+                row['uniprot_id'] = uniprot_ids[0]
+                polypeptide = protein.find(ns + 'polypeptide')
+                for identifier in polypeptide.find(ns + 'external-identifiers'):
+                    resource = identifier.findtext(ns + 'resource')
+                    if resource == 'HUGO Gene Nomenclature Committee (HGNC)':
+                        row['hgnc_id'] = identifier.findtext(ns + 'identifier')
+                protein_rows.append(row)
+    protein_df = pd.DataFrame.from_dict(protein_rows)
+    protein_df = protein_df.set_index(['drugbank_id', 'uniprot_id'])
+    return(protein_df)
