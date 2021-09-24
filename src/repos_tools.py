@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 import xml.etree.ElementTree as ET
@@ -114,4 +115,51 @@ def get_drugbank_proteins(root):
                 protein_rows.append(row)
     protein_df = pd.DataFrame.from_dict(protein_rows)
     protein_df = protein_df.set_index(['drugbank_id', 'uniprot_id'])
+    return(protein_df)
+
+
+def drugbank_drugs_simplify_groups(drugbank_df):
+    df = drugbank_df.copy()
+    df['group'] = 'other'
+    is_approved = df.groups.apply(lambda s: bool(re.match('^approved.*', s)))
+    df.loc[is_approved, 'group'] = 'approved'
+    is_investigational = df.groups.apply(lambda s: bool(re.match('.*investigational.*', s)))
+    df.loc[is_investigational & ~ is_approved, 'group'] = 'investigational'
+    return(df)
+
+
+def filter_drugbank_proteins(protein_df, drugbank_df):
+    '''
+    Keep only human proteins that fulfill all below:
+    * are human proteins 
+    * are targets 
+    * possess a HGNC ID
+    * targeted by small molecules
+    '''
+    protein_df = protein_df.loc[protein_df.organism == 'Humans', :]
+    protein_df = protein_df.loc[protein_df.category == 'target', :]
+    protein_df = protein_df.dropna(axis=0, subset=['hgnc_id'])
+    df = drugbank_drugs_simplify_groups(drugbank_df)
+    protein_df['group'] = df.loc[protein_df.index.get_level_values(0), 'group'].to_list()
+    ix2drop = df.index[df.type != 'small molecule']
+    protein_df = protein_df.drop(ix2drop, axis=0, level='drugbank_id')
+    return(protein_df)
+
+
+def extend_with_entrez_id(protein_df,
+                          hgnc_fpath='/home/attila/CTNS/resources/hgnc/hgnc_complete_set.txt'):
+    '''
+    Extend filtered protein_df with symbol, entrez id, and group
+
+    Important: protein_df must be filtered with filter_drugbank_proteins.
+    '''
+    usecols = ['hgnc_id', 'entrez_id', 'symbol']
+    entrez = pd.read_csv(hgnc_fpath, sep='\t', usecols=usecols,
+                         index_col='hgnc_id', dtype={'entrez_id': np.str})
+    l = protein_df.columns.to_list()
+    l.remove('name')
+    columns = ['symbol', 'name'] + l + ['entrez_id']
+    protein_df['symbol'] = entrez.loc[protein_df.hgnc_id, 'symbol'].to_list()
+    protein_df['entrez_id'] = entrez.loc[protein_df.hgnc_id, 'entrez_id'].to_list()
+    protein_df = protein_df.reindex(columns=columns)
     return(protein_df)
