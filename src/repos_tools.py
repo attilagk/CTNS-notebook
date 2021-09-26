@@ -163,3 +163,9 @@ def extend_with_entrez_id(protein_df,
     protein_df['entrez_id'] = entrez.loc[protein_df.hgnc_id, 'entrez_id'].to_list()
     protein_df = protein_df.reindex(columns=columns)
     return(protein_df)
+
+def collapse_drugbank_proteins_group(proteins_f, col='entrez_id'):
+    val = proteins_f.groupby('drugbank_id')[col].apply(lambda x: '|'.join(x.to_list()))
+    val = val.to_frame(name='entrez_id')
+    return(val)
+
