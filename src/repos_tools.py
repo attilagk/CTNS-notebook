@@ -5,6 +5,9 @@ import seaborn as sns
 import xml.etree.ElementTree as ET
 import collections
 import re
+import time
+from toolbox import wrappers, network_utilities
+import concurrent.futures
 
 def drop_genes_notin_network(genes, network):
     kept_genes = [y for y in genes if y in network.nodes]
@@ -169,3 +172,24 @@ def collapse_drugbank_proteins_group(proteins_f, col='entrez_id'):
     val = val.to_frame(name='entrez_id')
     return(val)
 
+
+def process_drug(drugbank_id, targets, dis_genes, network):
+    res = wrappers.calculate_proximity(network=network, nodes_from=targets, nodes_to=dis_genes)
+    return((drugbank_id, res))
+
+
+def calculate_proximities(drugbank_prot, dis_genes, network):
+    start = time.time()
+    gb = drugbank_prot.groupby('drugbank_id')
+    l = gb.apply(lambda row: (row.index.get_level_values(0)[0], set(row.entrez_id))).to_list()
+    def proc_d(item):
+        res = process_drug(*item, dis_genes, network)
+        return(res)
+    preparation = time.time() - start
+    #with concurrent.futures.ThreadPoolExecutor() as executor:
+    #    val = list(executor.map(proc_d, l))
+    val = list(map(proc_d, l))
+    total = time.time() - start
+    calculation =  total - preparation
+    print(preparation, 's preparation', calculation, 's calculation')
+    return(val)
