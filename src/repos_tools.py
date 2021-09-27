@@ -10,6 +10,17 @@ from toolbox import wrappers, network_utilities
 import concurrent.futures
 
 def drop_genes_notin_network(genes, network):
+    '''
+    Drop genes that are not in network
+
+    Parameters
+    ----------
+    genes: entrez IDs in an iterable
+    network: a network object returned by wrappers.get_network
+
+    Value: a tuple of two; the first element is the set of kept genes, while
+    the second element is the set of dropped genes.
+    '''
     kept_genes = [y for y in genes if y in network.nodes]
     dropped_genes = set(genes).difference(set(kept_genes))
     return((kept_genes, dropped_genes))

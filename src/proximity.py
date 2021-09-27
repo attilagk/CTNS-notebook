@@ -8,14 +8,22 @@ import repos_tools
 import scipy
 
 main_dirpath = '../../'
+network_cheng_fpath = main_dirpath + 'resources/PPI/Cheng2019/network.sif'
+drugbank_prot_fpath = main_dirpath + 'results/2021-08-11-drugbank/drugbank-filtered-proteins.csv'
 
-gset_names = ['knowledge', 'knowledge-TWAS2plus', 'knowledge-TWAS', 'knowledge-TWAS2plus-IAPS']
-def read_geneset(name):
-    id_mapping_file = main_dirpath + 'resources/PPI/geneid_to_symbol.txt'
-    file_name = '../../results/2021-07-01-high-conf-ADgenes/AD-genes-' + name
-    gset = wrappers.convert_to_geneid(file_name=file_name, id_type='symbol', id_mapping_file=id_mapping_file)
+def read_geneset(dis_genes_fpath, id_mapping_file):
+    gset = wrappers.convert_to_geneid(file_name=dis_genes_fpath, id_type='symbol', id_mapping_file=id_mapping_file)
     gset, gset_dropped = repos_tools.drop_genes_notin_network(gset, network)
     return(gset)
+
+
+def read_data(dis_genes_fpath=main_dirpath + 'results/2021-07-01-high-conf-ADgenes/AD-genes-knowledge',
+              network_fpath=main_dirpath + 'resources/PPI/Cheng2019/network.sif',
+              id_mapping_file=main_dirpath + 'resources/PPI/geneid_to_symbol.txt'):
+    global network
+    network = wrappers.get_network(network_fpath, only_lcc = True)
+    global dis_genes
+    dis_genes = read_geneset(dis_genes_fpath, id_mapping_file)
 
 
 def process_drug(item):
@@ -27,15 +35,20 @@ def process_drug(item):
     return((drugbank_id, res))
 
 
-def calculate_proximities(drugbank_prot, dis_genes_name='knowledge', asynchronous=True):
+def calculate_proximities(drugbank_prot,
+                          dis_genes_fpath=main_dirpath + 'results/2021-07-01-high-conf-ADgenes/AD-genes-knowledge',
+                          network_fpath=main_dirpath + 'resources/PPI/Cheng2019/network.sif',
+                          id_mapping_file=main_dirpath + 'resources/PPI/geneid_to_symbol.txt',
+                          drugbank_all_drugs_fpath=main_dirpath + 'results/2021-08-11-drugbank/drugbank-all-drugs.csv',
+                          asynchronous=True, test_mode=False):
     '''
     '''
     start = time.time()
-    network_fpath = main_dirpath + 'resources/PPI/Cheng2019/network.sif'
-    global network
-    network = wrappers.get_network(network_fpath, only_lcc = True)
-    global dis_genes
-    dis_genes = read_geneset(dis_genes_name)
+    read_data(dis_genes_fpath=dis_genes_fpath,
+              network_fpath=network_fpath,
+              id_mapping_file=id_mapping_file)
+    if test_mode:
+        drugbank_prot = drugbank_prot.iloc[:9]
     gb = drugbank_prot.groupby('drugbank_id')
     l = gb.apply(lambda row: (row.index.get_level_values(0)[0], set(row.entrez_id))).to_list()
     def proc_d(item):
@@ -47,13 +60,13 @@ def calculate_proximities(drugbank_prot, dis_genes_name='knowledge', asynchronou
             val = list(executor.map(process_drug, l))
     else:
         val = list(map(process_drug, l)) # for testing synchronous execution
-    dfval = postprocess_prox_results(val, drugbank_prot)
+    dfval = postprocess_prox_results(val, drugbank_prot, drugbank_all_drugs_fpath)
     runtime = time.time() - start
     print(f'total runtime: {runtime:.1f}s')
     return(dfval)
 
 
-def prox_result_to_df(inval):
+def postprocess_prox_result(inval):
     drugbank_id, prox_res = inval
     d, z, H0 = prox_res
     avg_d_H0, sdev_d_H0 = H0
@@ -64,11 +77,10 @@ def prox_result_to_df(inval):
     return(val)
 
 
-def postprocess_prox_results(val, drugbank_prot):
+def postprocess_prox_results(val, drugbank_prot, drugbank_all_drugs_fpath):
     # convert proximity results into a data frame
-    df_prox = pd.concat(map(prox_result_to_df, val), axis=0)
+    df_prox = pd.concat(map(postprocess_prox_result, val), axis=0)
     # drug information
-    drugbank_all_drugs_fpath = main_dirpath + 'results/2021-08-11-drugbank/drugbank-all-drugs.csv'
     usecols = ['drugbank_id', 'name', 'type', 'groups']
     drugbank_drug = pd.read_csv(drugbank_all_drugs_fpath, usecols=usecols, index_col='drugbank_id')
     drugbank_drug = drugbank_drug.loc[df_prox.index]
@@ -78,3 +90,6 @@ def postprocess_prox_results(val, drugbank_prot):
     # putting all together
     dfval = pd.concat([drugbank_drug, drugbank_prot_collapsed, df_prox], axis=1).sort_index()
     return(dfval)
+
+if __name__ == '__main__':
+    drugbank_prot = pd.read_csv(drugbank_prot_fpath, index_col=(0, 1), dtype={'entrez_id': 'str'})
