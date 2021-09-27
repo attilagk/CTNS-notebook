@@ -169,5 +169,5 @@ def extend_with_entrez_id(protein_df,
 
 def collapse_drugbank_proteins_group(proteins_f, col='entrez_id'):
     val = proteins_f.groupby('drugbank_id')[col].apply(lambda x: '|'.join(x.to_list()))
-    val = val.to_frame(name='entrez_id')
+    val = val.to_frame(name=col)
     return(val)
