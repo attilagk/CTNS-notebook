@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import os
 import pandas as pd
 import numpy as np
@@ -5,11 +7,10 @@ import time
 from toolbox import wrappers
 import concurrent.futures
 import repos_tools
-import scipy
+from scipy import stats
+
 
 main_dirpath = '../../'
-network_cheng_fpath = main_dirpath + 'resources/PPI/Cheng2019/network.sif'
-drugbank_prot_fpath = main_dirpath + 'results/2021-08-11-drugbank/drugbank-filtered-proteins.csv'
 
 def read_geneset(dis_genes_fpath, id_mapping_file):
     gset = wrappers.convert_to_geneid(file_name=dis_genes_fpath, id_type='symbol', id_mapping_file=id_mapping_file)
@@ -29,9 +30,13 @@ def read_data(dis_genes_fpath=main_dirpath + 'results/2021-07-01-high-conf-ADgen
 def process_drug(item):
     start = time.time()
     drugbank_id, targets = item
-    res = wrappers.calculate_proximity(network=network, nodes_from=targets, nodes_to=dis_genes)
+    targets, dropped = repos_tools.drop_genes_notin_network(targets, network)
+    try:
+        res = wrappers.calculate_proximity(network=network, nodes_from=targets, nodes_to=dis_genes)
+    except:
+        res = (np.nan, np.nan, (np.nan, np.nan))
     runtime = time.time() - start
-    print(drugbank_id, f'processed in {runtime:.1f}s')
+    print(f'{drugbank_id} processed in {runtime:.1f}s')
     return((drugbank_id, res))
 
 
@@ -40,22 +45,19 @@ def calculate_proximities(drugbank_prot,
                           network_fpath=main_dirpath + 'resources/PPI/Cheng2019/network.sif',
                           id_mapping_file=main_dirpath + 'resources/PPI/geneid_to_symbol.txt',
                           drugbank_all_drugs_fpath=main_dirpath + 'results/2021-08-11-drugbank/drugbank-all-drugs.csv',
-                          asynchronous=True, test_mode=False):
+                          asynchronous=True, max_workers=os.cpu_count() - 1):
     '''
     '''
     start = time.time()
     read_data(dis_genes_fpath=dis_genes_fpath,
               network_fpath=network_fpath,
               id_mapping_file=id_mapping_file)
-    if test_mode:
-        drugbank_prot = drugbank_prot.iloc[:9]
     gb = drugbank_prot.groupby('drugbank_id')
     l = gb.apply(lambda row: (row.index.get_level_values(0)[0], set(row.entrez_id))).to_list()
     def proc_d(item):
         res = process_drug(*item, dis_genes, network)
         return(res)
     if asynchronous:
-        max_workers = os.cpu_count() - 1
         with concurrent.futures.ProcessPoolExecutor(max_workers=max_workers) as executor:
             val = list(executor.map(process_drug, l))
     else:
@@ -70,7 +72,7 @@ def postprocess_prox_result(inval):
     drugbank_id, prox_res = inval
     d, z, H0 = prox_res
     avg_d_H0, sdev_d_H0 = H0
-    p = scipy.stats.norm.sf(-z)
+    p = stats.norm.sf(-z)
     d = {'d': d, 'avg_d_H0': avg_d_H0, 'sdev_d_H0': sdev_d_H0, 'z': z, 'p': p}
     ix = pd.Index([drugbank_id], name='drugbank_id')
     val = pd.DataFrame(d, index=ix)
@@ -92,4 +94,19 @@ def postprocess_prox_results(val, drugbank_prot, drugbank_all_drugs_fpath):
     return(dfval)
 
 if __name__ == '__main__':
-    drugbank_prot = pd.read_csv(drugbank_prot_fpath, index_col=(0, 1), dtype={'entrez_id': 'str'})
+    import configparser
+    import sys
+    config = configparser.ConfigParser()
+    config.read(sys.argv[1])
+    drugbank_prot = pd.read_csv(config['DEFAULT']['drugbank_prot_fpath'], index_col=(0, 1), dtype={'entrez_id': 'str'})
+    if config.getboolean('DEFAULT', 'test_run'):
+        drugbank_prot = drugbank_prot.iloc[0:9]
+    result = calculate_proximities(drugbank_prot,
+                                   dis_genes_fpath=config['DEFAULT']['dis_genes_fpath'],
+                                   network_fpath=config['DEFAULT']['network_fpath'],
+                                   id_mapping_file=config['DEFAULT']['id_mapping_file'],
+                                   drugbank_all_drugs_fpath=config['DEFAULT']['drugbank_all_drugs_fpath'],
+                                   asynchronous=config.getboolean('DEFAULT', 'asynchronous'),
+                                   max_workers=config.getint('DEFAULT', 'max_workers'))
+    result.to_csv(config['DEFAULT']['out_csv'])
+    print('Results written to', config['DEFAULT']['out_csv'])
