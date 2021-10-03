@@ -10,15 +10,18 @@ import concurrent.futures
 import repos_tools
 from scipy import stats
 import pickle
+import itertools
 
 
 main_dirpath = '../../'
+#network = wrappers.get_network(main_dirpath + 'resources/PPI/Cheng2019/network.sif', only_lcc = True)
 
 def read_geneset(dis_genes_fpath, id_mapping_file):
     gset = wrappers.convert_to_geneid(file_name=dis_genes_fpath, id_type='symbol', id_mapping_file=id_mapping_file)
     gset, gset_dropped = repos_tools.drop_genes_notin_network(gset, network)
     return(gset)
 
+#dis_genes = read_geneset(main_dirpath + 'results/2021-07-01-high-conf-ADgenes/AD-genes-knowledge', main_dirpath + 'resources/PPI/geneid_to_symbol.txt')
 
 def read_data(dis_genes_fpath=main_dirpath + 'results/2021-07-01-high-conf-ADgenes/AD-genes-knowledge',
               network_fpath=main_dirpath + 'resources/PPI/Cheng2019/network.sif',
@@ -27,9 +30,10 @@ def read_data(dis_genes_fpath=main_dirpath + 'results/2021-07-01-high-conf-ADgen
     network = wrappers.get_network(network_fpath, only_lcc = True)
     global dis_genes
     dis_genes = read_geneset(dis_genes_fpath, id_mapping_file)
+    return((dis_genes, network))
 
 
-def process_drug(item):
+def process_drug(item, network, dis_genes):
     start = time.time()
     drugbank_id, targets = item
     targets, dropped = repos_tools.drop_genes_notin_network(targets, network)
@@ -53,19 +57,17 @@ def calculate_proximities(drugbank_prot,
     '''
     '''
     start = time.time()
-    read_data(dis_genes_fpath=dis_genes_fpath,
+    dis_genes, network = read_data(dis_genes_fpath=dis_genes_fpath,
               network_fpath=network_fpath,
               id_mapping_file=id_mapping_file)
     gb = drugbank_prot.groupby('drugbank_id')
     l = gb.apply(lambda row: (row.index.get_level_values(0)[0], set(row.entrez_id))).to_list()
-    def proc_d(item):
-        res = process_drug(*item, dis_genes, network)
-        return(res)
+    n_drugs = len(l)
     if asynchronous:
         with concurrent.futures.ProcessPoolExecutor(max_workers=max_workers) as executor:
-            val = list(executor.map(process_drug, l))
+            val = list(executor.map(process_drug, l, itertools.repeat(network), itertools.repeat(dis_genes)))
     else:
-        val = list(map(process_drug, l)) # for testing synchronous execution
+        val = list(map(process_drug, l, itertools.repeat(network), itertools.repeat(dis_genes))) # for testing synchronous execution
     if pickle_path == 'default':
         pickle_path = '/tmp/' + datetime.datetime.utcnow().isoformat() + '.p'
     print('dumping results to', pickle_path)
