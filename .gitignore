@@ -7,3 +7,6 @@ tags
 *.png
 *.pyc
 *.swp
+*.fdb_latexmk
+2021-10-18-py4cytoscape/default.svg
+2021-10-18-py4cytoscape/logs/*
