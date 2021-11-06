@@ -35,15 +35,15 @@ def read_data(dis_genes_fpath=main_dirpath + 'results/2021-07-01-high-conf-ADgen
 
 def process_drug(item, network, dis_genes):
     start = time.time()
-    drugbank_id, targets = item
+    drug_id, targets = item
     targets, dropped = repos_tools.drop_genes_notin_network(targets, network)
     try:
         res = wrappers.calculate_proximity(network=network, nodes_from=targets, nodes_to=dis_genes)
     except:
         res = (np.nan, np.nan, (np.nan, np.nan))
     runtime = time.time() - start
-    print(f'{drugbank_id} processed in {runtime:.1f}s')
-    return((drugbank_id, res))
+    print(f'{drug_id} processed in {runtime:.1f}s')
+    return((drug_id, res))
 
 
 def calculate_proximities(drugbank_prot,
@@ -79,7 +79,7 @@ def calculate_proximities(drugbank_prot,
 
 
 def postprocess_prox_result(inval):
-    drugbank_id, prox_res = inval
+    drug_id, prox_res = inval
     try:
         d, z, H0 = prox_res
         avg_d_H0, sdev_d_H0 = H0
@@ -87,7 +87,7 @@ def postprocess_prox_result(inval):
     except:
         d, avg_d_H0, sdev_d_H0, z, p = (np.nan, ) * 5
     d = {'d': d, 'avg_d_H0': avg_d_H0, 'sdev_d_H0': sdev_d_H0, 'z': z, 'p': p}
-    ix = pd.Index([drugbank_id], name='drugbank_id')
+    ix = pd.Index([drug_id], name='drugbank_id')
     val = pd.DataFrame(d, index=ix)
     return(val)
 
