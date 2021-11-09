@@ -11,6 +11,7 @@ import repos_tools
 from scipy import stats
 import pickle
 import itertools
+import functools
 
 
 main_dirpath = '../../'
@@ -46,7 +47,7 @@ def process_drug(item, network, dis_genes):
     return((drug_id, res))
 
 
-def calculate_proximities(drugbank_prot,
+def calculate_proximities(drug_target_network,
                           dis_genes_fpath=main_dirpath + 'results/2021-07-01-high-conf-ADgenes/AD-genes-knowledge',
                           network_fpath=main_dirpath + 'resources/PPI/Cheng2019/network.sif',
                           id_mapping_file=main_dirpath + 'resources/PPI/geneid_to_symbol.txt',
@@ -60,9 +61,15 @@ def calculate_proximities(drugbank_prot,
     dis_genes, network = read_data(dis_genes_fpath=dis_genes_fpath,
               network_fpath=network_fpath,
               id_mapping_file=id_mapping_file)
-    gb = drugbank_prot.groupby('drugbank_id')
-    l = gb.apply(lambda row: (row.index.get_level_values(0)[0], set(row.entrez_id))).to_list()
-    n_drugs = len(l)
+    gb = drug_target_network.groupby(axis=0, level=0)
+    if drug_target_network.index.names[0] == 'drugbank_id':
+        l = gb.apply(lambda row: (row.index.get_level_values(0)[0], set(row.entrez_id))).to_list()
+    elif drug_target_network.index.names[0] == 'drug_chembl_id':
+        def multi_union(row):
+            # takes union of sets of entrez_ids across multiple rows
+            res = functools.reduce(lambda a, b: a.union(b), row.entrez_id)
+            return(res)
+        l = gb.apply(lambda row: (row.index.get_level_values(0)[0], multi_union(row))).to_list()
     if asynchronous:
         with concurrent.futures.ProcessPoolExecutor(max_workers=max_workers) as executor:
             val = list(executor.map(process_drug, l, itertools.repeat(network), itertools.repeat(dis_genes)))
@@ -72,7 +79,12 @@ def calculate_proximities(drugbank_prot,
         pickle_path = '/tmp/' + datetime.datetime.utcnow().isoformat() + '.p'
     print('dumping results to', pickle_path)
     pickle.dump(val, open(pickle_path, 'wb'))
-    dfval = postprocess_prox_results(val, drugbank_prot, drugbank_all_drugs_fpath)
+    if drug_target_network.index.names[0] == 'drugbank_id':
+        dfval = postprocess_drugbank_prox_results(val, drug_target_network, drugbank_all_drugs_fpath)
+    elif drug_target_network.index.names[0] == 'drug_chembl_id':
+        dfval = postprocess_chembl_prox_results(val, drug_target_network)
+    else:
+        dfval = val
     runtime = time.time() - start
     print(f'total runtime: {runtime:.1f}s')
     return(dfval)
@@ -87,12 +99,22 @@ def postprocess_prox_result(inval):
     except:
         d, avg_d_H0, sdev_d_H0, z, p = (np.nan, ) * 5
     d = {'d': d, 'avg_d_H0': avg_d_H0, 'sdev_d_H0': sdev_d_H0, 'z': z, 'p': p}
-    ix = pd.Index([drug_id], name='drugbank_id')
+    ix = pd.Index([drug_id], name='drug_id')
     val = pd.DataFrame(d, index=ix)
     return(val)
 
 
-def postprocess_prox_results(val, drugbank_prot, drugbank_all_drugs_fpath):
+def postprocess_chembl_prox_results(val, drug_target_network):
+    sel_cols = ['drug_name', 'max_phase', 'indication_class']
+    df_drug = drug_target_network.groupby(axis=0, level=0).first()[sel_cols]
+    df_prox = pd.concat(map(postprocess_prox_result, val), axis=0)
+    l = [repos_tools.collapse_drugbank_proteins_group(drug_target_network, col=col) for col in ['target_name']]
+    drug_target_network_collapsed = pd.concat(l, axis=1).loc[df_prox.index]
+    dfval = pd.concat([df_drug, drug_target_network_collapsed, df_prox], axis=1).sort_index()
+    return(dfval)
+
+
+def postprocess_drugbank_prox_results(val, drug_target_network, drugbank_all_drugs_fpath):
     # convert proximity results into a data frame
     df_prox = pd.concat(map(postprocess_prox_result, val), axis=0)
     # drug information
@@ -100,10 +122,10 @@ def postprocess_prox_results(val, drugbank_prot, drugbank_all_drugs_fpath):
     drugbank_drug = pd.read_csv(drugbank_all_drugs_fpath, usecols=usecols, index_col='drugbank_id')
     drugbank_drug = drugbank_drug.loc[df_prox.index]
     # gene/protein information
-    l = [repos_tools.collapse_drugbank_proteins_group(drugbank_prot, col=col) for col in ['symbol', 'hgnc_id']]
-    drugbank_prot_collapsed = pd.concat(l, axis=1).loc[df_prox.index]
+    l = [repos_tools.collapse_drugbank_proteins_group(drug_target_network, col=col) for col in ['symbol', 'hgnc_id']]
+    drug_target_network_collapsed = pd.concat(l, axis=1).loc[df_prox.index]
     # putting all together
-    dfval = pd.concat([drugbank_drug, drugbank_prot_collapsed, df_prox], axis=1).sort_index()
+    dfval = pd.concat([drugbank_drug, drug_target_network_collapsed, df_prox], axis=1).sort_index()
     return(dfval)
 
 if __name__ == '__main__':
@@ -111,10 +133,10 @@ if __name__ == '__main__':
     import sys
     config = configparser.ConfigParser()
     config.read(sys.argv[1])
-    drugbank_prot = pd.read_csv(config['DEFAULT']['drugbank_prot_fpath'], index_col=(0, 1), dtype={'entrez_id': 'str'})
+    drug_target_network = pd.read_csv(config['DEFAULT']['drugbank_prot_fpath'], index_col=(0, 1), dtype={'entrez_id': 'str'})
     if config.getboolean('DEFAULT', 'test_run'):
-        drugbank_prot = drugbank_prot.iloc[0:9]
-    result = calculate_proximities(drugbank_prot,
+        drug_target_network = drug_target_network.iloc[0:9]
+    result = calculate_proximities(drug_target_network,
                                    dis_genes_fpath=config['DEFAULT']['dis_genes_fpath'],
                                    network_fpath=config['DEFAULT']['network_fpath'],
                                    id_mapping_file=config['DEFAULT']['id_mapping_file'],

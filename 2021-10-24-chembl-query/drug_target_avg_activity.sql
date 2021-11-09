@@ -3,6 +3,7 @@ md.pref_name AS drug_name,
 md.max_phase AS max_phase,
 md.indication_class,
 td.pref_name AS target_name,
+td.target_type,
 --td.organism AS target_organism, -- for testing purpose
 cs.accession AS target_uniprot_ac,
 cs.description AS target_description,
@@ -22,6 +23,8 @@ cs.tax_id = 9606 AND -- 9606 is Homo sapiens
 act.standard_units = 'nM' AND
 md.max_phase >= 3
 GROUP BY md.chembl_id, cs.accession
-HAVING avg_p_activity_value >= 5 -- activity (Kd, Ki, EC50, IC50,...) 10 uM or less
+HAVING
+avg_p_activity_value >= 5 AND -- activity (Kd, Ki, EC50, IC50,...) 10 uM or less
+cs.component_type = 'PROTEIN'
 --LIMIT 1000
 ;
