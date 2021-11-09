@@ -34,6 +34,21 @@ def read_data(dis_genes_fpath=main_dirpath + 'results/2021-07-01-high-conf-ADgen
     return((dis_genes, network))
 
 
+def preprocess_chembl_dtn(dtn_chembl,
+                          uniprot2x_path=main_dirpath + 'resources/UniProt/idmapping/HUMAN_9606_idmapping_selected.tab'):
+    uniprot2entrez = pd.read_csv(uniprot2x_path, sep='\t', usecols=[0, 1, 2], dtype='str',
+                                 names=['uniprot_ac', 'uniprot_name', 'entrez_id'], index_col=0)
+    # remove invariant _HUMAN suffix from UniProtKB entry names
+    uniprot2entrez['uniprot_name'] = uniprot2entrez.uniprot_name.str.replace('_HUMAN', '')
+    # creating sets of entrez_ids from ';' separated strings
+    uniprot2entrez['entrez_id'] = uniprot2entrez.entrez_id.apply(lambda x: set() if pd.isna(x)
+                                                                 else set(x.split(';')))
+    df = uniprot2entrez.loc[dtn_chembl.index.get_level_values(1), :]
+    df.index = dtn_chembl.index
+    dtn_chembl = pd.concat([dtn_chembl, df], axis=1)
+    return(dtn_chembl)
+
+
 def process_drug(item, network, dis_genes):
     start = time.time()
     drug_id, targets = item
@@ -61,6 +76,8 @@ def calculate_proximities(drug_target_network,
     dis_genes, network = read_data(dis_genes_fpath=dis_genes_fpath,
               network_fpath=network_fpath,
               id_mapping_file=id_mapping_file)
+    if drug_target_network.index.names[0] == 'drug_chembl_id':
+        drug_target_network = preprocess_chembl_dtn(drug_target_network)
     gb = drug_target_network.groupby(axis=0, level=0)
     if drug_target_network.index.names[0] == 'drugbank_id':
         l = gb.apply(lambda row: (row.index.get_level_values(0)[0], set(row.entrez_id))).to_list()
@@ -108,7 +125,9 @@ def postprocess_chembl_prox_results(val, drug_target_network):
     sel_cols = ['drug_name', 'max_phase', 'indication_class']
     df_drug = drug_target_network.groupby(axis=0, level=0).first()[sel_cols]
     df_prox = pd.concat(map(postprocess_prox_result, val), axis=0)
-    l = [repos_tools.collapse_drugbank_proteins_group(drug_target_network, col=col) for col in ['target_name']]
+    sel_cols1 = ['uniprot_name', 'target_name']
+    l = [repos_tools.collapse_drugbank_proteins_group(drug_target_network,
+                                                      col=col) for col in sel_cols1]
     drug_target_network_collapsed = pd.concat(l, axis=1).loc[df_prox.index]
     dfval = pd.concat([df_drug, drug_target_network_collapsed, df_prox], axis=1).sort_index()
     return(dfval)
