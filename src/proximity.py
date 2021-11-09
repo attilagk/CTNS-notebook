@@ -152,14 +152,22 @@ if __name__ == '__main__':
     import sys
     config = configparser.ConfigParser()
     config.read(sys.argv[1])
-    drug_target_network = pd.read_csv(config['DEFAULT']['drugbank_prot_fpath'], index_col=(0, 1), dtype={'entrez_id': 'str'})
+    try:
+        dtn_path = config['DEFAULT']['drug_target_network_fpath']
+        drugbank_all_drugs_fpath = None
+        index_col = ('drug_chembl_id', 'target_uniprot_ac')
+    except KeyError:
+        dtn_path = config['DEFAULT']['drugbank_prot_fpath']
+        drugbank_all_drugs_fpath = config['DEFAULT']['drugbank_all_drugs_fpath']
+        index_col = (0, 1)
+    drug_target_network = pd.read_csv(dtn_path, index_col=index_col, dtype={'entrez_id': 'str'})
     if config.getboolean('DEFAULT', 'test_run'):
         drug_target_network = drug_target_network.iloc[0:9]
     result = calculate_proximities(drug_target_network,
                                    dis_genes_fpath=config['DEFAULT']['dis_genes_fpath'],
                                    network_fpath=config['DEFAULT']['network_fpath'],
                                    id_mapping_file=config['DEFAULT']['id_mapping_file'],
-                                   drugbank_all_drugs_fpath=config['DEFAULT']['drugbank_all_drugs_fpath'],
+                                   drugbank_all_drugs_fpath=drugbank_all_drugs_fpath,
                                    asynchronous=config.getboolean('DEFAULT', 'asynchronous'),
                                    pickle_path=config['DEFAULT']['out_csv'] + '.p',
                                    max_workers=config.getint('DEFAULT', 'max_workers'))
