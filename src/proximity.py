@@ -163,6 +163,10 @@ if __name__ == '__main__':
     drug_target_network = pd.read_csv(dtn_path, index_col=index_col, dtype={'entrez_id': 'str'})
     if config.getboolean('DEFAULT', 'test_run'):
         drug_target_network = drug_target_network.iloc[0:9]
+    try:
+        max_workers = int(os.environ['SLURM_CPUS_PER_TASK'])
+    except KeyError:
+        max_workers = config.getint('DEFAULT', 'max_workers')
     result = calculate_proximities(drug_target_network,
                                    dis_genes_fpath=config['DEFAULT']['dis_genes_fpath'],
                                    network_fpath=config['DEFAULT']['network_fpath'],
@@ -170,6 +174,6 @@ if __name__ == '__main__':
                                    drugbank_all_drugs_fpath=drugbank_all_drugs_fpath,
                                    asynchronous=config.getboolean('DEFAULT', 'asynchronous'),
                                    pickle_path=config['DEFAULT']['out_csv'] + '.p',
-                                   max_workers=config.getint('DEFAULT', 'max_workers'))
+                                   max_workers=max_workers)
     result.to_csv(config['DEFAULT']['out_csv'])
     print('Results written to', config['DEFAULT']['out_csv'])
