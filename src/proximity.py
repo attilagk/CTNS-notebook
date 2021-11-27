@@ -66,6 +66,7 @@ def calculate_proximities(drug_target_network,
                           dis_genes_fpath=main_dirpath + 'results/2021-07-01-high-conf-ADgenes/AD-genes-knowledge',
                           network_fpath=main_dirpath + 'resources/PPI/Cheng2019/network.sif',
                           id_mapping_file=main_dirpath + 'resources/PPI/geneid_to_symbol.txt',
+                          uniprot2x_path=main_dirpath + 'resources/UniProt/idmapping/HUMAN_9606_idmapping_selected.tab',
                           drugbank_all_drugs_fpath=main_dirpath + 'results/2021-08-11-drugbank/drugbank-all-drugs.csv',
                           asynchronous=True,
                           pickle_path='default',
@@ -77,7 +78,7 @@ def calculate_proximities(drug_target_network,
               network_fpath=network_fpath,
               id_mapping_file=id_mapping_file)
     if drug_target_network.index.names[0] == 'drug_chembl_id':
-        drug_target_network = preprocess_chembl_dtn(drug_target_network)
+        drug_target_network = preprocess_chembl_dtn(drug_target_network, uniprot2x_path)
     gb = drug_target_network.groupby(axis=0, level=0)
     if drug_target_network.index.names[0] == 'drugbank_id':
         l = gb.apply(lambda row: (row.index.get_level_values(0)[0], set(row.entrez_id))).to_list()
@@ -171,6 +172,7 @@ if __name__ == '__main__':
                                    dis_genes_fpath=config['DEFAULT']['dis_genes_fpath'],
                                    network_fpath=config['DEFAULT']['network_fpath'],
                                    id_mapping_file=config['DEFAULT']['id_mapping_file'],
+                                   uniprot2x_path=config['DEFAULT']['uniprot_map'],
                                    drugbank_all_drugs_fpath=drugbank_all_drugs_fpath,
                                    asynchronous=config.getboolean('DEFAULT', 'asynchronous'),
                                    pickle_path=config['DEFAULT']['out_csv'] + '.p',
