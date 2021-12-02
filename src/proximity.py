@@ -13,7 +13,7 @@ import pickle
 import itertools
 import functools
 
-
+# TODO: fix reliance on relative path name that makes assumption on current directory!
 main_dirpath = '../../'
 #network = wrappers.get_network(main_dirpath + 'resources/PPI/Cheng2019/network.sif', only_lcc = True)
 
