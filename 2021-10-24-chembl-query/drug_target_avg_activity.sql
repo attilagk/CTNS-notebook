@@ -5,6 +5,8 @@ md.indication_class,
 td.pref_name AS target_name,
 td.target_type,
 --td.organism AS target_organism, -- for testing purpose
+dm.action_type,
+dm.mechanism_of_action,
 cs.accession AS target_uniprot_ac,
 cs.description AS target_description,
 --cs.organism AS cs_organism, -- for testing purpose
@@ -18,6 +20,7 @@ JOIN assays ON act.assay_id = assays.assay_id
 JOIN target_dictionary td ON assays.tid = td.tid
 JOIN target_components ON td.tid = target_components.tid
 JOIN component_sequences cs ON target_components.component_id = cs.component_id
+LEFT JOIN drug_mechanism dm ON td.tid = dm.tid
 WHERE
 cs.tax_id = 9606 AND -- 9606 is Homo sapiens
 act.standard_units = 'nM' AND
