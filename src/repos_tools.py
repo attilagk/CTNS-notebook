@@ -6,6 +6,7 @@ import xml.etree.ElementTree as ET
 import collections
 import re
 import time
+import os
 from toolbox import wrappers, network_utilities
 import concurrent.futures
 
@@ -182,4 +183,18 @@ def collapse_drugbank_proteins_group(proteins_f, col='entrez_id'):
     val = proteins_f.groupby(axis=0, level=0)[col].apply(lambda x: '|'.join(x.to_list()))
     #val = proteins_f.groupby('drugbank_id')[col].apply(lambda x: '|'.join(x.to_list()))
     val = val.to_frame(name=col)
+    return(val)
+
+def read_chembl_screen_results(csvpath):
+    df = pd.read_csv(csvpath, index_col=0)
+    df = df.sort_values('z').dropna(subset=['z'])
+    df['rank'] = np.arange(len(df), dtype=np.int64) + 1
+    df = df.rename_axis('drug_chembl_id', index=True)
+    return(df)
+
+def add_b3db_permeabilities(chembl_results,
+                            bbbpath=os.environ['HOME'] + '/CTNS/results/2021-12-13-chembl-drug-info/drug-info-bbb.csv'):
+    chembl_bbb = pd.read_csv(bbbpath, index_col=0)
+    chembl_bbb = chembl_bbb.loc[chembl_results.index].drop(['drug_name'], axis=1)
+    val = chembl_results.join(chembl_bbb)
     return(val)
