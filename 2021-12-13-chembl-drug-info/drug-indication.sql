@@ -6,7 +6,7 @@ di.efo_id,
 di.efo_term,
 di.max_phase_for_ind
 FROM molecule_dictionary md
-JOIN drug_indication di ON md.molregno = di.molregno
+LEFT JOIN drug_indication di ON md.molregno = di.molregno
 WHERE
 max_phase >= 3
 ORDER BY md.chembl_id
