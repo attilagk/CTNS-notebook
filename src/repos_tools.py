@@ -194,7 +194,8 @@ def read_chembl_screen_results(csvpath):
 
 def add_b3db_permeabilities(chembl_results,
                             bbbpath=os.environ['HOME'] + '/CTNS/results/2021-12-13-chembl-drug-info/drug-info-bbb.csv'):
-    chembl_bbb = pd.read_csv(bbbpath, index_col=0)
+    dtypes = {'logBB': np.float64, 'BBB+/BBB-': 'category', 'group': 'category'}
+    chembl_bbb = pd.read_csv(bbbpath, index_col=0, dtype=dtypes)
     chembl_bbb = chembl_bbb.loc[chembl_results.index].drop(['drug_name'], axis=1)
     val = chembl_results.join(chembl_bbb)
     return(val)
