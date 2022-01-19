@@ -199,3 +199,4 @@ def add_b3db_permeabilities(chembl_results,
     chembl_bbb = chembl_bbb.loc[chembl_results.index].drop(['drug_name'], axis=1)
     val = chembl_results.join(chembl_bbb)
     return(val)
+
