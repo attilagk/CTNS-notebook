@@ -35,7 +35,7 @@ def rel_rediscovery_rate(drugs, topk=100, min_max_phase_for_ind=1,
 
 
 def rel_rediscovery_rates(drugs, step=10, min_max_phase_for_ind=1,
-               ind_col='max_phase_for_AD', bottoml=600, topl=600):
+               ind_col='max_phase_for_AD', bottoml=600, topl=1600):
     topks = np.arange(start=step, stop=topl, step=step)
     # calculate rediscovery rate ratio
     rrrs = [rel_rediscovery_rate(drugs, topk=k, min_max_phase_for_ind=min_max_phase_for_ind,
