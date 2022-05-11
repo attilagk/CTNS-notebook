@@ -1,5 +1,5 @@
-SELECT cs.accession AS target_uniprot_ac,
-cs.description AS target_description,
+SELECT cs.accession AS uniprot_ac,
+cs.description AS description,
 cs.organism AS cs_organism,
 go.go_id,
 go.parent_go_id,
