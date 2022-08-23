@@ -200,3 +200,19 @@ def add_b3db_permeabilities(chembl_results,
     val = chembl_results.join(chembl_bbb)
     return(val)
 
+def symbol2entrez_gmt(gmt_fpath,
+                      hgn_fpath='~/CTNS/resources/hgnc/hgnc_complete_set.txt'):
+    usecols = ['entrez_id', 'symbol']
+    hgn = pd.read_csv(hgn_fpath, sep='\t', usecols=usecols,
+                      index_col='symbol', dtype={'entrez_id': str})
+    hgns = hgn.squeeze()
+    def symbol2entrezid_line(line, hgns):
+        lin = line.rstrip().split('\t')
+        lout = lin[:2] + hgns.loc[lin[2:]].to_list()
+        sout = '\t'.join(lout)# + '\n'
+        return(sout)
+    with open(gmt_fpath, 'r') as f:
+        for line in f:
+            sout = symbol2entrezid_line(line, hgns)
+            print(sout)
+    return(None)
