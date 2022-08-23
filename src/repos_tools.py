@@ -200,19 +200,24 @@ def add_b3db_permeabilities(chembl_results,
     val = chembl_results.join(chembl_bbb)
     return(val)
 
-def symbol2entrez_gmt(gmt_fpath,
+def symbol2entrez_gmt(ingmt_fpath, outgmt_fpath,
                       hgn_fpath='~/CTNS/resources/hgnc/hgnc_complete_set.txt'):
+    '''
+    Convert genbe symbols to entrez IDs in a gmt gene set file.
+    '''
     usecols = ['entrez_id', 'symbol']
     hgn = pd.read_csv(hgn_fpath, sep='\t', usecols=usecols,
                       index_col='symbol', dtype={'entrez_id': str})
     hgns = hgn.squeeze()
-    def symbol2entrezid_line(line, hgns):
+    def symbol2entrezid_line(line, f_out):
         lin = line.rstrip().split('\t')
-        lout = lin[:2] + hgns.loc[lin[2:]].to_list()
-        sout = '\t'.join(lout)# + '\n'
-        return(sout)
-    with open(gmt_fpath, 'r') as f:
-        for line in f:
-            sout = symbol2entrezid_line(line, hgns)
-            print(sout)
+        entrez_ids = hgns.loc[hgns.index.intersection(lin[2:])].to_list()
+        entrez_ids = [x for x in entrez_ids if x is not np.nan]
+        if len(entrez_ids) > 0:
+            lout = lin[:2] + entrez_ids
+            sout = '\t'.join(lout)# + '\n'
+            print(sout, file=f_out)
+    with open(ingmt_fpath, 'r') as f_in, open(outgmt_fpath, 'w') as f_out:
+        for line in f_in:
+            symbol2entrezid_line(line, f_out)
     return(None)
