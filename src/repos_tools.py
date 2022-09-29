@@ -221,3 +221,14 @@ def symbol2entrez_gmt(ingmt_fpath, outgmt_fpath,
         for line in f_in:
             symbol2entrezid_line(line, f_out)
     return(None)
+
+def output_network_in_sif(g, output_file_name, id_mapper=None, node_to_desc=None, delim = " ", include_unconnected=True, remove_self=True):
+    '''Hello World!'''
+    with open(output_file_name, 'w') as f:
+        for u, v in g.edges:
+            if remove_self and u == v:
+                continue
+            desc1 = id_mapper[u] if id_mapper is not None else u
+            desc2 = id_mapper[v] if id_mapper is not None else v
+            print(desc1, 1, desc2, sep=delim, file=f)
+    return(13)
