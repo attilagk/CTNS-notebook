@@ -2,6 +2,7 @@ import pandas as pd
 
 def read_data(datapath, codebookpath, liberal_filter=True, return_m2exclude=False):
     data = pd.read_csv(datapath, index_col='idno')
+    data = data.rename({'LIScore': 'LIscore'}, axis=1)
     metabolites = data.columns[4:]
     m2exclude_lib = [metabolite for metabolite in data.columns[4:]
                      if any([sum(~ data.loc[data.Group == group, metabolite].isna()) < 2 for group in ['AI', 'AU', 'Y']])]
