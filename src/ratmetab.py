@@ -23,3 +23,16 @@ def read_data(datapath, codebookpath, liberal_filter=True, return_m2exclude=Fals
     A = set(data.columns[2:])
     data = data.drop(A.difference(set(codebook.MetaboliteName)), axis=1)
     return(data)
+
+def read_all_data(prefix='/Users/jonesa7/CTNS/resources/rat-metabolites/Rat_',
+                  codebookpath='/Users/jonesa7/CTNS/resources/rat-metabolites/Rat_codebook_27_Oct_2022.csv'):
+    datapath = {
+        'blood new': 'blood_27_Oct_2022',
+        'brain new': 'brain_27_Oct_2022',
+        'blood old': 'old_blood_17_Nov_2022',
+        'brain old': 'old_brain_17_Nov_2022',
+    }
+    data = {k: read_data(prefix + v + '.csv', codebookpath, liberal_filter=True) for k, v in datapath.items()}
+    data.update({tissue: pd.concat([data[tissue + ' new'], data[tissue + ' old']], axis=0, join='outer') for tissue in ['blood', 'brain']})
+    return(data)
+
