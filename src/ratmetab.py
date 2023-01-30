@@ -36,3 +36,32 @@ def read_all_data(prefix='/Users/jonesa7/CTNS/resources/rat-metabolites/Rat_',
     data.update({tissue: pd.concat([data[tissue + ' new'], data[tissue + ' old']], axis=0, join='outer') for tissue in ['blood', 'brain']})
     return(data)
 
+def read_subclassification_helper(subclass_col='Acid classification',
+                           fpath='../../resources/rat-metabolites/Classification-Sadhana-Bile_Acids.csv'):
+    usecols = ['Metabolite', 'Analyte class'] + [subclass_col]
+    df = pd.read_csv(fpath, usecols=usecols, index_col='Metabolite')
+    df = df.rename({subclass_col: 'Subclass'}, axis=1)
+    return(df)
+
+def read_subclassification():
+    subclass_cols = ['Acid classification', 'Enzymatically derived?']
+    fpaths = ['../../resources/rat-metabolites/Classification-Sadhana-' + s + '.csv'
+              for s in ['Bile_Acids', 'Free_Oxysterols']]
+    l = [read_subclassification_helper(*x) for x in zip(subclass_cols, fpaths)]
+    subclassification = pd.concat(l, axis=0)
+    d = {
+        'Primary': 'Bile_Acids_Primary',
+        'Secondary': 'Bile_Acids_Secondary',
+        'Y': 'Free_Oxysterols_Enzymatic',
+        'N': 'Free_Oxysterols_Non_Enzymatic',
+    }
+    subclassification['Subclass'] = subclassification[['Subclass']].applymap(lambda x: d[x])['Subclass']
+    return(subclassification)
+
+def add_subclassification_to_df(df, subclassification, class_col='Analyte class'):
+    df['Subclass'] = df.apply(lambda s: subclassification.loc[s.loc['Metabolite'], 'Subclass'] \
+                              if s.loc[class_col] in(['Bile_Acids', 'Free_Oxysterols']) \
+                              and s.loc['Metabolite'] in subclassification.index \
+                              else s.loc[class_col], \
+                              axis=1)
+    return(df)
