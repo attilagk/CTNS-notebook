@@ -124,10 +124,17 @@ def sample_params(mean, cov, m, null=False):
     Sample parameters from the posterior normal distribution
     '''
     # mean[1] is the posterior mean of the fixed effect of Dx
-    mean[1] = 0 if null else mean[1]
-    params = np.random.multivariate_normal(mean, cov)
+    meanc = mean.copy()
+    meanc[1] = 0 if null else meanc[1]
+    params = np.random.multivariate_normal(meanc, cov)
     params = pd.Series(params, index=m.model.names)
     return(params)
+
+
+def BF_from_marginal_likelihoods(LLs):
+    replicas = LLs.shape[0]
+    BF = np.exp(- LLs.sum().diff().loc['M0'] / replicas)
+    return(BF)
 
 
 def get_marginal_likelihoods(m, replicas=12, returnBF=True, asynchronous=False, max_workers=6):
@@ -149,5 +156,5 @@ def get_marginal_likelihoods(m, replicas=12, returnBF=True, asynchronous=False, 
     LLs = pd.DataFrame(a, columns=['M1', 'M0'])
     if not returnBF:
         return(LLs)
-    BF = np.exp(- LLs.sum().diff().loc['M0'] / replicas)
+    BF = BF_from_marginal_likelihoods(LLs)
     return(BF)
