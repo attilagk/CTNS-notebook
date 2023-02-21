@@ -1,8 +1,12 @@
 import pandas as pd
+import numpy as np
 import seaborn as sns
 import itertools
 import matplotlib.patches as mpatches
+import concurrent.futures
 import warnings
+
+warnings.filterwarnings('ignore', category=RuntimeWarning)
 
 
 def read_active_reactions_group(group='all_control', cohort='MSBB'):
@@ -63,3 +67,87 @@ def ar_clustermap(subsystems, ar, col_cluster=False):
     for spine in g.ax_cbar.spines.values():
         spine.set_visible(True)
     return(g)
+
+
+'''
+Bayesian computation
+'''
+
+def prepare_data(m):
+    '''
+    Brings fitted data to a format that helps repeated likelihood
+    calculations
+
+    Parameter: m, a fitted model object (statsmodels.genmod.bayes_mixed_glm.BayesMixedGLMResults)
+
+    Value: a tuple of three elements:
+    pdata: the prepared data
+    ref_rxn: the rxn_ID used as reference level in dummy coding
+    ref_subject: the subject_ID used as reference level in dummy coding
+    '''
+    pdata = m.model.data.frame.copy()
+    pdata['rxn_ID'] = pdata.rxn_ID.apply(lambda s: 'rxn_ID[T.' + s + ']')
+    pdata['subject_ID'] = pdata.subject_ID.apply(lambda s: 'subject_ID[T.' + s + ']')
+    ref_rxn = list(set(pdata.rxn_ID.unique()).difference(m.model.names))[0]
+    ref_subject = list(set(pdata.subject_ID.unique()).difference(m.model.names))[0]
+    pdata['Y'] = m.model.endog
+    pdata['Dx'] = m.model.exog[:, 1]
+    return((pdata, ref_rxn, ref_subject))
+
+
+def get_log_likelihood(params, pdata, ref_rxn, ref_subject):
+    '''
+    Calculate log-likelihood for given data and parameters
+    '''
+    pars = params.copy()
+    pars[ref_rxn] = 0
+    pars[ref_subject] = 0
+    df = pd.DataFrame({'Intercept': pars.loc['Intercept'].sum(),
+                       'Dx': pars.iloc[1] * pdata.Dx,
+                       'rxn_ID': pars.loc[pdata.rxn_ID].to_numpy(),
+                       'subject_ID': pars.loc[pdata.subject_ID].to_numpy(),
+                       })
+    # sum terms of linear predictor, then apply logistic function to get non-linear predictor
+    pi = df.sum(axis=1).apply(lambda x: 1 / (1 + np.exp(-x))).to_frame('pi')
+    # get likelihoods
+    likelihoods = pd.concat([pdata['Y'], pi], axis=1).apply(lambda r: r.pi if r.Y else 1 - r.pi, axis=1)
+    LL = likelihoods.apply(np.log).sum()
+    return(LL)
+
+
+def get_log_likelihood_iter(params, pdata, ref_rxn, ref_subject, iteration):
+    return(get_log_likelihood(params, pdata, ref_rxn, ref_subject))
+
+
+def sample_params(mean, cov, m, null=False):
+    '''
+    Sample parameters from the posterior normal distribution
+    '''
+    # mean[1] is the posterior mean of the fixed effect of Dx
+    mean[1] = 0 if null else mean[1]
+    params = np.random.multivariate_normal(mean, cov)
+    params = pd.Series(params, index=m.model.names)
+    return(params)
+
+
+def get_marginal_likelihoods(m, replicas=12, returnBF=True, asynchronous=False, max_workers=6):
+    pdata, ref_rxn, ref_subject = prepare_data(m)
+    param_samples_l = [[sample_params(mean=m.params, cov=m.cov_params(), m=m, null=null)
+                     for i in range(replicas)] for null in [False, True]]
+    if asynchronous:
+        with concurrent.futures.ProcessPoolExecutor(max_workers=max_workers) as executor:
+            ll = [list(executor.map(get_log_likelihood,
+                                    param_samples,
+                                    itertools.repeat(pdata),
+                                    itertools.repeat(ref_rxn),
+                                    itertools.repeat(ref_subject)))
+                  for param_samples in param_samples_l]
+    else:
+        ll = [[get_log_likelihood(param, pdata, ref_rxn, ref_subject)
+               for param in param_samples] for param_samples in param_samples_l]
+    a = np.array(ll).transpose()
+    LLs = pd.DataFrame(a, columns=['M1', 'M0'])
+    if not returnBF:
+        return(LLs)
+    BF = np.exp(- LLs.sum().diff().loc['M0'] / replicas)
+    return(BF)
