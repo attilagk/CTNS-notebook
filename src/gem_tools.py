@@ -5,6 +5,7 @@ import itertools
 import matplotlib.patches as mpatches
 import concurrent.futures
 import warnings
+from statsmodels.genmod.bayes_mixed_glm import BinomialBayesMixedGLM
 
 warnings.filterwarnings('ignore', category=RuntimeWarning)
 
@@ -70,6 +71,40 @@ def ar_clustermap(subsystems, ar, col_cluster=False):
 
 
 '''
+Model fitting
+'''
+
+def reshape2long(df, disease_state):
+    long = df.stack().to_frame('rxn_state')
+    long['rxn_state'] = np.int8(long.rxn_state)
+    long['disease_state'] = disease_state
+    long['rxn_ID'] = long.index.get_level_values(0)
+    long['subject_ID'] = long.index.get_level_values(1)
+    return(long)
+
+
+def long_ar_subsys(subsystems, ar, gemsubsys):
+    l = [reshape2long(ar[k].loc[gemsubsys.loc[gemsubsys.isin(subsystems)].index], k) for k in ar.keys()]
+    long = pd.concat(l, axis=0)
+    return(long)
+
+
+def myBinomialBayesMixedGLM(subsys, ar, control_group='m-control', AD_group='m-AD-B2', vcp_p=0.2, fe_p=2,
+                            fit_method='fit_vb', gemsubsys=read_gem_excel()['SUBSYSTEM']):
+    data = long_ar_subsys(subsys, ar=ar, gemsubsys=gemsubsys)
+    if data.rxn_state.std() == 0:
+        return(None)
+    random = {'Reactions': 'rxn_ID', 'Subjects': 'subject_ID'}
+    formula = 'rxn_state ~ C(disease_state, levels=["' + control_group + '", "' + AD_group + '"])'
+    md = BinomialBayesMixedGLM.from_formula(formula, random, data, vcp_p=vcp_p, fe_p=fe_p)
+    fit = getattr(md, fit_method)
+    m = fit()
+    return(m)
+
+
+
+
+'''
 Bayesian computation
 '''
 
@@ -129,8 +164,8 @@ def sample_params(mean, cov, m, null=False):
 
 def BF_from_marginal_likelihoods(LLs):
     replicas = LLs.shape[0]
-    BF = np.exp(- LLs.sum().diff().loc['M0'] / replicas)
-    return(BF)
+    twice_log_BF = - 2 * LLs.mean().diff().loc['M0']
+    return(twice_log_BF)
 
 
 def get_marginal_likelihoods(m, replicas=12, returnBF=True, asynchronous=False, max_workers=6):
@@ -152,5 +187,5 @@ def get_marginal_likelihoods(m, replicas=12, returnBF=True, asynchronous=False, 
     LLs = pd.DataFrame(a, columns=['M1', 'M0'])
     if not returnBF:
         return(LLs)
-    BF = BF_from_marginal_likelihoods(LLs)
-    return(BF)
+    twice_log_BF = BF_from_marginal_likelihoods(LLs)
+    return(twice_log_BF)
