@@ -115,10 +115,6 @@ def get_log_likelihood(params, pdata, ref_rxn, ref_subject):
     return(LL)
 
 
-def get_log_likelihood_iter(params, pdata, ref_rxn, ref_subject, iteration):
-    return(get_log_likelihood(params, pdata, ref_rxn, ref_subject))
-
-
 def sample_params(mean, cov, m, null=False):
     '''
     Sample parameters from the posterior normal distribution
