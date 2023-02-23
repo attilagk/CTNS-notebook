@@ -102,6 +102,23 @@ def myBinomialBayesMixedGLM(subsys, ar, control_group='m-control', AD_group='m-A
     return(m)
 
 
+def fit_all_subsystems(AD_group='m-AD-B2', AD_name='SubtypeB2_AD', AD_cohort='MSBB'):
+    control_group = 'm-control' if AD_cohort == 'MSBB' else 'r-control'
+    control_name = 'all_control'
+    control_cohort = AD_cohort
+    groupdict = {control_group: (control_name, control_cohort),
+                 AD_group: (AD_name, AD_cohort)}
+    return(groupdict)
+    ar = read_active_reactions(groupdict)
+    gemsubsys = gem_tools.read_gem_excel()['SUBSYSTEM']
+    subsystems = gemsubsys.unique()
+    args = {'ar': ar,
+            'control_group': control_group
+            }
+    #d = {subsys: myBinomialBayesMixedGLM(, 'm-control', 'm-AD-B2', vcp_p=0.2, fe_p=2, fit_method='fit_map') for subsys in subsystems}
+    return(None)
+
+
 
 
 '''
