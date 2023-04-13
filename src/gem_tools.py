@@ -36,7 +36,9 @@ def extract_subsystem(subsystems, ar):
     return(df)
 
 
-def ar_clustermap(subsystems, ar, col_cluster=False, row_cluster=False):
+def ar_clustermap(subsystems, ar, col_cluster=False, row_cluster=False,
+                  row_colors=None, row_cmap=None, draw_cbar=True,
+                  draw_col_legend=True, figsize=(7,7)):
     '''
     Active reactions cluster map
     '''
@@ -44,9 +46,22 @@ def ar_clustermap(subsystems, ar, col_cluster=False, row_cluster=False):
     coldict = {g: 'C' + str(i) for i, g in enumerate(ar.keys())}
     col_colors = list(itertools.chain(*[[v] * ar[k].shape[1] for k, v in coldict.items()]))
     cmap = ['white', 'gray']
-    g = sns.clustermap(df, row_cluster=row_cluster, col_cluster=col_cluster, col_colors=col_colors, cmap=cmap, figsize=(7,7), dendrogram_ratio=0.15)
-    handles = [mpatches.Patch(color=c) for c in coldict.values()]
-    g.fig.legend(handles, ar.keys(), loc='lower center', bbox_to_anchor=(0.3, 0.9 + 0.1 * col_cluster, 0.5, 0.1), ncol=2)
+    cbar_pos = (0 - 0.125 * row_cluster, 0.4, 0.05, 0.2) if draw_cbar else None
+    g = sns.clustermap(df, row_cluster=row_cluster, col_cluster=col_cluster,
+                       row_colors=row_colors, col_colors=col_colors,
+                       cmap=cmap, figsize=figsize, dendrogram_ratio=0.15,
+                       cbar_pos=cbar_pos)
+    if draw_col_legend:
+        handles = [mpatches.Patch(color=c) for c in coldict.values()]
+        col_bbox_to_anchor = (0.3, 0.9 + 0.1 * col_cluster, 0.5, 0.1)
+        g.fig.legend(handles, ar.keys(), loc='lower center', bbox_to_anchor=col_bbox_to_anchor, ncol=2)
+    if row_colors is not None:
+        row_handles = [mpatches.Patch(color=c) for c in row_cmap]
+        #row_bbox_to_anchor = (0 - 1.50 * row_cluster, 0.5, 0.5, 0.2)
+        row_bbox_to_anchor = (0.15 - 0.25 * row_cluster, 0.5)
+        g.fig.legend(row_handles, row_cmap.index, loc='center right',
+                     bbox_to_anchor=row_bbox_to_anchor, ncol=1,
+                     fontsize='x-small')
     g.ax_heatmap.set_xlabel(str(df.shape[1]) + ' samples')
     g.ax_heatmap.set_xticklabels('')
     g.ax_heatmap.set_xticks(range(df.shape[1]))
@@ -58,15 +73,16 @@ def ar_clustermap(subsystems, ar, col_cluster=False, row_cluster=False):
     g.ax_heatmap.set_ylabel(str(df.shape[0]) + ' reactions' + suffix)
     g.ax_heatmap.set_yticklabels('')
     g.ax_heatmap.set_yticks(range(df.shape[0]) if df.shape[0] <= 100 else [])
-    g.ax_cbar.set_position((0 - 0.125 * row_cluster, 0.4, 0.05, 0.2))
-    g.ax_cbar.set_title('reaction state')
-    g.ax_cbar.set_yticks([0.25, 0.75])
-    g.ax_cbar.set_yticklabels(['inactive', 'active'])
-    g.ax_cbar.set_ylim([0, 1])
     for spine in g.ax_heatmap.spines.values():
         spine.set_visible(True)
-    for spine in g.ax_cbar.spines.values():
-        spine.set_visible(True)
+    if draw_cbar:
+        g.ax_cbar.set_position((0 - 0.125 * row_cluster, 0.4, 0.05, 0.2))
+        g.ax_cbar.set_title('reaction state')
+        g.ax_cbar.set_yticks([0.25, 0.75])
+        g.ax_cbar.set_yticklabels(['inactive', 'active'])
+        g.ax_cbar.set_ylim([0, 1])
+        for spine in g.ax_cbar.spines.values():
+            spine.set_visible(True)
     return(g)
 
 
