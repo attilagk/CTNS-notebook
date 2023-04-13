@@ -37,13 +37,14 @@ def extract_subsystem(subsystems, ar):
 
 
 def ar_clustermap(subsystems, ar, col_cluster=False, row_cluster=False,
-                  row_colors=None, row_cmap=None, draw_cbar=True,
+                  row_colors=None, row_cmap=None, col_palette=None, draw_cbar=True,
                   draw_col_legend=True, figsize=(7,7)):
     '''
     Active reactions cluster map
     '''
     df = extract_subsystem(subsystems, ar=ar)
-    coldict = {g: 'C' + str(i) for i, g in enumerate(ar.keys())}
+    col_palette = col_palette if col_palette is not None else ['C' + str(i) for i, g in enumerate(ar.keys())]
+    coldict = dict(zip(ar.keys(), col_palette))
     col_colors = list(itertools.chain(*[[v] * ar[k].shape[1] for k, v in coldict.items()]))
     cmap = ['white', 'gray']
     cbar_pos = (0 - 0.125 * row_cluster, 0.4, 0.05, 0.2) if draw_cbar else None
