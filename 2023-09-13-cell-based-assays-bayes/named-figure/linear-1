@@ -1,24 +1,24 @@
 digraph {
-	"σ" [label="σ
-~
-HalfStudentT" shape=ellipse]
 	"β_0" [label="β_0
 ~
 Normal" shape=ellipse]
 	"β_1" [label="β_1
 ~
 Normal" shape=ellipse]
-	subgraph cluster24 {
-		y [label="y
+	"σ" [label="σ
 ~
-Normal" shape=ellipse style=filled]
+HalfStudentT" shape=ellipse]
+	subgraph cluster24 {
 		"μ" [label="μ
 ~
 Deterministic" shape=box]
+		y [label="y
+~
+Normal" shape=ellipse style=filled]
 		label=24 labeljust=r labelloc=b style=rounded
 	}
-	"β_0" -> "μ"
 	"β_1" -> "μ"
-	"σ" -> y
+	"β_0" -> "μ"
 	"μ" -> y
+	"σ" -> y
 }
