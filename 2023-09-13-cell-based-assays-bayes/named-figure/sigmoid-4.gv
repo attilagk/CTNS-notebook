@@ -1,25 +1,25 @@
 digraph {
-	FC_y [label="FC_y
+	k [label="k
 ~
-Gamma" shape=ellipse]
+HalfStudentT" shape=ellipse]
 	"α" [label="α
 ~
 HalfStudentT" shape=ellipse]
 	y_0 [label="y_0
 ~
 Gamma" shape=ellipse]
-	k [label="k
+	FC_y [label="FC_y
 ~
-HalfStudentT" shape=ellipse]
+Gamma" shape=ellipse]
+	y_1 [label="y_1
+~
+Deterministic" shape=box]
 	EC_50 [label="EC_50
 ~
 Normal" shape=ellipse]
 	"β" [label="β
 ~
 HalfStudentT" shape=ellipse]
-	y_1 [label="y_1
-~
-Deterministic" shape=box]
 	subgraph cluster24 {
 		y [label="y
 ~
@@ -31,11 +31,11 @@ Deterministic" shape=box]
 	}
 	FC_y -> y_1
 	y_0 -> y_1
-	y_0 -> "μ"
-	k -> "μ"
 	EC_50 -> "μ"
 	y_1 -> "μ"
+	k -> "μ"
+	y_0 -> "μ"
 	"α" -> y
-	"μ" -> y
 	"β" -> y
+	"μ" -> y
 }
