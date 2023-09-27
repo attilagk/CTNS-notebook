@@ -7,6 +7,13 @@ mcmc_random_seed = [1947, 1949, 1976, 2021]
 gamma_shape = 5
 default_H1_prior_prob = 0.2
 
+
+def estimate_y_0(y_obs, x_obs):
+    s = pd.Series(y_obs, index=x_obs)
+    s = s.loc[np.unique(x_obs)[:2]]
+    val = np.mean(s)
+    return(val)
+
 def sample_linear_1(y_obs, x_obs, return_model=False):
     mymodel = pm.Model()
     with mymodel:
@@ -22,7 +29,7 @@ def sample_linear_1(y_obs, x_obs, return_model=False):
 
 def sample_sigmoid_1(y_obs, x_obs, return_model=False):
     EC_50_mu = np.quantile(x_obs, 0.5)
-    y_0_alpha = np.quantile(y_obs, 0.5)
+    y_0_alpha = estimate_y_0(y_obs, x_obs)
     mymodel = pm.Model()
     with mymodel:
         EC_50 = pm.Normal('EC_50', EC_50_mu, 0.5)
@@ -40,7 +47,7 @@ def sample_sigmoid_1(y_obs, x_obs, return_model=False):
 
 def sample_sigmoid_2(y_obs, x_obs, return_model=False):
     EC_50_mu = np.quantile(x_obs, 0.5)
-    y_0_alpha = np.quantile(y_obs, 0.5)
+    y_0_alpha = estimate_y_0(y_obs, x_obs)
     mymodel = pm.Model()
     with mymodel:
         EC_50 = pm.Normal('EC_50', EC_50_mu, 0.5)
@@ -59,7 +66,7 @@ def sample_sigmoid_2(y_obs, x_obs, return_model=False):
 
 def sample_sigmoid_3(y_obs, x_obs, return_model=False):
     EC_50_mu = np.quantile(x_obs, 0.5)
-    y_0_alpha = np.quantile(y_obs, 0.5)
+    y_0_alpha = estimate_y_0(y_obs, x_obs)
     mymodel = pm.Model()
     with mymodel:
         EC_50 = pm.Normal('EC_50', EC_50_mu, 0.5)
@@ -78,7 +85,7 @@ def sample_sigmoid_3(y_obs, x_obs, return_model=False):
 
 def sample_sigmoid_4(y_obs, x_obs, return_model=False):
     EC_50_mu = np.quantile(x_obs, 0.5)
-    y_0_alpha = np.quantile(y_obs, 0.5)
+    y_0_alpha = estimate_y_0(y_obs, x_obs)
     mymodel = pm.Model()
     with mymodel:
         EC_50 = pm.Normal('EC_50', EC_50_mu, 0.5)
