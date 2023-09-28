@@ -256,10 +256,13 @@ def plot_sampled_curves_sigmoid(ax, idata, data_reshaped, color='C0', alpha=0.5,
         ax.axhline(y_0_mean, linestyle='solid', color=color, linewidth=2)
         ax.axhline(y_0_mean * t, linestyle='solid', color=color, linewidth=0.5)
         ax.axhline(y_1_mean, linestyle=linestyle, color=color, linewidth=linewidth)
-        labels = ['$y_0$', '$y_0 t$: relevant effect size', '$y_1 = y_0 \mathrm{FC}_y$']
+        labels = ['$y_0$', '$y_0 t$', '$y_1 = y_0 \mathrm{FC}_y$']
         ax.set_yticks([y_0_mean, y_0_mean * t, y_1_mean], labels=labels)
-        ax.text(EC_50_mean - 2, y_0_mean / 4, '$H_1: \mathrm{FC}_y < t$', color='green')
+        ax.text(EC_50_mean - 2, y_0_mean / 4, '$H_1: \mathrm{FC}_y < t$',
+                color='green', backgroundcolor='white')
     ax.plot(xx, y_sigmoid_1_mean, color='red', linewidth=3, label='sigmoid 1')
+    #ax.set_ylabel('activity')
+    ax.set_xlabel(r'$\log_{10}$ conc')
     return(ax)
 
 
