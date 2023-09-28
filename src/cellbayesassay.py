@@ -1,8 +1,10 @@
+import arviz as az
 import pymc as pm
 import pandas as pd
 import numpy as np
 import scipy.stats
 import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
 
 mcmc_random_seed = [1947, 1949, 1976, 2021]
 gamma_shape = 5
@@ -276,4 +278,49 @@ def prior_posterior_curves_sigmoid(model, prior_samples, idata):
         axi = plot_sampled_curves_sigmoid(ax=axi, idata=data, alpha=0.2)
         axi.set_title(title)
         axi.axhline(0, color='k', linewidth=0.5)
+    return((fig, ax))
+
+
+def prior_posterior_density_plot(ax, x_max, t_0, t_1, idata, prior_shape=gamma_shape):
+    alpha = 0.5
+    xx = np.linspace(0, x_max, num=200)
+    yy_prior = scipy.stats.gamma.pdf(xx, prior_shape, scale=1/prior_shape)
+    ax.plot(xx, yy_prior, label='prior')
+    ax.fill_between(xx, yy_prior, alpha=alpha)
+    az.plot_density(idata, group='posterior', var_names=['FC_y'], ax=ax, colors='C1', shade=0.2, point_estimate=None)
+    where = np.repeat(True, len(xx))
+    if t_0 is not None:
+        where = where & (xx > t_0)
+        ax.axvline(t_0, linewidth=0.5, color='k')
+    if t_1 is not None:
+        where = where & (xx < t_1)
+        ax.axvline(t_1, linewidth=0.5, color='k')
+    ax.fill_between(xx, ax.get_ylim()[1], where=where, color='w')
+    ax.axvline(1, linewidth=2, color='k', linestyle='solid')
+    t = np.repeat(1e3, len(xx))
+    ax.set_title('')
+    ax.set_xlim(0, x_max)
+    ax.set_xlabel('$\mathrm{FC}_y = y_1 / y_0$: fold change of activity')
+    ax.margins(y=0)
+    return(ax)
+
+def prior_posterior_density_plot_complex(idata, prior_shape=gamma_shape, H1_prior_prob=default_H1_prior_prob):
+    alpha = 0.5
+    fig, ax = plt.subplots(1, 2)
+    t_0 = scipy.stats.gamma.ppf(H1_prior_prob, prior_shape, scale=1/prior_shape)
+    t_1 = None
+    ax[0] = prior_posterior_density_plot(ax[0], x_max=2, t_0=t_0, t_1=t_1,
+                                         idata=idata, prior_shape=prior_shape)
+    d = {'prior': scipy.stats.gamma.cdf(t_0, prior_shape, scale=1/prior_shape),
+         'posterior': get_H1_posterior_prob(posterior_idata=idata.posterior['FC_y'],
+                                               H1_prior_prob=H1_prior_prob, H1_increase=False)}
+    pd.Series(d).plot(kind='bar', ax=ax[1], color=['C0', 'C1'], alpha=alpha)
+    pd.Series(d).plot(kind='bar', ax=ax[1], edgecolor=['C0', 'C1'], fill=False, linewidth=1)
+    ax[1].set_xticklabels(['$P(H_1)$', '$P(H_1|\mathrm{data})$'], rotation=0)
+    ax[0].set_xticklabels(ax[0].get_xticklabels(), fontsize=10)
+    ax[0].set_title('Parameter\'s prob. density')
+    ax[1].set_title('Hypothesis testing')
+    handles = [mpatches.Patch(edgecolor=c, color=c, alpha=alpha) for c in ['C0', 'C1']]
+    fig.legend(handles=handles, labels=d.keys(), loc='upper left', bbox_to_anchor=(0.7, 1.05))
+    #fig.suptitle('Model:')
     return((fig, ax))
