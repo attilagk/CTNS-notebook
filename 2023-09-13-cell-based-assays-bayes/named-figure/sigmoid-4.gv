@@ -1,10 +1,4 @@
 digraph {
-	y_1 [label="y_1
-~
-Deterministic" shape=box]
-	k [label="k
-~
-HalfStudentT" shape=ellipse]
 	y_0 [label="y_0
 ~
 Gamma" shape=ellipse]
@@ -14,9 +8,15 @@ HalfStudentT" shape=ellipse]
 	FC_y [label="FC_y
 ~
 Gamma" shape=ellipse]
+	k [label="k
+~
+HalfStudentT" shape=ellipse]
 	EC_50 [label="EC_50
 ~
 Normal" shape=ellipse]
+	y_1 [label="y_1
+~
+Deterministic" shape=box]
 	"β" [label="β
 ~
 HalfStudentT" shape=ellipse]
@@ -29,13 +29,13 @@ Gamma" shape=ellipse style=filled]
 Deterministic" shape=box]
 		label=24 labeljust=r labelloc=b style=rounded
 	}
-	y_0 -> y_1
 	FC_y -> y_1
-	y_1 -> "μ"
+	y_0 -> y_1
 	k -> "μ"
 	y_0 -> "μ"
 	EC_50 -> "μ"
-	"α" -> y
-	"μ" -> y
+	y_1 -> "μ"
 	"β" -> y
+	"μ" -> y
+	"α" -> y
 }

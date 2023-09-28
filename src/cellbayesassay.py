@@ -2,6 +2,7 @@ import pymc as pm
 import pandas as pd
 import numpy as np
 import scipy.stats
+import matplotlib.pyplot as plt
 
 mcmc_random_seed = [1947, 1949, 1976, 2021]
 gamma_shape = 5
@@ -230,9 +231,8 @@ def plot_data(ax, data_reshaped):
 
 
 def plot_sampled_curves_sigmoid(ax, idata, data_reshaped, color='C0', alpha=0.5,
-                                  plot_sampled_curves=True, draw_y0_y1=False,
-                                t=scipy.stats.gamma.ppf(0.1, gamma_shape,
-                                                        scale=1/gamma_shape)):
+                                plot_sampled_curves=True, draw_y0_y1=False,
+                                t=scipy.stats.gamma.ppf(0.2, gamma_shape, scale=1/gamma_shape)):
     xx = np.linspace(data_reshaped.conc_log10.min(), data_reshaped.conc_log10.max() + 1, 200)
     chain = 0 # use samples from only one chain
     if plot_sampled_curves:
@@ -261,3 +261,16 @@ def plot_sampled_curves_sigmoid(ax, idata, data_reshaped, color='C0', alpha=0.5,
         ax.text(EC_50_mean - 2, y_0_mean / 4, '$H_1: \mathrm{FC}_y < t$', color='green')
     ax.plot(xx, y_sigmoid_1_mean, color='red', linewidth=3, label='sigmoid 1')
     return(ax)
+
+
+def prior_posterior_curves_sigmoid(model, prior_samples, idata):
+    prior = prior_samples[model].prior
+    fig, ax = plt.subplots(1, 2, sharey=True)
+    fig.suptitle('Model: ' + model)
+    for axi, data, title in zip(ax, [prior, idata[model].posterior], ['prior sample', 'posterior sample']):
+        if title == 'posterior sample':
+            axi = plot_data(axi)
+        axi = plot_sampled_curves_sigmoid(ax=axi, idata=data, alpha=0.2)
+        axi.set_title(title)
+        axi.axhline(0, color='k', linewidth=0.5)
+    return((fig, ax))
