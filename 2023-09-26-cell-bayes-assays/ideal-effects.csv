@@ -1,0 +1,28 @@
+﻿experiment,assay,code,ideal effect,H1_increase,assay (old),exper (old)
+LPS,IFN-γ,-1,decrease,FALSE,,
+LPS,IL-10,-1,decrease,FALSE,IL-10,"F)  LPS neuroinflammation, BV2"
+LPS,IL-12p70,-1,decrease,FALSE,,
+LPS,IL-1β,-1,decrease,FALSE,IL-1b,"F)  LPS neuroinflammation, BV2"
+LPS,IL-2,-1,decrease,FALSE,,
+LPS,IL-4,-1,decrease,FALSE,,
+LPS,IL-5,-1,decrease,FALSE,,
+LPS,IL-6,-1,decrease,FALSE,IL-6,"F)  LPS neuroinflammation, BV2"
+LPS,KC/GRO,-1,decrease,FALSE,KC/GRO,"F)  LPS neuroinflammation, BV2"
+LPS,TNF-α,-1,decrease,FALSE,TNF-a,"F)  LPS neuroinflammation, BV2"
+Abeta Toxicity,Viability [% VC],1,increase,TRUE,MTT (viability),"A)  A$\beta$ induced toxicity, primary neurons"
+Abeta release,Aβ38,-1,decrease,FALSE,,
+Abeta release,Aβ40,-1,decrease,FALSE,Ab1-40,"D)  A$\beta$ secretion, H4"
+Abeta release,Aβ42,-1,decrease,FALSE,Ab1-42,"D)  A$\beta$ secretion, H4"
+Abeta clearance,Aβ42 SN,-1,decrease,FALSE,Abeta in SN,"B)  A$\beta$ clearance, BV2"
+Abeta clearance,Aβ42 Ly,1,increase,TRUE,Abeta in Lysate,"B)  A$\beta$ clearance, BV2"
+GF withdrawal,PI,-1,decrease,FALSE,PI (cell death),"I)  Trophic factor withdrawal, primary neurons"
+GF withdrawal,YOPRO,-1,decrease,FALSE,YOPRO (apoptosis),"I)  Trophic factor withdrawal, primary neurons"
+GF withdrawal,MTT,1,increase,TRUE,MTT (viability),"I)  Trophic factor withdrawal, primary neurons"
+GF withdrawal,LDH,-1,decrease,FALSE,LDH (cell death),"I)  Trophic factor withdrawal, primary neurons"
+Tau phosphorylation,Tau [pg/µg prot],1,increase,TRUE,,
+Tau phosphorylation,pTau (T231),-1,decrease,FALSE,pTau231,E)  Tau phosphorylation
+Tau phosphorylation,ratio,-1,decrease,FALSE,ratio,E)  Tau phosphorylation
+NOG,total neurite length,1,increase,TRUE,total neurite area,"H)  Neurogenesis, neurite outgrowth, primary neurons"
+NOG,Number of branch points,1,increase,TRUE,number of branches,"H)  Neurogenesis, neurite outgrowth, primary neurons"
+NOG,Neurogenesis,1,increase,TRUE,BrdU positive neurons,"H)  Neurogenesis, neurite outgrowth, primary neurons"
+NOG,average neurite length,1,increase,TRUE,average longest neurite,"H)  Neurogenesis, neurite outgrowth, primary neurons"
