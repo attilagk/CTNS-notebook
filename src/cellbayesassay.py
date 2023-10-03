@@ -6,6 +6,7 @@ import scipy.stats
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 
+my_var = 3
 mcmc_random_seed = [1947, 1949, 1976, 2021]
 gamma_shape = 5
 default_H1_prior_prob = 0.2
