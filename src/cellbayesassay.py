@@ -325,3 +325,16 @@ def prior_posterior_density_plot_complex(idata, prior_shape=gamma_shape, H1_prio
     fig.legend(handles=handles, labels=d.keys(), loc='upper left', bbox_to_anchor=(0.7, 1.05))
     #fig.suptitle('Model:')
     return((fig, ax))
+
+def nice_assay_names(data, index_cols=['experiment', 'assay'], nice_cols=['experiment (nice)', 'assay (nice)']):
+    fpath = '/Users/jonesa7/CTNS/resources/cell-based-assays/ideal-effects.csv'
+    mapper = pd.read_csv(fpath, index_col=index_cols)
+    df = data.copy()
+    k_experiment, k_assay = [mapper.index.get_level_values(i) for i in [0, 1]]
+    v_experiment, v_assay = [mapper[c] for c in ['experiment (nice)', 'assay (nice)']]
+    d_experiment = dict(zip(k_experiment, v_experiment))
+    d_assay = dict(zip(k_assay, v_assay))
+    df = df.rename(d_experiment, axis=0, level=0).rename(d_assay, axis=0, level=1)
+    df = df.sort_index(axis=0, level=[0,1])
+    return(df)
+

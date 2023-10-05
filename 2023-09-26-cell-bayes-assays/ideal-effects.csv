@@ -1,35 +1,35 @@
-﻿experiment,assay,code,ideal effect,H1_increase,assay (old),exper (old),,,,,,,,,,,
-LPS,IFN-γ,-1,decrease,FALSE,,,,,,,,,,,,,
-LPS,IL-10,-1,decrease,FALSE,IL-10,"F)  LPS neuroinflammation, BV2",,,,,,,,,,,
-LPS,IL-12p70,-1,decrease,FALSE,,,,,,,,,,,,,
-LPS,IL-1β,-1,decrease,FALSE,IL-1b,"F)  LPS neuroinflammation, BV2",,,,,,,,,,,
-LPS,IL-2,-1,decrease,FALSE,,,,,,,,,,,,,
-LPS,IL-4,-1,decrease,FALSE,,,,,,,,,,,,,
-LPS,IL-5,-1,decrease,FALSE,,,,,,,,,,,,,
-LPS,IL-6,-1,decrease,FALSE,IL-6,"F)  LPS neuroinflammation, BV2",,,,,,,,,,,
-LPS,KC/GRO,-1,decrease,FALSE,KC/GRO,"F)  LPS neuroinflammation, BV2",,,,,,,,,,,
-LPS,TNF-α,-1,decrease,FALSE,TNF-a,"F)  LPS neuroinflammation, BV2",,,,,,,,,,,
-Abeta Toxicity,Viability [% VC],1,increase,TRUE,MTT (viability),"A)  A$\beta$ induced toxicity, primary neurons",,,,,,,,,,,
-Abeta release,Aβ38,-1,decrease,FALSE,,,,,,,,,,,,,
-Abeta release,Aβ40,-1,decrease,FALSE,Ab1-40,"D)  A$\beta$ secretion, H4",,,,,,,,,,,
-Abeta release,Aβ42,-1,decrease,FALSE,Ab1-42,"D)  A$\beta$ secretion, H4",,,,,,,,,,,
-Abeta clearance,Aβ42 SN,-1,decrease,FALSE,Abeta in SN,"B)  A$\beta$ clearance, BV2",,,,,,,,,,,
-Abeta clearance,Aβ42 Ly,1,increase,TRUE,Abeta in Lysate,"B)  A$\beta$ clearance, BV2",,,,,,,,,,,
-GF withdrawal,PI,-1,decrease,FALSE,PI (cell death),"I)  Trophic factor withdrawal, primary neurons",,,,,,,,,,,
-GF withdrawal,YOPRO,-1,decrease,FALSE,YOPRO (apoptosis),"I)  Trophic factor withdrawal, primary neurons",,,,,,,,,,,
-GF withdrawal,MTT,1,increase,TRUE,MTT (viability),"I)  Trophic factor withdrawal, primary neurons",,,,,,,,,,,
-GF withdrawal,LDH,-1,decrease,FALSE,LDH (cell death),"I)  Trophic factor withdrawal, primary neurons",,,,,,,,,,,
-Tau phosphorylation,Tau [pg/µg prot],1,increase,TRUE,,,,,,,,,,,,,
-Tau phosphorylation,pTau (T231),-1,decrease,FALSE,pTau231,E)  Tau phosphorylation,,,,,,,,,,,
-Tau phosphorylation,ratio,-1,decrease,FALSE,ratio,E)  Tau phosphorylation,,,,,,,,,,,
-NOG,total neurite length,1,increase,TRUE,total neurite area,"H)  Neurogenesis, neurite outgrowth, primary neurons",,,,,,,,,,,
-NOG,Number of branch points,1,increase,TRUE,number of branches,"H)  Neurogenesis, neurite outgrowth, primary neurons",,,,,,,,,,,
-NOG,Neurogenesis,1,increase,TRUE,BrdU positive neurons,"H)  Neurogenesis, neurite outgrowth, primary neurons",,,,,,,,,,,
-NOG,average neurite length,1,increase,TRUE,average longest neurite,"H)  Neurogenesis, neurite outgrowth, primary neurons",,,,,,,,,,,
-"Abeta clearance, iPSC",pHrodo-number-4h,1,increase,TRUE,,,,,,,,,,,,,
-"Abeta clearance, iPSC",supernatant,-1,decrease,FALSE,,,,,,,,,,,,,
-"LPS neuroinflammation, iPSC",IL-1b,-1,decrease,FALSE,,,,,,,,,,,,,
-"LPS neuroinflammation, iPSC",IL-6,-1,decrease,FALSE,,,,,,,,,,,,,
-"LPS neuroinflammation, iPSC",IL-8,-1,decrease,FALSE,,,,,,,,,,,,,
-"LPS neuroinflammation, iPSC",MTT,-1,decrease,FALSE,,,,,,,,,,,,,
-"LPS neuroinflammation, iPSC",TNF,-1,decrease,FALSE,,,,,,,,,,,,,
+﻿experiment,assay,code,ideal effect,H1_increase,assay (old),exper (old),experiment (nice),assay (nice)
+LPS,IFN-γ,-1,decrease,FALSE,,,LPS neuroinflammation (BV2 cells),IFN-γ
+LPS,IL-10,-1,decrease,FALSE,IL-10,"F)  LPS neuroinflammation, BV2",LPS neuroinflammation (BV2 cells),IL-10
+LPS,IL-12p70,-1,decrease,FALSE,,,LPS neuroinflammation (BV2 cells),IL-12p70
+LPS,IL-1β,-1,decrease,FALSE,IL-1b,"F)  LPS neuroinflammation, BV2",LPS neuroinflammation (BV2 cells),IL-1β
+LPS,IL-2,-1,decrease,FALSE,,,LPS neuroinflammation (BV2 cells),IL-2
+LPS,IL-4,-1,decrease,FALSE,,,LPS neuroinflammation (BV2 cells),IL-4
+LPS,IL-5,-1,decrease,FALSE,,,LPS neuroinflammation (BV2 cells),IL-5
+LPS,IL-6,-1,decrease,FALSE,IL-6,"F)  LPS neuroinflammation, BV2",LPS neuroinflammation (BV2 cells),IL-6
+LPS,KC/GRO,-1,decrease,FALSE,KC/GRO,"F)  LPS neuroinflammation, BV2",LPS neuroinflammation (BV2 cells),KC/GRO
+LPS,TNF-α,-1,decrease,FALSE,TNF-a,"F)  LPS neuroinflammation, BV2",LPS neuroinflammation (BV2 cells),TNF-α
+Abeta Toxicity,Viability [% VC],1,increase,TRUE,MTT (viability),"A)  A$\beta$ induced toxicity, primary neurons",Aβ toxicity (primary neurons),MTT
+Abeta release,Aβ38,-1,decrease,FALSE,,,Aβ release (H4 cells),Aβ38
+Abeta release,Aβ40,-1,decrease,FALSE,Ab1-40,"D)  A$\beta$ secretion, H4",Aβ release (H4 cells),Aβ40
+Abeta release,Aβ42,-1,decrease,FALSE,Ab1-42,"D)  A$\beta$ secretion, H4",Aβ release (H4 cells),Aβ42
+Abeta clearance,Aβ42 SN,-1,decrease,FALSE,Abeta in SN,"B)  A$\beta$ clearance, BV2",Aβ clearance (BV2 cells),Aβ42 SN
+Abeta clearance,Aβ42 Ly,1,increase,TRUE,Abeta in Lysate,"B)  A$\beta$ clearance, BV2",Aβ clearance (BV2 cells),Aβ42 Ly
+GF withdrawal,PI,-1,decrease,FALSE,PI (cell death),"I)  Trophic factor withdrawal, primary neurons",GF withdrawal (primary neurons),PI
+GF withdrawal,YOPRO,-1,decrease,FALSE,YOPRO (apoptosis),"I)  Trophic factor withdrawal, primary neurons",GF withdrawal (primary neurons),YOPRO
+GF withdrawal,MTT,1,increase,TRUE,MTT (viability),"I)  Trophic factor withdrawal, primary neurons",GF withdrawal (primary neurons),MTT
+GF withdrawal,LDH,-1,decrease,FALSE,LDH (cell death),"I)  Trophic factor withdrawal, primary neurons",GF withdrawal (primary neurons),LDH
+Tau phosphorylation,Tau [pg/µg prot],1,increase,TRUE,,,Tau phosphorylation,Tau
+Tau phosphorylation,pTau (T231),-1,decrease,FALSE,pTau231,E)  Tau phosphorylation,Tau phosphorylation,pTau (T231)
+Tau phosphorylation,ratio,-1,decrease,FALSE,ratio,E)  Tau phosphorylation,Tau phosphorylation,pT/T ratio
+NOG,total neurite length,1,increase,TRUE,total neurite area,"H)  Neurogenesis, neurite outgrowth, primary neurons",Neurite outgrowth (primary neurons),Σ neurite area
+NOG,Number of branch points,1,increase,TRUE,number of branches,"H)  Neurogenesis, neurite outgrowth, primary neurons",Neurite outgrowth (primary neurons),branch points
+NOG,Neurogenesis,1,increase,TRUE,BrdU positive neurons,"H)  Neurogenesis, neurite outgrowth, primary neurons",Neurite outgrowth (primary neurons),neurogenesis
+NOG,average neurite length,1,increase,TRUE,average longest neurite,"H)  Neurogenesis, neurite outgrowth, primary neurons",Neurite outgrowth (primary neurons),longest neurite
+"Abeta clearance, iPSC",pHrodo-number-4h,1,increase,TRUE,,,Aβ clearance (iPSC),pHrodo-4h
+"Abeta clearance, iPSC",supernatant,-1,decrease,FALSE,,,Aβ clearance (iPSC),supernatant
+"LPS neuroinflammation, iPSC",IL-1b,-1,decrease,FALSE,,,LPS neuroinflammation (iPSC),IL-1β
+"LPS neuroinflammation, iPSC",IL-6,-1,decrease,FALSE,,,LPS neuroinflammation (iPSC),IL-6
+"LPS neuroinflammation, iPSC",IL-8,-1,decrease,FALSE,,,LPS neuroinflammation (iPSC),IL-8
+"LPS neuroinflammation, iPSC",MTT,-1,decrease,FALSE,,,LPS neuroinflammation (iPSC),MTT
+"LPS neuroinflammation, iPSC",TNF,-1,decrease,FALSE,,,LPS neuroinflammation (iPSC),TNF-α
