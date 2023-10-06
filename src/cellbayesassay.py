@@ -235,7 +235,10 @@ def plot_data(ax, data_reshaped):
 
 def plot_sampled_curves_sigmoid(ax, idata, data_reshaped, color='C0', alpha=0.5,
                                 plot_sampled_curves=True, draw_y0_y1=False,
-                                t=scipy.stats.gamma.ppf(0.2, gamma_shape, scale=1/gamma_shape)):
+                                H1_prior_prob=default_H1_prior_prob,
+                                H1_increase=False, ylim_top=None, H_text=True):
+    t_1 = scipy.stats.gamma.ppf(H1_prior_prob, gamma_shape, scale=1/gamma_shape)
+    t_2 = scipy.stats.gamma.ppf(1 - H1_prior_prob, gamma_shape, scale=1/gamma_shape)
     xx = np.linspace(data_reshaped.conc_log10.min(), data_reshaped.conc_log10.max() + 1, 200)
     chain = 0 # use samples from only one chain
     if plot_sampled_curves:
@@ -251,20 +254,37 @@ def plot_sampled_curves_sigmoid(ax, idata, data_reshaped, color='C0', alpha=0.5,
     y_0_mean = idata.mean().to_dict()['data_vars']['y_0']['data']
     y_1_mean = idata.mean().to_dict()['data_vars']['y_1']['data']
     y_sigmoid_1_mean = y_1_mean + (y_0_mean - y_1_mean) / (1 + np.exp(k_mean * (xx - EC_50_mean)))
-    if draw_y0_y1:
-        ax.add_patch(plt.Rectangle((xx[0], 0), xx[-1] - xx[0], y_0_mean * t, ls=None, lw=0, ec="c", fc='green', alpha=0.2))
-        linestyle = 'dashed'
-        color = 'k'
-        linewidth = 1
-        ax.axhline(y_0_mean, linestyle='solid', color=color, linewidth=2)
-        ax.axhline(y_0_mean * t, linestyle='solid', color=color, linewidth=0.5)
-        ax.axhline(y_1_mean, linestyle=linestyle, color=color, linewidth=linewidth)
-        labels = ['$y_0$', '$y_0 t$', '$y_1 = y_0 \mathrm{FC}_y$']
-        ax.set_yticks([y_0_mean, y_0_mean * t, y_1_mean], labels=labels)
-        ax.text(EC_50_mean - 2, y_0_mean / 4, '$H_1: \mathrm{FC}_y < t$',
-                color='green', backgroundcolor='white')
     ax.plot(xx, y_sigmoid_1_mean, color='red', linewidth=3, label='sigmoid 1')
-    #ax.set_ylabel('activity')
+    if draw_y0_y1:
+        def add_H_region(is_upper=True, H1_increase=H1_increase):
+            if is_upper and (ax.get_ylim()[1] <= y_0_mean * t_2):
+                ax.set_ylim(ax.get_ylim()[0], y_0_mean * t_2 * 1.05)
+            if (not is_upper) and (ax.get_ylim()[0] >= y_0_mean * t_1):
+                ax.set_ylim(y_0_mean * t_1 * 0.9, ax.get_ylim()[1])
+            bottom = y_0_mean * t_2 if is_upper else 0
+            if ylim_top is None:
+                height = ax.get_ylim()[1] - y_0_mean * t_2 if is_upper else y_0_mean * t_1
+            else:
+                height = ylim_top - y_0_mean * t_2 if is_upper else y_0_mean * t_1
+            color = 'green' if is_upper and H1_increase or not is_upper and not H1_increase else 'red'
+            H = '$H_1$: protective' if is_upper and H1_increase or not is_upper and not H1_increase else '$H_2$: adverse'
+            ax.add_patch(plt.Rectangle((xx[0], bottom), xx[-1] - xx[0], height, ls=None, lw=0, ec="c", fc=color, alpha=0.2))
+            if H_text:
+                ax.text(xx[0] + 0.1 * (xx[-1] - xx[0]), bottom + height / 2, H,
+                        color=color, backgroundcolor='white', ha='left', va='center')
+            ax.axhline(y_0_mean * t_2 if is_upper else y_0_mean * t_1, linestyle='solid', color='k', linewidth=0.5)
+            return(ax)
+        ax.axhline(y_0_mean, linestyle='solid', color='k', linewidth=2)
+        ax.axhline(y_1_mean, linestyle='dashed', color='k', linewidth=1)
+        ax = add_H_region(True, H1_increase)
+        ax = add_H_region(False, H1_increase)
+        if H_text:
+            ax.text(xx[0] + 0.1 * (xx[-1] - xx[0]), y_0_mean, '$H_0$: neutral',
+                    color='gray', backgroundcolor='white', ha='left', va='center')
+        labels = ['$y_0$', '$y_0 t_1$', '$y_1 = y_0 \mathrm{FC}_y$', '$y_0 t_2$']
+        ax.set_yticks([y_0_mean, y_0_mean * t_1, y_1_mean, y_0_mean * t_2], labels=labels)
+        #ax.text(EC_50_mean - 2, y_0_mean / 4, '$H_1$',
+        #        color='green', backgroundcolor='white')
     ax.set_xlabel(r'$\log_{10}$ conc')
     return(ax)
 

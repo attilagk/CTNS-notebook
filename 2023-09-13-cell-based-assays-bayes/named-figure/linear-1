@@ -2,12 +2,12 @@ digraph {
 	"β_0" [label="β_0
 ~
 Normal" shape=ellipse]
-	"σ" [label="σ
-~
-HalfStudentT" shape=ellipse]
 	"β_1" [label="β_1
 ~
 Normal" shape=ellipse]
+	"σ" [label="σ
+~
+HalfStudentT" shape=ellipse]
 	subgraph cluster24 {
 		y [label="y
 ~
