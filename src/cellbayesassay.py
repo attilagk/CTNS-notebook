@@ -281,7 +281,7 @@ def plot_sampled_curves_sigmoid(ax, idata, data_reshaped, color='C0', alpha=0.5,
         if H_text:
             ax.text(xx[0] + 0.1 * (xx[-1] - xx[0]), y_0_mean, '$H_0$: neutral',
                     color='gray', backgroundcolor='white', ha='left', va='center')
-        labels = ['$y_0$', '$y_0 t_1$', '$y_1 = y_0 \mathrm{FC}_y$', '$y_0 t_2$']
+        labels = ['$y_0$', '$y_0 t_1$', '$y_0 \mathrm{FC}_y$', '$y_0 t_2$']
         ax.set_yticks([y_0_mean, y_0_mean * t_1, y_1_mean, y_0_mean * t_2], labels=labels)
         #ax.text(EC_50_mean - 2, y_0_mean / 4, '$H_1$',
         #        color='green', backgroundcolor='white')
