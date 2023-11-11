@@ -1,7 +1,4 @@
 digraph {
-	"1|IRN_sigma" [label="1|IRN_sigma
-~
-HalfNormal" shape=ellipse]
 	Day [label="Day
 ~
 Normal" shape=ellipse]
@@ -11,6 +8,9 @@ Normal" shape=ellipse]
 	"censored(Latency, Status)_alpha" [label="censored(Latency, Status)_alpha
 ~
 HalfCauchy" shape=ellipse]
+	"1|IRN_sigma" [label="1|IRN_sigma
+~
+HalfNormal" shape=ellipse]
 	subgraph "clusterGroup_dim (2)" {
 		Group [label="Group
 ~
@@ -18,12 +18,12 @@ Normal" shape=ellipse]
 		label="Group_dim (2)" labeljust=r labelloc=b style=rounded
 	}
 	subgraph "clusterIRN__factor_dim (43)" {
-		"1|IRN" [label="1|IRN
-~
-Deterministic" shape=box]
 		"1|IRN_offset" [label="1|IRN_offset
 ~
 Normal" shape=ellipse]
+		"1|IRN" [label="1|IRN
+~
+Deterministic" shape=box]
 		label="IRN__factor_dim (43)" labeljust=r labelloc=b style=rounded
 	}
 	subgraph "clustercensored(Latency, Status)_obs (172)" {
@@ -34,9 +34,9 @@ Censored" shape=ellipse style=filled]
 	}
 	"1|IRN_sigma" -> "1|IRN"
 	"1|IRN_offset" -> "1|IRN"
-	"1|IRN" -> "censored(Latency, Status)"
 	Group -> "censored(Latency, Status)"
 	Intercept -> "censored(Latency, Status)"
+	"1|IRN" -> "censored(Latency, Status)"
 	Day -> "censored(Latency, Status)"
 	"censored(Latency, Status)_alpha" -> "censored(Latency, Status)"
 }
