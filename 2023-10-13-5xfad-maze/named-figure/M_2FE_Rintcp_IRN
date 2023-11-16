@@ -5,12 +5,12 @@ Normal" shape=ellipse]
 	Intercept [label="Intercept
 ~
 Normal" shape=ellipse]
-	"censored(Latency, Status)_alpha" [label="censored(Latency, Status)_alpha
-~
-HalfCauchy" shape=ellipse]
 	"1|IRN_sigma" [label="1|IRN_sigma
 ~
 HalfNormal" shape=ellipse]
+	"censored(Latency, Status)_alpha" [label="censored(Latency, Status)_alpha
+~
+HalfCauchy" shape=ellipse]
 	subgraph "clusterGroup_dim (2)" {
 		Group [label="Group
 ~
@@ -32,11 +32,11 @@ Deterministic" shape=box]
 Censored" shape=ellipse style=filled]
 		label="censored(Latency, Status)_obs (172)" labeljust=r labelloc=b style=rounded
 	}
-	"1|IRN_sigma" -> "1|IRN"
 	"1|IRN_offset" -> "1|IRN"
-	Group -> "censored(Latency, Status)"
-	Intercept -> "censored(Latency, Status)"
+	"1|IRN_sigma" -> "1|IRN"
 	"1|IRN" -> "censored(Latency, Status)"
-	Day -> "censored(Latency, Status)"
 	"censored(Latency, Status)_alpha" -> "censored(Latency, Status)"
+	Day -> "censored(Latency, Status)"
+	Intercept -> "censored(Latency, Status)"
+	Group -> "censored(Latency, Status)"
 }
