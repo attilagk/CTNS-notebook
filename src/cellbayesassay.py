@@ -2,6 +2,8 @@ import arviz as az
 import pymc as pm
 import pandas as pd
 import numpy as np
+import os
+import os.path
 import scipy.stats
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
@@ -358,3 +360,58 @@ def nice_assay_names(data, index_cols=['experiment', 'assay'], nice_cols=['exper
     df = df.sort_index(axis=0, level=[0,1])
     return(df)
 
+
+def idatadf_to_netcdf(idatadf, subdir='idatadf/', maindir='../../results/2023-09-26-cell-bayes-assays/'):
+    dirname = maindir + subdir
+    if not os.path.exists(dirname):
+        os.mkdir(dirname)
+    data = idatadf.stack().to_frame('idata')
+    l = [dirname + 'idata-' + str(i) + '.nc' for i in np.arange(len(data))]
+    fpathdf = pd.DataFrame({'fpath': l}, index=data.index)
+    fpathdf.to_csv(maindir + subdir + 'fpaths.csv')
+    idata_saveloc = pd.concat([data, fpathdf], axis=1)
+    idata_saveloc.apply(lambda r: r.loc['idata'].to_netcdf(r.loc['fpath']), axis=1)
+    return(fpathdf)
+
+
+def idatadf_from_netcdf(subdir='idatadf/', maindir='../../results/2023-09-26-cell-bayes-assays/'):
+    fpathdf = pd.read_csv(maindir + subdir + 'fpaths.csv', index_col=[0,1,2])
+    val = fpathdf.apply(lambda row: az.from_netcdf(row.loc['fpath']), axis=1)
+    val = val.unstack(level=2).reindex(fpathdf.xs(fpathdf.index.get_level_values(2)[0], axis=0, level=2).index)
+    val = nice_assay_names(val, index_cols=['experiment', 'assay'], nice_cols=['experiment (nice)'])
+    return(val)
+
+def read_ideal_H1_increase(fpath='../../resources/cell-based-assays/ideal-effects.csv'):
+    ideal_H1_increase = pd.read_csv(fpath,
+                                    index_col=['experiment (nice)', 'assay (nice)'],
+                                    usecols=['experiment', 'assay', 'experiment (nice)', 'assay (nice)', 'H1_increase', 'ideal effect'])
+    ideal_H1_increase['H2_increase'] = ~ ideal_H1_increase.H1_increase
+    return(ideal_H1_increase)
+
+
+def remove_poorly_fitted(df, poor_fits, replace_val=None):
+    data = df.copy()
+    for x in poor_fits:
+        ix, column = x
+        data.loc[ix, column] = replace_val
+    return(data)
+
+
+def get_H1_posterior_from_idatadf(idatadf, poor_fits, hypothesis='H1'):
+    ideal_H1_increase = read_ideal_H1_increase()
+    data = remove_poorly_fitted(idatadf, poor_fits)
+    ll = [[get_H1_posterior_prob(data.loc[ix, drug].posterior['FC_y'], H1_increase=ideal_H1_increase.loc[ix, hypothesis + '_increase'])
+           if data.loc[ix, drug] not in [None, np.nan] else None for drug in data.columns] for ix in data.index]
+    H1_posteriors = pd.DataFrame(ll, index=data.index, columns=pd.MultiIndex.from_product([data.columns, [hypothesis]]))
+    return(H1_posteriors)
+
+
+def get_H102_posterior_from_idatadf(idatadf, poor_fits):
+    H1_posteriors, H2_posteriors = [get_H1_posterior_from_idatadf(idatadf, poor_fits, hypothesis=h) for h in ['H1', 'H2']]
+    a = 1 - (H1_posteriors.to_numpy() + H2_posteriors.to_numpy())
+    H0_posteriors = pd.DataFrame(a, index=idatadf.index, columns=pd.MultiIndex.from_product([idatadf.columns, ['H0']]))
+    H102_posteriors = pd.concat([H1_posteriors, H0_posteriors, H2_posteriors], axis=1).sort_index(axis=1, level=0)
+    hypotheses = ['H1', 'H0', 'H2']
+    columns = pd.MultiIndex.from_product([idatadf.columns, pd.CategoricalIndex(hypotheses, categories=hypotheses, ordered=True)])
+    H102_posteriors = H102_posteriors.reindex(columns=columns)
+    return(H102_posteriors)
