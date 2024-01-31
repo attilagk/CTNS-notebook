@@ -415,3 +415,25 @@ def get_H102_posterior_from_idatadf(idatadf, poor_fits):
     columns = pd.MultiIndex.from_product([idatadf.columns, pd.CategoricalIndex(hypotheses, categories=hypotheses, ordered=True)])
     H102_posteriors = H102_posteriors.reindex(columns=columns)
     return(H102_posteriors)
+
+
+def get_diagnostics(idatadf, fun=az.ess, var_names=['EC_50', 'y_0', 'FC_y', 'k', 'y_1'], return_df=False, nice_assay_names=False):
+    def helper(x, var):
+        if x in [np.nan, None]:
+            return(x)
+        else:
+            return(fun(x, var_names=var).to_dict()['data_vars'][var]['data'])
+    #idat = idatadf.xs('idata', axis=1, level=1)
+    def my_applymap(var, idatadf):
+        df = idatadf.applymap(lambda x: helper(x, var))
+        df.columns = pd.MultiIndex.from_product([pd.CategoricalIndex(df.columns, categories=df.columns, ordered=True), [var]])
+        return(df)
+    df = pd.concat([my_applymap(var, idatadf) for var in var_names], axis=1)
+    df = df.sort_index(axis=1, level=0)
+    if nice_assay_names:
+        df = cba.nice_assay_names(df)
+    if return_df:
+        return(df)
+    precision = np.int64(3 - np.round(np.log10(df.mean().mean())))
+    val = df.style.format(precision=precision).background_gradient(axis=None, vmin=df.min().min(), vmax=df.max().max(), cmap='hot')
+    return(val)
