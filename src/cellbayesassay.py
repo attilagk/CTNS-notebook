@@ -510,6 +510,29 @@ def barchart_H102_posteriors(H102_posteriors, e2l_textbox=True, legend=True, plo
     return((fig, ax))
 
 
+def get_FC_y_posterior_sample(exper, assay, compound, idatadf, ideal_H1_increase):
+    H1_increase = ideal_H1_increase.loc[(exper, assay), 'H1_increase']
+    idata = idatadf.loc[(exper, assay), compound]
+    if idata in [np.nan, None]:
+        idata = idatadf.dropna().iloc[0,0]
+        npoints = len(idata.sample_stats['chain']) * len(idata.sample_stats['draw'])
+        l = np.repeat(np.nan, npoints)
+    else:
+        posterior = idata.posterior
+        l = list(itertools.chain(*posterior['FC_y'].to_numpy()))
+    df = pd.DataFrame({'FC_y': l, 'exper': exper, 'assay': assay, 'compound': compound, 'H1_increase': H1_increase})
+    return(df)
+
+
+def get_FC_y_posterior_sample_all(idatadf):
+    ideal_H1_increase = read_ideal_H1_increase(fpath='../../resources/cell-based-assays/ideal-effects.csv')
+    ll = [[get_FC_y_posterior_sample(exper, assay, compound, idatadf, ideal_H1_increase)
+           for exper, assay in idatadf.index] for compound in idatadf.columns]
+    l = list(itertools.chain(*ll))
+    df = pd.concat(l, axis=0)
+    return(df)
+
+
 def violin_compound(ax, compound, idatadf, ideal_H1_increase, exper2letter_d, plot_avg=False):
     FC_y_max=3
     npoints=400
