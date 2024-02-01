@@ -437,3 +437,71 @@ def get_diagnostics(idatadf, fun=az.ess, var_names=['EC_50', 'y_0', 'FC_y', 'k',
     precision = np.int64(3 - np.round(np.log10(df.mean().mean())))
     val = df.style.format(precision=precision).background_gradient(axis=None, vmin=df.min().min(), vmax=df.max().max(), cmap='hot')
     return(val)
+
+
+
+def my_legend(g, colors, labels, title='Hypotheses', loc='center left', bbox_to_anchor=(0.5, -0.05, 0.5, 0.5), ncols=3, reverse_labels=False):
+    handles = [mpatches.Patch(color=c) for c in colors]
+    interpretations = ['protective', 'neutral', 'adverse']
+    if reverse_labels:
+        handles = reversed(handles)
+        labels = reversed(labels)
+    g.legend(handles, labels, title=title, loc=loc, bbox_to_anchor=bbox_to_anchor, ncols=ncols)
+    return(g)
+
+
+def barchart_H102_posteriors_ax(axi, compound, H102_posteriors, df_prior, df_mean_posterior, exper2letter_d):
+    df = H102_posteriors.xs(compound, axis=1, level=0).copy()
+    df_mean_posterior_compound = df_mean_posterior.xs(compound, axis=1, level=0) if df_mean_posterior is not None else None
+    df = pd.concat([df_prior, df, df_mean_posterior_compound], axis=0)
+    df_cum = df.cumsum(axis=1)
+    k = H102_posteriors.index.get_level_values(0).unique()
+    v = string.ascii_lowercase[:len(k)]
+    exper2letter_d = dict(zip(k, v))
+    if H102_posteriors.index.nlevels > 1:
+        y = [a + ' (' + exper2letter_d[e] + ')' for e, a in H102_posteriors.index]
+    else:
+        y = [e + ' (' + exper2letter_d[e] + ')' for e in H102_posteriors.index]
+    y = ['prior'] + y + (['avg. posterior'] if df_mean_posterior is not None else [])
+    box_alpha = 1
+    sns.barplot(ax=axi, data=df, y=y, x='H1', left=0, color='green', alpha=box_alpha)
+    sns.barplot(ax=axi, data=df, y=y, x='H0', left=df_cum['H1'], color='lightgray', alpha=box_alpha)
+    sns.barplot(ax=axi, data=df, y=y, x='H2', left=df_cum['H0'], color='red', alpha=box_alpha)
+    axi.set_title(compound)
+    axi.set_xlabel('')
+    axi.set_xticks([0, 0.5, 1])
+    axi.set_xticklabels(['0', '0.5', '1'])
+    for x, color in zip((cba.default_H1_prior_prob, 1 - cba.default_H1_prior_prob), ('green', 'red')):
+        axi.axvline(x, linestyle='solid', color=color, linewidth=0.5)
+    return(axi)
+
+
+def barchart_H102_posteriors(H102_posteriors, e2l_textbox=True, legend=True, plot_avg=False):
+    compounds = H102_posteriors.xs('H0', axis=1, level=1).columns
+    fig, ax = plt.subplots(1, len(compounds), figsize=(4.8, 2.5 * np.sqrt(H102_posteriors.shape[0]/4)), sharey=True)
+    d = {'H1': cba.default_H1_prior_prob, 'H0': 1 - 2 * cba.default_H1_prior_prob, 'H2': cba.default_H1_prior_prob}
+    df_prior = pd.DataFrame(d, index=pd.MultiIndex.from_product([[''], ['prior']]))
+    df_mean_posterior = H102_posteriors.mean(axis=0).to_frame(pd.MultiIndex.from_product([[''], ['avg. posterior']])).transpose() if plot_avg else None
+    # labeling experiments with letters
+    k = H102_posteriors.index.get_level_values(0).unique()
+    v = string.ascii_lowercase[:len(k)]
+    exper2letter_d = dict(zip(k, v))
+    for axi, compound in zip(ax, compounds):
+        axi = barchart_H102_posteriors_ax(axi, compound, H102_posteriors, df_prior, df_mean_posterior, exper2letter_d)
+    if e2l_textbox:
+        #fig = exper2letter_textbox(fig, exper2letter_d, x=1, y=0.5, horizontalalignment='left', verticalalignment='center') # Bug: this miscplaces the text box
+        s = '\n'.join(['(' + v + ') ' + k for k, v in exper2letter_d.items()])
+        s = 'Experiments:\n' + s
+        fig.text(1, 0.5, s, ha='left', va='center')
+    fig.supxlabel('$P(H_i|\mathrm{data})$', y=0.03 if H102_posteriors.shape[0] > 15 else -0.01)
+    b = H102_posteriors.index.nlevels > 1
+    fig.supylabel('assays' if b else 'experiments', x=-0.2 if b else -0.6)
+    if legend:
+        bbox_to_anchor = (1, 0.9) if e2l_textbox else (0.5, -0.01)
+        title = 'Hypotheses $H_i:$'
+        loc = 'upper left' if e2l_textbox else 'upper center'
+        ncols = 1 if e2l_textbox else 3
+        colors = ['green', 'lightgray', 'red']
+        labels = ['$H_' + str(i) + '$: ' + interpret for i, interpret in zip([1, 0, 2], ['protective', 'neutral', 'adverse'])]
+        my_legend(fig, colors=colors, labels=labels, loc=loc, bbox_to_anchor=bbox_to_anchor, title=title, ncols=ncols)
+    return((fig, ax))

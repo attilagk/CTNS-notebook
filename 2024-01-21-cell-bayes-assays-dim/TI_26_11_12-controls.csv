@@ -1,0 +1,6 @@
+﻿experiment,control_treatment,group_var,TI26,TI11,TI12
+LPS neuroinflammation (BV2 cells),LPS,Cohort,5,,
+Aβ release (H4 cells),VC,plate,5,,
+Aβ clearance (BV2 cells),Aß,plate,5,,
+Trophic factor withdrawal (primary neurons),VC,,,,
+Tau phosphorylation,VC,,,,
