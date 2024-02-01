@@ -7,6 +7,9 @@ import os.path
 import scipy.stats
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
+import string
+import itertools
+import seaborn as sns
 
 my_var = 3
 mcmc_random_seed = [1947, 1949, 1976, 2021]
@@ -431,7 +434,7 @@ def get_diagnostics(idatadf, fun=az.ess, var_names=['EC_50', 'y_0', 'FC_y', 'k',
     df = pd.concat([my_applymap(var, idatadf) for var in var_names], axis=1)
     df = df.sort_index(axis=1, level=0)
     if nice_assay_names:
-        df = cba.nice_assay_names(df)
+        df = nice_assay_names(df)
     if return_df:
         return(df)
     precision = np.int64(3 - np.round(np.log10(df.mean().mean())))
@@ -471,7 +474,7 @@ def barchart_H102_posteriors_ax(axi, compound, H102_posteriors, df_prior, df_mea
     axi.set_xlabel('')
     axi.set_xticks([0, 0.5, 1])
     axi.set_xticklabels(['0', '0.5', '1'])
-    for x, color in zip((cba.default_H1_prior_prob, 1 - cba.default_H1_prior_prob), ('green', 'red')):
+    for x, color in zip((default_H1_prior_prob, 1 - default_H1_prior_prob), ('green', 'red')):
         axi.axvline(x, linestyle='solid', color=color, linewidth=0.5)
     return(axi)
 
@@ -479,7 +482,7 @@ def barchart_H102_posteriors_ax(axi, compound, H102_posteriors, df_prior, df_mea
 def barchart_H102_posteriors(H102_posteriors, e2l_textbox=True, legend=True, plot_avg=False):
     compounds = H102_posteriors.xs('H0', axis=1, level=1).columns
     fig, ax = plt.subplots(1, len(compounds), figsize=(4.8, 2.5 * np.sqrt(H102_posteriors.shape[0]/4)), sharey=True)
-    d = {'H1': cba.default_H1_prior_prob, 'H0': 1 - 2 * cba.default_H1_prior_prob, 'H2': cba.default_H1_prior_prob}
+    d = {'H1': default_H1_prior_prob, 'H0': 1 - 2 * default_H1_prior_prob, 'H2': default_H1_prior_prob}
     df_prior = pd.DataFrame(d, index=pd.MultiIndex.from_product([[''], ['prior']]))
     df_mean_posterior = H102_posteriors.mean(axis=0).to_frame(pd.MultiIndex.from_product([[''], ['avg. posterior']])).transpose() if plot_avg else None
     # labeling experiments with letters
@@ -504,4 +507,119 @@ def barchart_H102_posteriors(H102_posteriors, e2l_textbox=True, legend=True, plo
         colors = ['green', 'lightgray', 'red']
         labels = ['$H_' + str(i) + '$: ' + interpret for i, interpret in zip([1, 0, 2], ['protective', 'neutral', 'adverse'])]
         my_legend(fig, colors=colors, labels=labels, loc=loc, bbox_to_anchor=bbox_to_anchor, title=title, ncols=ncols)
+    return((fig, ax))
+
+
+def violin_compound(ax, compound, idatadf, ideal_H1_increase, exper2letter_d, plot_avg=False):
+    FC_y_max=3
+    npoints=400
+    delta_y = 5
+    t_1 = scipy.stats.gamma.ppf(default_H1_prior_prob, gamma_shape, scale=1/gamma_shape)
+    t_2 = scipy.stats.gamma.ppf(1 - default_H1_prior_prob, gamma_shape, scale=1/gamma_shape)
+    prior_stdev = gamma_shape ** (-1/2)
+    xx = np.linspace(0, FC_y_max, npoints)
+    yy_prior = scipy.stats.gamma.pdf(xx, gamma_shape, scale=1/gamma_shape)
+    b_left = xx <= t_1
+    b_right = xx > t_2
+    b_center = (~ b_left) & (~ b_right)
+    y_bases = np.arange(idatadf.shape[0], step=1) * delta_y
+    for t, lw in zip([t_1, t_2, 1], [0.5, 0.5, 2]):
+        ax.axvline(t, color='k', linewidth=lw, linestyle='solid')
+    df = idatadf.index.to_frame().rename(columns={0: 'experiment', 1:'assay'})
+    ticklabels = df.apply(lambda r: r.loc['assay'] + ' (' + exper2letter_d[r.loc['experiment']] + ')', axis=1).to_list()
+    ticklabels = ['prior, desired increase', 'prior, desired decrease'] + ticklabels 
+    ticklabels += ['avg, desired increase', 'avg, desired decrease'] if plot_avg else []
+    yticks_prior = [y_bases.max() + delta_y * 2, y_bases.max() + delta_y]
+    yticks_avg = [- delta_y, -2 *  delta_y]
+    yticks = yticks_prior + list(y_bases[::-1]) + (yticks_avg if plot_avg else [])
+    ax.set_yticks(yticks)
+    ax.set_yticklabels(ticklabels)
+    ax.set_ylim(min(yticks) - delta_y, max(yticks) + delta_y)
+    scatter_c = 'blue'
+    scatter_edgecolors = 'yellow'
+    linewidths_c = 1
+    
+    def one_violin_helper(ax, l, H1_increase):
+        k = scipy.stats.gaussian_kde(l)
+        yy = k.evaluate(xx)
+        c_left = 'red' if H1_increase else 'green'
+        c_right = 'red' if not H1_increase else 'green'
+        c_center = 'gray'
+        for b, c in zip([b_left, b_center, b_right], [c_left, c_center, c_right]):
+            ax.fill_between(xx[b], y_base + yy[b], y_base - yy[b], alpha=.5, linewidth=0.5, color=c)
+        return(ax)
+
+    def one_errorbar_helper(ax, l, y_base):
+        x = np.mean(l)
+        ax.errorbar(x=x, y=y_base, xerr=np.std(l), capsize=3, capthick=1, ecolor=scatter_edgecolors)
+        ax.scatter(x=x, y=y_base, c=scatter_c, marker='o', linewidths=linewidths_c, edgecolors=scatter_edgecolors)
+        return(ax)
+    
+    def one_prior_errorbar_helper(ax, y_base):
+        ax.errorbar(x=1, y=y_base, xerr=prior_stdev, capsize=3, capthick=1, ecolor=scatter_edgecolors)
+        ax.scatter(x=1, y=y_base, c=scatter_c, marker='o', linewidths=linewidths_c, edgecolors=scatter_edgecolors)
+        return(ax)
+
+    def one_violin(ax, exper, assay, y_base):
+        H1_increase = ideal_H1_increase.loc[(exper, assay), 'H1_increase']
+        if idatadf.loc[(exper, assay), compound] in [None, np.nan]:
+            return(None)
+        posterior = idatadf.loc[(exper, assay), compound].posterior
+        l = list(itertools.chain(*posterior['FC_y'].to_numpy()))
+        ax = one_violin_helper(ax, l, H1_increase)
+        ax = one_errorbar_helper(ax, l, y_base)
+
+    def one_avg_violin(ax, y_base, H1_increase):
+        samples = get_FC_y_posterior_sample_all(idatadf=idatadf).dropna(axis=0)
+        samples = samples.loc[samples.compound == compound]
+        l = samples.loc[samples.H1_increase == H1_increase, 'FC_y'].to_list()
+        ax = one_violin_helper(ax, l, H1_increase)
+        ax = one_errorbar_helper(ax, l, y_base)
+        
+    def one_prior_violin(ax, y_base, H1_increase):
+        c_left = 'red' if H1_increase else 'green'
+        c_right = 'red' if not H1_increase else 'green'
+        c_center = 'gray'
+        for b, c in zip([b_left, b_center, b_right], [c_left, c_center, c_right]):
+            ax.fill_between(xx[b], y_base + yy_prior[b], y_base - yy_prior[b], alpha=.5, linewidth=0.5, color=c)
+        ax = one_prior_errorbar_helper(ax, y_base)
+
+    for ix, y_base in zip(idatadf.index, y_bases[::-1]):
+        one_violin(ax, *ix, y_base)
+
+    if plot_avg:
+        for y_base, H1_increase in zip(yticks_avg, [True, False]):
+            one_avg_violin(ax, y_base, H1_increase)
+        
+    for y_base, H1_increase in zip(yticks_prior, [True, False]):
+        one_prior_violin(ax, y_base, H1_increase)
+        
+    ax.set_xlim(0, FC_y_max)
+    return(ax)
+
+def violin_posterior_pdf(idatadf, poor_fits, text_box=True, H_legend=True, plot_avg=False):
+    idatadf = remove_poorly_fitted(idatadf, poor_fits)
+    ideal_H1_increase = read_ideal_H1_increase(fpath='../../resources/cell-based-assays/ideal-effects.csv')
+    df = idatadf.index.to_frame().rename(columns={0: 'experiment', 1:'assay'})
+    k = df.experiment.unique()
+    v = string.ascii_lowercase[:len(k)]
+    exper2letter_d = dict(zip(k, v))
+    fig, ax = plt.subplots(1, idatadf.shape[1], figsize=(8, idatadf.shape[0] / 4), sharey=True)
+    for axi, compound in zip(ax, idatadf.columns):
+        axi.set_title(compound)
+        violin_compound(axi, compound, idatadf, ideal_H1_increase, exper2letter_d=exper2letter_d, plot_avg=plot_avg)
+    fig.supxlabel('$\mathrm{FC}_y$: fold change', y=0.025)
+    fig.supylabel('assays', x=-0.1)
+    if H_legend:
+        bbox_to_anchor = (1, 0.8)
+        title = 'Hypotheses $H_i$'
+        loc = 'center left'
+        colors = ['green', 'lightgray', 'red']
+        labels = ['$H_' + str(i) + '$: ' + interpret for i, interpret in zip([1, 0, 2], ['protective', 'neutral', 'adverse'])]
+        my_legend(fig, colors=colors, labels=labels, loc=loc, bbox_to_anchor=bbox_to_anchor, title=title, ncols=1)
+    if text_box:
+        #fig = exper2letter_textbox(fig, exper2letter_d, x=1.0, y=0.25, horizontalalignment='left', verticalalignment='center') # Bug: this miscplaces the text box
+        s = '\n'.join(['(' + v + ') ' + k for k, v in exper2letter_d.items()])
+        s = 'Experiments:\n' + s
+        fig.text(1, 0.5, s, ha='left', va='center')
     return((fig, ax))
