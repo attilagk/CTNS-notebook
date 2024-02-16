@@ -646,3 +646,16 @@ def violin_posterior_pdf(idatadf, poor_fits, text_box=True, H_legend=True, plot_
         s = 'Experiments:\n' + s
         fig.text(1, 0.5, s, ha='left', va='center')
     return((fig, ax))
+
+
+def get_TI_conc(fpath='/Users/jonesa7/CTNS/resources/cell-based-assays/test-items.csv'):
+    df = pd.read_csv(fpath, index_col=['Study', 'TI']).drop(['TI ID', 'Name'], axis=1)
+    df = df * 1e-6 # from microM to M
+    df = df.stack()
+    df = df.rename_axis(['Study', 'TI', 'conc'])
+    return(df)
+
+
+def get_TI_name(fpath='/Users/jonesa7/CTNS/resources/cell-based-assays/test-items.csv'):
+    df = pd.read_csv(fpath, usecols=['Study', 'TI', 'Name'], index_col=['Study', 'TI'])
+    return(df)
