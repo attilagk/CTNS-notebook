@@ -10,6 +10,7 @@ import matplotlib.patches as mpatches
 import string
 import itertools
 import seaborn as sns
+import re
 
 my_var = 3
 mcmc_random_seed = [1947, 1949, 1976, 2021]
@@ -659,3 +660,34 @@ def get_TI_conc(fpath='/Users/jonesa7/CTNS/resources/cell-based-assays/test-item
 def get_TI_name(fpath='/Users/jonesa7/CTNS/resources/cell-based-assays/test-items.csv'):
     df = pd.read_csv(fpath, usecols=['Study', 'TI', 'Name'], index_col=['Study', 'TI'])
     return(df)
+
+
+def get_control_conc(data, controls_fpath='/Users/jonesa7/CTNS/resources/cell-based-assays/experiment-controls.csv'):
+    controls = pd.read_csv(controls_fpath, index_col='Experiment')
+    def helper(r):
+        control_conc = controls.loc[r.loc['Experiment'], 'concentration']
+        drug_conc = r.loc['concentration']
+        is_control = re.match(controls.loc[r.loc['Experiment'], 'Control'], r.loc['TI'])
+        val = control_conc if is_control else drug_conc
+        return(val)
+    concentration = data.apply(helper, axis=1)
+    return(concentration)
+
+
+def get_data(data_fpath, sheet_name='Data'):
+    data = pd.read_excel(data_fpath, sheet_name=sheet_name)
+    TI2name = get_TI_name()
+    data_name = data.apply(lambda r: TI2name.loc[*r.loc[['Study', 'TI']]]
+                           if re.match('^TI.*', r.loc['TI']) else '', axis=1)
+    TI2conc = get_TI_conc()
+    data_conc = data.apply(lambda r: TI2conc.loc[*r.loc[['Study', 'TI', 'conc']]]
+                           if re.match('^TI.*', r.loc['TI']) else np.nan,
+                           axis=1).to_frame('concentration')
+    data = pd.concat([data.loc[:, :'TI'], data_name, data[['conc']],
+                      data_conc, data.loc[:, 'Activity':]], axis=1)
+    data['concentration'] = get_control_conc(data)
+    data = pd.concat([data.loc[:, :'concentration'],
+               data_conc.concentration.apply(np.log10).to_frame('conc_log10'),
+               data.loc[:, ['Activity']]], axis=1)
+    return(data)
+
