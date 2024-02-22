@@ -687,7 +687,49 @@ def get_data(data_fpath, sheet_name='Data'):
                       data_conc, data.loc[:, 'Activity':]], axis=1)
     data['concentration'] = get_control_conc(data)
     data = pd.concat([data.loc[:, :'concentration'],
-               data_conc.concentration.apply(np.log10).to_frame('conc_log10'),
+               data.concentration.apply(np.log10).to_frame('conc_log10'),
                data.loc[:, ['Activity']]], axis=1)
     return(data)
 
+
+def extract_regr_data(study, exper, assay, TI, data, batchvars=['Batch', 'Plate'],
+                      only_regr_data=True):
+    TI_data = data.loc[(data.Study == study) & (data.Experiment == exper)
+                       & (data.Assay == assay) & (data.TI == TI)]
+    # ensure that all treatment TI data are from the same batch:plate
+    if len(TI_data.groupby(batchvars)) != 1:
+        print('treatment with multiple batches')
+        return(None)
+    b = data.Plate == TI_data.iloc[0].loc['Plate']
+    # if there's information on Batch, update bool vector b with it
+    if not TI_data.iloc[0].isna().loc['Batch']:
+        b = b & (data.Batch == data.iloc[0].loc['Batch'])
+    TI_exp_data = data.loc[b]
+    controls_fpath = '/Users/jonesa7/CTNS/resources/cell-based-assays/experiment-controls.csv'
+    controls = pd.read_csv(controls_fpath, index_col='Experiment')
+    control_TI = controls.loc[exper, 'Control']
+    TI_exp_data_control = TI_exp_data.loc[TI_exp_data.TI == control_TI].copy()
+    # if there's no control for the same batch:plate, use controls from all other batch:plate combinations
+    if len(TI_exp_data_control) == 0:
+        TI_exp_data_control = data.loc[(data.Study == study) & (data.Experiment == exper)
+                                       & (data.Assay == assay) & (data.TI == control_TI)].copy()
+    TI_exp_data_control['conc'] = control_TI
+    TI_exp_data_TI = TI_exp_data.loc[TI_exp_data.TI == TI].copy()
+    TI_exp_data = pd.concat([TI_exp_data_control, TI_exp_data_TI], axis=0)
+    TI_exp_data['std_activity'] = TI_exp_data['Activity'] / TI_exp_data['Activity'].std() * 10
+    if only_regr_data:
+        y_obs = TI_exp_data['std_activity'].values
+        x_obs = TI_exp_data['conc_log10'].values
+        return((y_obs, x_obs))
+    return(TI_exp_data)
+
+
+def fit_single(study, exper, assay, TI, data):
+    y_obs, x_obs = extract_regr_data(study, exper, assay, TI, data, only_regr_data=True)
+    try:
+        model, idata = [sample_sigmoid_2(y_obs, x_obs, return_model=b) for b in [True, False]]
+    except pm.SamplingError:
+        model, idata = (None, None)
+    index = pd.MultiIndex.from_product([[study], [exper], [assay], [TI]])
+    df = pd.DataFrame({'model': [model], 'idata': [idata]}, index=index)
+    return(df)
