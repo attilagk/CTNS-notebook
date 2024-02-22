@@ -368,16 +368,29 @@ def nice_assay_names(data, index_cols=['experiment', 'assay'], nice_cols=['exper
     return(df)
 
 
+def idata_to_netcdf_helper(data, dirname):
+    l = [dirname + 'idata-' + str(i) + '.nc' for i in np.arange(len(data))]
+    fpathdf = pd.DataFrame({'fpath': l}, index=data.index)
+    fpathdf.to_csv(dirname + 'fpaths.csv')
+    idata_saveloc = pd.concat([data, fpathdf], axis=1)
+    idata_saveloc.apply(lambda r: r.loc['idata'].to_netcdf(r.loc['fpath']), axis=1)
+    return(fpathdf)
+
+
 def idatadf_to_netcdf(idatadf, subdir='idatadf/', maindir='../../results/2023-09-26-cell-bayes-assays/'):
     dirname = maindir + subdir
     if not os.path.exists(dirname):
         os.mkdir(dirname)
     data = idatadf.stack().to_frame('idata')
-    l = [dirname + 'idata-' + str(i) + '.nc' for i in np.arange(len(data))]
-    fpathdf = pd.DataFrame({'fpath': l}, index=data.index)
-    fpathdf.to_csv(maindir + subdir + 'fpaths.csv')
-    idata_saveloc = pd.concat([data, fpathdf], axis=1)
-    idata_saveloc.apply(lambda r: r.loc['idata'].to_netcdf(r.loc['fpath']), axis=1)
+    fpathdf = idata_to_netcdf_helper(data, dirname)
+    return(fpathdf)
+
+
+def idatas_to_netcdf(idatas, subdir='idatas/', maindir='../../results/2024-02-14-cell-bayes/'):
+    dirname = maindir + subdir
+    if not os.path.exists(dirname):
+        os.mkdir(dirname)
+    fpathdf = idata_to_netcdf_helper(idatas, dirname)
     return(fpathdf)
 
 
@@ -386,6 +399,12 @@ def idatadf_from_netcdf(subdir='idatadf/', maindir='../../results/2023-09-26-cel
     val = fpathdf.apply(lambda row: az.from_netcdf(row.loc['fpath']), axis=1)
     val = val.unstack(level=2).reindex(fpathdf.xs(fpathdf.index.get_level_values(2)[0], axis=0, level=2).index)
     val = nice_assay_names(val, index_cols=['experiment', 'assay'], nice_cols=['experiment (nice)'])
+    return(val)
+
+def idatas_from_netcdf(subdir='idatas/', maindir='../../results/2024-02-14-cell-bayes/'):
+    fpathdf = pd.read_csv(maindir + subdir + 'fpaths.csv', index_col=[0,1,2,3])
+    val = fpathdf.apply(lambda row: az.from_netcdf(row.loc['fpath']), axis=1)
+    #val = nice_assay_names(val, index_cols=['experiment', 'assay'], nice_cols=['experiment (nice)'])
     return(val)
 
 def read_ideal_H1_increase(fpath='../../resources/cell-based-assays/ideal-effects.csv'):
@@ -727,7 +746,7 @@ def extract_regr_data(study, exper, assay, TI, data, batchvars=['Batch', 'Plate'
     return((y_obs, x_obs))
 
 
-def fit_single(study, exper, assay, TI, data):
+def fit_single_unit(study, exper, assay, TI, data):
     y_obs, x_obs = extract_regr_data(study, exper, assay, TI, data,
                                      return_data_reshaped=False)
     try:
@@ -735,16 +754,28 @@ def fit_single(study, exper, assay, TI, data):
     except pm.SamplingError:
         model, idata = (None, None)
     index = pd.MultiIndex.from_product([[study], [exper], [assay], [TI]])
-    df = pd.DataFrame({'model': [model], 'idata': [idata]}, index=index)
-    return(df)
+    idatadf = pd.DataFrame({'model': [model], 'idata': [idata]}, index=index)
+    idatadf = idatadf.rename_axis(['study', 'experiment', 'assay', 'TI'], axis=0)
+    return(idatadf)
 
 
-def plot_single(ax, study, exper, assay, TI, data, idatadf):
+def fit_multiple_units(unit_list, data):
+    l = [fit_single_unit(*args, data) for args in unit_list]
+    idatadf = pd.concat(l, axis=0)
+    return(idatadf)
+
+
+def plot_single_unit(ax, study, exper, assay, TI, data, idatas):
     data_reshaped = extract_regr_data(study, exper, assay, TI, data,
                                       return_data_reshaped=True)
     ax = plot_data(ax, data_reshaped)
-    posterior = idatadf.loc[(study, exper, assay, TI), 'idata'].posterior
-    ax = plot_sampled_curves_sigmoid(ax, idatadf.iloc[0, 1].posterior,
-                                         data_reshaped)
+    posterior = idatas.loc[(study, exper, assay, TI)].posterior
+    ax = plot_sampled_curves_sigmoid(ax, posterior, data_reshaped)
     ax.set_ylim(0, data_reshaped.std_activity.quantile(0.8) * 5)
+    l = list(data_reshaped.Name.unique())
+    l.remove('')
+    compound = l[0]
+    ax.set_title(exper + ', ' + assay + ', ' + compound)
     return(ax)
+
+
