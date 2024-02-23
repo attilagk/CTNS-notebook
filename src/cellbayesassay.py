@@ -725,7 +725,7 @@ def extract_regr_data(study, exper, assay, TI, data, batchvars=['Batch', 'Plate'
     b2 = data.Plate == TI_data.iloc[0].loc['Plate']
     # if there's information on Batch, update bool vector b with it
     if not TI_data.iloc[0].isna().loc['Batch']:
-        b2 = b2 & (data.Batch == data.iloc[0].loc['Batch'])
+        b2 = b2 & (data.Batch == TI_data.iloc[0].loc['Batch'])
     data_reshaped = data.loc[b1 & b2]
     controls_fpath = '/Users/jonesa7/CTNS/resources/cell-based-assays/experiment-controls.csv'
     controls = pd.read_csv(controls_fpath, index_col='Experiment')
@@ -781,20 +781,20 @@ def plot_single_unit(ax, study, exper, assay, TI, data, idatas, plot_sampled_cur
     l = list(data_reshaped.Name.unique())
     l.remove('')
     compound = l[0]
-    ax.set_title(exper + ', ' + assay + ', ' + compound)
+    ax.set_title(compound[:20])
     return(ax)
 
 
 def plot_multiple_units(unit_list, data, idatas, plot_sampled_curves=True):
     n_units = len(unit_list)
     nrow = np.int64(np.ceil(np.sqrt(n_units)))
-    fig, ax = plt.subplots(nrow, nrow)
+    figscaler = 1.5
+    fig, ax = plt.subplots(nrow, nrow, sharex=True, figsize=(6.4 * figscaler, 4.8 * figscaler))
     for axi, unit in zip(ax.ravel()[:n_units], unit_list):
         try:
             axi = plot_single_unit(axi, *unit, data, idatas, plot_sampled_curves)
         except IndexError:
             pass
-        axi.set_title('')
         axi.set_xlabel('')
         axi.set_ylabel('')
     return((fig, ax))
