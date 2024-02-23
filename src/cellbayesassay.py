@@ -759,18 +759,24 @@ def fit_single_unit(study, exper, assay, TI, data):
     return(idatadf)
 
 
-def fit_multiple_units(unit_list, data):
+def fit_multiple_units(data, unit_list=None):
+    unitv = ['Study', 'Experiment', 'Assay', 'TI']
+    if unit_list is None:
+        dat = data.loc[data.TI.apply(lambda x: bool(re.match('TI[0-9]+', x)))]
+        dat = dat.groupby(unitv).first()
+        unit_list = dat.index.to_numpy()
     l = [fit_single_unit(*args, data) for args in unit_list]
     idatadf = pd.concat(l, axis=0)
     return(idatadf)
 
 
-def plot_single_unit(ax, study, exper, assay, TI, data, idatas):
+def plot_single_unit(ax, study, exper, assay, TI, data, idatas, plot_sampled_curves=True):
     data_reshaped = extract_regr_data(study, exper, assay, TI, data,
                                       return_data_reshaped=True)
     ax = plot_data(ax, data_reshaped)
     posterior = idatas.loc[(study, exper, assay, TI)].posterior
-    ax = plot_sampled_curves_sigmoid(ax, posterior, data_reshaped)
+    ax = plot_sampled_curves_sigmoid(ax, posterior, data_reshaped,
+                                     plot_sampled_curves=plot_sampled_curves)
     ax.set_ylim(0, data_reshaped.std_activity.quantile(0.8) * 5)
     l = list(data_reshaped.Name.unique())
     l.remove('')
@@ -779,3 +785,16 @@ def plot_single_unit(ax, study, exper, assay, TI, data, idatas):
     return(ax)
 
 
+def plot_multiple_units(unit_list, data, idatas, plot_sampled_curves=True):
+    n_units = len(unit_list)
+    nrow = np.int64(np.ceil(np.sqrt(n_units)))
+    fig, ax = plt.subplots(nrow, nrow)
+    for axi, unit in zip(ax.ravel()[:n_units], unit_list):
+        try:
+            axi = plot_single_unit(axi, *unit, data, idatas, plot_sampled_curves)
+        except IndexError:
+            pass
+        axi.set_title('')
+        axi.set_xlabel('')
+        axi.set_ylabel('')
+    return((fig, ax))
