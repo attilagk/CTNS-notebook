@@ -770,14 +770,16 @@ def fit_multiple_units(data, unit_list=None):
     return(idatadf)
 
 
-def plot_single_unit(ax, study, exper, assay, TI, data, idatas, plot_sampled_curves=True):
+def plot_single_unit(ax, study, exper, assay, TI, data, idatas,
+                     plot_sampled_curves=True, draw_y0_y1=True, H1_increase=False):
     data_reshaped = extract_regr_data(study, exper, assay, TI, data,
                                       return_data_reshaped=True)
     ax = plot_data(ax, data_reshaped)
     posterior = idatas.loc[(study, exper, assay, TI)].posterior
     ax = plot_sampled_curves_sigmoid(ax, posterior, data_reshaped,
-                                     plot_sampled_curves=plot_sampled_curves)
-    ax.set_ylim(0, data_reshaped.std_activity.quantile(0.8) * 5)
+                                     plot_sampled_curves=plot_sampled_curves,
+                                     draw_y0_y1=draw_y0_y1, H1_increase=H1_increase, H_text=False)
+    #ax.set_ylim(0, data_reshaped.std_activity.quantile(0.8) * 5)
     l = list(data_reshaped.Name.unique())
     l.remove('')
     compound = l[0]
@@ -785,16 +787,34 @@ def plot_single_unit(ax, study, exper, assay, TI, data, idatas, plot_sampled_cur
     return(ax)
 
 
-def plot_multiple_units(unit_list, data, idatas, plot_sampled_curves=True):
+def plot_multiple_units(unit_list, data, idatas, plot_sampled_curves=True,
+                        draw_y0_y1=True):
     n_units = len(unit_list)
+    # read ideal H1 increase info
+    if draw_y0_y1:
+        fpath = '/Users/jonesa7/CTNS/resources/cell-based-assays/ideal-effects.csv'
+        ideal_H1_increase = pd.read_csv(fpath, index_col=['experiment (nice)', 'assay (nice)'],
+                                        usecols=['experiment', 'assay', 'experiment (nice)', 'assay (nice)',
+                                                 'H1_increase', 'ideal effect'])
     nrow = np.int64(np.ceil(np.sqrt(n_units)))
     figscaler = 1.5
     fig, ax = plt.subplots(nrow, nrow, sharex=True, figsize=(6.4 * figscaler, 4.8 * figscaler))
     for axi, unit in zip(ax.ravel()[:n_units], unit_list):
+        H1_increase = False
+        if draw_y0_y1:
+            experiment = unit[1]
+            assay = unit[2]
+            H1_increase = ideal_H1_increase.loc[(experiment, assay),
+                                                'H1_increase']
         try:
-            axi = plot_single_unit(axi, *unit, data, idatas, plot_sampled_curves)
+            axi = plot_single_unit(axi, *unit, data, idatas,
+                                   plot_sampled_curves,
+                                   draw_y0_y1=draw_y0_y1,
+                                   H1_increase=H1_increase)
         except IndexError:
             pass
         axi.set_xlabel('')
         axi.set_ylabel('')
+    for axi in ax.ravel()[n_units:]:
+        axi.remove()
     return((fig, ax))
