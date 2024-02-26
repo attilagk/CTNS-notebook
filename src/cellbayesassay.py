@@ -245,7 +245,8 @@ def plot_data(ax, data_reshaped):
 def plot_sampled_curves_sigmoid(ax, idata, data_reshaped, color='C0', alpha=0.5,
                                 plot_sampled_curves=True, draw_y0_y1=False,
                                 H1_prior_prob=default_H1_prior_prob,
-                                H1_increase=False, ylim_top=None, H_text=True):
+                                H1_increase=False, ylim_top=None, H_text=True,
+                                H_yticks=True):
     t_1 = scipy.stats.gamma.ppf(H1_prior_prob, gamma_shape, scale=1/gamma_shape)
     t_2 = scipy.stats.gamma.ppf(1 - H1_prior_prob, gamma_shape, scale=1/gamma_shape)
     xx = np.linspace(data_reshaped.conc_log10.min(), data_reshaped.conc_log10.max() + 1, 200)
@@ -290,8 +291,9 @@ def plot_sampled_curves_sigmoid(ax, idata, data_reshaped, color='C0', alpha=0.5,
         if H_text:
             ax.text(xx[0] + 0.1 * (xx[-1] - xx[0]), y_0_mean, '$H_0$: neutral',
                     color='gray', backgroundcolor='white', ha='left', va='center')
-        labels = ['$y_0$', '$y_0 t_1$', '$y_0 \mathrm{FC}_y$', '$y_0 t_2$']
-        ax.set_yticks([y_0_mean, y_0_mean * t_1, y_1_mean, y_0_mean * t_2], labels=labels)
+        if H_yticks:
+            labels = ['$y_0$', '$y_0 t_1$', '$y_0 \mathrm{FC}_y$', '$y_0 t_2$']
+            ax.set_yticks([y_0_mean, y_0_mean * t_1, y_1_mean, y_0_mean * t_2], labels=labels)
         #ax.text(EC_50_mean - 2, y_0_mean / 4, '$H_1$',
         #        color='green', backgroundcolor='white')
     ax.set_xlabel(r'$\log_{10}$ conc')
@@ -451,10 +453,15 @@ def get_diagnostics(idatadf, fun=az.ess, var_names=['EC_50', 'y_0', 'FC_y', 'k',
             return(fun(x, var_names=var).to_dict()['data_vars'][var]['data'])
     #idat = idatadf.xs('idata', axis=1, level=1)
     def my_applymap(var, idatadf):
-        df = idatadf.applymap(lambda x: helper(x, var))
-        df.columns = pd.MultiIndex.from_product([pd.CategoricalIndex(df.columns, categories=df.columns, ordered=True), [var]])
+        if isinstance(idatadf, pd.DataFrame):
+            df = idatadf.applymap(lambda x: helper(x, var))
+            df.columns = pd.MultiIndex.from_product([pd.CategoricalIndex(df.columns, categories=df.columns, ordered=True), [var]])
+        if isinstance(idatadf, pd.Series):
+            df = idatadf.apply(lambda x: helper(x, var))
+            #df.columns = var
         return(df)
     df = pd.concat([my_applymap(var, idatadf) for var in var_names], axis=1)
+    df.columns = var_names
     df = df.sort_index(axis=1, level=0)
     if nice_assay_names:
         df = nice_assay_names(df)
@@ -778,12 +785,14 @@ def plot_single_unit(ax, study, exper, assay, TI, data, idatas,
     posterior = idatas.loc[(study, exper, assay, TI)].posterior
     ax = plot_sampled_curves_sigmoid(ax, posterior, data_reshaped,
                                      plot_sampled_curves=plot_sampled_curves,
-                                     draw_y0_y1=draw_y0_y1, H1_increase=H1_increase, H_text=False)
+                                     draw_y0_y1=draw_y0_y1,
+                                     H1_increase=H1_increase, H_text=False,
+                                     H_yticks=False)
     #ax.set_ylim(0, data_reshaped.std_activity.quantile(0.8) * 5)
     l = list(data_reshaped.Name.unique())
     l.remove('')
     compound = l[0]
-    ax.set_title(compound[:20])
+    ax.set_title(compound[:30], fontsize=10)
     return(ax)
 
 
@@ -797,7 +806,7 @@ def plot_multiple_units(unit_list, data, idatas, plot_sampled_curves=True,
                                         usecols=['experiment', 'assay', 'experiment (nice)', 'assay (nice)',
                                                  'H1_increase', 'ideal effect'])
     nrow = np.int64(np.ceil(np.sqrt(n_units)))
-    figscaler = 1.5
+    figscaler = 1.75
     fig, ax = plt.subplots(nrow, nrow, sharex=True, figsize=(6.4 * figscaler, 4.8 * figscaler))
     for axi, unit in zip(ax.ravel()[:n_units], unit_list):
         H1_increase = False
@@ -817,4 +826,6 @@ def plot_multiple_units(unit_list, data, idatas, plot_sampled_curves=True,
         axi.set_ylabel('')
     for axi in ax.ravel()[n_units:]:
         axi.remove()
+    fig.supxlabel(r'$\log_{10}$ conc')
+    fig.supylabel(r'activity')
     return((fig, ax))
