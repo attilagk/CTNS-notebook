@@ -420,8 +420,11 @@ def read_ideal_H1_increase(fpath='../../resources/cell-based-assays/ideal-effect
 def remove_poorly_fitted(df, poor_fits, replace_val=None):
     data = df.copy()
     for x in poor_fits:
-        ix, column = x
-        data.loc[ix, column] = replace_val
+        if isinstance(df, pd.DataFrame):
+            ix, column = x
+            data.loc[ix, column] = replace_val
+        if isinstance(df, pd.Series):
+            data.loc[x] = replace_val
     return(data)
 
 
@@ -434,6 +437,21 @@ def get_H1_posterior_from_idatadf(idatadf, poor_fits, hypothesis='H1'):
     return(H1_posteriors)
 
 
+def get_H1_posterior_from_idatas(idatas, poor_fits, hypothesis='H1'):
+    data = remove_poorly_fitted(idatas, poor_fits)
+    ideal_H1_increase = read_ideal_H1_increase()
+    H1 = ideal_H1_increase.loc[zip(data.index.get_level_values(1),
+                                   data.index.get_level_values(2)),
+                               ['H1_increase', 'H2_increase']]
+    H1 = pd.DataFrame(H1.to_numpy(), index=idatas.index, columns=H1.columns)
+    df = pd.concat([data.to_frame('idata'), H1], axis=1)
+    H1_posteriors = df.apply(lambda x:
+                             get_H1_posterior_prob(x.loc['idata'].posterior['FC_y'],
+                                                   H1_increase=x.loc[hypothesis + '_increase'])
+                             if x.loc['idata'] is not None else None, axis=1)
+    return(H1_posteriors)
+
+
 def get_H102_posterior_from_idatadf(idatadf, poor_fits):
     H1_posteriors, H2_posteriors = [get_H1_posterior_from_idatadf(idatadf, poor_fits, hypothesis=h) for h in ['H1', 'H2']]
     a = 1 - (H1_posteriors.to_numpy() + H2_posteriors.to_numpy())
@@ -442,6 +460,13 @@ def get_H102_posterior_from_idatadf(idatadf, poor_fits):
     hypotheses = ['H1', 'H0', 'H2']
     columns = pd.MultiIndex.from_product([idatadf.columns, pd.CategoricalIndex(hypotheses, categories=hypotheses, ordered=True)])
     H102_posteriors = H102_posteriors.reindex(columns=columns)
+    return(H102_posteriors)
+
+
+def get_H102_posterior_from_idatas(idatas, poor_fits):
+    H1_posteriors, H2_posteriors = [get_H1_posterior_from_idatas(idatas, poor_fits, hypothesis=h) for h in ['H1', 'H2']]
+    H0_posteriors = 1 - (H1_posteriors + H2_posteriors)
+    H102_posteriors = pd.DataFrame({'H1': H1_posteriors, 'H0': H0_posteriors, 'H2': H2_posteriors})
     return(H102_posteriors)
 
 
@@ -471,6 +496,19 @@ def get_diagnostics(idatadf, fun=az.ess, var_names=['EC_50', 'y_0', 'FC_y', 'k',
     val = df.style.format(precision=precision).background_gradient(axis=None, vmin=df.min().min(), vmax=df.max().max(), cmap='hot')
     return(val)
 
+
+def get_diagnostics_series(idatas, fun=az.ess, vmax=None, return_df=False):
+    df = get_diagnostics(idatas, fun=fun, return_df=True)
+    df = df.stack().to_frame('value')
+    index_labels = list(df.index.to_frame().columns)
+    df = df.rename_axis(index_labels[:-1] + ['parameter'])
+    df = pd.concat([df.index.to_frame(), df], axis=1).pivot(index=['study', 'experiment', 'assay', 'parameter'], columns='TI', values=df.columns)
+    if return_df:
+        return(df)
+    precision = np.int64(3 - np.round(np.log10(df.mean().mean())))
+    vmax = df.max().max() if vmax is None else vmax
+    val = df.style.format(precision=precision).background_gradient(axis=None, vmin=df.min().min(), vmax=vmax, cmap='hot')
+    return(val)
 
 
 def my_legend(g, colors, labels, title='Hypotheses', loc='center left', bbox_to_anchor=(0.5, -0.05, 0.5, 0.5), ncols=3, reverse_labels=False):
@@ -778,7 +816,8 @@ def fit_multiple_units(data, unit_list=None):
 
 
 def plot_single_unit(ax, study, exper, assay, TI, data, idatas,
-                     plot_sampled_curves=True, draw_y0_y1=True, H1_increase=False):
+                     plot_sampled_curves=True, draw_y0_y1=True,
+                     H1_increase=False, compound_name_title=True):
     data_reshaped = extract_regr_data(study, exper, assay, TI, data,
                                       return_data_reshaped=True)
     ax = plot_data(ax, data_reshaped)
@@ -792,12 +831,13 @@ def plot_single_unit(ax, study, exper, assay, TI, data, idatas,
     l = list(data_reshaped.Name.unique())
     l.remove('')
     compound = l[0]
-    ax.set_title(compound[:30], fontsize=10)
+    title = compound[:30] if compound_name_title else TI + ', ' + study
+    ax.set_title(title, fontsize=10)
     return(ax)
 
 
 def plot_multiple_units(unit_list, data, idatas, plot_sampled_curves=True,
-                        draw_y0_y1=True):
+                        draw_y0_y1=True, compound_name_title=True):
     n_units = len(unit_list)
     # read ideal H1 increase info
     if draw_y0_y1:
@@ -819,7 +859,8 @@ def plot_multiple_units(unit_list, data, idatas, plot_sampled_curves=True,
             axi = plot_single_unit(axi, *unit, data, idatas,
                                    plot_sampled_curves,
                                    draw_y0_y1=draw_y0_y1,
-                                   H1_increase=H1_increase)
+                                   H1_increase=H1_increase,
+                                   compound_name_title=compound_name_title)
         except IndexError:
             pass
         axi.set_xlabel('')
