@@ -497,12 +497,16 @@ def get_diagnostics(idatadf, fun=az.ess, var_names=['EC_50', 'y_0', 'FC_y', 'k',
     return(val)
 
 
-def get_diagnostics_series(idatas, fun=az.ess, vmax=None, return_df=False):
+def get_diagnostics_series(idatas, fun=az.ess, vmax=None, return_df=False,
+                           TI_cols=True):
     df = get_diagnostics(idatas, fun=fun, return_df=True)
     df = df.stack().to_frame('value')
     index_labels = list(df.index.to_frame().columns)
     df = df.rename_axis(index_labels[:-1] + ['parameter'])
     df = pd.concat([df.index.to_frame(), df], axis=1).pivot(index=['study', 'experiment', 'assay', 'parameter'], columns='TI', values=df.columns)
+    df = df.droplevel(0, axis=1)
+    if TI_cols:
+        df = df.sort_index(axis=1, key=lambda x: np.int64(x.str.replace('TI', '')))
     if return_df:
         return(df)
     precision = np.int64(3 - np.round(np.log10(df.mean().mean())))
@@ -870,3 +874,15 @@ def plot_multiple_units(unit_list, data, idatas, plot_sampled_curves=True,
     fig.supxlabel(r'$\log_{10}$ conc')
     fig.supylabel(r'activity')
     return((fig, ax))
+
+
+def sort_index_TI(val):
+    is_series = isinstance(val, pd.Series)
+    is_dataframe = isinstance(val, pd.DataFrame)
+    df = val.index.to_frame()
+    df['TIn'] = [np.int64(x.replace('TI', '')) for x in
+                 val.index.get_level_values(3)]
+    constructor = pd.Series if is_series else pd.DataFrame
+    val = constructor(val, index=pd.MultiIndex.from_frame(df))
+    val = val.sort_index(level=[1, 2, 0, 4]).droplevel(4, axis=0)
+    return(val)
