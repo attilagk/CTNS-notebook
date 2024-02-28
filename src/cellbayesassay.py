@@ -515,6 +515,21 @@ def get_diagnostics_series(idatas, fun=az.ess, vmax=None, return_df=False,
     return(val)
 
 
+def diagnostics_series_heatmap(idatas, fun=az.ess, vmax=None, yticklabels=True, TI_cols=True):
+    fundict = {az.ess: r'bad $\leftarrow$ Effective sample size $\rightarrow$ good',
+               az.rhat: r'good $\leftarrow$ $\hat{R}$ (convergence) $\rightarrow$ bad',
+               az.mcse: r'good $\leftarrow$ Markov chain standard error $\rightarrow$ bad'}
+    df = get_diagnostics_series(idatas, fun=fun, return_df=True,
+                                TI_cols=TI_cols).droplevel('study')
+    ax = sns.heatmap(df, square=True, cbar_kws={'label': fundict[fun]},
+                     yticklabels=yticklabels, vmax=vmax)
+    ylabel = ax.get_ylabel() if yticklabels else ''
+    ax.set_ylabel(ylabel)
+    ax.set_xlabel('')
+    return(ax)
+
+
+
 def my_legend(g, colors, labels, title='Hypotheses', loc='center left', bbox_to_anchor=(0.5, -0.05, 0.5, 0.5), ncols=3, reverse_labels=False):
     handles = [mpatches.Patch(color=c) for c in colors]
     interpretations = ['protective', 'neutral', 'adverse']
@@ -835,8 +850,11 @@ def plot_single_unit(ax, study, exper, assay, TI, data, idatas,
     l = list(data_reshaped.Name.unique())
     l.remove('')
     compound = l[0]
+    #title = compound[:20] + '\n' + compound[20:] if compound_name_title else TI + ', ' + study
     title = compound[:30] if compound_name_title else TI + ', ' + study
-    ax.set_title(title, fontsize=10)
+    pad = -25 if compound_name_title else 0
+    ax.set_title(title, fontsize=10, backgroundcolor='white',
+                 bbox={'pad': 0, 'color': 'white'})
     return(ax)
 
 
@@ -850,7 +868,7 @@ def plot_multiple_units(unit_list, data, idatas, plot_sampled_curves=True,
                                         usecols=['experiment', 'assay', 'experiment (nice)', 'assay (nice)',
                                                  'H1_increase', 'ideal effect'])
     nrow = np.int64(np.ceil(np.sqrt(n_units)))
-    figscaler = 1.75
+    figscaler = 1.5
     fig, ax = plt.subplots(nrow, nrow, sharex=True, figsize=(6.4 * figscaler, 4.8 * figscaler))
     for axi, unit in zip(ax.ravel()[:n_units], unit_list):
         H1_increase = False
@@ -872,7 +890,7 @@ def plot_multiple_units(unit_list, data, idatas, plot_sampled_curves=True,
     for axi in ax.ravel()[n_units:]:
         axi.remove()
     fig.supxlabel(r'$\log_{10}$ conc')
-    fig.supylabel(r'activity')
+    #fig.supylabel(r'activity')
     return((fig, ax))
 
 
