@@ -246,7 +246,7 @@ def plot_sampled_curves_sigmoid(ax, idata, data_reshaped, color='C0', alpha=0.5,
                                 plot_sampled_curves=True, draw_y0_y1=False,
                                 H1_prior_prob=default_H1_prior_prob,
                                 H1_increase=False, ylim_top=None, H_text=True,
-                                H_yticks=True):
+                                H_yticks=True, linewidth=0.2):
     t_1 = scipy.stats.gamma.ppf(H1_prior_prob, gamma_shape, scale=1/gamma_shape)
     t_2 = scipy.stats.gamma.ppf(1 - H1_prior_prob, gamma_shape, scale=1/gamma_shape)
     xx = np.linspace(data_reshaped.conc_log10.min(), data_reshaped.conc_log10.max() + 1, 200)
@@ -258,7 +258,7 @@ def plot_sampled_curves_sigmoid(ax, idata, data_reshaped, color='C0', alpha=0.5,
             y_0 = idata['y_0'][chain][i].to_numpy()
             y_1 = idata['y_1'][chain][i].to_numpy()
             yy = y_1 + (y_0 - y_1) / (1 + np.exp(k * (xx - EC_50)))
-            ax.plot(xx, yy, linewidth=0.2, color=color, alpha=alpha)
+            ax.plot(xx, yy, linewidth=linewidth, color=color, alpha=alpha)
     EC_50_mean = idata.mean().to_dict()['data_vars']['EC_50']['data']
     k_mean = idata.mean().to_dict()['data_vars']['k']['data']
     y_0_mean = idata.mean().to_dict()['data_vars']['y_0']['data']
@@ -836,7 +836,8 @@ def fit_multiple_units(data, unit_list=None):
 
 def plot_single_unit(ax, study, exper, assay, TI, data, idatas,
                      plot_sampled_curves=True, draw_y0_y1=True,
-                     H1_increase=False, compound_name_title=True):
+                     H1_increase=False, compound_name_title=True,
+                     linewidth=0.2):
     data_reshaped = extract_regr_data(study, exper, assay, TI, data,
                                       return_data_reshaped=True)
     ax = plot_data(ax, data_reshaped)
@@ -845,7 +846,7 @@ def plot_single_unit(ax, study, exper, assay, TI, data, idatas,
                                      plot_sampled_curves=plot_sampled_curves,
                                      draw_y0_y1=draw_y0_y1,
                                      H1_increase=H1_increase, H_text=False,
-                                     H_yticks=False)
+                                     H_yticks=False, linewidth=linewidth)
     #ax.set_ylim(0, data_reshaped.std_activity.quantile(0.8) * 5)
     l = list(data_reshaped.Name.unique())
     l.remove('')
@@ -860,7 +861,7 @@ def plot_single_unit(ax, study, exper, assay, TI, data, idatas,
 
 def plot_multiple_units(unit_list, data, idatas, plot_sampled_curves=True,
                         draw_y0_y1=True, compound_name_title=True, nrows=None,
-                        ncols=None, figsize=None):
+                        ncols=None, figsize=None, linewidth=0.1):
     n_units = len(unit_list)
     # read ideal H1 increase info
     if draw_y0_y1:
@@ -885,7 +886,7 @@ def plot_multiple_units(unit_list, data, idatas, plot_sampled_curves=True,
                                    plot_sampled_curves,
                                    draw_y0_y1=draw_y0_y1,
                                    H1_increase=H1_increase,
-                                   compound_name_title=compound_name_title)
+                                   compound_name_title=compound_name_title, linewidth=linewidth)
         except IndexError:
             pass
         axi.set_xlabel('')
