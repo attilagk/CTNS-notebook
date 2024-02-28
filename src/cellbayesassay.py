@@ -859,7 +859,8 @@ def plot_single_unit(ax, study, exper, assay, TI, data, idatas,
 
 
 def plot_multiple_units(unit_list, data, idatas, plot_sampled_curves=True,
-                        draw_y0_y1=True, compound_name_title=True):
+                        draw_y0_y1=True, compound_name_title=True, nrows=None,
+                        ncols=None, figsize=None):
     n_units = len(unit_list)
     # read ideal H1 increase info
     if draw_y0_y1:
@@ -867,9 +868,11 @@ def plot_multiple_units(unit_list, data, idatas, plot_sampled_curves=True,
         ideal_H1_increase = pd.read_csv(fpath, index_col=['experiment (nice)', 'assay (nice)'],
                                         usecols=['experiment', 'assay', 'experiment (nice)', 'assay (nice)',
                                                  'H1_increase', 'ideal effect'])
-    nrow = np.int64(np.ceil(np.sqrt(n_units)))
+    nrows = np.int64(np.ceil(np.sqrt(n_units))) if nrows is None else nrows
+    ncols = nrows if ncols is None else ncols
     figscaler = 1.5
-    fig, ax = plt.subplots(nrow, nrow, sharex=True, figsize=(6.4 * figscaler, 4.8 * figscaler))
+    figsize = (6.4 * figscaler, 4.8 * figscaler) if figsize is None else figsize
+    fig, ax = plt.subplots(nrows, ncols, sharex=True, figsize=figsize)
     for axi, unit in zip(ax.ravel()[:n_units], unit_list):
         H1_increase = False
         if draw_y0_y1:
