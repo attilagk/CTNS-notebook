@@ -779,7 +779,7 @@ def get_data(data_fpath, sheet_name='Data'):
 
 
 def extract_regr_data(study, exper, assay, TI, data, batchvars=['Batch', 'Plate'],
-                      return_data_reshaped=False):
+                      return_data_reshaped=False, batch_corr=True):
     b1 = (data.Study == study) & (data.Experiment == exper) & (data.Assay == assay)
     TI_data = data.loc[b1 & (data.TI == TI)]
     # ensure that all treatment TI data are from the same batch:plate
@@ -797,12 +797,13 @@ def extract_regr_data(study, exper, assay, TI, data, batchvars=['Batch', 'Plate'
     controls = pd.read_csv(controls_fpath, index_col='Experiment')
     control_TI = controls.loc[exper, 'Control']
     data_reshaped_control = data_reshaped.loc[data_reshaped.TI == control_TI].copy()
-    if not len(data_reshaped_control):
-        data_reshaped_control = data_reshaped.loc[data_reshaped.conc_log10 == -9].copy()
+    #if not len(data_reshaped_control):
+    #    data_reshaped_control = data_reshaped.loc[data_reshaped.conc_log10 == -9].copy()
     # if there's no control for the same batch:plate, use controls from all other batch:plate combinations
     if len(data_reshaped_control) == 0:
-        data_reshaped_control = data.loc[(data.Study == study) & (data.Experiment == exper)
-                                       & (data.Assay == assay) & (data.TI == control_TI)].copy()
+        data_reshaped_control = data.loc[b1 & (data.TI == control_TI)].copy()
+    if (len(data_reshaped_control) == 0) or not batch_corr:
+        data_reshaped_control = data.loc[b1 & (data.conc_log10 == -9)].copy()
     data_reshaped_control['conc'] = control_TI
     data_reshaped_TI = data_reshaped.loc[data_reshaped.TI == TI].copy()
     data_reshaped = pd.concat([data_reshaped_control, data_reshaped_TI], axis=0)
