@@ -11,6 +11,7 @@ import string
 import itertools
 import seaborn as sns
 import re
+from matplotlib.gridspec import GridSpec
 
 my_var = 3
 mcmc_random_seed = [1947, 1949, 1976, 2021]
@@ -486,7 +487,7 @@ def get_diagnostics(idatadf, fun=az.ess, var_names=['EC_50', 'y_0', 'FC_y', 'k',
             #df.columns = var
         return(df)
     df = pd.concat([my_applymap(var, idatadf) for var in var_names], axis=1)
-    df.columns = var_names
+    #df.columns = var_names
     df = df.sort_index(axis=1, level=0)
     if nice_assay_names:
         df = nice_assay_names(df)
@@ -913,3 +914,62 @@ def sort_index_TI(val):
     val = constructor(val, index=pd.MultiIndex.from_frame(df))
     val = val.sort_index(level=[1, 2, 0, 4]).droplevel(4, axis=0)
     return(val)
+
+
+def BF10_from_H102_posteriors(H102_posteriors):
+    BF10 = H102_posteriors.stack(level=0, dropna=False).apply(lambda r: r.loc['H1'] / r.loc['H0'], axis=1)
+    BF10 = pd.concat([BF10.index.to_frame(name=['Experiment', 'Assay', 'Drug']), BF10.to_frame('BF')], axis=1)
+    BF10['2 log BF'] = BF10.BF.apply(lambda x: 2 * np.log(x))
+    return(BF10)
+
+
+def plot_BF(BF10):
+    n_assays = BF10.xs(BF10.Drug.unique()[0], axis=0, level=-1).groupby(level=0).apply(len)
+    n_exper = n_assays.size
+    drugs = BF10['BF'].unstack(level=-1).columns
+    titlepanel_j = 0
+    #gs = GridSpec(n_exper, len(drugs), height_ratios=n_assays.to_list(), left=0.05, right=0.48, hspace=0.75)
+    gs = GridSpec(n_exper + 1, len(drugs), height_ratios=n_assays.to_list() + [7], left=0.05, right=0.48, hspace=0.75)
+    fig = plt.figure(figsize=(len(drugs) * 4.8, 10.8))
+    def BF_ticks(ax):
+        xticks_major = [0, 2, 6, 10]
+        xticks_minor = [-2, 1, 4, 8, 12]
+        ax.set_xticks(xticks_major, minor=False)
+        #ax.set_xticks(xticks_minor, minor=True)
+        xticklabels_minor = len(xticks_minor) * ['']
+        ax.grid(axis='x')
+        return(ax)
+    for j, drug in enumerate(drugs):
+        for i, x in enumerate(n_assays):
+            exper = n_assays.index[i]
+            if i == 0:
+                ax = fig.add_subplot(gs[i, j])
+                ax.text(0.5, 5 / x, drug, transform=ax.transAxes, fontsize=12, horizontalalignment='center')
+                ax0 = ax
+            else:
+                ax = fig.add_subplot(gs[i, j], sharex=ax0)
+            df = BF10.xs(exper, axis=0, level=0).xs(drug, axis=0, level=-1)
+            df['color'] = df['2 log BF'].apply(lambda x: 'green' if x > 2 else 'gray')
+            sns.barplot(data=df, y='Assay', x='2 log BF', ax=ax, palette=df['color'])
+            #ax.barh(data=df, y='Assay', width='2 log BF', color=df['color'].to_list()) # issues with y axis scaling
+            ax.set_ylabel('')
+            if j == titlepanel_j:
+                title = string.ascii_lowercase[i] + ') ' + exper
+                ax.set_title(title, x=-0.5, fontsize=10, horizontalalignment='left', transform=ax.transAxes, weight='bold')
+            ax.set_xlabel('')
+            ax = BF_ticks(ax)
+            #ax.set_xticklabels(xticklabels_minor, minor=True, rotation=90)
+            if j > 0:
+                ax.set_yticklabels(len(ax.get_yticks()) * [''])
+    axes = np.array(fig.get_axes()).reshape(len(drugs), n_exper)
+    fig.supxlabel(r'$2 \times \log$ Bayes factor: evidence for protective effect', horizontalalignment='right', x=0.4, y=0.05)
+    ax = fig.add_subplot(gs[n_exper, 1], sharex=ax0)
+    ax = BF_ticks(ax)
+    #ax.set_xlim(-4, 14)
+    ax.set_yticks([])
+    evidence_l = ['nonexistent', 'negligible', 'significant', 'strong', 'very strong']
+    xticks_minor = [-2, 1, 4, 8, 12]
+    for x, evidence in zip(xticks_minor, evidence_l):
+        ax.text(x=x, y=0.5, s=evidence, horizontalalignment='center', verticalalignment='center', rotation=90, fontsize=10)
+    ax.set_ylabel('Evidence:', rotation=0, horizontalalignment='right', verticalalignment='center')
+    return(fig)
