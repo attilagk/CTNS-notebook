@@ -967,7 +967,7 @@ def plot_BF(BF10):
     ax = BF_ticks(ax)
     #ax.set_xlim(-4, 14)
     ax.set_yticks([])
-    evidence_l = ['nonexistent', 'negligible', 'significant', 'strong', 'very strong']
+    evidence_l = ['nonexistent', 'negligible', 'moderate', 'strong', 'very strong']
     xticks_minor = [-2, 1, 4, 8, 12]
     for x, evidence in zip(xticks_minor, evidence_l):
         ax.text(x=x, y=0.5, s=evidence, horizontalalignment='center', verticalalignment='center', rotation=90, fontsize=10)
