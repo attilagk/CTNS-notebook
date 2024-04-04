@@ -923,10 +923,11 @@ def BF10_from_H102_posteriors(H102_posteriors):
     return(BF10)
 
 
-def plot_BF(BF10):
+def plot_BF(BF10, anonym_drugs=False):
     n_assays = BF10.xs(BF10.Drug.unique()[0], axis=0, level=-1).groupby(level=0).apply(len)
     n_exper = n_assays.size
     drugs = BF10['BF'].unstack(level=-1).columns
+    drug_d = dict(zip(drugs, ['drug ' + x for x in  string.ascii_uppercase[:len(drugs)]]))
     titlepanel_j = 0
     #gs = GridSpec(n_exper, len(drugs), height_ratios=n_assays.to_list(), left=0.05, right=0.48, hspace=0.75)
     gs = GridSpec(n_exper + 1, len(drugs), height_ratios=n_assays.to_list() + [7], left=0.05, right=0.48, hspace=0.75)
@@ -944,7 +945,8 @@ def plot_BF(BF10):
             exper = n_assays.index[i]
             if i == 0:
                 ax = fig.add_subplot(gs[i, j])
-                ax.text(0.5, 5 / x, drug, transform=ax.transAxes, fontsize=12, horizontalalignment='center')
+                drug_s = drug_d[drug] if anonym_drugs else drug
+                ax.text(0.5, 5 / x, drug_s, transform=ax.transAxes, fontsize=12, horizontalalignment='center')
                 ax0 = ax
             else:
                 ax = fig.add_subplot(gs[i, j], sharex=ax0)
