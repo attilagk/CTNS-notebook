@@ -484,11 +484,11 @@ def get_diagnostics(idatadf, fun=az.ess, var_names=['EC_50', 'y_0', 'FC_y', 'k',
             df.columns = pd.MultiIndex.from_product([pd.CategoricalIndex(df.columns, categories=df.columns, ordered=True), [var]])
         if isinstance(idatadf, pd.Series):
             df = idatadf.apply(lambda x: helper(x, var))
-            #df.columns = var
         return(df)
     df = pd.concat([my_applymap(var, idatadf) for var in var_names], axis=1)
-    #df.columns = var_names
-    df = df.sort_index(axis=1, level=0)
+    df.columns = var_names
+    if isinstance(idatadf, pd.DataFrame):
+        df = df.sort_index(axis=1, level=0)
     if nice_assay_names:
         df = nice_assay_names(df)
     if return_df:
