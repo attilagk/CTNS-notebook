@@ -975,3 +975,11 @@ def plot_BF(BF10, anonym_drugs=False):
         ax.text(x=x, y=0.5, s=evidence, horizontalalignment='center', verticalalignment='center', rotation=90, fontsize=10)
     ax.set_ylabel('Evidence:', rotation=0, horizontalalignment='right', verticalalignment='center')
     return(fig)
+
+
+def pseudocount_to_H102_posteriors(H102_posteriors):
+    n_mcmc_chains = 4
+    n_mcmc_samples = 1000
+    pseudocount = 0.5
+    val = H102_posteriors.map(lambda x: pseudocount / (n_mcmc_chains * n_mcmc_samples) if x == 0 else x)
+    return(val)
