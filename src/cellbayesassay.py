@@ -915,10 +915,23 @@ def sort_index_TI(val):
     val = val.sort_index(level=[1, 2, 0, 4]).droplevel(4, axis=0)
     return(val)
 
+def check_H102_posteriors_for_zero(H102_posteriors):
+    if any(H102_posteriors.loc[:, [x is np.dtype('float64') for x in H102_posteriors.dtypes]].min()):
+        raise ValueError('Zero probability found.\nRegularize with pseudocount_to_H102_posteriors before computing Bayes factors!')
+    return(None)
 
 def BF10_from_H102_posteriors(H102_posteriors):
+    #check_H102_posteriors_for_zero(H102_posteriors)
     BF10 = H102_posteriors.stack(level=0, dropna=False).apply(lambda r: r.loc['H1'] / r.loc['H0'], axis=1)
     BF10 = pd.concat([BF10.index.to_frame(name=['Experiment', 'Assay', 'Drug']), BF10.to_frame('BF')], axis=1)
+    BF10['2 log BF'] = BF10.BF.apply(lambda x: 2 * np.log(x))
+    return(BF10)
+
+
+def BF10_from_H102_posteriors_long(H102_posteriors):
+    #check_H102_posteriors_for_zero(H102_posteriors)
+    BF10 = H102_posteriors.apply(lambda r: r.loc['H1'] / r.loc['H0'], axis=1)
+    BF10 = pd.concat([BF10.index.to_frame(name=['Study', 'Experiment', 'Assay', 'TI']), BF10.to_frame('BF')], axis=1)
     BF10['2 log BF'] = BF10.BF.apply(lambda x: 2 * np.log(x))
     return(BF10)
 
