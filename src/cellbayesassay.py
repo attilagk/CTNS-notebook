@@ -761,18 +761,19 @@ def get_control_conc(data, controls_fpath='/Users/jonesa7/CTNS/resources/cell-ba
     return(concentration)
 
 
-def get_data(data_fpath, sheet_name='Data'):
+def get_data(data_fpath, sheet_name='Data', TI_fpath='/Users/jonesa7/CTNS/resources/cell-based-assays/test-items.csv',
+             controls_fpath='/Users/jonesa7/CTNS/resources/cell-based-assays/experiment-controls.csv'):
     data = pd.read_excel(data_fpath, sheet_name=sheet_name)
-    TI2name = get_TI_name()
+    TI2name = get_TI_name(TI_fpath)
     data_name = data.apply(lambda r: TI2name.loc[*r.loc[['Study', 'TI']]]
                            if re.match('^TI.*', r.loc['TI']) else '', axis=1)
-    TI2conc = get_TI_conc()
+    TI2conc = get_TI_conc(TI_fpath)
     data_conc = data.apply(lambda r: TI2conc.loc[*r.loc[['Study', 'TI', 'conc']]]
                            if re.match('^TI.*', r.loc['TI']) else np.nan,
                            axis=1).to_frame('concentration')
     data = pd.concat([data.loc[:, :'TI'], data_name, data[['conc']],
                       data_conc, data.loc[:, 'Activity':]], axis=1)
-    data['concentration'] = get_control_conc(data)
+    data['concentration'] = get_control_conc(data, controls_fpath)
     data = pd.concat([data.loc[:, :'concentration'],
                data.concentration.apply(np.log10).to_frame('conc_log10'),
                data.loc[:, ['Activity']]], axis=1)

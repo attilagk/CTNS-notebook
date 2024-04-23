@@ -1,0 +1,101 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "c6f9de12-0f6b-4afd-acf4-6c1ec0d7bb16",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "%load_ext autoreload\n",
+    "%autoreload 2\n",
+    "%reload_ext autoreload\n",
+    "import arviz as az\n",
+    "import pymc as pm\n",
+    "import pandas as pd\n",
+    "import numpy as np\n",
+    "import matplotlib.pyplot as plt\n",
+    "import matplotlib.patches as mpatches\n",
+    "import seaborn as sns\n",
+    "import cellbayesassay as cba\n",
+    "import os.path\n",
+    "import re\n",
+    "import warnings\n",
+    "import attila_utils"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "4b0ab4c5-0731-458f-8a53-076e2644b9b3",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "data_fpath = '../../resources/cell-based-assays/data-format-specification_NIA_all-CO28151_CO28153-cleaned.xlsx'\n",
+    "TI_fpath = '/Users/jonesa7/CTNS/resources/cell-based-assays/test-items2.csv'\n",
+    "controls_fpath = '/Users/jonesa7/CTNS/resources/cell-based-assays/experiment-controls2.csv'\n",
+    "data = cba.get_data(data_fpath, 'Sheet1', TI_fpath, controls_fpath)\n",
+    "data"
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "id": "4fd0d1f5-afa3-4057-b6ef-3f766e3b3916",
+   "metadata": {},
+   "source": [
+    "maindir = '../../results/2024-04-21-cell-bayes/'\n",
+    "\n",
+    "if not os.path.exists(maindir + 'idatas/fpaths.csv'):\n",
+    "    idatadf = cba.fit_multiple_units(data, unit_list=None)\n",
+    "    idatas = idatadf.idata\n",
+    "    fpathdf = cba.idatas_to_netcdf(idatas, subdir='idatas/', maindir=maindir)\n",
+    "    print('idatas written to netcdf')\n",
+    "else:\n",
+    "    idatas = cba.idatas_from_netcdf(subdir='idatas/', maindir=maindir)\n",
+    "    print('idatas read from netcdf')\n",
+    "\n",
+    "idatas = cba.sort_index_TI(idatas)\n",
+    "idatas"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "aa8509b0-275f-4399-9fff-7b56dcb4b5b1",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "%connect_info"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "e9f3cdb2-9414-4045-9509-627ba9f1d2b3",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.11.0"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
