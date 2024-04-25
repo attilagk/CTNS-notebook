@@ -749,7 +749,7 @@ def get_TI_name(fpath='/Users/jonesa7/CTNS/resources/cell-based-assays/test-item
     return(df)
 
 
-def get_control_conc(data, controls_fpath='/Users/jonesa7/CTNS/resources/cell-based-assays/experiment-controls.csv'):
+def get_control_conc(data, controls_fpath='/Users/jonesa7/CTNS/resources/cell-based-assays/experiment-controls2.csv'):
     controls = pd.read_csv(controls_fpath, index_col='Experiment')
     def helper(r):
         control_conc = controls.loc[r.loc['Experiment'], 'concentration']
@@ -762,7 +762,7 @@ def get_control_conc(data, controls_fpath='/Users/jonesa7/CTNS/resources/cell-ba
 
 
 def get_data(data_fpath, sheet_name='Data', TI_fpath='/Users/jonesa7/CTNS/resources/cell-based-assays/test-items.csv',
-             controls_fpath='/Users/jonesa7/CTNS/resources/cell-based-assays/experiment-controls.csv'):
+             controls_fpath='/Users/jonesa7/CTNS/resources/cell-based-assays/experiment-controls2.csv'):
     data = pd.read_excel(data_fpath, sheet_name=sheet_name)
     TI2name = get_TI_name(TI_fpath)
     data_name = data.apply(lambda r: TI2name.loc[*r.loc[['Study', 'TI']]]
@@ -781,13 +781,17 @@ def get_data(data_fpath, sheet_name='Data', TI_fpath='/Users/jonesa7/CTNS/resour
 
 
 def extract_regr_data(study, exper, assay, TI, data, batchvars=['Batch', 'Plate'],
-                      return_data_reshaped=False, batch_corr=True):
+                      return_data_reshaped=False, batch_corr=True,
+                      controls_fpath='/Users/jonesa7/CTNS/resources/cell-based-assays/experiment-controls2.csv',
+                      accept_multi_batches=False):
     b1 = (data.Study == study) & (data.Experiment == exper) & (data.Assay == assay)
     TI_data = data.loc[b1 & (data.TI == TI)]
     # ensure that all treatment TI data are from the same batch:plate
     if len(TI_data.groupby(batchvars)) != 1:
+        print(study, exper, assay, TI)
         print('treatment with multiple batches')
-        return(None)
+        if not accept_multi_batches:
+            return(None)
     TI_data_row0 = TI_data.iloc[0]
     b2 = data.Plate == TI_data_row0.loc['Plate'] if not TI_data_row0.isna().loc['Plate'] else True
     #b2 = data.Plate == TI_data.iloc[0].loc['Plate']
@@ -795,7 +799,6 @@ def extract_regr_data(study, exper, assay, TI, data, batchvars=['Batch', 'Plate'
     if not TI_data.iloc[0].isna().loc['Batch']:
         b2 = b2 & (data.Batch == TI_data.iloc[0].loc['Batch'])
     data_reshaped = data.loc[b1 & b2]
-    controls_fpath = '/Users/jonesa7/CTNS/resources/cell-based-assays/experiment-controls.csv'
     controls = pd.read_csv(controls_fpath, index_col='Experiment')
     control_TI = controls.loc[exper, 'Control']
     data_reshaped_control = data_reshaped.loc[data_reshaped.TI == control_TI].copy()
@@ -817,9 +820,19 @@ def extract_regr_data(study, exper, assay, TI, data, batchvars=['Batch', 'Plate'
     return((y_obs, x_obs))
 
 
-def fit_single_unit(study, exper, assay, TI, data):
+def fit_single_unit(study, exper, assay, TI, data, do_fit=True, do_print=True,
+                    accept_multi_batches=False):
+    unitv = [study, exper, assay, TI]
+    if do_print:
+        print(*unitv)
     y_obs, x_obs = extract_regr_data(study, exper, assay, TI, data,
-                                     return_data_reshaped=False)
+                                     return_data_reshaped=False,
+                                     accept_multi_batches=accept_multi_batches)
+    if not do_fit:
+        d = dict(zip(['study', 'exper', 'assay', 'TI'], unitv))
+        arrays = [[x] for x in unitv]
+        df = pd.DataFrame(d, index=pd.MultiIndex.from_arrays(arrays))
+        return(df)
     try:
         model, idata = [sample_sigmoid_2(y_obs, x_obs, return_model=b) for b in [True, False]]
     except pm.SamplingError:
@@ -830,13 +843,14 @@ def fit_single_unit(study, exper, assay, TI, data):
     return(idatadf)
 
 
-def fit_multiple_units(data, unit_list=None):
+def fit_multiple_units(data, unit_list=None, do_fit=True, do_print=True,
+                       accept_multi_batches=False):
     unitv = ['Study', 'Experiment', 'Assay', 'TI']
     if unit_list is None:
         dat = data.loc[data.TI.apply(lambda x: bool(re.match('TI[0-9]+', x)))]
         dat = dat.groupby(unitv).first()
         unit_list = dat.index.to_numpy()
-    l = [fit_single_unit(*args, data) for args in unit_list]
+    l = [fit_single_unit(*args, data, do_fit=do_fit, do_print=do_print, accept_multi_batches=accept_multi_batches) for args in unit_list]
     idatadf = pd.concat(l, axis=0)
     return(idatadf)
 
