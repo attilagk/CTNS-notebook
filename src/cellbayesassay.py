@@ -530,6 +530,15 @@ def diagnostics_series_heatmap(idatas, fun=az.ess, vmax=None, yticklabels=True, 
     ylabel = ax.get_ylabel() if yticklabels else ''
     ax.set_ylabel(ylabel)
     ax.set_xlabel('')
+    # separate units
+    # x axis
+    stop = df.shape[1]
+    ax.set_xticks(np.arange(0, stop=stop, step=5), minor=True)
+    # y axis
+    stop = df.shape[0]
+    step = df.index.to_frame().parameter.unique().size
+    ax.set_yticks(np.arange(0, stop=stop, step=step), minor=True)
+    ax.grid(axis='both', which='minor', color='green')
     return(ax)
 
 
