@@ -766,7 +766,8 @@ def get_data(data_fpath, sheet_name='Data', TI_fpath='/Users/jonesa7/CTNS/resour
     data = pd.read_excel(data_fpath, sheet_name=sheet_name)
     TI2name = get_TI_name(TI_fpath)
     data_name = data.apply(lambda r: TI2name.loc[*r.loc[['Study', 'TI']]]
-                           if re.match('^TI.*', r.loc['TI']) else '', axis=1)
+                           if re.match('^TI.*', r.loc['TI']) else
+                           pd.Series('', index=['Name']), axis=1)
     TI2conc = get_TI_conc(TI_fpath)
     data_conc = data.apply(lambda r: TI2conc.loc[*r.loc[['Study', 'TI', 'conc']]]
                            if re.match('^TI.*', r.loc['TI']) else np.nan,
@@ -860,7 +861,8 @@ def plot_single_unit(ax, study, exper, assay, TI, data, idatas,
                      H1_increase=False, compound_name_title=True,
                      linewidth=0.2):
     data_reshaped = extract_regr_data(study, exper, assay, TI, data,
-                                      return_data_reshaped=True)
+                                      return_data_reshaped=True,
+                                      accept_multi_batches=True)
     ax = plot_data(ax, data_reshaped)
     posterior = idatas.loc[(study, exper, assay, TI)].posterior
     ax = plot_sampled_curves_sigmoid(ax, posterior, data_reshaped,
@@ -870,7 +872,10 @@ def plot_single_unit(ax, study, exper, assay, TI, data, idatas,
                                      H_yticks=False, linewidth=linewidth)
     #ax.set_ylim(0, data_reshaped.std_activity.quantile(0.8) * 5)
     l = list(data_reshaped.Name.unique())
-    l.remove('')
+    try:
+        l.remove('')
+    except ValueError:
+        pass
     compound = l[0]
     #title = compound[:20] + '\n' + compound[20:] if compound_name_title else TI + ', ' + study
     title = compound[:30] if compound_name_title else TI + ', ' + study
@@ -882,12 +887,12 @@ def plot_single_unit(ax, study, exper, assay, TI, data, idatas,
 
 def plot_multiple_units(unit_list, data, idatas, plot_sampled_curves=True,
                         draw_y0_y1=True, compound_name_title=True, nrows=None,
-                        ncols=None, figsize=None, linewidth=0.1):
+                        ncols=None, figsize=None, linewidth=0.1,
+                        fpath_ideal_H1_increase='/Users/jonesa7/CTNS/resources/cell-based-assays/ideal-effects.csv'):
     n_units = len(unit_list)
     # read ideal H1 increase info
     if draw_y0_y1:
-        fpath = '/Users/jonesa7/CTNS/resources/cell-based-assays/ideal-effects.csv'
-        ideal_H1_increase = pd.read_csv(fpath, index_col=['experiment (nice)', 'assay (nice)'],
+        ideal_H1_increase = pd.read_csv(fpath_ideal_H1_increase, index_col=['experiment (nice)', 'assay (nice)'],
                                         usecols=['experiment', 'assay', 'experiment (nice)', 'assay (nice)',
                                                  'H1_increase', 'ideal effect'])
     nrows = np.int64(np.ceil(np.sqrt(n_units))) if nrows is None else nrows
