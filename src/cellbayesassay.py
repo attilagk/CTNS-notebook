@@ -504,10 +504,12 @@ def get_diagnostics_series(idatas, fun=az.ess, vmax=None, return_df=False,
     df = df.stack().to_frame('value')
     index_labels = list(df.index.to_frame().columns)
     df = df.rename_axis(index_labels[:-1] + ['parameter'])
-    df = pd.concat([df.index.to_frame(), df], axis=1).pivot(index=['study', 'experiment', 'assay', 'parameter'], columns='TI', values=df.columns)
+    #df = pd.concat([df.index.to_frame(), df], axis=1).pivot(index=['study', 'experiment', 'assay', 'parameter'], columns='TI', values=df.columns)
+    df = pd.concat([df.index.to_frame(), df], axis=1).pivot(index=['experiment', 'assay', 'parameter'], columns=['study', 'TI'], values=df.columns)
     df = df.droplevel(0, axis=1)
     if TI_cols:
-        df = df.sort_index(axis=1, key=lambda x: np.int64(x.str.replace('TI', '')))
+        df = df.sort_index(axis=1, level=0)
+        df = df.sort_index(axis=1, level=1, key=lambda x: np.int64(x.str.replace('TI', '')))
     if return_df:
         return(df)
     precision = np.int64(3 - np.round(np.log10(df.mean().mean())))
@@ -521,9 +523,10 @@ def diagnostics_series_heatmap(idatas, fun=az.ess, vmax=None, yticklabels=True, 
                az.rhat: r'good $\leftarrow$ $\hat{R}$ (convergence) $\rightarrow$ bad',
                az.mcse: r'good $\leftarrow$ Markov chain standard error $\rightarrow$ bad'}
     df = get_diagnostics_series(idatas, fun=fun, return_df=True,
-                                TI_cols=TI_cols).droplevel('study')
+                                TI_cols=TI_cols)#.droplevel('study', axis=1)
+    fig, ax = plt.subplots(figsize=tuple(x / 4 for x in df.shape)[::-1]) 
     ax = sns.heatmap(df, square=True, cbar_kws={'label': fundict[fun]},
-                     yticklabels=yticklabels, vmax=vmax)
+                     yticklabels=yticklabels, vmax=vmax, ax=ax)
     ylabel = ax.get_ylabel() if yticklabels else ''
     ax.set_ylabel(ylabel)
     ax.set_xlabel('')
