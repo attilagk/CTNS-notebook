@@ -952,17 +952,26 @@ def check_H102_posteriors_for_zero(H102_posteriors):
         raise ValueError('Zero probability found.\nRegularize with pseudocount_to_H102_posteriors before computing Bayes factors!')
     return(None)
 
-def BF10_from_H102_posteriors(H102_posteriors):
+
+def BF10_from_H102_posteriors_helper(r, merge_H0_H2):
+    denom = r.loc['H0'] + r.loc['H2'] if merge_H0_H2 else r.loc['H0']
+    val = r.loc['H1'] / denom
+    return(val)
+
+
+def BF10_from_H102_posteriors(H102_posteriors, merge_H0_H2=False):
     #check_H102_posteriors_for_zero(H102_posteriors)
-    BF10 = H102_posteriors.stack(level=0, dropna=False).apply(lambda r: r.loc['H1'] / r.loc['H0'], axis=1)
+    BF10 = H102_posteriors.stack(level=0, dropna=False).apply(lambda r:
+                                                              BF10_from_H102_posteriors_helper(r, merge_H0_H2), axis=1)
+    #BF10 = H102_posteriors.stack(level=0, dropna=False).apply(lambda r: r.loc['H1'] / r.loc['H0'], axis=1)
     BF10 = pd.concat([BF10.index.to_frame(name=['Experiment', 'Assay', 'Drug']), BF10.to_frame('BF')], axis=1)
     BF10['2 log BF'] = BF10.BF.apply(lambda x: 2 * np.log(x))
     return(BF10)
 
 
-def BF10_from_H102_posteriors_long(H102_posteriors):
+def BF10_from_H102_posteriors_long(H102_posteriors, merge_H0_H2=False):
     #check_H102_posteriors_for_zero(H102_posteriors)
-    BF10 = H102_posteriors.apply(lambda r: r.loc['H1'] / r.loc['H0'], axis=1)
+    BF10 = H102_posteriors.apply(lambda r: BF10_from_H102_posteriors_helper(r, merge_H0_H2), axis=1)
     BF10 = pd.concat([BF10.index.to_frame(name=['Study', 'Experiment', 'Assay', 'TI']), BF10.to_frame('BF')], axis=1)
     BF10['2 log BF'] = BF10.BF.apply(lambda x: 2 * np.log(x))
     return(BF10)
