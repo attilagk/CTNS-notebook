@@ -376,6 +376,7 @@ def idata_to_netcdf_helper(data, dirname):
     fpathdf = pd.DataFrame({'fpath': l}, index=data.index)
     fpathdf.to_csv(dirname + 'fpaths.csv')
     idata_saveloc = pd.concat([data, fpathdf], axis=1)
+    idata_saveloc.columns = ['idata', 'fpath']
     idata_saveloc.apply(lambda r: r.loc['idata'].to_netcdf(r.loc['fpath']), axis=1)
     return(fpathdf)
 
