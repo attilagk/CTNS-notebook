@@ -1,6 +1,8 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 import numpy as np
 import re
+import scipy.stats
 
 
 def read_nfl_data(fpath, sheet_name, treatments, study, fpath_subjects=None):
@@ -23,3 +25,40 @@ def read_nfl_data(fpath, sheet_name, treatments, study, fpath_subjects=None):
         df['Lifespan (weeks)'] = df['Lifespan (days)'] / 7
         dataw = pd.concat([dataw, df[['Curriculum vitae', 'Lifespan (weeks)']]], axis=1, join='inner')
     return(dataw)
+
+
+def plot_dataw_ax(ax, treatment, dataw, nfl_prefix='^NF-L week '):
+    data = dataw.loc[dataw.Treatment == treatment]
+    nfl_columns = [x for x in dataw.columns if re.match(nfl_prefix + '\d{1,2}$', x)]
+    weeks = [np.int64(re.sub(nfl_prefix, '', x)) for x in nfl_columns]
+    colord = {'m': 'blue', 'f': 'red'}
+    for ix in data.index:
+        datum = data.loc[ix]
+        nfls = datum.loc[nfl_columns]
+        color = colord[datum.Sex]
+        ax.plot(weeks, nfls, color=color)
+    ax.set_xticks(weeks)
+    ax.set_title(treatment)
+    return(ax)
+
+
+def plot_dataw(dataw, treatmentl=None, nfl_prefix='^NF-L week '):
+    treatmentl = dataw.Treatment.cat.categories if treatmentl is None else treatmentl
+    fig, ax = plt.subplots(1, len(treatmentl), figsize=(2.4 * len(treatmentl), 4.8), sharey=True)
+    for axi, treatment in zip(ax, treatmentl):
+        axi = plot_dataw_ax(axi, treatment, dataw, nfl_prefix=nfl_prefix)
+        axi.grid(axis='y')
+    return((fig, ax))
+
+
+def extract_treatment_data(treatment, dataw, var='NF-L week 0'):
+    data = dataw.loc[dataw.Treatment == treatment, var]
+    return(data)
+
+
+def my_ttest(treatment_a, treatment_b, dataw_a, dataw_b=None, var='NF-L week 0'):
+    dataw_b = dataw_a if dataw_b is None else dataw_b
+    Z = zip([treatment_a, treatment_b], [dataw_a, dataw_b])
+    a, b = [extract_treatment_data(treatment, dataw, var=var) for treatment, dataw in Z]
+    res = scipy.stats.ttest_ind(a, b)
+    return(res)
