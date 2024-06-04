@@ -48,6 +48,9 @@ def plot_dataw(dataw, treatmentl=None, nfl_prefix='^NF-L week '):
     for axi, treatment in zip(ax, treatmentl):
         axi = plot_dataw_ax(axi, treatment, dataw, nfl_prefix=nfl_prefix)
         axi.grid(axis='y')
+    axlabel_fontsize=12
+    ax[0].set_ylabel('Nfl, pg/ml', fontsize=axlabel_fontsize)
+    fig.supxlabel('Time after treatment, weeks', fontsize=axlabel_fontsize)
     return((fig, ax))
 
 
