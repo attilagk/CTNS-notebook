@@ -2,6 +2,7 @@ import arviz as az
 import pymc as pm
 import pandas as pd
 import pytensor.tensor as at
+import bambi as bmb
 #import patsy
 
 
@@ -50,3 +51,31 @@ def model_A(y_obs, x_obs, return_model=False, y_inf_A_val=0, censored=True):
                           random_seed=mcmc_random_seed,
                           init='jitter+adapt_diag_grad')
         return(idata)
+
+
+def read_data(fpath):
+    data = pd.read_csv(fpath, index_col=['cohort', 'group', 'sex', 'irn', 'day'])
+    return(data)
+
+
+# Instead of None we have data, a DataFrame read with the read_data function
+_experiments_example = {
+    'Amiloride 10': (None, ['5xFAD', '5xFAD + Amiloride', 'WT'], [21947, 21949, 21976, 22021]),
+    'TUDCA WT': (None, ['WT', 'WT + TUDCA', '5xFAD'], [21947, 21949, 21976, 22021]),
+}
+
+
+def fit_one(data, lvl, random_seed):
+    dat = data.loc[data.Condition.isin(lvl)]
+    model = bmb.Model(
+        'censored(Latency, Status) ~ 1 + C(Condition, levels=lvl) + Day + (1 | IRN)',
+        dat, 
+        family='weibull',
+        link='log',
+        center_predictors=False
+    )
+    try:
+        idata = model.fit(idata_kwargs={'log_likelihood': True}, random_seed=random_seed)
+    except(pm.SamplingError):
+        idata = None
+    return(idata)
