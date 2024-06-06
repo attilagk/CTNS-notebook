@@ -129,3 +129,21 @@ def fit_one(data, lvl, random_seed):
     except(pm.SamplingError):
         idata = None
     return(idata)
+
+
+def get_diagnostics(idatas, fun=az.ess):
+    def diagnose_one(exper):
+        idata = idatas[exper]
+        var_name = 'C(Condition, levels=lvl)'
+        l = list(fun(idata, var_names=var_name).to_dict()['data_vars'][var_name]['data'])
+        var_names = ['Intercept', 'Day', '1|IRN_sigma']
+        l += [fun(idata, var_names=v).to_dict()['data_vars'][v]['data'] for v in var_names]
+        var_names = ['Drug effect', 'Genotype effect'] + var_names
+        df = pd.DataFrame(l, index=var_names, columns=[exper])
+        return(df)
+
+    l = [diagnose_one(exper) for exper in idatas.keys()]
+    df = pd.concat(l, axis=1).transpose()
+    precision = np.int64(3 - np.round(np.log10(df.mean().mean())))
+    val = df.style.format(precision=precision).background_gradient(axis=None, vmin=df.min().min(), vmax=df.max().max(), cmap='hot')
+    return(val)
