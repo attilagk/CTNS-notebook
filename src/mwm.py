@@ -1,8 +1,10 @@
 import arviz as az
 import pymc as pm
 import pandas as pd
+import numpy as np
 import pytensor.tensor as at
 import bambi as bmb
+import matplotlib.pyplot as plt
 #import patsy
 
 
@@ -53,9 +55,22 @@ def model_A(y_obs, x_obs, return_model=False, y_inf_A_val=0, censored=True):
         return(idata)
 
 
-def read_data(fpath):
-    data = pd.read_csv(fpath, index_col=['cohort', 'group', 'sex', 'irn', 'day'])
-    return(data)
+def read_data_train(fpath, treatments, sheet_name='MWM day 1-4'):
+    data_train = pd.read_excel(fpath, sheet_name=sheet_name, header=[0,1], index_col=None)
+    ix = pd.MultiIndex.from_frame(data_train.iloc[:, :4].xs('Covariates', axis=1, level=0))
+    data_train = pd.DataFrame(data_train.iloc[:, 4:].to_numpy(), columns=data_train.iloc[:, 4:].columns, index=ix)
+    data_train = data_train.stack(level=1)
+    data_train = data_train.rename_axis(data_train.index.names[:-1] + ['Day'], axis=0)
+    data_train = pd.concat([data_train, data_train.index.to_frame()], axis=1)
+    data_train['Day'] = data_train.Day.str.replace('Day ', '').astype('float64')
+    #data_train['Day'] = data_train.Day.str.replace('Day ', '').astype(pd.Int64Dtype())
+    data_train['Condition'] = data_train.Group.apply(lambda x: treatments[x])
+    data_train['Status'] = np.where(data_train['Latency (s)'] < 60, 'none', 'right') # censoring status
+    d = {'Latency (s)': 'Latency', 'Velocity (m/s)': 'Velocity', 'Thigmotaxis %': 'Thigmotaxis', 'Floating %': 'Floating', 'Distance (m)': 'Distance'}
+    data_train = data_train.rename(d, axis=1)
+    data_train = data_train.rename_axis(['cohort', 'group', 'sex', 'irn', 'day'])
+    #data_train = pd.DataFrame(data_train.to_numpy(), index=list(range(data_train.shape[0])), columns=data_train.columns)
+    return(data_train)
 
 
 # Instead of None we have data, a DataFrame read with the read_data function
@@ -63,6 +78,41 @@ _experiments_example = {
     'Amiloride 10': (None, ['5xFAD', '5xFAD + Amiloride', 'WT'], [21947, 21949, 21976, 22021]),
     'TUDCA WT': (None, ['WT', 'WT + TUDCA', '5xFAD'], [21947, 21949, 21976, 22021]),
 }
+
+
+def data_train_plotter(yname, data_train, lvl=['5xFAD', '5xFAD + Amiloride', 'WT']):
+    fig, ax = plt.subplots(1, len(lvl), sharey=True, figsize=(3 * 4.8, 4.8))
+    for condition, axi in zip(lvl, ax):
+        axi.set_title(condition)
+        axi.set_ylabel(yname)
+        axi.set_xlabel('Day')
+        axi.set_xticks(range(5))
+        axi.set_xticklabels(range(5))
+        axi.grid(axis='y')
+        df1 = data_train.loc[data_train.Condition == condition]
+        #df1 = data_train.xs(group, level=1)
+        colors = {'f': 'red', 'm': 'blue'}
+        #for sex, color in zip(df1.Sex.unique(), ['red', 'blue']):
+        for sex in df1.Sex.unique():
+            color = colors[sex]
+            df2 = df1.xs(sex, level=2)
+            for irn in df2.IRN.unique():
+                df3 = df2.xs(irn, level=2)
+                for cohort in df3.Cohort.unique():
+                    s = sex + cohort
+                    y = df3[yname]
+                    x = df3.Day
+                    axi.plot(x, y, color=color, label=irn, marker='$' + cohort + '$', linewidth=1)
+                pass
+            pass
+        #axi.legend()
+    return((fig, ax))
+
+
+def escape_latency_plotter(exper, data_train, lvl):
+    fig, ax = data_train_plotter(yname='Latency', data_train=data_train, lvl=lvl)
+    fig.suptitle(exper, fontsize=16, va='bottom')
+    return((fig, ax))
 
 
 def fit_one(data, lvl, random_seed):
