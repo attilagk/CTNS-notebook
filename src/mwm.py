@@ -5,6 +5,8 @@ import numpy as np
 import pytensor.tensor as at
 import bambi as bmb
 import matplotlib.pyplot as plt
+import os.path
+from cellbayesassay import idatas_to_netcdf
 #import patsy
 
 
@@ -131,7 +133,33 @@ def fit_one(data, lvl, random_seed):
     return(idata)
 
 
+
+'''
+Fit multiple data sets
+
+The following type of dictionary, experimentsd, is used as input:
+
+experiments3_CO28154 = {
+    'TUDCA + HCQ': (data_CO28154, ['Saline', 'TUDCA + HCQ', 'Saline WT'], [21947, 21949, 21976, 22021]),
+    'Arundine low dose': (data_CO28154, ['Vehicle (Arundine)', 'Arundine low dose', 'Vehicle (Arundine) WT'], [21947, 21949, 21976, 22021]),
+}
+'''
+def fit_multiple(experimentsd):
+    idatad = {k: fit_one(*v) for k, v in experimentsd.items()}
+    idatas = pd.Series(idatad)
+    return(idatas)
+
+
+def idatas_from_netcdf(subdir='idatas/', maindir='../../results/2024-02-14-cell-bayes/'):
+    fpath = os.path.join(maindir, subdir, 'fpaths.csv')
+    fpathdf = pd.read_csv(fpath, index_col=0)
+    val = fpathdf.apply(lambda row: az.from_netcdf(row.loc['fpath']), axis=1)
+    #val = nice_assay_names(val, index_cols=['experiment', 'assay'], nice_cols=['experiment (nice)'])
+    return(val)
+
+
 def get_diagnostics(idatas, fun=az.ess):
+    idatas = idatas.copy().to_dict()
     def diagnose_one(exper):
         idata = idatas[exper]
         var_name = 'C(Condition, levels=lvl)'

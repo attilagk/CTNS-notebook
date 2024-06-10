@@ -372,9 +372,9 @@ def nice_assay_names(data, index_cols=['experiment', 'assay'], nice_cols=['exper
 
 
 def idata_to_netcdf_helper(data, dirname):
-    l = [dirname + 'idata-' + str(i) + '.nc' for i in np.arange(len(data))]
+    l = [os.path.join(dirname, 'idata-' + str(i) + '.nc') for i in np.arange(len(data))]
     fpathdf = pd.DataFrame({'fpath': l}, index=data.index)
-    fpathdf.to_csv(dirname + 'fpaths.csv')
+    fpathdf.to_csv(os.path.join(dirname, 'fpaths.csv'))
     idata_saveloc = pd.concat([data, fpathdf], axis=1)
     idata_saveloc.columns = ['idata', 'fpath']
     idata_saveloc.apply(lambda r: r.loc['idata'].to_netcdf(r.loc['fpath']), axis=1)
@@ -399,14 +399,17 @@ def idatas_to_netcdf(idatas, subdir='idatas/', maindir='../../results/2024-02-14
 
 
 def idatadf_from_netcdf(subdir='idatadf/', maindir='../../results/2023-09-26-cell-bayes-assays/'):
-    fpathdf = pd.read_csv(maindir + subdir + 'fpaths.csv', index_col=[0,1,2])
+    fpath = os.path.join(maindir, subdir, 'fpaths.csv')
+    fpathdf = pd.read_csv(fpath, index_col=[0,1,2])
+    #fpathdf = pd.read_csv(maindir + subdir + 'fpaths.csv', index_col=[0,1,2])
     val = fpathdf.apply(lambda row: az.from_netcdf(row.loc['fpath']), axis=1)
     val = val.unstack(level=2).reindex(fpathdf.xs(fpathdf.index.get_level_values(2)[0], axis=0, level=2).index)
     val = nice_assay_names(val, index_cols=['experiment', 'assay'], nice_cols=['experiment (nice)'])
     return(val)
 
 def idatas_from_netcdf(subdir='idatas/', maindir='../../results/2024-02-14-cell-bayes/'):
-    fpathdf = pd.read_csv(maindir + subdir + 'fpaths.csv', index_col=[0,1,2,3])
+    fpath = os.path.join(maindir, subdir, 'fpaths.csv')
+    fpathdf = pd.read_csv(fpath, index_col=[0,1,2,3])
     val = fpathdf.apply(lambda row: az.from_netcdf(row.loc['fpath']), axis=1)
     #val = nice_assay_names(val, index_cols=['experiment', 'assay'], nice_cols=['experiment (nice)'])
     return(val)
