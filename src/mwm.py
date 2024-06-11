@@ -159,19 +159,26 @@ def idatas_from_netcdf(subdir='idatas/', maindir='../../results/2024-02-14-cell-
 
 
 def get_diagnostics(idatas, fun=az.ess):
-    idatas = idatas.copy().to_dict()
-    def diagnose_one(exper):
-        idata = idatas[exper]
+    titled = {
+        az.ess: 'effective sample size',
+        az.mcse: 'Markov chain std error',
+        az.rhat: r'$\hat{r}$',
+    }
+    title = titled[fun]
+    def get_one(exper):
+        idata = idatas.loc[exper]
         var_name = 'C(Condition, levels=lvl)'
-        l = list(fun(idata, var_names=var_name).to_dict()['data_vars'][var_name]['data'])
-        var_names = ['Intercept', 'Day', '1|IRN_sigma']
-        l += [fun(idata, var_names=v).to_dict()['data_vars'][v]['data'] for v in var_names]
-        var_names = ['Drug effect', 'Genotype effect'] + var_names
-        df = pd.DataFrame(l, index=var_names, columns=[exper])
-        return(df)
-
-    l = [diagnose_one(exper) for exper in idatas.keys()]
-    df = pd.concat(l, axis=1).transpose()
+        diagnostic = list(fun(idata, var_names=var_name).to_dict()['data_vars'][var_name]['data'])
+        df = idata.posterior.to_dataframe()
+        df = df.drop([var_name, '1|IRN'], axis=1)
+        diagnostic = [fun(idata, var_names=v).to_dict()['data_vars'][v]['data'] for v in df.columns] + diagnostic
+        treatments = idata.posterior.coords[var_name + '_dim'].to_numpy()
+        ix = df.columns.to_list() + list(treatments.astype('object'))
+        df = pd.DataFrame({exper: diagnostic}, index=ix)
+        s = pd.Series(diagnostic, index=pd.MultiIndex.from_product([[exper], ix]))
+        return(s)
+    l = [get_one(exper) for exper in idatas.index]
+    df = pd.concat(l, axis=0).to_frame(title)
     precision = np.int64(3 - np.round(np.log10(df.mean().mean())))
     val = df.style.format(precision=precision).background_gradient(axis=None, vmin=df.min().min(), vmax=df.max().max(), cmap='hot')
     return(val)
