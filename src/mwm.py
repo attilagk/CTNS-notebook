@@ -83,7 +83,7 @@ _experiments_example = {
 
 
 def data_train_plotter(yname, data_train, lvl=['5xFAD', '5xFAD + Amiloride', 'WT']):
-    fig, ax = plt.subplots(1, len(lvl), sharey=True, figsize=(3 * 4.8, 4.8))
+    fig, ax = plt.subplots(1, len(lvl), sharey=True, figsize=(len(lvl) * 4.8, 4.8))
     for condition, axi in zip(lvl, ax):
         axi.set_title(condition)
         axi.set_ylabel(yname)
