@@ -1,7 +1,10 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+from matplotlib.patches import Rectangle
+import matplotlib.lines as mlines
 import re
+import seaborn as sns
 import scipy.stats
 
 
@@ -65,3 +68,69 @@ def my_ttest(treatment_a, treatment_b, dataw_a, dataw_b=None, var='NF-L week 0')
     a, b = [extract_treatment_data(treatment, dataw, var=var) for treatment, dataw in Z]
     res = scipy.stats.ttest_ind(a, b)
     return(res)
+
+
+def results2df(resultd, ref_treatment='Saline TG', study='CO28152', drop_intercept=False):
+    def helper(duration):
+        results = resultd[duration]
+        df = pd.concat([results.params.to_frame('mean'),
+                        results.bse.to_frame('bse'),
+                        results.pvalues.to_frame('pval')], axis=1)
+        df['treatment'] = [x.replace('Treatment[T.', '').replace(']', '') for x in df.index]
+        df['reference treatment'] = ref_treatment
+        df['study'] = study
+        df['duration'] = duration
+        ix = pd.MultiIndex.from_frame(df[['duration', 'treatment']])
+        df = pd.DataFrame(df.to_numpy(), columns=df.columns, index=ix)
+        return(df)
+    l = [helper(d) for d in resultd.keys()]
+    val = pd.concat(l, axis=0)
+    val = val.drop('Intercept', axis=0, level=2) if drop_intercept else val
+    return(val)
+
+
+def result_plotter_ax(ax, df, suptitle=''):
+    full_effect_mean, full_effect_se = df.loc['Intercept', ['mean', 'bse']]
+    df = df.drop('Intercept', axis=0)
+    rectL, rectR = [Rectangle(xy=(- full_effect_mean, -0.5), width=full_effect_se,
+                              height=df.shape[0] + 1, alpha=0.5, color='lightgreen', angle=a,
+                              rotation_point=(- full_effect_mean, df.shape[0]/2)) for a in [180, 0]]
+    ax[0].add_patch(rectL)
+    ax[0].add_patch(rectR)
+    ax[0].axvline(0, color='k', linewidth=1)
+    ax[0].axvline(- full_effect_mean, color='green', linewidth=1, linestyle='solid')
+    ax[0].errorbar(y=np.arange(df.shape[0]), x=df['mean'], xerr=df['bse'], linewidth=0, elinewidth=1, marker='d', capsize=0)
+    ax[0].set_title(r'effect size, $\hat{\beta}_j \pm \mathrm{SE}_j$')
+    ax[1].axvline(1, color='k', linewidth=1)
+    sns.stripplot(x='pval', y='treatment', ax=ax[1], data=df)
+    ax[1].set_xscale('log')
+    ax[1].set_xlabel('')
+    ax[1].set_ylabel('')
+    ax[1].set_title(r'$p$-value for no effect $H_{0j}: \; \beta_j = 0$')
+    for j in range(2):
+        axi = ax[j]
+        axi.grid(linestyle='dotted')
+        axi.set_yticks(list(range(len(df))))
+        axi.set_ylim(len(df) - 0.5, -0.5)
+    ax[0].set_yticklabels(df.treatment)
+    ax[1].set_yticklabels('')
+    return(ax)
+
+def result_plotter(l_resultsdf, duration='week 0-4', hspace_denom=None, x0_lim=None, x1_lim=None):
+    resl = [df.xs(duration, axis=0, level=0) for df in l_resultsdf]
+    height_ratios = [len(df) for df in resl]
+    hspace_denom = 40 if hspace_denom is None else hspace_denom
+    gridspec_kw = {'hspace': sum(height_ratios) / hspace_denom}
+    fig, ax = plt.subplots(len(resl), 2, figsize=(6.4, sum(height_ratios) * 0.5), height_ratios=height_ratios, squeeze=False, gridspec_kw=gridspec_kw)
+    for i, res in enumerate(resl):
+        axes = ax[i, :]
+        axes = result_plotter_ax(axes, res)
+        if x0_lim is not None:
+            axes[0].set_xlim(*x0_lim)
+        if x1_lim is not None:
+            axes[1].set_xlim(*x1_lim)
+        if i > 0:
+            [axes[j].set_title('') for j in range(2)]
+    black_line, green_line = [mlines.Line2D([], [], color=color, marker=None, linewidth=1, label=label) for color, label in zip(['black', 'green'], ['no effect', 'full effect'])]
+    fig.legend(handles=[black_line, green_line], loc='upper left')
+    return((fig, ax))
