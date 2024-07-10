@@ -121,7 +121,8 @@ def result_plotter(l_resultsdf, duration='week 0-4', hspace_denom=None, x0_lim=N
     height_ratios = [len(df) for df in resl]
     hspace_denom = 40 if hspace_denom is None else hspace_denom
     gridspec_kw = {'hspace': sum(height_ratios) / hspace_denom}
-    fig, ax = plt.subplots(len(resl), 2, figsize=(6.4, sum(height_ratios) * 0.5), height_ratios=height_ratios, squeeze=False, gridspec_kw=gridspec_kw)
+    fig, ax = plt.subplots(len(resl), 2, figsize=(6.4, sum(height_ratios) * 0.5),
+                           height_ratios=height_ratios, squeeze=False, gridspec_kw=gridspec_kw)
     for i, res in enumerate(resl):
         axes = ax[i, :]
         axes = result_plotter_ax(axes, res)
@@ -131,6 +132,7 @@ def result_plotter(l_resultsdf, duration='week 0-4', hspace_denom=None, x0_lim=N
             axes[1].set_xlim(*x1_lim)
         if i > 0:
             [axes[j].set_title('') for j in range(2)]
-    black_line, green_line = [mlines.Line2D([], [], color=color, marker=None, linewidth=1, label=label) for color, label in zip(['black', 'green'], ['no effect', 'full effect'])]
+    black_line, green_line = [mlines.Line2D([], [], color=color, marker=None, linewidth=1, label=label)
+                              for color, label in zip(['black', 'green'], ['no effect', 'full effect'])]
     fig.legend(handles=[black_line, green_line], loc='upper left')
     return((fig, ax))
