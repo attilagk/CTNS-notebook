@@ -82,8 +82,10 @@ _experiments_example = {
 }
 
 
-def data_train_plotter(yname, data_train, lvl=['5xFAD', '5xFAD + Amiloride', 'WT']):
-    fig, ax = plt.subplots(1, len(lvl), sharey=True, figsize=(len(lvl) * 4.8, 4.8))
+def data_train_plotter(yname, data_train, lvl=['5xFAD', '5xFAD + Amiloride', 'WT'],
+                       colors={'f': 'red', 'm': 'blue'}, extra_subplot=False):
+    ncol = len(lvl) + (1 if extra_subplot else 0)
+    fig, ax = plt.subplots(1, ncol, sharey=True, figsize=(len(lvl) * 4.8, 4.8))
     for condition, axi in zip(lvl, ax):
         axi.set_title(condition)
         axi.set_ylabel(yname)
@@ -92,9 +94,6 @@ def data_train_plotter(yname, data_train, lvl=['5xFAD', '5xFAD + Amiloride', 'WT
         axi.set_xticklabels(range(5))
         axi.grid(axis='y')
         df1 = data_train.loc[data_train.Condition == condition]
-        #df1 = data_train.xs(group, level=1)
-        colors = {'f': 'red', 'm': 'blue'}
-        #for sex, color in zip(df1.Sex.unique(), ['red', 'blue']):
         for sex in df1.Sex.unique():
             color = colors[sex]
             df2 = df1.xs(sex, level=2)
@@ -104,15 +103,17 @@ def data_train_plotter(yname, data_train, lvl=['5xFAD', '5xFAD + Amiloride', 'WT
                     s = sex + cohort
                     y = df3[yname]
                     x = df3.Day
-                    axi.plot(x, y, color=color, label=irn, marker='$' + cohort + '$', linewidth=1)
+                    axi.plot(x, y, color=color, label=irn, marker='$' + cohort
+                             + '$', linewidth=0.5)
                 pass
             pass
         #axi.legend()
     return((fig, ax))
 
 
-def escape_latency_plotter(exper, data_train, lvl):
-    fig, ax = data_train_plotter(yname='Latency', data_train=data_train, lvl=lvl)
+def escape_latency_plotter(exper, data_train, lvl, colors={'f': 'red', 'm': 'blue'}, extra_subplot=False):
+    fig, ax = data_train_plotter(yname='Latency', data_train=data_train,
+                                 lvl=lvl, colors=colors, extra_subplot=extra_subplot)
     fig.suptitle(exper, fontsize=16, va='bottom')
     return((fig, ax))
 
