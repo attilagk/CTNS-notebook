@@ -23,7 +23,7 @@ def read_active_reactions(groupdict={'m-control': ('all_control', 'MSBB'),
     return(ar)
 
 def read_gem_excel(index_col='ID', usecols=['ID', 'SUBSYSTEM'],
-                   fpath='/Users/jonesa7/CTNS/resources/human-GEM/v1.11.0/model/Human-GEM.xlsx'):
+                   fpath='../../resources/human-GEM/v1.11.0/model/Human-GEM.xlsx'):
     with warnings.catch_warnings(record=True):
         warnings.simplefilter('always')
         gem = pd.read_excel(fpath, usecols=usecols, index_col=index_col, engine='openpyxl')
