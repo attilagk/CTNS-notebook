@@ -119,6 +119,23 @@ def myBinomialBayesMixedGLM(subsys, ar, control_group='m-control', AD_group='m-A
     return(m)
 
 
+def myBinomialBayesRandomGLM(subsys, ar, random={'Subtypes': 'disease_state', 'Reactions': 'rxn_ID'},
+                             vcp_p=0.2, fe_p=2, fit_method='fit_vb', gemsubsys=read_gem_excel()['SUBSYSTEM']):
+    data = long_ar_subsys(subsys, ar=ar, gemsubsys=gemsubsys)
+    if data.rxn_state.std() == 0:
+        return(None)
+    #random = {'Subtypes': 'disease_state', 'Reactions': 'rxn_ID'}
+    formula = 'rxn_state ~ 1'
+    try:
+        md = BinomialBayesMixedGLM.from_formula(formula, random, data, vcp_p=vcp_p, fe_p=fe_p)
+        fit = getattr(md, fit_method)
+        m = fit()
+    except MemoryError:
+        print(subsys)
+        m = None
+    return m
+
+
 def fit_all_subsystems(AD_group='m-AD-B2', AD_name='SubtypeB2_AD', AD_cohort='MSBB'):
     control_group = 'm-control' if AD_cohort == 'MSBB' else 'r-control'
     control_name = 'all_control'
