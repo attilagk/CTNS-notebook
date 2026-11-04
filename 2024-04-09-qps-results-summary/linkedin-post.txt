@@ -1,0 +1,15 @@
+Easy drug prioritization by Bayesian data fusion across multiple assays.
+
+Preclinical studies often aim to find the most promising drug candidates out of a broader panel of drug treatments.  To this end, the panel is typically investiageted in multiple assays.  This prompts a data fusion question: What is the best way of aggregating evidence across the assays in order to prioritize drug treatments?
+
+Classical, frequentist, statistics struggle with such evidence aggregation. In particular, p-values on different assays cannot be combined under broad conditions.
+
+In contrast, Bayesian model averaging affords a normative way of data fusion that is both easy and optimal.  To illustrate its application to drug prioritization, I present a case study from an earlier work with Tina Loeffler and Madhav Thambisetty.
+
+In this study, we evaluated approx. 50 drug treatments in several cell based assays relevant to Alzheimer's disease.  For each drug treatment and assay, the evaluation involved quantifying the support for a neuroprotective hypothesis with a Bayes factor.  The figure shows Bayes factors (on a log-scale) across all drug treatments (y-axis) and a subset of three assays of various amyloid-beta isoforms.  We see that for any given treatment, the assays support the neuroprotective hypothesis to a varying degree, which complicates drug prioritization.
+
+Bayesian model averaging turns this complexity into simplicity with a remarkable ease: we can simply aggregate log-Bayes factors by averaging them without introducing more statistical bias.  The full blue circles mark the aggregate Bayes factors.
+
+Data fusion achieved: the drug treatments have been prioritized.
+
+I will follow up in a subsequent post with an illustration of further advantages of Bayes factors over p-values.
