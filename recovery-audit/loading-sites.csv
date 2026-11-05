@@ -1,0 +1,346 @@
+notebook,cell,line,call,expression,coverage
+2021-06-14-proximity/2021-06-14-proximity.ipynb,20,2,pd.read_csv,"pd.read_csv('../../resources/DISEASES/human_disease_knowledge_filtered.tsv', sep='\t', header=None, names=colnames)",analyzed
+2021-07-01-high-conf-ADgenes/2021-07-01-high-conf-ADgenes.ipynb,6,1,pd.read_csv,pd.read_csv('../../resources/AD-genes/PMID_32299494/Table6.csv'),analyzed
+2021-07-01-high-conf-ADgenes/2021-07-01-high-conf-ADgenes.ipynb,7,1,pd.read_excel,"pd.read_excel('../../resources/AD-genes/PMID_32299494/13195_2020_611_MOESM6_ESM.xlsx', sheet_name='focus_results')",analyzed
+2021-07-01-high-conf-ADgenes/2021-07-01-high-conf-ADgenes.ipynb,9,1,pd.read_csv,pd.read_csv('../../resources/AD-genes/PMID_33417599/journal.pgen.1009224.s005.csv'),analyzed
+2021-07-01-high-conf-ADgenes/2021-07-01-high-conf-ADgenes.ipynb,11,1,pd.read_excel,"pd.read_excel('../../resources/AD-genes/PMID_30617256/NIHMS1031924-supplement-Supplemental_Tables.xlsx', sheet_name='Table S19', skiprows=4)",analyzed
+2021-07-01-high-conf-ADgenes/2021-07-01-high-conf-ADgenes.ipynb,13,1,pd.read_excel,"pd.read_excel('../../resources/AD-genes/PMID_30820047/NIHMS1021255-supplement-S3.xlsx', sheet_name='Supplementary Table 15', skiprows=2)",analyzed
+2021-07-01-high-conf-ADgenes/2021-07-01-high-conf-ADgenes.ipynb,14,1,pd.read_excel,"pd.read_excel('../../resources/AD-genes/PMID_30820047/NIHMS1021255-supplement-S3.xlsx', sheet_name='Supplementary Table 14', skiprows=3)",analyzed
+2021-07-01-high-conf-ADgenes/2021-07-01-high-conf-ADgenes.ipynb,16,1,pd.read_excel,"pd.read_excel('../../resources/AD-genes/PMID_33510477/NIHMS1656683-supplement-2.xlsx', sheet_name='SupTb2', skiprows=2)",analyzed
+2021-07-01-high-conf-ADgenes/2021-07-01-high-conf-ADgenes.ipynb,18,1,pd.read_excel,"pd.read_excel('../../resources/AD-genes/PMID_33589840/EMS118040-supplement-Supplementary_Tables_1_14.xlsx', sheet_name='13-gene evidence rankings', skiprows=0)",analyzed
+2021-07-01-high-conf-ADgenes/2021-07-01-high-conf-ADgenes.ipynb,20,11,read_hakydata,"read_hakydata(dirname='schwartzentruber_brain_region_only', basename='schwartzentruber_smultixcan', tissue='multi brain tis.', ntop=30, author='this study (C)')",analyzed
+2021-07-01-high-conf-ADgenes/2021-07-01-high-conf-ADgenes.ipynb,20,12,read_hakydata,"read_hakydata(dirname='schwartzentruber_all_tissues', basename='schwartzentruber_smultixcan', tissue='multi tissue', ntop=30, author='this study (A)')",analyzed
+2021-07-01-high-conf-ADgenes/2021-07-01-high-conf-ADgenes.ipynb,20,13,read_hakydata,"read_hakydata(dirname='wightman_all_tissues', basename='wightman_smultixcan', tissue='multi tissue', ntop=30, author='this study (B)')",analyzed
+2021-07-01-high-conf-ADgenes/2021-07-01-high-conf-ADgenes.ipynb,20,3,pd.read_csv,"pd.read_csv(fpath, sep='\t')",analyzed
+2021-07-01-high-conf-ADgenes/2021-07-01-high-conf-ADgenes.ipynb,25,2,pd.read_csv,"pd.read_csv('../../resources/DISEASES/human_disease_knowledge_filtered.tsv', sep='\t', names=cols)",analyzed
+2021-07-01-high-conf-ADgenes/2021-07-01-high-conf-ADgenes.ipynb,52,2,open,"open(fpath, 'w')",analyzed
+2021-08-04-guney-tools/2021-08-04-guney-tools.ipynb,4,2,pd.read_csv,"pd.read_csv(id_mapping_file, sep='\t', index_col='GeneID')",analyzed
+2021-08-04-guney-tools/2021-08-04-guney-tools.ipynb,17,1,open,open('../../results/2021-08-04-guney-tools/AD-genes-guney'),analyzed
+2021-08-04-guney-tools/2021-08-04-guney-tools.ipynb,22,8,read_geneset,read_geneset(k),analyzed
+2021-09-02-asthma-drugs/2021-09-02-asthma-drugs.ipynb,3,3,pd.read_csv,"pd.read_csv(id_mapping_file, sep='\t', index_col='GeneID')",analyzed
+2021-09-02-asthma-drugs/2021-09-02-asthma-drugs.ipynb,7,8,read_geneset,read_geneset(k),analyzed
+2021-09-15-proximity-summary/2021-09-15-proximity-summary.ipynb,2,3,pd.read_csv,"pd.read_csv(c, index_col=['condition', 'target'])",analyzed
+2021-09-15-proximity-summary/2021-09-15-proximity-summary.ipynb,11,12,open,open(fpath),analyzed
+2021-09-25-parallel/2021-09-25-parallel.ipynb,3,2,pd.read_csv,"pd.read_csv(fpath, index_col=(0, 1), dtype={'entrez_id': 'str'})",analyzed
+2021-09-28-drugbank-screen-v1/2021-09-28-drugbank-screen-v1.ipynb,7,2,pd.read_csv,"pd.read_csv(csv_path, index_col='drugbank_id')",analyzed
+2021-09-28-drugbank-screen-v1/2021-09-28-drugbank-screen-v1.ipynb,12,1,pd.read_csv,"pd.read_csv('../../resources/agora/genes-list.csv', index_col='hgnc_symbol')",analyzed
+2021-10-04-CMap-discussion/2021-10-04-CMap-discussion.ipynb,4,7,read_genes,read_genes('../../resources/CMap/sudhir-varma/up.genes.txt'),analyzed
+2021-10-04-CMap-discussion/2021-10-04-CMap-discussion.ipynb,4,8,read_genes,read_genes('../../resources/CMap/sudhir-varma/down.genes.txt'),analyzed
+2021-10-04-CMap-discussion/2021-10-04-CMap-discussion.ipynb,4,9,read_genes,read_genes('../../results/2021-07-01-high-conf-ADgenes/AD-genes-knowledge'),analyzed
+2021-10-04-CMap-discussion/2021-10-04-CMap-discussion.ipynb,4,2,open,open(fpath),analyzed
+2021-10-04-CMap-discussion/2021-10-04-CMap-discussion.ipynb,8,3,pd.read_excel,"pd.read_excel(fpath, 'lincs1000.result')",analyzed
+2021-10-04-CMap-discussion/2021-10-04-CMap-discussion.ipynb,10,2,pd.read_csv,"pd.read_csv(fpath, index_col='name')",analyzed
+2021-10-04-CMap-discussion/2021-10-04-CMap-discussion.ipynb,36,2,pd.read_csv,"pd.read_csv(fpath, sep='\t', skiprows=[0, 1, 3], na_values='-666')",analyzed
+2021-10-04-CMap-discussion/2021-10-04-CMap-discussion.ipynb,56,6,read_l1000cds,read_l1000cds(fpath='../../resources/CMap/L1000CDS2/drugs-mimicking-signature.csv'),analyzed
+2021-10-04-CMap-discussion/2021-10-04-CMap-discussion.ipynb,56,7,read_l1000cds,read_l1000cds(fpath='../../resources/CMap/L1000CDS2/drugs-reversing-signature.csv'),analyzed
+2021-10-04-CMap-discussion/2021-10-04-CMap-discussion.ipynb,56,2,pd.read_csv,pd.read_csv(fpath),analyzed
+2021-10-04-CMap-discussion/2021-10-04-CMap-discussion.ipynb,64,2,pd.read_csv,"pd.read_csv(fpath, sep='\t', skiprows=[0, 1, 3], na_values='-666')",analyzed
+2021-10-04-CMap-discussion/2021-10-04-CMap-discussion.ipynb,66,1,pd.read_csv,pd.read_csv('../../resources/CMap/SmallMolecule_1633383104307.csv'),analyzed
+2021-10-11-chembl-bindingdb/2021-10-11-chembl-bindingdb.ipynb,2,1,pd.read_csv,"pd.read_csv('../../resources/BindingDB/BindingDB_ChEMBL_2021m9-head.tsv', sep='\t')",analyzed
+2021-10-11-chembl-bindingdb/2021-10-11-chembl-bindingdb.ipynb,3,2,pd.read_csv,"pd.read_csv(fpath, sep='\t', usecols=['BindingDB Ligand Name'])",analyzed
+2021-10-11-chembl-bindingdb/2021-10-11-chembl-bindingdb.ipynb,14,2,pd.read_csv,"pd.read_csv(fpath, sep='\t', header=0, names=['chembl_id', 'drugbank_id'])",analyzed
+2021-10-11-chembl-bindingdb/2021-10-11-chembl-bindingdb.ipynb,15,2,pd.read_csv,pd.read_csv(fpath),analyzed
+2021-10-18-py4cytoscape/2021-10-18-py4cytoscape.ipynb,8,3,pd.read_csv,"pd.read_csv(id_mapping_file, sep='\t', index_col='GeneID')",analyzed
+2021-10-24-chembl-query/2021-10-24-chembl-query.ipynb,7,2,pd.read_csv,"pd.read_csv(fpath, index_col=('drug_chembl_id', 'target_uniprot_ac'))",analyzed
+2021-10-24-chembl-query/2021-10-24-chembl-query.ipynb,10,2,pd.read_csv,"pd.read_csv(fpath, sep='\t', usecols=[0, 2], dtype='str', names=['uniprot_ac', 'entrez_id'], index_col=0)",analyzed
+2021-10-24-chembl-query/2021-10-24-chembl-query.ipynb,18,1,pd.read_csv,"pd.read_csv('../../results/2021-10-24-chembl-query/chembl-knowledge-test.csv', index_col=0)",analyzed
+2021-10-24-chembl-query/2021-10-24-chembl-query.ipynb,20,3,pd.read_csv,"pd.read_csv(fpath, sep='\t', index_col=0)",analyzed
+2021-10-24-chembl-query/2021-10-24-chembl-query.ipynb,26,2,pd.read_csv,"pd.read_csv(fpath, index_col=(0, 1), dtype={'entrez_id': 'str'})",analyzed
+2021-11-09-chembl-screen-v1/2021-11-09-chembl-screen-v1.ipynb,6,2,pd.read_csv,"pd.read_csv(csv_path, index_col=0)",analyzed
+2021-11-09-chembl-screen-v1/2021-11-09-chembl-screen-v1.ipynb,8,3,pd.read_csv,"pd.read_csv(csv_path, index_col='drugbank_id')",analyzed
+2021-11-09-chembl-screen-v1/2021-11-09-chembl-screen-v1.ipynb,8,12,pd.read_csv,"pd.read_csv(fpath, sep='\t', index_col=1)",analyzed
+2021-11-09-chembl-screen-v1/2021-11-09-chembl-screen-v1.ipynb,9,2,pd.read_csv,"pd.read_csv(fpath, index_col='chembl_id', usecols=['chembl_id', 'jaccard_index', 'n_targets_chembl', 'n_targets_drugbank'])",analyzed
+2021-11-18-proximity-run-benchmark/2021-11-18-proximity-run-benchmark.ipynb,2,3,pd.read_csv,"pd.read_csv(dtn_path, index_col=index_col, dtype={'entrez_id': 'str'})",analyzed
+2021-11-18-proximity-run-benchmark/2021-11-18-proximity-run-benchmark.ipynb,8,8,read_geneset,read_geneset(gsetfpath),analyzed
+2021-11-18-proximity-run-benchmark/2021-11-18-proximity-run-benchmark.ipynb,8,9,read_geneset,read_geneset('../../resources/agora/AD-genes-agora-' + str(n)),analyzed
+2021-11-18-proximity-run-benchmark/2021-11-18-proximity-run-benchmark.ipynb,9,9,pd.read_csv,"pd.read_csv(scaling_fpath, index_col=0)",analyzed
+2021-11-18-proximity-run-benchmark/2021-11-18-proximity-run-benchmark.ipynb,15,1,pd.read_csv,pd.read_csv('../../results/2021-11-18-proximity-run-benchmark/ncpus.csv'),analyzed
+2021-11-28-ad-de-genes-apoe/2021-11-28-ad-de-genes-apoe.ipynb,4,3,pd.read_excel,"pd.read_excel(in_fpath, sheet_name=0)",analyzed
+2021-11-30-proximity-cmap/2021-11-30-proximity-cmap.ipynb,4,4,pd.read_csv,"pd.read_csv(fpath, sep='\t', skiprows=[0, 1, 3], na_values='-666', usecols=usecols_cmap, dtype=dtype_cmap)",analyzed
+2021-11-30-proximity-cmap/2021-11-30-proximity-cmap.ipynb,5,2,pd.read_csv,"pd.read_csv(fpath, index_col=0)",analyzed
+2021-11-30-proximity-cmap/2021-11-30-proximity-cmap.ipynb,9,4,pd.read_csv,"pd.read_csv(fpath, sep='\t', skiprows=[0, 1, 3], na_values='-666', usecols=usecols_cmap, dtype=dtype_cmap)",analyzed
+2021-11-30-proximity-cmap/2021-11-30-proximity-cmap.ipynb,9,10,read_cmap_helper,read_cmap_helper(fpath),analyzed
+2021-11-30-proximity-cmap/2021-11-30-proximity-cmap.ipynb,9,13,read_apoe_cmap,read_apoe_cmap(genotype),analyzed
+2021-11-30-proximity-cmap/2021-11-30-proximity-cmap.ipynb,10,3,pd.read_csv,"pd.read_csv(fpath, index_col=0)",analyzed
+2021-11-30-proximity-cmap/2021-11-30-proximity-cmap.ipynb,10,6,read_apoe_proxim,read_apoe_proxim(genotype),analyzed
+2021-11-30-proximity-cmap/2021-11-30-proximity-cmap.ipynb,15,3,read_cmap_helper,read_cmap_helper(fpath),analyzed
+2021-11-30-proximity-cmap/2021-11-30-proximity-cmap.ipynb,15,6,read_subtype_cmap,read_subtype_cmap(subtype),analyzed
+2021-11-30-proximity-cmap/2021-11-30-proximity-cmap.ipynb,16,3,pd.read_csv,"pd.read_csv(fpath, index_col=0)",analyzed
+2021-11-30-proximity-cmap/2021-11-30-proximity-cmap.ipynb,16,6,read_subtype_proxim,read_subtype_proxim(subtype),analyzed
+2021-12-02-proximity-various-ADgenesets/2021-12-02-proximity-various-ADgenesets.ipynb,4,6,read_gset,read_gset(fpath),analyzed
+2021-12-02-proximity-various-ADgenesets/2021-12-02-proximity-various-ADgenesets.ipynb,4,2,open,open(fpath),analyzed
+2021-12-02-proximity-various-ADgenesets/2021-12-02-proximity-various-ADgenesets.ipynb,7,3,pd.read_csv,"pd.read_csv(fpath, index_col=0)",analyzed
+2021-12-02-proximity-various-ADgenesets/2021-12-02-proximity-various-ADgenesets.ipynb,7,8,read_prox,read_prox(fpath),analyzed
+2021-12-04-ad-subtypes/2021-12-04-ad-subtypes.ipynb,2,3,pd.read_excel,"pd.read_excel(fpath, sheet_name='Overlap_MEGENA_BN', skiprows=1, usecols=range(4), dtype={'AD_Subtype': 'category', 'Direction': 'category'})",analyzed
+2021-12-08-apoe-de-genes-tunahan/2021-12-08-apoe-de-genes-tunahan.ipynb,3,2,pd.read_excel,"pd.read_excel(fpath, sheet_name=celltype, dtype={'Gene Symbol': 'str'})",analyzed
+2021-12-08-apoe-de-genes-tunahan/2021-12-08-apoe-de-genes-tunahan.ipynb,3,13,open,"open(fpath, 'w')",analyzed
+2021-12-11-bbb-permeability/2021-12-11-bbb-permeability.ipynb,2,5,pd.read_csv,"pd.read_csv(fpath, sep='\t', dtype=dtypes)",analyzed
+2021-12-13-chembl-drug-info/2021-12-13-chembl-drug-info.ipynb,7,2,pd.read_csv,pd.read_csv(fpath),analyzed
+2021-12-13-chembl-drug-info/2021-12-13-chembl-drug-info.ipynb,9,4,pd.read_csv,"pd.read_csv(fpath, sep='\t', dtype=dtypes)",analyzed
+2021-12-13-chembl-drug-info/2021-12-13-chembl-drug-info.ipynb,12,2,read_chembl_screen_results,read_chembl_screen_results(prox_path),analyzed
+2021-12-13-chembl-drug-info/2021-12-13-chembl-drug-info.ipynb,18,3,read_chembl_screen_results,read_chembl_screen_results(prox_path),analyzed
+2021-12-13-chembl-drug-info/2021-12-13-chembl-drug-info.ipynb,18,4,read_chembl_screen_results,read_chembl_screen_results(p),analyzed
+2021-12-13-chembl-drug-info/2021-12-13-chembl-drug-info.ipynb,21,3,pd.read_csv,"pd.read_csv(fpath, usecols=['drug_chembl_id', 'drug_name', ont_id, ont_name, 'max_phase_for_ind'], index_col=['drug_chembl_id', ont_id])",analyzed
+2021-12-31-rank-aggregation/2021-12-31-rank-aggregation.ipynb,27,2,R read.csv,"chembl_ids <- read.csv(fpath, as.is = TRUE)[-1]",analyzed
+2021-12-31-rank-aggregation/2021-12-31-rank-aggregation.ipynb,28,2,R read.csv,"drug.info <- read.csv(fpath, skip = 1, as.is = TRUE)[1:6]",analyzed
+2022-01-14-rank-aggregation/2022-01-14-rank-aggregation.ipynb,4,3,R read.csv,"input <- read.csv(input.csv, stringsAsFactors = FALSE)",analyzed
+2022-01-14-rank-aggregation/2022-01-14-rank-aggregation.ipynb,4,4,R read.csv,"space <- read.csv(space.csv, stringsAsFactors = FALSE)",analyzed
+2022-01-14-rank-aggregation/2022-01-14-rank-aggregation.ipynb,17,2,R read.csv,"drug.info <- read.csv(fpath, skip = 1, as.is = TRUE)[1:6]",analyzed
+2022-01-14-top-drugs/2022-01-14-top-drugs.ipynb,3,3,pd.read_csv,"pd.read_csv(fpath, index_col=0, skiprows=1, usecols=usecols)",analyzed
+2022-01-14-top-drugs/2022-01-14-top-drugs.ipynb,5,3,pd.read_csv,"pd.read_csv(fpath, index_col=0, header=[0, 1])",analyzed
+2022-01-14-top-drugs/2022-01-14-top-drugs.ipynb,7,2,pd.read_csv,"pd.read_csv(fpath, index_col='drug_chembl_id')",analyzed
+2022-01-14-top-drugs/2022-01-14-top-drugs.ipynb,9,2,pd.read_csv,"pd.read_csv(fpath, index_col=0)",analyzed
+2022-01-14-top-drugs/2022-01-14-top-drugs.ipynb,11,2,pd.read_csv,"pd.read_csv(fpath, index_col='rank')",analyzed
+2022-01-14-top-drugs/2022-01-14-top-drugs.ipynb,21,2,pd.read_csv,"pd.read_csv(fpath, index_col=['drug_chembl_id', 'mesh_id'])",analyzed
+2022-01-31-single-cell-de-genes/2022-01-31-single-cell-de-genes.ipynb,3,9,read_DEsc,"read_DEsc(celltype, early=True)",analyzed
+2022-01-31-single-cell-de-genes/2022-01-31-single-cell-de-genes.ipynb,3,10,read_DEsc,"read_DEsc(celltype, early=False)",analyzed
+2022-01-31-single-cell-de-genes/2022-01-31-single-cell-de-genes.ipynb,3,5,pd.read_excel,"pd.read_excel(fpath, sheet_name=celltype, skiprows=[0], usecols=usecols, index_col=0, names=names)",analyzed
+2022-01-31-single-cell-de-genes/2022-01-31-single-cell-de-genes.ipynb,5,9,open,"open(fpath, 'w')",analyzed
+2022-01-31-single-cell-de-genes/2022-01-31-single-cell-de-genes.ipynb,13,8,read_DEip,read_DEip(celltype),analyzed
+2022-01-31-single-cell-de-genes/2022-01-31-single-cell-de-genes.ipynb,13,3,open,"open(fpath, 'r')",analyzed
+2022-02-01-AD-DE-gene-sets/2022-02-01-AD-DE-gene-sets.ipynb,4,8,read_DEip,read_DEip(celltype),analyzed
+2022-02-01-AD-DE-gene-sets/2022-02-01-AD-DE-gene-sets.ipynb,4,3,open,"open(fpath, 'r')",analyzed
+2022-02-01-AD-DE-gene-sets/2022-02-01-AD-DE-gene-sets.ipynb,6,9,read_DEsc,"read_DEsc(celltype, early=True)",analyzed
+2022-02-01-AD-DE-gene-sets/2022-02-01-AD-DE-gene-sets.ipynb,6,10,read_DEsc,"read_DEsc(celltype, early=False)",analyzed
+2022-02-01-AD-DE-gene-sets/2022-02-01-AD-DE-gene-sets.ipynb,6,4,open,"open(fpath, 'r')",unresolved deferred operation
+2022-02-01-AD-DE-gene-sets/2022-02-01-AD-DE-gene-sets.ipynb,7,8,read_DEap,read_DEap(celltype),analyzed
+2022-02-01-AD-DE-gene-sets/2022-02-01-AD-DE-gene-sets.ipynb,7,3,open,"open(fpath, 'r')",analyzed
+2022-02-22-twas-update/2022-02-22-twas-update.ipynb,2,4,pd.read_csv,"pd.read_csv(fpath, index_col='drug_chembl_id')",analyzed
+2022-02-25-dilara-rmta-geneset/2022-02-25-dilara-rmta-geneset.ipynb,3,2,pd.read_excel,"pd.read_excel(inpath, index_col='gene', sheet_name='unique_gene_list')",analyzed
+2022-02-25-dilara-rmta-geneset/2022-02-25-dilara-rmta-geneset.ipynb,5,2,pd.read_csv,"pd.read_csv(fpath, index_col=0)",analyzed
+2022-02-25-dilara-rmta-geneset/2022-02-25-dilara-rmta-geneset.ipynb,6,2,pd.read_csv,"pd.read_csv(fpath, index_col='drug_chembl_id')",analyzed
+2022-02-25-dilara-rmta-geneset/2022-02-25-dilara-rmta-geneset.ipynb,7,2,pd.read_csv,"pd.read_csv(fpath, index_col=0)",analyzed
+2022-02-28-rat-study/2022-02-28-rat-study.ipynb,3,2,pd.read_csv,"pd.read_csv(fpath, delimiter='\t')",analyzed
+2022-02-28-rat-study/2022-02-28-rat-study.ipynb,4,2,pd.read_csv,"pd.read_csv(fpath, delimiter='\t')",analyzed
+2022-04-04-dilara-drug-rediscovery/2022-04-04-dilara-drug-rediscovery.ipynb,3,8,pd.read_csv,"pd.read_csv(fpath, index_col='drug_chembl_id')",analyzed
+2022-04-04-dilara-drug-rediscovery/2022-04-04-dilara-drug-rediscovery.ipynb,3,14,pd.read_csv,"pd.read_csv(fpath, index_col='rank')",analyzed
+2022-04-04-dilara-drug-rediscovery/2022-04-04-dilara-drug-rediscovery.ipynb,3,3,pd.read_csv,"pd.read_csv(fpath, index_col=0, skiprows=1, usecols=usecols)",analyzed
+2022-04-04-dilara-drug-rediscovery/2022-04-04-dilara-drug-rediscovery.ipynb,3,12,pd.read_csv,"pd.read_csv(fpath, index_col=0)",analyzed
+2022-04-04-dilara-drug-rediscovery/2022-04-04-dilara-drug-rediscovery.ipynb,3,6,pd.read_csv,"pd.read_csv(fpath, index_col=0, header=[0, 1])",analyzed
+2022-04-04-dilara-drug-rediscovery/2022-04-04-dilara-drug-rediscovery.ipynb,6,3,pd.read_csv,"pd.read_csv(fpath, index_col='rank')",analyzed
+2022-04-04-dilara-drug-rediscovery/2022-04-04-dilara-drug-rediscovery.ipynb,15,2,pd.read_excel,"pd.read_excel(inpath, index_col='DrugBankID', sheet_name=celltype)",analyzed
+2022-04-04-dilara-drug-rediscovery/2022-04-04-dilara-drug-rediscovery.ipynb,16,1,pd.read_csv,"pd.read_csv('../../resources/UniChem/chembl2drugbank.tsv', sep='\t', index_col=""To src:'2'"")",analyzed
+2022-05-09-AD-drugs/2022-05-09-AD-drugs.ipynb,4,2,pd.read_csv,"pd.read_csv(fpath, sep='\t', usecols=[0, 1, 2], dtype='str', names=['uniprot_ac', 'uniprot_name', 'entrez_id'], index_col=0)",analyzed
+2022-05-09-AD-drugs/2022-05-09-AD-drugs.ipynb,5,2,pd.read_csv,"pd.read_csv(fpath, index_col='uniprot_ac')",analyzed
+2022-05-09-AD-drugs/2022-05-09-AD-drugs.ipynb,18,2,pd.read_csv,"pd.read_csv(fpath, index_col='drug_chembl_id')",analyzed
+2022-05-09-AD-drugs/2022-05-09-AD-drugs.ipynb,19,3,pd.read_csv,"pd.read_csv(fpath, usecols=['drug_chembl_id', 'drug_name', 'target_uniprot_ac'])",analyzed
+2022-05-17-geneset-subtract/2022-05-17-geneset-subtract.ipynb,4,6,read_gset,read_gset(fpath),analyzed
+2022-05-17-geneset-subtract/2022-05-17-geneset-subtract.ipynb,4,2,open,open(fpath),analyzed
+2022-05-23-functional-enrichment/2022-05-23-functional-enrichment.ipynb,7,2,R read.csv,"dtn <- read.csv(fpath, stringsAsFactors = FALSE)",analyzed
+2022-05-23-functional-enrichment/2022-05-23-functional-enrichment.ipynb,11,1,R read.csv,"ranking <- read.csv(""../../results/2022-01-14-top-drugs/ranked-drugs.csv"")",analyzed
+2022-05-23-functional-enrichment/2022-05-23-functional-enrichment.ipynb,12,1,R read.csv,"indications <- read.csv(""../../results/2021-12-13-chembl-drug-info/drug-indication.csv"")",analyzed
+2022-08-11-pascal/2022-08-11-pascal.ipynb,3,3,pd.read_csv,"pd.read_csv(fpath, sep='\t', index_col='gene_symbol', dtype=dtype)",analyzed
+2022-08-11-pascal/2022-08-11-pascal.ipynb,4,4,open,open(fpath),analyzed
+2022-08-22-dream-modules/2022-08-22-dream-modules.ipynb,6,2,pd.read_csv,"pd.read_csv(enrichment_fpath, sep='\t', index_col='Name')",analyzed
+2022-08-22-dream-modules/2022-08-22-dream-modules.ipynb,6,5,open,open(ingmt_fpath),analyzed
+2022-08-22-dream-modules/2022-08-22-dream-modules.ipynb,8,1,pd.read_csv,"pd.read_csv('../../results/2022-08-11-pascal/results.csv', index_col=0)",analyzed
+2022-08-31-dream-modules-gprofiler/2022-08-31-dream-modules-gprofiler.ipynb,2,1,R read.csv,"modules <- read.csv(""../../results/2022-08-22-dream-modules/dream-modules-AD-GWAS-AD-genesets.csv"", stringsAsFactors = FALSE)",analyzed
+2022-09-21-cell-based-assays/2022-09-21-cell-based-assays.ipynb,3,2,pd.read_excel,"pd.read_excel('../../results/experimental/CO28151_outcome summary-v2.xlsx', 'CO28151')",analyzed
+2022-09-21-cell-based-assays/2022-09-21-cell-based-assays.ipynb,4,20,read_dunnett,read_dunnett(),analyzed
+2022-09-21-cell-based-assays/2022-09-21-cell-based-assays.ipynb,4,21,read_dunnett,"read_dunnett(assay='supernatant', Class='Abeta clearance', compound='TI26', date='2023-08-29')",analyzed
+2022-09-21-cell-based-assays/2022-09-21-cell-based-assays.ipynb,4,6,pd.read_csv,"pd.read_csv(fpath, sep='\t', header=4, nrows=nrows, index_col='Unnamed: 7')",analyzed
+2022-09-21-cell-based-assays/2022-09-21-cell-based-assays.ipynb,5,1,read_dunnett,"read_dunnett(assay, Class='LPS Neuroinflamamtion iPSC', date='2023-08-31')",analyzed
+2022-09-21-cell-based-assays/2022-09-21-cell-based-assays.ipynb,5,2,read_dunnett,"read_dunnett(assay, Class='Abeta clearance iPSC', date='2023-08-29')",analyzed
+2022-09-21-cell-based-assays/2022-09-21-cell-based-assays.ipynb,6,2,pd.read_excel,"pd.read_excel(fpath, sheet, header=[0, 1, 2])",analyzed
+2022-09-21-cell-based-assays/2022-09-21-cell-based-assays.ipynb,8,14,pd.read_excel,"pd.read_excel(fpath, 'Tabelle1', skiprows=5, index_col=[2, 3], header=list(range(3)))",analyzed
+2022-09-21-cell-based-assays/2022-09-21-cell-based-assays.ipynb,8,24,read_results,"read_results(fpath, 'Sheet1')",analyzed
+2022-09-21-cell-based-assays/2022-09-21-cell-based-assays.ipynb,8,26,pd.read_csv,"pd.read_csv(fpath, index_col=0)",analyzed
+2022-09-21-cell-based-assays/2022-09-21-cell-based-assays.ipynb,14,3,pd.read_csv,"pd.read_csv(fpath, index_col=['class', 'assay', 'concentration'])",analyzed
+2022-09-26-selected-drugs/2022-09-26-selected-drugs.ipynb,8,2,pd.read_csv,"pd.read_csv(fpath, sep='\t', usecols=['uniprot_ids', 'symbol', 'entrez_id'], dtype={'entrez_id': str})",analyzed
+2022-09-26-selected-drugs/2022-09-26-selected-drugs.ipynb,10,13,pd.read_excel,"pd.read_excel(fpath, sheet_name=name, header=None)",analyzed
+2022-09-26-selected-drugs/2022-09-26-selected-drugs.ipynb,11,2,read_gset,"read_gset(gs, convert=v)",analyzed
+2022-09-26-selected-drugs/2022-09-26-selected-drugs.ipynb,17,2,pd.read_csv,pd.read_csv(fpath),analyzed
+2022-09-26-selected-drugs/2022-09-26-selected-drugs.ipynb,45,5,pd.read_csv,pd.read_csv('../../results/2022-09-26-selected-drugs/' + gset + '-shortest_paths.csv'),analyzed
+2022-09-26-selected-drugs/2022-09-26-selected-drugs.ipynb,47,6,pd.read_csv,pd.read_csv('../../results/2022-09-26-selected-drugs/knowledge-TWAS2+-agora2+-shortest_paths.csv'),analyzed
+2022-09-30-tutorial/2022-09-30-tutorial.ipynb,2,1,pd.read_csv,"pd.read_csv(fpath, header=[0, 1])",analyzed
+2022-10-07-AD-subtypes-rMTA/2022-10-07-AD-subtypes-rMTA.ipynb,2,3,pd.read_excel,"pd.read_excel(inpath, sheet_name=subtype, usecols=['symbol'])",analyzed
+2022-11-09-rat-metabolites/2022-11-09-rat-metabolites.ipynb,3,2,ratmetab.read_all_data,ratmetab.read_all_data(),analyzed
+2022-11-09-rat-metabolites/2022-11-09-rat-metabolites.ipynb,4,9,ratmetab.read_data,"ratmetab.read_data('../../resources/rat-metabolites/Rat_' + v + '.csv', codebookpath, liberal_filter=True, return_m2exclude=True)",analyzed
+2022-11-09-rat-metabolites/2022-11-09-rat-metabolites.ipynb,4,10,ratmetab.read_data,"ratmetab.read_data('../../resources/rat-metabolites/Rat_' + v + '.csv', codebookpath, liberal_filter=False, return_m2exclude=True)",analyzed
+2022-11-09-rat-metabolites/2022-11-09-rat-metabolites.ipynb,5,18,pd.read_csv,"pd.read_csv(codebookpath, index_col='MetaboliteName')",analyzed
+2022-11-09-rat-metabolites/2022-11-09-rat-metabolites.ipynb,12,3,pd.read_csv,"pd.read_csv(codebookpath, index_col='MetaboliteName')",analyzed
+2022-11-09-rat-metabolites/2022-11-09-rat-metabolites.ipynb,15,1,ratmetab.read_subclassification,ratmetab.read_subclassification(),analyzed
+2022-12-12-rat-metabolites/2022-12-12-rat-metabolites.ipynb,2,1,ratmetab.read_all_data,ratmetab.read_all_data(),analyzed
+2022-12-12-rat-metabolites/2022-12-12-rat-metabolites.ipynb,3,4,pd.read_csv,"pd.read_csv(codebookpath, index_col='MetaboliteName')",analyzed
+2022-12-12-rat-metabolites/2022-12-12-rat-metabolites.ipynb,3,33,pd.read_csv,"pd.read_csv(codebookpath, index_col='MetaboliteName')",analyzed
+2022-12-13-rat-metabolites/2022-12-13-rat-metabolites.ipynb,2,1,ratmetab.read_all_data,ratmetab.read_all_data(),analyzed
+2022-12-13-rat-metabolites/2022-12-13-rat-metabolites.ipynb,3,2,pd.read_csv,"pd.read_csv(fpath, index_col=0)",analyzed
+2022-12-13-rat-metabolites/2022-12-13-rat-metabolites.ipynb,30,2,pd.read_csv,"pd.read_csv(codebookpath, index_col='MetaboliteName')",analyzed
+2022-21-10-mathys-iMAT/2022-21-10-mathys-iMAT.ipynb,2,2,pd.read_csv,"pd.read_csv(fpath, header=None)",analyzed
+2022-21-10-mathys-iMAT/2022-21-10-mathys-iMAT.ipynb,3,2,pd.read_excel,"pd.read_excel(fpath, dtype=pd.Categorical)",analyzed
+2022-21-10-mathys-iMAT/2022-21-10-mathys-iMAT.ipynb,5,4,pd.read_excel,"pd.read_excel(metapath, dtype='category')",analyzed
+2022-21-10-mathys-iMAT/2022-21-10-mathys-iMAT.ipynb,5,13,read_imat,read_imat(c),analyzed
+2022-21-10-mathys-iMAT/2022-21-10-mathys-iMAT.ipynb,5,7,pd.read_csv,"pd.read_csv(imatpath, header=None)",analyzed
+2023-01-06-mixed-model-metab/2023-01-06-mixed-model-metab.ipynb,2,1,ratmetab.read_all_data,ratmetab.read_all_data(),analyzed
+2023-01-06-mixed-model-metab/2023-01-06-mixed-model-metab.ipynb,4,2,pd.read_csv,"pd.read_csv(codebookpath, index_col='MetaboliteName')",analyzed
+2023-01-06-mixed-model-metab/2023-01-06-mixed-model-metab.ipynb,4,4,ratmetab.read_subclassification,ratmetab.read_subclassification(),analyzed
+2023-01-06-mixed-model-metab/2023-01-06-mixed-model-metab.ipynb,22,2,pd.read_csv,"pd.read_csv(fpath, header=[0, 1])",analyzed
+2023-02-01-bibliography/2023-02-01-bibliography.ipynb,2,2,open,open(fpath_bib),analyzed
+2023-02-01-bibliography/2023-02-01-bibliography.ipynb,2,3,bibtexparser.load,bibtexparser.load(inbibf),analyzed
+2023-02-01-bibliography/2023-02-01-bibliography.ipynb,6,5,open,"open(fpath_outbib, 'w')",analyzed
+2023-02-06-AD-subtypes-active-reactions/2023-02-06-AD-subtypes-active-reactions.ipynb,2,17,gem_tools.read_active_reactions,gem_tools.read_active_reactions(groupdict),analyzed
+2023-02-06-AD-subtypes-active-reactions/2023-02-06-AD-subtypes-active-reactions.ipynb,11,1,gem_tools.read_gem_excel,gem_tools.read_gem_excel(),analyzed
+2023-02-06-AD-subtypes-active-reactions/2023-02-06-AD-subtypes-active-reactions.ipynb,29,5,pd.read_csv,"pd.read_csv(fpath, index_col=0)",analyzed
+2023-02-06-AD-subtypes-active-reactions/2023-02-06-AD-subtypes-active-reactions.ipynb,32,1,gem_tools.read_gem_excel,"gem_tools.read_gem_excel(usecols=['ID', 'SUBSYSTEM', 'EQUATION'])",analyzed
+2023-02-06-AD-subtypes-active-reactions/2023-02-06-AD-subtypes-active-reactions.ipynb,32,4,pd.read_csv,"pd.read_csv(fpath, index_col='rxn_ID')",analyzed
+2023-02-10-gem-subsystems/.ipynb_checkpoints/2023-02-10-gem-subsystem-checkpoint.ipynb,2,1,gem_tools.read_active_reactions,"gem_tools.read_active_reactions(groupdict={'m-control': ('all_control', 'MSBB'), 'm-AD-B2': ('SubtypeB2_AD', 'MSBB')})",analyzed
+2023-02-10-gem-subsystems/.ipynb_checkpoints/2023-02-10-gem-subsystem-checkpoint.ipynb,3,1,gem_tools.read_gem_excel,gem_tools.read_gem_excel(),analyzed
+2023-02-10-gem-subsystems/.ipynb_checkpoints/2023-02-10-gem-subsystem-checkpoint.ipynb,9,1,pd.read_csv,pd.read_csv('../../resources/tunahan/Busra-2023-02-05/subsystem-pathway.csv'),analyzed
+2023-02-10-gem-subsystems/.ipynb_checkpoints/2023-02-10-gem-subsystem-checkpoint.ipynb,22,4,open,"open(fpath, 'rb')",analyzed
+2023-02-10-gem-subsystems/.ipynb_checkpoints/2023-02-10-gem-subsystem-checkpoint.ipynb,22,5,pickle.load,pickle.load(f),analyzed
+2023-02-10-gem-subsystems/.ipynb_checkpoints/2023-02-10-gem-subsystem-checkpoint.ipynb,22,10,open,"open(fpath, 'wb')",analyzed
+2023-02-10-gem-subsystems/.ipynb_checkpoints/2023-02-10-gem-subsystem-checkpoint.ipynb,24,29,pd.read_csv,pd.read_csv(fpath),analyzed
+2023-02-10-gem-subsystems/.ipynb_checkpoints/2023-02-10-gem-subsystem-checkpoint.ipynb,28,3,pd.read_csv,"pd.read_csv(fpath, index_col='subsystem')",analyzed
+2023-02-10-gem-subsystems/.ipynb_checkpoints/2023-02-10-gem-subsystem-checkpoint.ipynb,31,8,pd.read_csv,pd.read_csv(fpath),analyzed
+2023-02-10-gem-subsystems/2023-02-10-gem-subsystem.ipynb,2,1,gem_tools.read_active_reactions,"gem_tools.read_active_reactions(groupdict={'m-control': ('all_control', 'MSBB'), 'm-AD-B2': ('SubtypeB2_AD', 'MSBB')})",analyzed
+2023-02-10-gem-subsystems/2023-02-10-gem-subsystem.ipynb,3,1,gem_tools.read_gem_excel,gem_tools.read_gem_excel(),analyzed
+2023-02-10-gem-subsystems/2023-02-10-gem-subsystem.ipynb,9,1,pd.read_csv,pd.read_csv('../../resources/tunahan/Busra-2023-02-05/subsystem-pathway.csv'),analyzed
+2023-02-10-gem-subsystems/2023-02-10-gem-subsystem.ipynb,22,4,open,"open(fpath, 'rb')",analyzed
+2023-02-10-gem-subsystems/2023-02-10-gem-subsystem.ipynb,22,5,pickle.load,pickle.load(f),analyzed
+2023-02-10-gem-subsystems/2023-02-10-gem-subsystem.ipynb,22,10,open,"open(fpath, 'wb')",analyzed
+2023-02-10-gem-subsystems/2023-02-10-gem-subsystem.ipynb,24,29,pd.read_csv,pd.read_csv(fpath),analyzed
+2023-02-10-gem-subsystems/2023-02-10-gem-subsystem.ipynb,28,3,pd.read_csv,"pd.read_csv(fpath, index_col='subsystem')",analyzed
+2023-02-10-gem-subsystems/2023-02-10-gem-subsystem.ipynb,31,8,pd.read_csv,pd.read_csv(fpath),analyzed
+2023-02-22-bayes-logi-model-fitting/2023-02-22-bayes-logi-model-fitting.ipynb,2,1,gem_tools.read_active_reactions,"gem_tools.read_active_reactions(groupdict={'m-control': ('all_control', 'MSBB'), 'm-AD-B2': ('SubtypeB2_AD', 'MSBB')})",analyzed
+2023-02-22-bayes-logi-model-fitting/2023-02-22-bayes-logi-model-fitting.ipynb,2,2,gem_tools.read_gem_excel,gem_tools.read_gem_excel(),analyzed
+2023-02-22-bayes-logi-model-fitting/2023-02-22-bayes-logi-model-fitting.ipynb,3,12,pd.read_csv,"pd.read_csv(fpath, index_col=[0, 1])",analyzed
+2023-03-03-Y-AU-AI-boxplots/2023-03-03-Y-AU-AI-boxplots.ipynb,3,1,ratmetab.read_all_data,ratmetab.read_all_data(),analyzed
+2023-04-14-AD-subtype-specificity/2023-04-14-AD-subtype-specificity.ipynb,2,1,gem_tools.read_gem_excel,gem_tools.read_gem_excel(),analyzed
+2023-04-14-AD-subtype-specificity/2023-04-14-AD-subtype-specificity.ipynb,3,2,pd.read_csv,"pd.read_csv(fpath, index_col=0)",analyzed
+2023-04-14-AD-subtype-specificity/2023-04-14-AD-subtype-specificity.ipynb,4,2,pd.read_csv,pd.read_csv(fpath),analyzed
+2023-04-14-AD-subtype-specificity/2023-04-14-AD-subtype-specificity.ipynb,11,4,pd.read_csv,"pd.read_csv(fpath, index_col='rxn_ID')",analyzed
+2023-04-14-AD-subtype-specificity/2023-04-14-AD-subtype-specificity.ipynb,11,22,read_fisher_csv,"read_fisher_csv(g, cohort=cohort)",analyzed
+2023-04-20-cell-based-assays/2023-04-20-cell-based-assays.ipynb,2,2,pd.read_excel,"pd.read_excel(fpath, 'CO28151', index_col=[0, 1, -1])",analyzed
+2023-08-25-imat-validation/2023-08-25-imat-validation.ipynb,4,2,load_yaml_model,load_yaml_model(gempath),analyzed
+2023-08-25-imat-validation/2023-08-25-imat-validation.ipynb,8,2,pd.read_excel,"pd.read_excel(gempath_xlsx, 'METS')",analyzed
+2023-08-25-imat-validation/2023-08-25-imat-validation.ipynb,12,2,pd.read_excel,"pd.read_excel(fpath, index_col='CHEM_ID')",analyzed
+2023-08-25-imat-validation/2023-08-25-imat-validation.ipynb,14,14,pd.read_csv,"pd.read_csv(imat_path, index_col='rxn_ID')",analyzed
+2023-08-25-imat-validation/2023-08-25-imat-validation.ipynb,14,18,pd.read_excel,"pd.read_excel(fpath, sheet_name=sheet_name, index_col='CHEM_ID')",analyzed
+2023-08-25-imat-validation/2023-08-25-imat-validation.ipynb,16,2,pd.read_excel,"pd.read_excel(fpath, sheet_name='ClassA', index_col='CHEM_ID')",analyzed
+2023-09-05-ipsc-results/2023-09-05-ipsc-results.ipynb,2,8,read_dunnett,read_dunnett(),analyzed
+2023-09-05-ipsc-results/2023-09-05-ipsc-results.ipynb,2,4,pd.read_csv,"pd.read_csv(fpath, sep='\t', header=4, nrows=4, index_col='Unnamed: 7')",analyzed
+2023-09-13-cell-based-assays-bayes/2023-09-13-cell-based-assays-bayes.ipynb,3,1,cba.read_data,"cba.read_data(compound='TI26', assay='TNF', bname='../../resources/cell-based-assays/Tina-email-2023-08-31/')",analyzed
+2023-09-13-cell-based-assays-bayes/2023-09-13-cell-based-assays-bayes.ipynb,4,1,cba.read_reshape_data,"cba.read_reshape_data(compound='TI26', assay='TNF', concentrations=concentrations, bname='../../resources/cell-based-assays/Tina-email-2023-08-31/')",analyzed
+2023-09-13-cell-based-assays-bayes/2023-09-13-cell-based-assays-bayes.ipynb,8,1,cba.read_reshape_data,"cba.read_reshape_data(compound='TI26', assay='TNF', concentrations=concentrations, bname='../../resources/cell-based-assays/Tina-email-2023-08-31/')",analyzed
+2023-09-13-cell-based-assays-bayes/2023-09-13-cell-based-assays-bayes.ipynb,37,69,open,"open('../../results/2023-09-13-cell-based-assays-bayes/experiments.csv', 'wb')",analyzed
+2023-09-13-cell-based-assays-bayes/2023-09-13-cell-based-assays-bayes.ipynb,40,3,cba.read_reshape_data,"cba.read_reshape_data(compound=compound, assay=assay, concentrations=concentrations, bname=bname)",analyzed
+2023-09-13-cell-based-assays-bayes/2023-09-13-cell-based-assays-bayes.ipynb,45,4,cba.read_reshape_data,cba.read_reshape_data(**r.to_dict()),unresolved deferred operation
+2023-09-13-cell-based-assays-bayes/2023-09-13-cell-based-assays-bayes.ipynb,49,4,cba.read_reshape_data,"cba.read_reshape_data(compound=compound, assay=assay, concentrations=concentrations)",analyzed
+2023-09-26-cell-bayes-assays/2023-09-26-cell-bayes-assays.ipynb,2,31,pd.read_excel,"pd.read_excel(fpath, sheet_name=sheet_name, skiprows=skiprows)",analyzed
+2023-09-26-cell-bayes-assays/2023-09-26-cell-bayes-assays.ipynb,3,10,read_data,"read_data(sheet_name=sheet_name, assays=assays_LPS, mean_sem_col='Group', skiprows=0)",analyzed
+2023-09-26-cell-bayes-assays/2023-09-26-cell-bayes-assays.ipynb,4,9,read_data,"read_data(sheet_name=sheet_name, assays=assays_Ab_toxicity, mean_sem_col='IRN', skiprows=0)",analyzed
+2023-09-26-cell-bayes-assays/2023-09-26-cell-bayes-assays.ipynb,5,9,read_data,"read_data(sheet_name=sheet_name, assays=assays_Ab_release, mean_sem_col='Group', skiprows=1)",analyzed
+2023-09-26-cell-bayes-assays/2023-09-26-cell-bayes-assays.ipynb,6,9,read_data,"read_data(sheet_name=sheet_name, assays=assays_Ab_clearance, mean_sem_col='Group', skiprows=1)",analyzed
+2023-09-26-cell-bayes-assays/2023-09-26-cell-bayes-assays.ipynb,7,9,read_data,"read_data(sheet_name=sheet_name, assays=assays_GF_withdrawal, mean_sem_col='IRN', skiprows=0)",analyzed
+2023-09-26-cell-bayes-assays/2023-09-26-cell-bayes-assays.ipynb,8,9,read_data,"read_data(sheet_name=sheet_name, assays=assays_Tau_phosphorylation, mean_sem_col='Group', skiprows=0)",analyzed
+2023-09-26-cell-bayes-assays/2023-09-26-cell-bayes-assays.ipynb,9,9,read_data,"read_data(sheet_name=sheet_name, assays=assays_NOG, mean_sem_col='IRN', skiprows=0)",analyzed
+2023-09-26-cell-bayes-assays/2023-09-26-cell-bayes-assays.ipynb,11,1,open,"open('../../results/2023-09-26-cell-bayes-assays/data.nc', 'wb')",analyzed
+2023-09-26-cell-bayes-assays/2023-09-26-cell-bayes-assays.ipynb,21,2,pd.read_csv,"pd.read_csv(fpath, index_col='experiment')",analyzed
+2023-09-26-cell-bayes-assays/2023-09-26-cell-bayes-assays.ipynb,45,1,open,"open('../../results/2023-09-13-cell-based-assays-bayes/experiments.csv', 'rb')",analyzed
+2023-09-26-cell-bayes-assays/2023-09-26-cell-bayes-assays.ipynb,45,22,pd.read_csv,"pd.read_csv(maindir + subdir + 'fpaths.csv', index_col=[0, 1, 2])",analyzed
+2023-09-26-cell-bayes-assays/2023-09-26-cell-bayes-assays.ipynb,45,38,idatadf_from_netcdf,"idatadf_from_netcdf(subdir='idatadf/', maindir='../../results/2023-09-26-cell-bayes-assays/')",analyzed
+2023-09-26-cell-bayes-assays/2023-09-26-cell-bayes-assays.ipynb,45,2,pickle.load,pickle.load(f),analyzed
+2023-09-26-cell-bayes-assays/2023-09-26-cell-bayes-assays.ipynb,45,23,az.from_netcdf,az.from_netcdf(row.loc['fpath']),unresolved deferred operation
+2023-09-26-cell-bayes-assays/2023-09-26-cell-bayes-assays.ipynb,50,2,pd.read_csv,"pd.read_csv(fpath, index_col=['experiment (nice)', 'assay (nice)'], usecols=['experiment', 'assay', 'experiment (nice)', 'assay (nice)', 'H1_increase', 'ideal effect'])",analyzed
+2023-09-26-cell-bayes-assays/2023-09-26-cell-bayes-assays.ipynb,51,22,pd.read_csv,"pd.read_csv(fpath, index_col=[0, 1], header=[0, 1])",analyzed
+2023-09-26-cell-bayes-assays/2023-09-26-cell-bayes-assays.ipynb,62,15,cba.read_reshape_data,"cba.read_reshape_data(treatment_name, a, concentrations, bname)",analyzed
+2023-09-26-cell-bayes-assays/2023-09-26-cell-bayes-assays.ipynb,72,3,pd.read_csv,"pd.read_csv(fpath, index_col=index_col, usecols=index_col + list(idatadf.columns))",analyzed
+2023-10-13-5xfad-maze/2023-10-13-5xfad-maze.ipynb,4,17,read_data_train,"read_data_train(fpath1, group2condition1)",analyzed
+2023-10-13-5xfad-maze/2023-10-13-5xfad-maze.ipynb,4,21,read_data_train,"read_data_train(fpath2, group2condition2)",analyzed
+2023-10-13-5xfad-maze/2023-10-13-5xfad-maze.ipynb,4,2,pd.read_excel,"pd.read_excel(fpath, sheet_name='rawdata MWM day 1-4', header=[0, 1], index_col=None)",analyzed
+2023-10-13-5xfad-maze/2023-10-13-5xfad-maze.ipynb,14,2,pd.read_csv,pd.read_csv(fpath),analyzed
+2023-11-07-5xfad-maze-latency/2023-11-07-5xfad-maze-latency.ipynb,3,2,pd.read_csv,"pd.read_csv(fpath, index_col=['cohort', 'group', 'sex', 'irn', 'day'])",analyzed
+2023-11-07-5xfad-maze-latency/2023-11-07-5xfad-maze-latency.ipynb,4,2,pd.read_csv,"pd.read_csv(fpath, index_col=['cohort', 'group', 'sex', 'irn', 'day'])",analyzed
+2023-11-07-5xfad-maze-test-probe/2023-11-07-5xfad-maze-test-probe.ipynb,3,8,pd.read_excel,"pd.read_excel(fpath, sheet_name='rawdata MWM day 5', index_col='IRN')",analyzed
+2023-11-07-5xfad-maze-test-probe/2023-11-07-5xfad-maze-test-probe.ipynb,3,12,pd.read_excel,"pd.read_excel(fpath, sheet_name='cleaned', index_col='IRN')",analyzed
+2023-11-07-5xfad-maze-test-probe/2023-11-07-5xfad-maze-test-probe.ipynb,4,15,pd.read_excel,"pd.read_excel(fpath, sheet_name='cleaned', index_col='IRN')",analyzed
+2023-11-15-5xfad-nfl-gfap/2023-11-15-5xfad-nfl-gfap.ipynb,3,2,pd.read_excel,"pd.read_excel(fpath, sheet_name='NFL in vivo clean')",analyzed
+2023-11-15-5xfad-nfl-gfap/2023-11-15-5xfad-nfl-gfap.ipynb,11,2,pd.read_excel,"pd.read_excel(fpath, sheet_name='NFL terminal clean')",analyzed
+2023-11-15-5xfad-nfl-gfap/2023-11-15-5xfad-nfl-gfap.ipynb,21,2,pd.read_excel,"pd.read_excel(fpath, sheet_name='GFAP plasma clean')",analyzed
+2023-11-19-cell-based-assays/2023-11-19-cell-based-assays.ipynb,3,3,pd.read_excel,"pd.read_excel(fpath, sheet_name=sheet_name)",analyzed
+2023-11-19-cell-based-assays/2023-11-19-cell-based-assays.ipynb,3,7,pd.read_excel,"pd.read_excel(fpath, sheet_name=sheet_name)",analyzed
+2023-11-19-cell-based-assays/2023-11-19-cell-based-assays.ipynb,3,11,pd.read_excel,"pd.read_excel(fpath, sheet_name=sheet_name)",analyzed
+2023-11-19-cell-based-assays/2023-11-19-cell-based-assays.ipynb,27,2,pd.read_clipboard,pd.read_clipboard(),unresolved deferred operation
+2023-11-19-cell-based-assays/2023-11-19-cell-based-assays.ipynb,29,4,pd.read_excel,"pd.read_excel(fpath, sheet_name=key)",analyzed
+2023-11-19-cell-based-assays/2023-11-19-cell-based-assays.ipynb,30,2,pd.read_excel,"pd.read_excel(fpath, sheet_name=key)",analyzed
+2023-11-19-cell-based-assays/2023-11-19-cell-based-assays.ipynb,31,2,pd.read_excel,"pd.read_excel(fpath, sheet_name=key)",analyzed
+2023-11-19-cell-based-assays/2023-11-19-cell-based-assays.ipynb,32,2,pd.read_excel,"pd.read_excel(fpath, sheet_name=key)",analyzed
+2023-11-19-cell-based-assays/2023-11-19-cell-based-assays.ipynb,33,2,pd.read_excel,"pd.read_excel(fpath, sheet_name=key)",analyzed
+2023-11-19-cell-based-assays/2023-11-19-cell-based-assays.ipynb,34,1,pd.read_excel,"pd.read_excel(fpath, sheet_name='Tau phosphorylation')",analyzed
+2023-12-18-5xfad-nfl-gfap-frequentist/2023-12-18-5xfad-nfl-gfap-frequentist.ipynb,3,2,pd.read_excel,"pd.read_excel(fpath, sheet_name='NFL in vivo clean')",analyzed
+2023-12-18-5xfad-nfl-gfap-frequentist/2023-12-18-5xfad-nfl-gfap-frequentist.ipynb,14,2,pd.read_excel,"pd.read_excel(fpath, sheet_name='NFL terminal clean')",analyzed
+2024-01-05-5xfad-nfl-frequentist/2024-01-05-5xfad-nfl-frequentist.ipynb,4,2,pd.read_excel,"pd.read_excel(fpath, sheet_name='NFL in vivo clean')",analyzed
+2024-01-05-5xfad-nfl-frequentist/2024-01-05-5xfad-nfl-frequentist.ipynb,4,15,read_data,"read_data(f, t)",analyzed
+2024-01-08-apoe-logistic-regression/2024-01-08-apoe-logistic-regression.ipynb,2,1,gem_tools.read_active_reactions,"gem_tools.read_active_reactions(groupdict={'m-control': ('all_control', 'MSBB'), 'm-AD-B2': ('SubtypeB2_AD', 'MSBB')})",analyzed
+2024-01-08-apoe-logistic-regression/2024-01-08-apoe-logistic-regression.ipynb,2,2,gem_tools.read_gem_excel,gem_tools.read_gem_excel(),analyzed
+2024-01-08-apoe-logistic-regression/2024-01-08-apoe-logistic-regression.ipynb,3,1,gem_tools.read_gem_excel,gem_tools.read_gem_excel(),analyzed
+2024-01-08-apoe-logistic-regression/2024-01-08-apoe-logistic-regression.ipynb,4,2,pd.read_excel,pd.read_excel(fpath),analyzed
+2024-01-21-cell-bayes-assays-dim/2024-01-21-cell-bayes-assays-dim.ipynb,3,2,pd.read_excel,"pd.read_excel(fpath, 1)",analyzed
+2024-01-21-cell-bayes-assays-dim/2024-01-21-cell-bayes-assays-dim.ipynb,6,34,pickle.load,"pickle.load(open('../../results/2023-09-26-cell-bayes-assays/data.nc', 'rb'))",analyzed
+2024-01-21-cell-bayes-assays-dim/2024-01-21-cell-bayes-assays-dim.ipynb,6,35,pd.read_csv,"pd.read_csv('TI_26_11_12-controls.csv', index_col='experiment')",analyzed
+2024-01-21-cell-bayes-assays-dim/2024-01-21-cell-bayes-assays-dim.ipynb,6,2,pd.read_excel,"pd.read_excel(fpath, experimentd[experiment])",analyzed
+2024-01-21-cell-bayes-assays-dim/2024-01-21-cell-bayes-assays-dim.ipynb,6,34,open,"open('../../results/2023-09-26-cell-bayes-assays/data.nc', 'rb')",analyzed
+2024-01-21-cell-bayes-assays-dim/2024-01-21-cell-bayes-assays-dim.ipynb,33,2,cba.idatadf_from_netcdf,"cba.idatadf_from_netcdf(subdir='idatadf/', maindir='../../results/2023-09-26-cell-bayes-assays/')",analyzed
+2024-01-21-cell-bayes-assays-dim/2024-01-21-cell-bayes-assays-dim.ipynb,34,35,cba.read_ideal_H1_increase,cba.read_ideal_H1_increase(),analyzed
+2024-01-21-cell-bayes-assays-dim/2024-01-21-cell-bayes-assays-dim.ipynb,35,13,pd.read_csv,"pd.read_csv('arundine-analogs.csv', index_col='TI')",analyzed
+2024-01-21-cell-bayes-assays-dim/2024-01-21-cell-bayes-assays-dim.ipynb,35,9,cba.idatadf_from_netcdf,"cba.idatadf_from_netcdf(subdir='idatadf/', maindir=maindir)",analyzed
+2024-01-21-cell-bayes-assays-dim/2024-01-21-cell-bayes-assays-dim.ipynb,41,12,pd.read_csv,"pd.read_csv(fpath, index_col=[0, 1], header=[0, 1])",analyzed
+2024-01-21-cell-bayes-assays-dim/2024-01-21-cell-bayes-assays-dim.ipynb,42,14,pd.read_csv,"pd.read_csv(fpath, index_col=[0, 1], header=[0, 1])",analyzed
+2024-02-14-cell-bayes/2024-02-14-cell-bayes.ipynb,4,9,cba.idatas_from_netcdf,"cba.idatas_from_netcdf(subdir='idatas/', maindir=maindir)",analyzed
+2024-02-14-cell-bayes/2024-02-14-cell-bayes.ipynb,24,8,pd.read_csv,"pd.read_csv(fpath, index_col=[0, 1, 2, 3])",analyzed
+2024-02-14-cell-bayes/2024-02-14-cell-bayes.ipynb,39,2,pd.read_csv,"pd.read_csv(fpath, index_col=['assay', 'TI', 'conc'])",analyzed
+2024-02-14-cell-bayes/2024-02-14-cell-bayes.ipynb,40,39,pd.read_csv,"pd.read_csv('freqres-name-correction.csv', index_col=['experiment', 'assay'])",analyzed
+2024-02-14-cell-bayes/2024-02-14-cell-bayes.ipynb,41,5,pd.read_csv,"pd.read_csv(fpath, index_col=['experiment (nice)', 'assay (nice)'], usecols=['experiment', 'assay', 'experiment (nice)', 'assay (nice)', 'H1_increase', 'ideal effect'])",analyzed
+2024-02-29-Y-maze/2024-02-29-Y-maze.ipynb,3,6,read_data,"read_data('../../resources/QPS/5xFAD-mouse/CO26990-behavioral-data-cleaned.xlsx', treatments_CO26990)",analyzed
+2024-02-29-Y-maze/2024-02-29-Y-maze.ipynb,3,2,pd.read_excel,"pd.read_excel(fpath, sheet_name='Y-Maze')",analyzed
+2024-02-29-Y-maze/2024-02-29-Y-maze.ipynb,4,1,read_data,"read_data('../../resources/QPS/5xFAD-mouse/CO28152-behavioral-data-cleaned.xlsx', treatments_CO28152)",analyzed
+2024-02-29-Y-maze/2024-02-29-Y-maze.ipynb,5,1,read_data,"read_data('../../resources/QPS/5xFAD-mouse/CO28154-behavioral-data-cleaned.xlsx', treatments_CO28154)",analyzed
+2024-03-04-cell-bayes-vs-frequentist/2024-03-04-cell-bayes-vs-frequentist.ipynb,3,1,pd.read_csv,"pd.read_csv('../../results/2023-09-26-cell-bayes-assays/H102_posteriors.csv', index_col=[0, 1], header=[0, 1])",analyzed
+2024-03-04-cell-bayes-vs-frequentist/2024-03-04-cell-bayes-vs-frequentist.ipynb,4,1,pd.read_csv,"pd.read_csv('../../results/2024-02-14-cell-bayes/H102_posteriors.csv', index_col=[0, 1, 2, 3])",analyzed
+2024-03-04-cell-bayes-vs-frequentist/2024-03-04-cell-bayes-vs-frequentist.ipynb,9,29,pd.read_excel,"pd.read_excel(fpath, sheet_name=sheet_name, skiprows=skiprows)",analyzed
+2024-03-04-cell-bayes-vs-frequentist/2024-03-04-cell-bayes-vs-frequentist.ipynb,10,2,pd.read_csv,"pd.read_csv(fpath, index_col=['experiment', 'assay'], usecols=['experiment', 'assay', 'experiment (nice)', 'assay (nice)'])",analyzed
+2024-03-04-cell-bayes-vs-frequentist/2024-03-04-cell-bayes-vs-frequentist.ipynb,10,24,read_data,"read_data(sheet_name=sheet_name, assays=assaysl, mean_sem_col=mean_sem_col, skiprows=skiprows)",analyzed
+2024-03-04-cell-bayes-vs-frequentist/2024-03-04-cell-bayes-vs-frequentist.ipynb,12,10,pd.read_csv,"pd.read_csv(fpath, index_col=['experiment (nice)', 'assay (nice)'], usecols=['experiment (nice)', 'assay (nice)', 'H1_increase'])",analyzed
+2024-03-04-cell-bayes-vs-frequentist/2024-03-04-cell-bayes-vs-frequentist.ipynb,14,2,pd.read_csv,"pd.read_csv(fpath, index_col=['assay', 'TI', 'conc'])",analyzed
+2024-04-09-qps-results-summary/2024-04-09-qps-results-summary.ipynb,3,1,pd.read_excel,"pd.read_excel('../../resources/cell-based-assays/study-TI-to-name.xlsx', index_col=[0, 1])",analyzed
+2024-04-09-qps-results-summary/2024-04-09-qps-results-summary.ipynb,3,2,pd.read_excel,pd.read_excel('../../resources/cell-based-assays/study-TI-to-name.xlsx'),analyzed
+2024-04-09-qps-results-summary/2024-04-09-qps-results-summary.ipynb,4,1,cba.idatadf_from_netcdf,"cba.idatadf_from_netcdf(subdir='idatadf/', maindir='../../results/2023-09-26-cell-bayes-assays/')",analyzed
+2024-04-09-qps-results-summary/2024-04-09-qps-results-summary.ipynb,5,1,cba.idatas_from_netcdf,"cba.idatas_from_netcdf(subdir='idatas/', maindir='../../results/2024-02-14-cell-bayes/')",analyzed
+2024-04-09-qps-results-summary/2024-04-09-qps-results-summary.ipynb,6,1,cba.idatas_from_netcdf,"cba.idatas_from_netcdf(subdir='idatas/', maindir='../../results/2024-04-21-cell-bayes/')",analyzed
+2024-04-09-qps-results-summary/2024-04-09-qps-results-summary.ipynb,7,1,cba.idatas_from_netcdf,"cba.idatas_from_netcdf(subdir='idatas/', maindir='../../results/2024-04-29-cell-bayes/')",analyzed
+2024-04-09-qps-results-summary/2024-04-09-qps-results-summary.ipynb,8,1,cba.idatas_from_netcdf,"cba.idatas_from_netcdf(subdir='idatas/', maindir='../../results/2024-05-09-cell-bayes/')",analyzed
+2024-04-09-qps-results-summary/2024-04-09-qps-results-summary.ipynb,9,1,cba.idatas_from_netcdf,"cba.idatas_from_netcdf(subdir='idatas/', maindir='../../results/2024-05-14-cell-bayes/')",analyzed
+2024-04-09-qps-results-summary/2024-04-09-qps-results-summary.ipynb,13,6,pd.read_csv,"pd.read_csv(fpath, index_col=[0, 1], header=[0, 1])",analyzed
+2024-04-09-qps-results-summary/2024-04-09-qps-results-summary.ipynb,14,1,pd.read_csv,"pd.read_csv('../../results/2024-02-14-cell-bayes/H102_posteriors.csv', index_col=list(range(4)))",analyzed
+2024-04-09-qps-results-summary/2024-04-09-qps-results-summary.ipynb,14,2,pd.read_csv,"pd.read_csv('../../results/2024-04-21-cell-bayes/H102_posteriors.csv', index_col=list(range(4)))",analyzed
+2024-04-09-qps-results-summary/2024-04-09-qps-results-summary.ipynb,14,3,pd.read_csv,"pd.read_csv('../../results/2024-04-29-cell-bayes/H102_posteriors.csv', index_col=list(range(4)))",analyzed
+2024-04-09-qps-results-summary/2024-04-09-qps-results-summary.ipynb,14,4,pd.read_csv,"pd.read_csv('../../results/2024-05-09-cell-bayes/H102_posteriors.csv', index_col=list(range(4)))",analyzed
+2024-04-09-qps-results-summary/2024-04-09-qps-results-summary.ipynb,14,5,pd.read_csv,"pd.read_csv('../../results/2024-05-14-cell-bayes/H102_posteriors.csv', index_col=list(range(4)))",analyzed
+2024-04-09-qps-results-summary/2024-04-09-qps-results-summary.ipynb,20,2,pd.read_excel,"pd.read_excel(fpath, sheet_name='Sheet1')",analyzed
+2024-04-21-cell-bayes/2024-04-21-cell-bayes.ipynb,11,12,cba.idatas_from_netcdf,"cba.idatas_from_netcdf(subdir='idatas/', maindir=maindir)",analyzed
+2024-04-21-cell-bayes/2024-04-21-cell-bayes.ipynb,46,9,pd.read_csv,"pd.read_csv(fpath, index_col=[0, 1, 2, 3])",analyzed
+2024-04-29-cell-bayes/2024-04-29-cell-bayes.ipynb,4,2,pd.read_excel,"pd.read_excel(fpath, sheet_name='Allowed values', usecols=['Experiment', 'QPS experiment number'], index_col='Experiment')",analyzed
+2024-04-29-cell-bayes/2024-04-29-cell-bayes.ipynb,18,20,cba.idatas_from_netcdf,"cba.idatas_from_netcdf(subdir='idatas/', maindir=maindir)",analyzed
+2024-04-29-cell-bayes/2024-04-29-cell-bayes.ipynb,35,10,pd.read_csv,"pd.read_csv(fpath, index_col=[0, 1, 2, 3])",analyzed
+2024-05-09-cell-bayes/2024-05-09-cell-bayes.ipynb,8,9,cba.idatas_from_netcdf,"cba.idatas_from_netcdf(subdir='idatas/', maindir=maindir)",analyzed
+2024-05-09-cell-bayes/2024-05-09-cell-bayes.ipynb,24,9,pd.read_csv,"pd.read_csv(fpath, index_col=[0, 1, 2, 3])",analyzed
+2024-05-14-cell-bayes/2024-05-14-cell-bayes.ipynb,12,9,cba.idatas_from_netcdf,"cba.idatas_from_netcdf(subdir='idatas/', maindir=maindir)",analyzed
+2024-05-14-cell-bayes/2024-05-14-cell-bayes.ipynb,42,9,pd.read_csv,"pd.read_csv(fpath, index_col=[0, 1, 2, 3])",analyzed
+2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb,2,17,nfl.read_nfl_data,"nfl.read_nfl_data(fpath, sheet_name, treatments_CO28152, study, fpath_subjects)",analyzed
+2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb,3,19,nfl.read_nfl_data,"nfl.read_nfl_data(fpath, sheet_name, treatments_CO28154, study, fpath_subjects)",analyzed
+2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb,2,46,mwm.read_data_train,"mwm.read_data_train(f, t, sheet_name=s)",analyzed
+2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb,12,7,mwm.idatas_from_netcdf,"mwm.idatas_from_netcdf(subdir=subdir, maindir=maindir)",analyzed
+2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb,50,9,pd.read_csv,"pd.read_csv(fpath, index_col=[0, 1], header=[0, 1])",analyzed
+2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb,51,9,pd.read_csv,"pd.read_csv(fpath, index_col=[0, 1], header=[0, 1])",analyzed
+2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb,2,9,pd.read_excel,"pd.read_excel(fpath, sheet_name='rawdata MWM day 5', index_col='IRN')",analyzed
+2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb,3,15,pd.read_excel,"pd.read_excel(fpath, sheet_name='raw data MWM day 5', index_col='IRN')",analyzed
+2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb,4,17,pd.read_excel,"pd.read_excel(fpath, sheet_name='Probe Trial day5', index_col='IRN')",analyzed
+2024-08-08-biochemistry/2024-08-08-biochemistry.ipynb,3,32,pd.read_excel,"pd.read_excel(fpath, sheet_name='Abeta', header=[0, 1], index_col=[0, 1, 2, 3, 4])",analyzed
+2024-08-08-biochemistry/statannotations-example.ipynb,2,1,sns.load_dataset,sns.load_dataset('tips'),analyzed
+2024-11-11-cytokines/2024-11-11-cytokines.ipynb,3,2,pd.read_csv,"pd.read_csv(fpath, header=[0, 1], index_col=[0, 1, 2, 3, 4, 5])",analyzed
+2025-05-25-ad-subtype-random-fx/.ipynb_checkpoints/2025-05-25-ad-subtype-random-fx-checkpoint.ipynb,2,1,gem_tools.read_active_reactions,"gem_tools.read_active_reactions(groupdict={'m-control': ('all_control', 'MSBB'), 'm-AD-B2': ('SubtypeB2_AD', 'MSBB')})",analyzed
+2025-05-25-ad-subtype-random-fx/2025-05-25-ad-subtype-random-fx.ipynb,4,9,gem_tools.read_active_reactions,gem_tools.read_active_reactions(groupdict=groupdict),analyzed
+2025-05-25-ad-subtype-random-fx/2025-05-25-ad-subtype-random-fx.ipynb,5,4,gem_tools.read_gem_excel,gem_tools.read_gem_excel(),analyzed
+2025-05-25-ad-subtype-random-fx/2025-05-25-ad-subtype-random-fx.ipynb,10,4,open,"open(fpath, 'rb')",analyzed
+2025-05-25-ad-subtype-random-fx/2025-05-25-ad-subtype-random-fx.ipynb,10,5,pickle.load,pickle.load(f),analyzed
+2025-05-25-ad-subtype-random-fx/2025-05-25-ad-subtype-random-fx.ipynb,10,11,open,"open(fpath, 'wb')",analyzed

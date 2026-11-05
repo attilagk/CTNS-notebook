@@ -10,3 +10,19 @@ tags
 *.fdb_latexmk
 2021-10-18-py4cytoscape/default.svg
 2021-10-18-py4cytoscape/logs/*
+
+# OS metadata
+.DS_Store
+._*
+
+# Python and Jupyter caches
+__pycache__/
+.ipynb_checkpoints/
+.pytest_cache/
+.venv/
+
+# LibreOffice lock files
+.~lock.*#
+
+# Machine-specific link to the professional vault
+/recovery-audit/CTNS-notebooks-recovery-audit-REPORT.md
