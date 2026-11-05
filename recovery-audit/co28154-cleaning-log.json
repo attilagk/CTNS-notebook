@@ -1,0 +1,138 @@
+{
+  "authoring": {
+    "authoring_engine": "openpyxl fallback; Artifact Tool timed out during import/initialization inside and outside sandbox",
+    "original_numeric_xml_serializations_preserved": 2958
+  },
+  "verified_at_utc": "2026-11-05T17:31:45.324795+00:00",
+  "source": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28154-rawdata-in-vivo.xlsx",
+  "source_sha256": "2d13f5c02ebf57c5517cf436f0378352c028b8e14b75e78b7b9d32c4e3a9ef8f",
+  "destination": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28154-behavioral-data-cleaned.xlsx",
+  "sheets": [
+    {
+      "name": "MWM day 1-4",
+      "animal_records": 162,
+      "animal_cells_checked": 3888,
+      "summary_rows_removed": 20,
+      "summary_labels": {
+        "Mean": 10,
+        "SEM": 10
+      },
+      "range": "A1:X164",
+      "merged_ranges": [
+        "A1:D1",
+        "E1:H1",
+        "I1:L1",
+        "M1:P1",
+        "Q1:T1",
+        "U1:X1"
+      ],
+      "group_counts": {
+        "A": 15,
+        "C": 18,
+        "D": 16,
+        "E": 16,
+        "F": 16,
+        "G": 16,
+        "H": 15,
+        "J": 18,
+        "K": 16,
+        "L": 16
+      },
+      "changed_cells": [],
+      "numeric_xml_variations": []
+    },
+    {
+      "name": "Probe Trial day5",
+      "animal_records": 162,
+      "animal_cells_checked": 1458,
+      "summary_rows_removed": 20,
+      "summary_labels": {
+        "Mean": 10,
+        "SEM": 10
+      },
+      "range": "A1:I163",
+      "merged_ranges": [],
+      "group_counts": {
+        "A": 15,
+        "C": 18,
+        "D": 16,
+        "E": 16,
+        "F": 16,
+        "G": 16,
+        "H": 15,
+        "J": 18,
+        "K": 16,
+        "L": 16
+      },
+      "changed_cells": [],
+      "numeric_xml_variations": []
+    },
+    {
+      "name": "Y-Maze",
+      "animal_records": 163,
+      "animal_cells_checked": 1304,
+      "summary_rows_removed": 20,
+      "summary_labels": {
+        "Mean": 10,
+        "SEM": 10
+      },
+      "range": "A1:H164",
+      "merged_ranges": [],
+      "group_counts": {
+        "A": 15,
+        "C": 18,
+        "D": 16,
+        "E": 16,
+        "F": 16,
+        "G": 16,
+        "H": 15,
+        "J": 18,
+        "K": 17,
+        "L": 16
+      },
+      "changed_cells": [],
+      "numeric_xml_variations": []
+    },
+    {
+      "name": "body weight",
+      "animal_records": 196,
+      "animal_cells_checked": 3724,
+      "summary_rows_removed": 24,
+      "summary_labels": {
+        "mean": 12,
+        "SEM": 12
+      },
+      "range": "A1:S198",
+      "merged_ranges": [],
+      "group_counts": {
+        "A": 16,
+        "B": 14,
+        "C": 22,
+        "D": 16,
+        "E": 16,
+        "F": 16,
+        "G": 16,
+        "H": 16,
+        "I": 10,
+        "J": 19,
+        "K": 18,
+        "L": 17
+      },
+      "changed_cells": [],
+      "numeric_xml_variations": []
+    }
+  ],
+  "sha256": "fc00b858abb33944755f63d090c263ce888c38629a0b235fce3145b5f56ef101",
+  "verification_passed": true,
+  "reader_checks": {
+    "MWM_reader": "existing src/mwm.py read_data_train function executed unchanged",
+    "MWM_training_animal_records": 162,
+    "MWM_training_long_rows": 648,
+    "index_sex_and_irn_match_columns": true,
+    "probe_rows": 162,
+    "Y_maze_rows": 163,
+    "body_weight_rows": 196,
+    "full_notebooks_executed": false
+  },
+  "installed_at_utc": "2026-11-05T17:32:06.259593+00:00"
+}

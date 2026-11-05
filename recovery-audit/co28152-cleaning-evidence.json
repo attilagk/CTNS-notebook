@@ -1,0 +1,2468 @@
+{
+  "inferred_at_utc": "2026-11-05T15:41:11.758500+00:00",
+  "method": "Independent comparison of both XLSX XML packages. Human cleaning notes were not read by this script or before writing this report. Numeric values compared using exact Decimal values; strings, types, blanks, row order, headers and merged ranges checked separately. No formulas recalculated. Styles, workbook themes, chart objects and ZIP packaging are not reproduced.",
+  "sources": [
+    {
+      "path": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28152 rawdata.xlsx",
+      "sha256": "0c745efc8990c2ed8b08e406fe53cec175c8a8319a2ab7a86a5a05edf45492fb"
+    },
+    {
+      "path": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28152-behavioral-data-cleaned.xlsx",
+      "sha256": "bc46a377af66fb50b42ffe5aa781b071f99a18a544f5a2a511e683627b98bfbf"
+    }
+  ],
+  "sheets": [
+    {
+      "raw_sheet": "raw data MWM day 1 - 4",
+      "clean_sheet": "rawdata MWM day 1-4",
+      "raw_dimension": "B2:Y168",
+      "clean_dimension": "A1:X147",
+      "animal_records": 145,
+      "group_counts": {
+        "A": 12,
+        "B": 16,
+        "C": 16,
+        "D": 16,
+        "E": 9,
+        "F": 13,
+        "G": 16,
+        "H": 16,
+        "I": 15,
+        "J": 16
+      },
+      "row_order_preserved": true,
+      "identifiers_preserved": true,
+      "source_rows_removed": [
+        16,
+        17,
+        34,
+        35,
+        52,
+        53,
+        70,
+        71,
+        81,
+        82,
+        96,
+        97,
+        114,
+        115,
+        132,
+        133,
+        149,
+        150,
+        167,
+        168
+      ],
+      "removed_row_labels": {
+        "Mean": 10,
+        "SEM": 10
+      },
+      "source_rows_removed_count": 20,
+      "raw_to_clean_row_mapping": [
+        {
+          "raw_row": 4,
+          "clean_row": 3,
+          "IRN": "14627 A"
+        },
+        {
+          "raw_row": 5,
+          "clean_row": 4,
+          "IRN": "14687 A"
+        },
+        {
+          "raw_row": 6,
+          "clean_row": 5,
+          "IRN": "15117"
+        },
+        {
+          "raw_row": 7,
+          "clean_row": 6,
+          "IRN": "15119"
+        },
+        {
+          "raw_row": 8,
+          "clean_row": 7,
+          "IRN": "15121"
+        },
+        {
+          "raw_row": 9,
+          "clean_row": 8,
+          "IRN": "15151"
+        },
+        {
+          "raw_row": 10,
+          "clean_row": 9,
+          "IRN": "15161"
+        },
+        {
+          "raw_row": 11,
+          "clean_row": 10,
+          "IRN": "15169"
+        },
+        {
+          "raw_row": 12,
+          "clean_row": 11,
+          "IRN": "15219"
+        },
+        {
+          "raw_row": 13,
+          "clean_row": 12,
+          "IRN": "15243"
+        },
+        {
+          "raw_row": 14,
+          "clean_row": 13,
+          "IRN": "15938"
+        },
+        {
+          "raw_row": 15,
+          "clean_row": 14,
+          "IRN": "16122"
+        },
+        {
+          "raw_row": 18,
+          "clean_row": 15,
+          "IRN": "14637 A"
+        },
+        {
+          "raw_row": 19,
+          "clean_row": 16,
+          "IRN": "14667 A"
+        },
+        {
+          "raw_row": 20,
+          "clean_row": 17,
+          "IRN": "14671 A"
+        },
+        {
+          "raw_row": 21,
+          "clean_row": 18,
+          "IRN": "15125"
+        },
+        {
+          "raw_row": 22,
+          "clean_row": 19,
+          "IRN": "15127"
+        },
+        {
+          "raw_row": 23,
+          "clean_row": 20,
+          "IRN": "14711 A"
+        },
+        {
+          "raw_row": 24,
+          "clean_row": 21,
+          "IRN": "15163"
+        },
+        {
+          "raw_row": 25,
+          "clean_row": 22,
+          "IRN": "15187"
+        },
+        {
+          "raw_row": 26,
+          "clean_row": 23,
+          "IRN": "15201"
+        },
+        {
+          "raw_row": 27,
+          "clean_row": 24,
+          "IRN": "15245"
+        },
+        {
+          "raw_row": 28,
+          "clean_row": 25,
+          "IRN": "15928"
+        },
+        {
+          "raw_row": 29,
+          "clean_row": 26,
+          "IRN": "16012"
+        },
+        {
+          "raw_row": 30,
+          "clean_row": 27,
+          "IRN": "16024"
+        },
+        {
+          "raw_row": 31,
+          "clean_row": 28,
+          "IRN": "16026"
+        },
+        {
+          "raw_row": 32,
+          "clean_row": 29,
+          "IRN": "16124"
+        },
+        {
+          "raw_row": 33,
+          "clean_row": 30,
+          "IRN": "16172"
+        },
+        {
+          "raw_row": 36,
+          "clean_row": 31,
+          "IRN": "14701 A"
+        },
+        {
+          "raw_row": 37,
+          "clean_row": 32,
+          "IRN": "14713 A"
+        },
+        {
+          "raw_row": 38,
+          "clean_row": 33,
+          "IRN": "14717 A"
+        },
+        {
+          "raw_row": 39,
+          "clean_row": 34,
+          "IRN": "15129"
+        },
+        {
+          "raw_row": 40,
+          "clean_row": 35,
+          "IRN": "15147"
+        },
+        {
+          "raw_row": 41,
+          "clean_row": 36,
+          "IRN": "15183"
+        },
+        {
+          "raw_row": 42,
+          "clean_row": 37,
+          "IRN": "15189"
+        },
+        {
+          "raw_row": 43,
+          "clean_row": 38,
+          "IRN": "15201 A"
+        },
+        {
+          "raw_row": 44,
+          "clean_row": 39,
+          "IRN": "15203 A"
+        },
+        {
+          "raw_row": 45,
+          "clean_row": 40,
+          "IRN": "15215"
+        },
+        {
+          "raw_row": 46,
+          "clean_row": 41,
+          "IRN": "15974"
+        },
+        {
+          "raw_row": 47,
+          "clean_row": 42,
+          "IRN": "16004"
+        },
+        {
+          "raw_row": 48,
+          "clean_row": 43,
+          "IRN": "16014"
+        },
+        {
+          "raw_row": 49,
+          "clean_row": 44,
+          "IRN": "16016"
+        },
+        {
+          "raw_row": 50,
+          "clean_row": 45,
+          "IRN": "16106"
+        },
+        {
+          "raw_row": 51,
+          "clean_row": 46,
+          "IRN": "16112"
+        },
+        {
+          "raw_row": 54,
+          "clean_row": 47,
+          "IRN": "14629 A"
+        },
+        {
+          "raw_row": 55,
+          "clean_row": 48,
+          "IRN": "14631 A"
+        },
+        {
+          "raw_row": 56,
+          "clean_row": 49,
+          "IRN": "14649 A"
+        },
+        {
+          "raw_row": 57,
+          "clean_row": 50,
+          "IRN": "14657 A"
+        },
+        {
+          "raw_row": 58,
+          "clean_row": 51,
+          "IRN": "14673 A"
+        },
+        {
+          "raw_row": 59,
+          "clean_row": 52,
+          "IRN": "15137"
+        },
+        {
+          "raw_row": 60,
+          "clean_row": 53,
+          "IRN": "15165"
+        },
+        {
+          "raw_row": 61,
+          "clean_row": 54,
+          "IRN": "14835 A"
+        },
+        {
+          "raw_row": 62,
+          "clean_row": 55,
+          "IRN": "15221"
+        },
+        {
+          "raw_row": 63,
+          "clean_row": 56,
+          "IRN": "15227"
+        },
+        {
+          "raw_row": 64,
+          "clean_row": 57,
+          "IRN": "15778 A"
+        },
+        {
+          "raw_row": 65,
+          "clean_row": 58,
+          "IRN": "15990"
+        },
+        {
+          "raw_row": 66,
+          "clean_row": 59,
+          "IRN": "16042"
+        },
+        {
+          "raw_row": 67,
+          "clean_row": 60,
+          "IRN": "16044"
+        },
+        {
+          "raw_row": 68,
+          "clean_row": 61,
+          "IRN": "16074"
+        },
+        {
+          "raw_row": 69,
+          "clean_row": 62,
+          "IRN": "16174"
+        },
+        {
+          "raw_row": 72,
+          "clean_row": 63,
+          "IRN": "15239"
+        },
+        {
+          "raw_row": 73,
+          "clean_row": 64,
+          "IRN": "15239 A"
+        },
+        {
+          "raw_row": 74,
+          "clean_row": 65,
+          "IRN": "15267"
+        },
+        {
+          "raw_row": 75,
+          "clean_row": 66,
+          "IRN": "15287"
+        },
+        {
+          "raw_row": 76,
+          "clean_row": 67,
+          "IRN": "15289"
+        },
+        {
+          "raw_row": 77,
+          "clean_row": 68,
+          "IRN": "15303"
+        },
+        {
+          "raw_row": 78,
+          "clean_row": 69,
+          "IRN": "15305"
+        },
+        {
+          "raw_row": 79,
+          "clean_row": 70,
+          "IRN": "15307"
+        },
+        {
+          "raw_row": 80,
+          "clean_row": 71,
+          "IRN": "16162"
+        },
+        {
+          "raw_row": 83,
+          "clean_row": 72,
+          "IRN": "15241 A"
+        },
+        {
+          "raw_row": 84,
+          "clean_row": 73,
+          "IRN": "15247"
+        },
+        {
+          "raw_row": 85,
+          "clean_row": 74,
+          "IRN": "15263"
+        },
+        {
+          "raw_row": 86,
+          "clean_row": 75,
+          "IRN": "15275"
+        },
+        {
+          "raw_row": 87,
+          "clean_row": 76,
+          "IRN": "15277"
+        },
+        {
+          "raw_row": 88,
+          "clean_row": 77,
+          "IRN": "15291"
+        },
+        {
+          "raw_row": 89,
+          "clean_row": 78,
+          "IRN": "15293"
+        },
+        {
+          "raw_row": 90,
+          "clean_row": 79,
+          "IRN": "15343"
+        },
+        {
+          "raw_row": 91,
+          "clean_row": 80,
+          "IRN": "15347"
+        },
+        {
+          "raw_row": 92,
+          "clean_row": 81,
+          "IRN": "16176"
+        },
+        {
+          "raw_row": 93,
+          "clean_row": 82,
+          "IRN": "16194"
+        },
+        {
+          "raw_row": 94,
+          "clean_row": 83,
+          "IRN": "16206"
+        },
+        {
+          "raw_row": 95,
+          "clean_row": 84,
+          "IRN": "16222"
+        },
+        {
+          "raw_row": 98,
+          "clean_row": 85,
+          "IRN": "15814 A"
+        },
+        {
+          "raw_row": 99,
+          "clean_row": 86,
+          "IRN": "15916"
+        },
+        {
+          "raw_row": 100,
+          "clean_row": 87,
+          "IRN": "15918"
+        },
+        {
+          "raw_row": 101,
+          "clean_row": 88,
+          "IRN": "15996"
+        },
+        {
+          "raw_row": 102,
+          "clean_row": 89,
+          "IRN": "16006"
+        },
+        {
+          "raw_row": 103,
+          "clean_row": 90,
+          "IRN": "15994"
+        },
+        {
+          "raw_row": 104,
+          "clean_row": 91,
+          "IRN": "16010"
+        },
+        {
+          "raw_row": 105,
+          "clean_row": 92,
+          "IRN": "16028"
+        },
+        {
+          "raw_row": 106,
+          "clean_row": 93,
+          "IRN": "16062"
+        },
+        {
+          "raw_row": 107,
+          "clean_row": 94,
+          "IRN": "16064"
+        },
+        {
+          "raw_row": 108,
+          "clean_row": 95,
+          "IRN": "16068"
+        },
+        {
+          "raw_row": 109,
+          "clean_row": 96,
+          "IRN": "16070"
+        },
+        {
+          "raw_row": 110,
+          "clean_row": 97,
+          "IRN": "16104"
+        },
+        {
+          "raw_row": 111,
+          "clean_row": 98,
+          "IRN": "16126"
+        },
+        {
+          "raw_row": 112,
+          "clean_row": 99,
+          "IRN": "16136"
+        },
+        {
+          "raw_row": 113,
+          "clean_row": 100,
+          "IRN": "16154"
+        },
+        {
+          "raw_row": 116,
+          "clean_row": 101,
+          "IRN": "14689 A"
+        },
+        {
+          "raw_row": 117,
+          "clean_row": 102,
+          "IRN": "14691 A"
+        },
+        {
+          "raw_row": 118,
+          "clean_row": 103,
+          "IRN": "15139"
+        },
+        {
+          "raw_row": 119,
+          "clean_row": 104,
+          "IRN": "15149"
+        },
+        {
+          "raw_row": 120,
+          "clean_row": 105,
+          "IRN": "15133"
+        },
+        {
+          "raw_row": 121,
+          "clean_row": 106,
+          "IRN": "15173"
+        },
+        {
+          "raw_row": 122,
+          "clean_row": 107,
+          "IRN": "15175"
+        },
+        {
+          "raw_row": 123,
+          "clean_row": 108,
+          "IRN": "14815 A"
+        },
+        {
+          "raw_row": 124,
+          "clean_row": 109,
+          "IRN": "14817 A"
+        },
+        {
+          "raw_row": 125,
+          "clean_row": 110,
+          "IRN": "14857 A"
+        },
+        {
+          "raw_row": 126,
+          "clean_row": 111,
+          "IRN": "15806 A"
+        },
+        {
+          "raw_row": 127,
+          "clean_row": 112,
+          "IRN": "15812 A"
+        },
+        {
+          "raw_row": 128,
+          "clean_row": 113,
+          "IRN": "15894 A"
+        },
+        {
+          "raw_row": 129,
+          "clean_row": 114,
+          "IRN": "15932"
+        },
+        {
+          "raw_row": 130,
+          "clean_row": 115,
+          "IRN": "16040"
+        },
+        {
+          "raw_row": 131,
+          "clean_row": 116,
+          "IRN": "16188"
+        },
+        {
+          "raw_row": 134,
+          "clean_row": 117,
+          "IRN": "15784 A"
+        },
+        {
+          "raw_row": 135,
+          "clean_row": 118,
+          "IRN": "15846 A"
+        },
+        {
+          "raw_row": 136,
+          "clean_row": 119,
+          "IRN": "15920"
+        },
+        {
+          "raw_row": 137,
+          "clean_row": 120,
+          "IRN": "15884 A"
+        },
+        {
+          "raw_row": 138,
+          "clean_row": 121,
+          "IRN": "16002"
+        },
+        {
+          "raw_row": 139,
+          "clean_row": 122,
+          "IRN": "15968"
+        },
+        {
+          "raw_row": 140,
+          "clean_row": 123,
+          "IRN": "16036"
+        },
+        {
+          "raw_row": 141,
+          "clean_row": 124,
+          "IRN": "16038"
+        },
+        {
+          "raw_row": 142,
+          "clean_row": 125,
+          "IRN": "16020"
+        },
+        {
+          "raw_row": 143,
+          "clean_row": 126,
+          "IRN": "16022"
+        },
+        {
+          "raw_row": 144,
+          "clean_row": 127,
+          "IRN": "16102"
+        },
+        {
+          "raw_row": 145,
+          "clean_row": 128,
+          "IRN": "16138"
+        },
+        {
+          "raw_row": 146,
+          "clean_row": 129,
+          "IRN": "16146"
+        },
+        {
+          "raw_row": 147,
+          "clean_row": 130,
+          "IRN": "16148"
+        },
+        {
+          "raw_row": 148,
+          "clean_row": 131,
+          "IRN": "16168"
+        },
+        {
+          "raw_row": 151,
+          "clean_row": 132,
+          "IRN": "14851 A"
+        },
+        {
+          "raw_row": 152,
+          "clean_row": 133,
+          "IRN": "15195 A"
+        },
+        {
+          "raw_row": 153,
+          "clean_row": 134,
+          "IRN": "15217 A"
+        },
+        {
+          "raw_row": 154,
+          "clean_row": 135,
+          "IRN": "15223 A"
+        },
+        {
+          "raw_row": 155,
+          "clean_row": 136,
+          "IRN": "15225 A"
+        },
+        {
+          "raw_row": 156,
+          "clean_row": 137,
+          "IRN": "15229"
+        },
+        {
+          "raw_row": 157,
+          "clean_row": 138,
+          "IRN": "15241"
+        },
+        {
+          "raw_row": 158,
+          "clean_row": 139,
+          "IRN": "15251"
+        },
+        {
+          "raw_row": 159,
+          "clean_row": 140,
+          "IRN": "15261"
+        },
+        {
+          "raw_row": 160,
+          "clean_row": 141,
+          "IRN": "15265"
+        },
+        {
+          "raw_row": 161,
+          "clean_row": 142,
+          "IRN": "16180"
+        },
+        {
+          "raw_row": 162,
+          "clean_row": 143,
+          "IRN": "16182"
+        },
+        {
+          "raw_row": 163,
+          "clean_row": 144,
+          "IRN": "16192"
+        },
+        {
+          "raw_row": 164,
+          "clean_row": 145,
+          "IRN": "16220"
+        },
+        {
+          "raw_row": 165,
+          "clean_row": 146,
+          "IRN": "16226"
+        },
+        {
+          "raw_row": 166,
+          "clean_row": 147,
+          "IRN": "16234"
+        }
+      ],
+      "raw_summary_formula_cells_removed": 20,
+      "retained_data_formulas": 0,
+      "measurement_cells": 2900,
+      "numeric_measurement_cells": 2900,
+      "blank_measurement_cells": 0,
+      "blank_measurement_locations": [],
+      "covariate_cells_compared": 580,
+      "animal_cells_compared": 3480,
+      "changed_animal_cells": [],
+      "whole_value_grid_reconstructed": true,
+      "nonempty_cells_reconstructed": 3510,
+      "merged_ranges_reconstructed": [
+        "A1:D1",
+        "E1:H1",
+        "I1:L1",
+        "M1:P1",
+        "Q1:T1",
+        "U1:X1"
+      ]
+    },
+    {
+      "raw_sheet": "raw data MWM day 5",
+      "clean_sheet": "raw data MWM day 5",
+      "raw_dimension": "B2:J167",
+      "clean_dimension": "A1:I146",
+      "animal_records": 145,
+      "group_counts": {
+        "A": 12,
+        "B": 16,
+        "C": 16,
+        "D": 16,
+        "E": 9,
+        "F": 13,
+        "G": 16,
+        "H": 16,
+        "I": 15,
+        "J": 16
+      },
+      "row_order_preserved": true,
+      "identifiers_preserved": true,
+      "source_rows_removed": [
+        15,
+        16,
+        33,
+        34,
+        51,
+        52,
+        69,
+        70,
+        80,
+        81,
+        95,
+        96,
+        113,
+        114,
+        131,
+        132,
+        148,
+        149,
+        166,
+        167
+      ],
+      "removed_row_labels": {
+        "Mean": 10,
+        "SEM": 10
+      },
+      "source_rows_removed_count": 20,
+      "raw_to_clean_row_mapping": [
+        {
+          "raw_row": 3,
+          "clean_row": 2,
+          "IRN": "14627 A"
+        },
+        {
+          "raw_row": 4,
+          "clean_row": 3,
+          "IRN": "14687 A"
+        },
+        {
+          "raw_row": 5,
+          "clean_row": 4,
+          "IRN": "15117"
+        },
+        {
+          "raw_row": 6,
+          "clean_row": 5,
+          "IRN": "15119"
+        },
+        {
+          "raw_row": 7,
+          "clean_row": 6,
+          "IRN": "15121"
+        },
+        {
+          "raw_row": 8,
+          "clean_row": 7,
+          "IRN": "15151"
+        },
+        {
+          "raw_row": 9,
+          "clean_row": 8,
+          "IRN": "15161"
+        },
+        {
+          "raw_row": 10,
+          "clean_row": 9,
+          "IRN": "15169"
+        },
+        {
+          "raw_row": 11,
+          "clean_row": 10,
+          "IRN": "15219"
+        },
+        {
+          "raw_row": 12,
+          "clean_row": 11,
+          "IRN": "15243"
+        },
+        {
+          "raw_row": 13,
+          "clean_row": 12,
+          "IRN": "15938"
+        },
+        {
+          "raw_row": 14,
+          "clean_row": 13,
+          "IRN": "16122"
+        },
+        {
+          "raw_row": 17,
+          "clean_row": 14,
+          "IRN": "14637 A"
+        },
+        {
+          "raw_row": 18,
+          "clean_row": 15,
+          "IRN": "14667 A"
+        },
+        {
+          "raw_row": 19,
+          "clean_row": 16,
+          "IRN": "14671 A"
+        },
+        {
+          "raw_row": 20,
+          "clean_row": 17,
+          "IRN": "15125"
+        },
+        {
+          "raw_row": 21,
+          "clean_row": 18,
+          "IRN": "15127"
+        },
+        {
+          "raw_row": 22,
+          "clean_row": 19,
+          "IRN": "14711 A"
+        },
+        {
+          "raw_row": 23,
+          "clean_row": 20,
+          "IRN": "15163"
+        },
+        {
+          "raw_row": 24,
+          "clean_row": 21,
+          "IRN": "15187"
+        },
+        {
+          "raw_row": 25,
+          "clean_row": 22,
+          "IRN": "15201"
+        },
+        {
+          "raw_row": 26,
+          "clean_row": 23,
+          "IRN": "15245"
+        },
+        {
+          "raw_row": 27,
+          "clean_row": 24,
+          "IRN": "15928"
+        },
+        {
+          "raw_row": 28,
+          "clean_row": 25,
+          "IRN": "16012"
+        },
+        {
+          "raw_row": 29,
+          "clean_row": 26,
+          "IRN": "16024"
+        },
+        {
+          "raw_row": 30,
+          "clean_row": 27,
+          "IRN": "16026"
+        },
+        {
+          "raw_row": 31,
+          "clean_row": 28,
+          "IRN": "16124"
+        },
+        {
+          "raw_row": 32,
+          "clean_row": 29,
+          "IRN": "16172"
+        },
+        {
+          "raw_row": 35,
+          "clean_row": 30,
+          "IRN": "14701 A"
+        },
+        {
+          "raw_row": 36,
+          "clean_row": 31,
+          "IRN": "14713 A"
+        },
+        {
+          "raw_row": 37,
+          "clean_row": 32,
+          "IRN": "14717 A"
+        },
+        {
+          "raw_row": 38,
+          "clean_row": 33,
+          "IRN": "15129"
+        },
+        {
+          "raw_row": 39,
+          "clean_row": 34,
+          "IRN": "15147"
+        },
+        {
+          "raw_row": 40,
+          "clean_row": 35,
+          "IRN": "15183"
+        },
+        {
+          "raw_row": 41,
+          "clean_row": 36,
+          "IRN": "15189"
+        },
+        {
+          "raw_row": 42,
+          "clean_row": 37,
+          "IRN": "15201 A"
+        },
+        {
+          "raw_row": 43,
+          "clean_row": 38,
+          "IRN": "15203 A"
+        },
+        {
+          "raw_row": 44,
+          "clean_row": 39,
+          "IRN": "15215"
+        },
+        {
+          "raw_row": 45,
+          "clean_row": 40,
+          "IRN": "15974"
+        },
+        {
+          "raw_row": 46,
+          "clean_row": 41,
+          "IRN": "16004"
+        },
+        {
+          "raw_row": 47,
+          "clean_row": 42,
+          "IRN": "16014"
+        },
+        {
+          "raw_row": 48,
+          "clean_row": 43,
+          "IRN": "16016"
+        },
+        {
+          "raw_row": 49,
+          "clean_row": 44,
+          "IRN": "16106"
+        },
+        {
+          "raw_row": 50,
+          "clean_row": 45,
+          "IRN": "16112"
+        },
+        {
+          "raw_row": 53,
+          "clean_row": 46,
+          "IRN": "14629 A"
+        },
+        {
+          "raw_row": 54,
+          "clean_row": 47,
+          "IRN": "14631 A"
+        },
+        {
+          "raw_row": 55,
+          "clean_row": 48,
+          "IRN": "14649 A"
+        },
+        {
+          "raw_row": 56,
+          "clean_row": 49,
+          "IRN": "14657 A"
+        },
+        {
+          "raw_row": 57,
+          "clean_row": 50,
+          "IRN": "14673 A"
+        },
+        {
+          "raw_row": 58,
+          "clean_row": 51,
+          "IRN": "15137"
+        },
+        {
+          "raw_row": 59,
+          "clean_row": 52,
+          "IRN": "15165"
+        },
+        {
+          "raw_row": 60,
+          "clean_row": 53,
+          "IRN": "14835 A"
+        },
+        {
+          "raw_row": 61,
+          "clean_row": 54,
+          "IRN": "15221"
+        },
+        {
+          "raw_row": 62,
+          "clean_row": 55,
+          "IRN": "15227"
+        },
+        {
+          "raw_row": 63,
+          "clean_row": 56,
+          "IRN": "15778 A"
+        },
+        {
+          "raw_row": 64,
+          "clean_row": 57,
+          "IRN": "15990"
+        },
+        {
+          "raw_row": 65,
+          "clean_row": 58,
+          "IRN": "16042"
+        },
+        {
+          "raw_row": 66,
+          "clean_row": 59,
+          "IRN": "16044"
+        },
+        {
+          "raw_row": 67,
+          "clean_row": 60,
+          "IRN": "16074"
+        },
+        {
+          "raw_row": 68,
+          "clean_row": 61,
+          "IRN": "16174"
+        },
+        {
+          "raw_row": 71,
+          "clean_row": 62,
+          "IRN": "15239"
+        },
+        {
+          "raw_row": 72,
+          "clean_row": 63,
+          "IRN": "15239 A"
+        },
+        {
+          "raw_row": 73,
+          "clean_row": 64,
+          "IRN": "15267"
+        },
+        {
+          "raw_row": 74,
+          "clean_row": 65,
+          "IRN": "15287"
+        },
+        {
+          "raw_row": 75,
+          "clean_row": 66,
+          "IRN": "15289"
+        },
+        {
+          "raw_row": 76,
+          "clean_row": 67,
+          "IRN": "15303"
+        },
+        {
+          "raw_row": 77,
+          "clean_row": 68,
+          "IRN": "15305"
+        },
+        {
+          "raw_row": 78,
+          "clean_row": 69,
+          "IRN": "15307"
+        },
+        {
+          "raw_row": 79,
+          "clean_row": 70,
+          "IRN": "16162"
+        },
+        {
+          "raw_row": 82,
+          "clean_row": 71,
+          "IRN": "15241 A"
+        },
+        {
+          "raw_row": 83,
+          "clean_row": 72,
+          "IRN": "15247"
+        },
+        {
+          "raw_row": 84,
+          "clean_row": 73,
+          "IRN": "15263"
+        },
+        {
+          "raw_row": 85,
+          "clean_row": 74,
+          "IRN": "15275"
+        },
+        {
+          "raw_row": 86,
+          "clean_row": 75,
+          "IRN": "15277"
+        },
+        {
+          "raw_row": 87,
+          "clean_row": 76,
+          "IRN": "15291"
+        },
+        {
+          "raw_row": 88,
+          "clean_row": 77,
+          "IRN": "15293"
+        },
+        {
+          "raw_row": 89,
+          "clean_row": 78,
+          "IRN": "15343"
+        },
+        {
+          "raw_row": 90,
+          "clean_row": 79,
+          "IRN": "15347"
+        },
+        {
+          "raw_row": 91,
+          "clean_row": 80,
+          "IRN": "16176"
+        },
+        {
+          "raw_row": 92,
+          "clean_row": 81,
+          "IRN": "16194"
+        },
+        {
+          "raw_row": 93,
+          "clean_row": 82,
+          "IRN": "16206"
+        },
+        {
+          "raw_row": 94,
+          "clean_row": 83,
+          "IRN": "16222"
+        },
+        {
+          "raw_row": 97,
+          "clean_row": 84,
+          "IRN": "15814 A"
+        },
+        {
+          "raw_row": 98,
+          "clean_row": 85,
+          "IRN": "15916"
+        },
+        {
+          "raw_row": 99,
+          "clean_row": 86,
+          "IRN": "15918"
+        },
+        {
+          "raw_row": 100,
+          "clean_row": 87,
+          "IRN": "15996"
+        },
+        {
+          "raw_row": 101,
+          "clean_row": 88,
+          "IRN": "16006"
+        },
+        {
+          "raw_row": 102,
+          "clean_row": 89,
+          "IRN": "15994"
+        },
+        {
+          "raw_row": 103,
+          "clean_row": 90,
+          "IRN": "16010"
+        },
+        {
+          "raw_row": 104,
+          "clean_row": 91,
+          "IRN": "16028"
+        },
+        {
+          "raw_row": 105,
+          "clean_row": 92,
+          "IRN": "16062"
+        },
+        {
+          "raw_row": 106,
+          "clean_row": 93,
+          "IRN": "16064"
+        },
+        {
+          "raw_row": 107,
+          "clean_row": 94,
+          "IRN": "16068"
+        },
+        {
+          "raw_row": 108,
+          "clean_row": 95,
+          "IRN": "16070"
+        },
+        {
+          "raw_row": 109,
+          "clean_row": 96,
+          "IRN": "16104"
+        },
+        {
+          "raw_row": 110,
+          "clean_row": 97,
+          "IRN": "16126"
+        },
+        {
+          "raw_row": 111,
+          "clean_row": 98,
+          "IRN": "16136"
+        },
+        {
+          "raw_row": 112,
+          "clean_row": 99,
+          "IRN": "16154"
+        },
+        {
+          "raw_row": 115,
+          "clean_row": 100,
+          "IRN": "14689 A"
+        },
+        {
+          "raw_row": 116,
+          "clean_row": 101,
+          "IRN": "14691 A"
+        },
+        {
+          "raw_row": 117,
+          "clean_row": 102,
+          "IRN": "15139"
+        },
+        {
+          "raw_row": 118,
+          "clean_row": 103,
+          "IRN": "15149"
+        },
+        {
+          "raw_row": 119,
+          "clean_row": 104,
+          "IRN": "15133"
+        },
+        {
+          "raw_row": 120,
+          "clean_row": 105,
+          "IRN": "15173"
+        },
+        {
+          "raw_row": 121,
+          "clean_row": 106,
+          "IRN": "15175"
+        },
+        {
+          "raw_row": 122,
+          "clean_row": 107,
+          "IRN": "14815 A"
+        },
+        {
+          "raw_row": 123,
+          "clean_row": 108,
+          "IRN": "14817 A"
+        },
+        {
+          "raw_row": 124,
+          "clean_row": 109,
+          "IRN": "14857 A"
+        },
+        {
+          "raw_row": 125,
+          "clean_row": 110,
+          "IRN": "15806 A"
+        },
+        {
+          "raw_row": 126,
+          "clean_row": 111,
+          "IRN": "15812 A"
+        },
+        {
+          "raw_row": 127,
+          "clean_row": 112,
+          "IRN": "15894 A"
+        },
+        {
+          "raw_row": 128,
+          "clean_row": 113,
+          "IRN": "15932"
+        },
+        {
+          "raw_row": 129,
+          "clean_row": 114,
+          "IRN": "16040"
+        },
+        {
+          "raw_row": 130,
+          "clean_row": 115,
+          "IRN": "16188"
+        },
+        {
+          "raw_row": 133,
+          "clean_row": 116,
+          "IRN": "15784 A"
+        },
+        {
+          "raw_row": 134,
+          "clean_row": 117,
+          "IRN": "15846 A"
+        },
+        {
+          "raw_row": 135,
+          "clean_row": 118,
+          "IRN": "15920"
+        },
+        {
+          "raw_row": 136,
+          "clean_row": 119,
+          "IRN": "15884 A"
+        },
+        {
+          "raw_row": 137,
+          "clean_row": 120,
+          "IRN": "16002"
+        },
+        {
+          "raw_row": 138,
+          "clean_row": 121,
+          "IRN": "15968"
+        },
+        {
+          "raw_row": 139,
+          "clean_row": 122,
+          "IRN": "16036"
+        },
+        {
+          "raw_row": 140,
+          "clean_row": 123,
+          "IRN": "16038"
+        },
+        {
+          "raw_row": 141,
+          "clean_row": 124,
+          "IRN": "16020"
+        },
+        {
+          "raw_row": 142,
+          "clean_row": 125,
+          "IRN": "16022"
+        },
+        {
+          "raw_row": 143,
+          "clean_row": 126,
+          "IRN": "16102"
+        },
+        {
+          "raw_row": 144,
+          "clean_row": 127,
+          "IRN": "16138"
+        },
+        {
+          "raw_row": 145,
+          "clean_row": 128,
+          "IRN": "16146"
+        },
+        {
+          "raw_row": 146,
+          "clean_row": 129,
+          "IRN": "16148"
+        },
+        {
+          "raw_row": 147,
+          "clean_row": 130,
+          "IRN": "16168"
+        },
+        {
+          "raw_row": 150,
+          "clean_row": 131,
+          "IRN": "14851 A"
+        },
+        {
+          "raw_row": 151,
+          "clean_row": 132,
+          "IRN": "15195 A"
+        },
+        {
+          "raw_row": 152,
+          "clean_row": 133,
+          "IRN": "15217 A"
+        },
+        {
+          "raw_row": 153,
+          "clean_row": 134,
+          "IRN": "15223 A"
+        },
+        {
+          "raw_row": 154,
+          "clean_row": 135,
+          "IRN": "15225 A"
+        },
+        {
+          "raw_row": 155,
+          "clean_row": 136,
+          "IRN": "15229"
+        },
+        {
+          "raw_row": 156,
+          "clean_row": 137,
+          "IRN": "15241"
+        },
+        {
+          "raw_row": 157,
+          "clean_row": 138,
+          "IRN": "15251"
+        },
+        {
+          "raw_row": 158,
+          "clean_row": 139,
+          "IRN": "15261"
+        },
+        {
+          "raw_row": 159,
+          "clean_row": 140,
+          "IRN": "15265"
+        },
+        {
+          "raw_row": 160,
+          "clean_row": 141,
+          "IRN": "16180"
+        },
+        {
+          "raw_row": 161,
+          "clean_row": 142,
+          "IRN": "16182"
+        },
+        {
+          "raw_row": 162,
+          "clean_row": 143,
+          "IRN": "16192"
+        },
+        {
+          "raw_row": 163,
+          "clean_row": 144,
+          "IRN": "16220"
+        },
+        {
+          "raw_row": 164,
+          "clean_row": 145,
+          "IRN": "16226"
+        },
+        {
+          "raw_row": 165,
+          "clean_row": 146,
+          "IRN": "16234"
+        }
+      ],
+      "raw_summary_formula_cells_removed": 100,
+      "retained_data_formulas": 0,
+      "measurement_cells": 725,
+      "numeric_measurement_cells": 725,
+      "blank_measurement_cells": 0,
+      "blank_measurement_locations": [],
+      "covariate_cells_compared": 580,
+      "animal_cells_compared": 1305,
+      "changed_animal_cells": [],
+      "whole_value_grid_reconstructed": true,
+      "nonempty_cells_reconstructed": 1314,
+      "merged_ranges_reconstructed": []
+    },
+    {
+      "raw_sheet": "Y-Maze",
+      "clean_sheet": "Y-Maze",
+      "raw_dimension": "A1:H167",
+      "clean_dimension": "A1:H146",
+      "animal_records": 145,
+      "group_counts": {
+        "A": 12,
+        "B": 16,
+        "C": 16,
+        "D": 16,
+        "E": 9,
+        "F": 13,
+        "G": 16,
+        "H": 16,
+        "I": 15,
+        "J": 16
+      },
+      "row_order_preserved": true,
+      "identifiers_preserved": true,
+      "source_rows_removed": [
+        15,
+        16,
+        33,
+        34,
+        51,
+        52,
+        69,
+        70,
+        80,
+        81,
+        95,
+        96,
+        113,
+        114,
+        131,
+        132,
+        148,
+        149,
+        166,
+        167
+      ],
+      "removed_row_labels": {
+        "Mean": 10,
+        "SEM": 10
+      },
+      "source_rows_removed_count": 20,
+      "raw_to_clean_row_mapping": [
+        {
+          "raw_row": 3,
+          "clean_row": 2,
+          "IRN": "15117"
+        },
+        {
+          "raw_row": 4,
+          "clean_row": 3,
+          "IRN": "15119"
+        },
+        {
+          "raw_row": 5,
+          "clean_row": 4,
+          "IRN": "15121"
+        },
+        {
+          "raw_row": 6,
+          "clean_row": 5,
+          "IRN": "14627 A"
+        },
+        {
+          "raw_row": 7,
+          "clean_row": 6,
+          "IRN": "14687 A"
+        },
+        {
+          "raw_row": 8,
+          "clean_row": 7,
+          "IRN": "15151"
+        },
+        {
+          "raw_row": 9,
+          "clean_row": 8,
+          "IRN": "15161"
+        },
+        {
+          "raw_row": 10,
+          "clean_row": 9,
+          "IRN": "15169"
+        },
+        {
+          "raw_row": 11,
+          "clean_row": 10,
+          "IRN": "15219"
+        },
+        {
+          "raw_row": 12,
+          "clean_row": 11,
+          "IRN": "15243"
+        },
+        {
+          "raw_row": 13,
+          "clean_row": 12,
+          "IRN": "15938"
+        },
+        {
+          "raw_row": 14,
+          "clean_row": 13,
+          "IRN": "16122"
+        },
+        {
+          "raw_row": 17,
+          "clean_row": 14,
+          "IRN": "15125"
+        },
+        {
+          "raw_row": 18,
+          "clean_row": 15,
+          "IRN": "15127"
+        },
+        {
+          "raw_row": 19,
+          "clean_row": 16,
+          "IRN": "14637 A"
+        },
+        {
+          "raw_row": 20,
+          "clean_row": 17,
+          "IRN": "14667 A"
+        },
+        {
+          "raw_row": 21,
+          "clean_row": 18,
+          "IRN": "14671 A"
+        },
+        {
+          "raw_row": 22,
+          "clean_row": 19,
+          "IRN": "14711 A"
+        },
+        {
+          "raw_row": 23,
+          "clean_row": 20,
+          "IRN": "15163"
+        },
+        {
+          "raw_row": 24,
+          "clean_row": 21,
+          "IRN": "15187"
+        },
+        {
+          "raw_row": 25,
+          "clean_row": 22,
+          "IRN": "15201"
+        },
+        {
+          "raw_row": 26,
+          "clean_row": 23,
+          "IRN": "15245"
+        },
+        {
+          "raw_row": 27,
+          "clean_row": 24,
+          "IRN": "15928"
+        },
+        {
+          "raw_row": 28,
+          "clean_row": 25,
+          "IRN": "16012"
+        },
+        {
+          "raw_row": 29,
+          "clean_row": 26,
+          "IRN": "16024"
+        },
+        {
+          "raw_row": 30,
+          "clean_row": 27,
+          "IRN": "16026"
+        },
+        {
+          "raw_row": 31,
+          "clean_row": 28,
+          "IRN": "16124"
+        },
+        {
+          "raw_row": 32,
+          "clean_row": 29,
+          "IRN": "16172"
+        },
+        {
+          "raw_row": 35,
+          "clean_row": 30,
+          "IRN": "15129"
+        },
+        {
+          "raw_row": 36,
+          "clean_row": 31,
+          "IRN": "15147"
+        },
+        {
+          "raw_row": 37,
+          "clean_row": 32,
+          "IRN": "14701 A"
+        },
+        {
+          "raw_row": 38,
+          "clean_row": 33,
+          "IRN": "14713 A"
+        },
+        {
+          "raw_row": 39,
+          "clean_row": 34,
+          "IRN": "14717 A"
+        },
+        {
+          "raw_row": 40,
+          "clean_row": 35,
+          "IRN": "15183"
+        },
+        {
+          "raw_row": 41,
+          "clean_row": 36,
+          "IRN": "15189"
+        },
+        {
+          "raw_row": 42,
+          "clean_row": 37,
+          "IRN": "15215"
+        },
+        {
+          "raw_row": 43,
+          "clean_row": 38,
+          "IRN": "15201 A"
+        },
+        {
+          "raw_row": 44,
+          "clean_row": 39,
+          "IRN": "15203 A"
+        },
+        {
+          "raw_row": 45,
+          "clean_row": 40,
+          "IRN": "15974"
+        },
+        {
+          "raw_row": 46,
+          "clean_row": 41,
+          "IRN": "16004"
+        },
+        {
+          "raw_row": 47,
+          "clean_row": 42,
+          "IRN": "16014"
+        },
+        {
+          "raw_row": 48,
+          "clean_row": 43,
+          "IRN": "16016"
+        },
+        {
+          "raw_row": 49,
+          "clean_row": 44,
+          "IRN": "16106"
+        },
+        {
+          "raw_row": 50,
+          "clean_row": 45,
+          "IRN": "16112"
+        },
+        {
+          "raw_row": 53,
+          "clean_row": 46,
+          "IRN": "14629 A"
+        },
+        {
+          "raw_row": 54,
+          "clean_row": 47,
+          "IRN": "14631 A"
+        },
+        {
+          "raw_row": 55,
+          "clean_row": 48,
+          "IRN": "14649 A"
+        },
+        {
+          "raw_row": 56,
+          "clean_row": 49,
+          "IRN": "14657 A"
+        },
+        {
+          "raw_row": 57,
+          "clean_row": 50,
+          "IRN": "14673 A"
+        },
+        {
+          "raw_row": 58,
+          "clean_row": 51,
+          "IRN": "15137"
+        },
+        {
+          "raw_row": 59,
+          "clean_row": 52,
+          "IRN": "15165"
+        },
+        {
+          "raw_row": 60,
+          "clean_row": 53,
+          "IRN": "15221"
+        },
+        {
+          "raw_row": 61,
+          "clean_row": 54,
+          "IRN": "14835 A"
+        },
+        {
+          "raw_row": 62,
+          "clean_row": 55,
+          "IRN": "15227"
+        },
+        {
+          "raw_row": 63,
+          "clean_row": 56,
+          "IRN": "15778 A"
+        },
+        {
+          "raw_row": 64,
+          "clean_row": 57,
+          "IRN": "15990"
+        },
+        {
+          "raw_row": 65,
+          "clean_row": 58,
+          "IRN": "16042"
+        },
+        {
+          "raw_row": 66,
+          "clean_row": 59,
+          "IRN": "16044"
+        },
+        {
+          "raw_row": 67,
+          "clean_row": 60,
+          "IRN": "16074"
+        },
+        {
+          "raw_row": 68,
+          "clean_row": 61,
+          "IRN": "16174"
+        },
+        {
+          "raw_row": 71,
+          "clean_row": 62,
+          "IRN": "15239"
+        },
+        {
+          "raw_row": 72,
+          "clean_row": 63,
+          "IRN": "15239 A"
+        },
+        {
+          "raw_row": 73,
+          "clean_row": 64,
+          "IRN": "15267"
+        },
+        {
+          "raw_row": 74,
+          "clean_row": 65,
+          "IRN": "15287"
+        },
+        {
+          "raw_row": 75,
+          "clean_row": 66,
+          "IRN": "15289"
+        },
+        {
+          "raw_row": 76,
+          "clean_row": 67,
+          "IRN": "15303"
+        },
+        {
+          "raw_row": 77,
+          "clean_row": 68,
+          "IRN": "15305"
+        },
+        {
+          "raw_row": 78,
+          "clean_row": 69,
+          "IRN": "15307"
+        },
+        {
+          "raw_row": 79,
+          "clean_row": 70,
+          "IRN": "16162"
+        },
+        {
+          "raw_row": 82,
+          "clean_row": 71,
+          "IRN": "15247"
+        },
+        {
+          "raw_row": 83,
+          "clean_row": 72,
+          "IRN": "15241 A"
+        },
+        {
+          "raw_row": 84,
+          "clean_row": 73,
+          "IRN": "15263"
+        },
+        {
+          "raw_row": 85,
+          "clean_row": 74,
+          "IRN": "15275"
+        },
+        {
+          "raw_row": 86,
+          "clean_row": 75,
+          "IRN": "15277"
+        },
+        {
+          "raw_row": 87,
+          "clean_row": 76,
+          "IRN": "15291"
+        },
+        {
+          "raw_row": 88,
+          "clean_row": 77,
+          "IRN": "15293"
+        },
+        {
+          "raw_row": 89,
+          "clean_row": 78,
+          "IRN": "15343"
+        },
+        {
+          "raw_row": 90,
+          "clean_row": 79,
+          "IRN": "15347"
+        },
+        {
+          "raw_row": 91,
+          "clean_row": 80,
+          "IRN": "16176"
+        },
+        {
+          "raw_row": 92,
+          "clean_row": 81,
+          "IRN": "16194"
+        },
+        {
+          "raw_row": 93,
+          "clean_row": 82,
+          "IRN": "16206"
+        },
+        {
+          "raw_row": 94,
+          "clean_row": 83,
+          "IRN": "16222"
+        },
+        {
+          "raw_row": 97,
+          "clean_row": 84,
+          "IRN": "15916"
+        },
+        {
+          "raw_row": 98,
+          "clean_row": 85,
+          "IRN": "15918"
+        },
+        {
+          "raw_row": 99,
+          "clean_row": 86,
+          "IRN": "15814 A"
+        },
+        {
+          "raw_row": 100,
+          "clean_row": 87,
+          "IRN": "15996"
+        },
+        {
+          "raw_row": 101,
+          "clean_row": 88,
+          "IRN": "16006"
+        },
+        {
+          "raw_row": 102,
+          "clean_row": 89,
+          "IRN": "15994"
+        },
+        {
+          "raw_row": 103,
+          "clean_row": 90,
+          "IRN": "16010"
+        },
+        {
+          "raw_row": 104,
+          "clean_row": 91,
+          "IRN": "16028"
+        },
+        {
+          "raw_row": 105,
+          "clean_row": 92,
+          "IRN": "16062"
+        },
+        {
+          "raw_row": 106,
+          "clean_row": 93,
+          "IRN": "16064"
+        },
+        {
+          "raw_row": 107,
+          "clean_row": 94,
+          "IRN": "16068"
+        },
+        {
+          "raw_row": 108,
+          "clean_row": 95,
+          "IRN": "16070"
+        },
+        {
+          "raw_row": 109,
+          "clean_row": 96,
+          "IRN": "16104"
+        },
+        {
+          "raw_row": 110,
+          "clean_row": 97,
+          "IRN": "16126"
+        },
+        {
+          "raw_row": 111,
+          "clean_row": 98,
+          "IRN": "16136"
+        },
+        {
+          "raw_row": 112,
+          "clean_row": 99,
+          "IRN": "16154"
+        },
+        {
+          "raw_row": 115,
+          "clean_row": 100,
+          "IRN": "14689 A"
+        },
+        {
+          "raw_row": 116,
+          "clean_row": 101,
+          "IRN": "14691 A"
+        },
+        {
+          "raw_row": 117,
+          "clean_row": 102,
+          "IRN": "15139"
+        },
+        {
+          "raw_row": 118,
+          "clean_row": 103,
+          "IRN": "15149"
+        },
+        {
+          "raw_row": 119,
+          "clean_row": 104,
+          "IRN": "15133"
+        },
+        {
+          "raw_row": 120,
+          "clean_row": 105,
+          "IRN": "15173"
+        },
+        {
+          "raw_row": 121,
+          "clean_row": 106,
+          "IRN": "15175"
+        },
+        {
+          "raw_row": 122,
+          "clean_row": 107,
+          "IRN": "14815 A"
+        },
+        {
+          "raw_row": 123,
+          "clean_row": 108,
+          "IRN": "14817 A"
+        },
+        {
+          "raw_row": 124,
+          "clean_row": 109,
+          "IRN": "14857 A"
+        },
+        {
+          "raw_row": 125,
+          "clean_row": 110,
+          "IRN": "15806 A"
+        },
+        {
+          "raw_row": 126,
+          "clean_row": 111,
+          "IRN": "15812 A"
+        },
+        {
+          "raw_row": 127,
+          "clean_row": 112,
+          "IRN": "15932"
+        },
+        {
+          "raw_row": 128,
+          "clean_row": 113,
+          "IRN": "15894 A"
+        },
+        {
+          "raw_row": 129,
+          "clean_row": 114,
+          "IRN": "16040"
+        },
+        {
+          "raw_row": 130,
+          "clean_row": 115,
+          "IRN": "16188"
+        },
+        {
+          "raw_row": 133,
+          "clean_row": 116,
+          "IRN": "15920"
+        },
+        {
+          "raw_row": 134,
+          "clean_row": 117,
+          "IRN": "15784 A"
+        },
+        {
+          "raw_row": 135,
+          "clean_row": 118,
+          "IRN": "15846 A"
+        },
+        {
+          "raw_row": 136,
+          "clean_row": 119,
+          "IRN": "16002"
+        },
+        {
+          "raw_row": 137,
+          "clean_row": 120,
+          "IRN": "15884 A"
+        },
+        {
+          "raw_row": 138,
+          "clean_row": 121,
+          "IRN": "15968"
+        },
+        {
+          "raw_row": 139,
+          "clean_row": 122,
+          "IRN": "16036"
+        },
+        {
+          "raw_row": 140,
+          "clean_row": 123,
+          "IRN": "16038"
+        },
+        {
+          "raw_row": 141,
+          "clean_row": 124,
+          "IRN": "16020"
+        },
+        {
+          "raw_row": 142,
+          "clean_row": 125,
+          "IRN": "16022"
+        },
+        {
+          "raw_row": 143,
+          "clean_row": 126,
+          "IRN": "16102"
+        },
+        {
+          "raw_row": 144,
+          "clean_row": 127,
+          "IRN": "16138"
+        },
+        {
+          "raw_row": 145,
+          "clean_row": 128,
+          "IRN": "16146"
+        },
+        {
+          "raw_row": 146,
+          "clean_row": 129,
+          "IRN": "16148"
+        },
+        {
+          "raw_row": 147,
+          "clean_row": 130,
+          "IRN": "16168"
+        },
+        {
+          "raw_row": 150,
+          "clean_row": 131,
+          "IRN": "14851 A"
+        },
+        {
+          "raw_row": 151,
+          "clean_row": 132,
+          "IRN": "15195 A"
+        },
+        {
+          "raw_row": 152,
+          "clean_row": 133,
+          "IRN": "15217 A"
+        },
+        {
+          "raw_row": 153,
+          "clean_row": 134,
+          "IRN": "15223 A"
+        },
+        {
+          "raw_row": 154,
+          "clean_row": 135,
+          "IRN": "15225 A"
+        },
+        {
+          "raw_row": 155,
+          "clean_row": 136,
+          "IRN": "15229"
+        },
+        {
+          "raw_row": 156,
+          "clean_row": 137,
+          "IRN": "15241"
+        },
+        {
+          "raw_row": 157,
+          "clean_row": 138,
+          "IRN": "15251"
+        },
+        {
+          "raw_row": 158,
+          "clean_row": 139,
+          "IRN": "15261"
+        },
+        {
+          "raw_row": 159,
+          "clean_row": 140,
+          "IRN": "15265"
+        },
+        {
+          "raw_row": 160,
+          "clean_row": 141,
+          "IRN": "16180"
+        },
+        {
+          "raw_row": 161,
+          "clean_row": 142,
+          "IRN": "16182"
+        },
+        {
+          "raw_row": 162,
+          "clean_row": 143,
+          "IRN": "16192"
+        },
+        {
+          "raw_row": 163,
+          "clean_row": 144,
+          "IRN": "16220"
+        },
+        {
+          "raw_row": 164,
+          "clean_row": 145,
+          "IRN": "16226"
+        },
+        {
+          "raw_row": 165,
+          "clean_row": 146,
+          "IRN": "16234"
+        }
+      ],
+      "raw_summary_formula_cells_removed": 0,
+      "retained_data_formulas": 0,
+      "measurement_cells": 580,
+      "numeric_measurement_cells": 573,
+      "blank_measurement_cells": 7,
+      "blank_measurement_locations": [
+        {
+          "raw_cell": "G71",
+          "clean_cell": "G62",
+          "key": [
+            "V",
+            "E",
+            "f",
+            "15239"
+          ]
+        },
+        {
+          "raw_cell": "G75",
+          "clean_cell": "G66",
+          "key": [
+            "VI",
+            "E",
+            "f",
+            "15289"
+          ]
+        },
+        {
+          "raw_cell": "H75",
+          "clean_cell": "H66",
+          "key": [
+            "VI",
+            "E",
+            "f",
+            "15289"
+          ]
+        },
+        {
+          "raw_cell": "G82",
+          "clean_cell": "G71",
+          "key": [
+            "V",
+            "F",
+            "f",
+            "15247"
+          ]
+        },
+        {
+          "raw_cell": "G88",
+          "clean_cell": "G77",
+          "key": [
+            "VI",
+            "F",
+            "f",
+            "15293"
+          ]
+        },
+        {
+          "raw_cell": "H88",
+          "clean_cell": "H77",
+          "key": [
+            "VI",
+            "F",
+            "f",
+            "15293"
+          ]
+        },
+        {
+          "raw_cell": "G93",
+          "clean_cell": "G82",
+          "key": [
+            "VI",
+            "F",
+            "m",
+            "16206"
+          ]
+        }
+      ],
+      "covariate_cells_compared": 580,
+      "animal_cells_compared": 1160,
+      "changed_animal_cells": [],
+      "whole_value_grid_reconstructed": true,
+      "nonempty_cells_reconstructed": 1161,
+      "merged_ranges_reconstructed": []
+    }
+  ],
+  "cross_sheet_key_comparison": "Compared identifiers as strings only for cross-sheet matching: IRN 16006 is stored numerically in Y-Maze and as text in MWM; each cleaned sheet preserves its own raw types.",
+  "summary": {
+    "unique_animals": 145,
+    "sheets": 3,
+    "animal_cells_compared": 5945,
+    "numeric_measurement_cells": 4198,
+    "blank_measurement_cells": 7,
+    "changed_animal_cells": 0,
+    "removed_summary_rows": 60,
+    "raw_summary_formula_cells_removed": 120,
+    "MWM_sheets_same_row_order": true,
+    "Y_maze_original_order_differs_from_MWM": true
+  }
+}

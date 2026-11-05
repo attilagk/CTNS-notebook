@@ -1,0 +1,26 @@
+{
+  "recovery_checked_at": "2026-11-05T18:06:55.990476+00:00",
+  "original_missing_paths": 241,
+  "original_missing_paths_by_recovery_status": {
+    "still missing": 235,
+    "recovered": 6
+  },
+  "manuscript_source_paths_by_recovery_status": {
+    "recovered": 6,
+    "still missing": 5
+  },
+  "manuscript_source_paths_still_missing": [
+    "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28152-biochemistry-cleaned-Abeta.xlsx",
+    "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28154-biochemistry-cleaned-Abeta.xlsx",
+    "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28154-biochemistry-cleaned.xlsx",
+    "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/amiloride-behavioral-data-cleaned.xlsx",
+    "/home/attila/projects/CTNS/resources/testdata/bambi/kidney.csv"
+  ],
+  "files_updated": [
+    "input-inventory.csv",
+    "missing-files.csv",
+    "output-producers.csv",
+    "notebook-coverage.csv"
+  ],
+  "unchanged_loading_sites": "loading-sites.csv describes code coverage rather than file availability; use input-inventory.csv for recovery filters."
+}
