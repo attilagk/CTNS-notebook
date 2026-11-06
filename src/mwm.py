@@ -58,6 +58,7 @@ def model_A(y_obs, x_obs, return_model=False, y_inf_A_val=0, censored=True):
 
 
 def read_data_train(fpath, treatments, sheet_name='MWM day 1-4'):
+    """Read training data with Distance in cm and Velocity in cm/s."""
     data_train = pd.read_excel(fpath, sheet_name=sheet_name, header=[0,1], index_col=None)
     ix = pd.MultiIndex.from_frame(data_train.iloc[:, :4].xs('Covariates', axis=1, level=0))
     data_train = pd.DataFrame(data_train.iloc[:, 4:].to_numpy(), columns=data_train.iloc[:, 4:].columns, index=ix)
@@ -69,7 +70,19 @@ def read_data_train(fpath, treatments, sheet_name='MWM day 1-4'):
     data_train['Condition'] = data_train.Group.apply(lambda x: treatments[x])
     data_train['Status'] = np.where(data_train['Latency (s)'] < 60, 'none', 'right') # censoring status
     d = {'Latency (s)': 'Latency', 'Velocity (m/s)': 'Velocity', 'Thigmotaxis %': 'Thigmotaxis', 'Floating %': 'Floating', 'Distance (m)': 'Distance'}
+    # Canonical analysis units: Distance in cm, Velocity in cm/s.
+    for metric, variants in {
+        'Distance': {'Distance (m)': 100, 'Distance (cm)': 1},
+        'Velocity': {'Velocity (m/s)': 100, 'Velocity (cm/s)': 1},
+    }.items():
+        headers = [name for name in variants if name in data_train.columns]
+        if len(headers) != 1 or metric in data_train.columns:
+            raise ValueError(f"Expected exactly one unit-bearing {metric} header; got {headers}")
+        header = headers[0]
+        data_train[header] = data_train[header] * variants[header]
+        d[header] = metric
     data_train = data_train.rename(d, axis=1)
+    data_train.attrs['units'] = {'Distance': 'cm', 'Velocity': 'cm/s'}
     data_train = data_train.rename_axis(['cohort', 'group', 'sex', 'irn', 'day'])
     #data_train = pd.DataFrame(data_train.to_numpy(), index=list(range(data_train.shape[0])), columns=data_train.columns)
     return(data_train)
@@ -88,7 +101,7 @@ def data_train_plotter(yname, data_train, lvl=['5xFAD', '5xFAD + Amiloride', 'WT
     fig, ax = plt.subplots(1, ncol, sharey=True, figsize=(len(lvl) * 4.8, 4.8))
     for condition, axi in zip(lvl, ax):
         axi.set_title(condition)
-        axi.set_ylabel(yname)
+        axi.set_ylabel({'Distance': 'Distance (cm)', 'Velocity': 'Velocity (cm/s)'}.get(yname, yname))
         axi.set_xlabel('Day')
         axi.set_xticks(range(5))
         axi.set_xticklabels(range(5))
