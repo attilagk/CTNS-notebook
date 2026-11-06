@@ -1,0 +1,141 @@
+{
+  "model": "M_2FE_gamma",
+  "data": "data_train-CO26990.csv",
+  "bambi": "0.14.0",
+  "pymc": "5.16.1",
+  "chains": 4,
+  "tune_per_chain": 1000,
+  "draws_per_chain": 1000,
+  "initialization": "adapt_diag; Intercept=log(median latency), Day=0, Group=zeros(2), alpha=1",
+  "note": "Initialization only; formulas, likelihood and priors unchanged. Diagnostics use ArviZ summary rounding. Validation fits do not update the live notebook kernel or saved outputs.",
+  "runs": {
+    "initial_loop": {
+      "divergences": 0,
+      "max_rhat": 1.0,
+      "min_ess_bulk": 1829.0,
+      "min_ess_tail": 2122.0,
+      "finite_log_likelihood": true,
+      "summary": {
+        "Intercept": {
+          "mean": 4.296,
+          "sd": 0.111,
+          "hdi_3%": 4.095,
+          "hdi_97%": 4.505,
+          "mcse_mean": 0.003,
+          "mcse_sd": 0.002,
+          "ess_bulk": 1829.0,
+          "ess_tail": 2198.0,
+          "r_hat": 1.0
+        },
+        "Day": {
+          "mean": -0.308,
+          "sd": 0.036,
+          "hdi_3%": -0.372,
+          "hdi_97%": -0.237,
+          "mcse_mean": 0.001,
+          "mcse_sd": 0.001,
+          "ess_bulk": 1871.0,
+          "ess_tail": 2122.0,
+          "r_hat": 1.0
+        },
+        "Group[B]": {
+          "mean": 0.332,
+          "sd": 0.092,
+          "hdi_3%": 0.156,
+          "hdi_97%": 0.502,
+          "mcse_mean": 0.002,
+          "mcse_sd": 0.001,
+          "ess_bulk": 2256.0,
+          "ess_tail": 2408.0,
+          "r_hat": 1.0
+        },
+        "Group[C]": {
+          "mean": 0.362,
+          "sd": 0.099,
+          "hdi_3%": 0.182,
+          "hdi_97%": 0.551,
+          "mcse_mean": 0.002,
+          "mcse_sd": 0.001,
+          "ess_bulk": 2713.0,
+          "ess_tail": 2618.0,
+          "r_hat": 1.0
+        },
+        "alpha": {
+          "mean": 4.638,
+          "sd": 0.58,
+          "hdi_3%": 3.597,
+          "hdi_97%": 5.738,
+          "mcse_mean": 0.011,
+          "mcse_sd": 0.007,
+          "ess_bulk": 3008.0,
+          "ess_tail": 2511.0,
+          "r_hat": 1.0
+        }
+      }
+    },
+    "retry_cell": {
+      "divergences": 0,
+      "max_rhat": 1.0,
+      "min_ess_bulk": 1941.0,
+      "min_ess_tail": 2161.0,
+      "finite_log_likelihood": true,
+      "summary": {
+        "Intercept": {
+          "mean": 4.293,
+          "sd": 0.111,
+          "hdi_3%": 4.077,
+          "hdi_97%": 4.492,
+          "mcse_mean": 0.003,
+          "mcse_sd": 0.002,
+          "ess_bulk": 1941.0,
+          "ess_tail": 2441.0,
+          "r_hat": 1.0
+        },
+        "Day": {
+          "mean": -0.307,
+          "sd": 0.035,
+          "hdi_3%": -0.37,
+          "hdi_97%": -0.239,
+          "mcse_mean": 0.001,
+          "mcse_sd": 0.001,
+          "ess_bulk": 2095.0,
+          "ess_tail": 2284.0,
+          "r_hat": 1.0
+        },
+        "Group[B]": {
+          "mean": 0.332,
+          "sd": 0.092,
+          "hdi_3%": 0.145,
+          "hdi_97%": 0.49,
+          "mcse_mean": 0.002,
+          "mcse_sd": 0.002,
+          "ess_bulk": 2003.0,
+          "ess_tail": 2161.0,
+          "r_hat": 1.0
+        },
+        "Group[C]": {
+          "mean": 0.363,
+          "sd": 0.1,
+          "hdi_3%": 0.172,
+          "hdi_97%": 0.542,
+          "mcse_mean": 0.002,
+          "mcse_sd": 0.002,
+          "ess_bulk": 2489.0,
+          "ess_tail": 2560.0,
+          "r_hat": 1.0
+        },
+        "alpha": {
+          "mean": 4.635,
+          "sd": 0.583,
+          "hdi_3%": 3.576,
+          "hdi_97%": 5.719,
+          "mcse_mean": 0.011,
+          "mcse_sd": 0.008,
+          "ess_bulk": 2875.0,
+          "ess_tail": 2342.0,
+          "r_hat": 1.0
+        }
+      }
+    }
+  }
+}
