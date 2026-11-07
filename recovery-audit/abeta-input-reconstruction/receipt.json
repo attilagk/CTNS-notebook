@@ -1,0 +1,39 @@
+{
+  "installed_at": "2026-11-07T20:58:10.723936+00:00",
+  "files": [
+    {
+      "destination": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28152-biochemistry-cleaned-Abeta.xlsx",
+      "sha256": "ce2737a9b1876d0bd1965269fac382127caca54de8d09b9e2fe02ce13594b962",
+      "source": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28152_IV_data all.xlsx",
+      "supporting_sources": [
+        "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28152_Report_final.pdf"
+      ]
+    },
+    {
+      "destination": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28154-biochemistry-cleaned-Abeta.xlsx",
+      "sha256": "a4d56ddea0c6bc084941a7be70d6d7b23d63fc9cef67738bfbceac079f9a7986",
+      "source": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28154 rawdata biochemistry.xlsx",
+      "supporting_sources": []
+    }
+  ],
+  "sources": [
+    {
+      "path": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28152_IV_data all.xlsx",
+      "sha256": "455872e302760be5a54e107cc91321166a67c963bf0107c16ccb7b442fa45364"
+    },
+    {
+      "path": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28154 rawdata biochemistry.xlsx",
+      "sha256": "d480bdbe6f5fcc38cef34fe2a9286048739144309525a4b3e676f7408ad4fdf5"
+    },
+    {
+      "path": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28152_Report_final.pdf",
+      "sha256": "2de8529e7f32c498724f09d542c4c7ef158ff5338d307bd66c329a72db1d4699"
+    }
+  ],
+  "shared_urls": [
+    "https://www.dropbox.com/scl/fi/4pw5yj6qpp8x8ilv8x9a9/CO28154-rawdata-biochemistry.xlsx?rlkey=vlh7nygwyn0l4pr7bmpible1k&dl=0",
+    "https://www.dropbox.com/scl/fi/3bb6ow6upfmuoex34kh6e/CO28152_Report_final.pdf?rlkey=d6a0hzz17xisgyoxfi229vlwe&dl=0"
+  ],
+  "validation": "abeta-input-reconstruction/validation.json",
+  "git_commit": "03f5ed0fa27f80b0bd287874551009bce0ae6d54"
+}

@@ -1,0 +1,91 @@
+{
+  "notebook": "2024-08-08-biochemistry",
+  "execution": {
+    "status": "completed",
+    "python": "/home/attila/miniconda3/bin/python",
+    "conda_environment": "base",
+    "canonical_cells_completed": 26,
+    "fresh_kernel": true,
+    "inline_plot_outputs": 7
+  },
+  "reference_reproduction": {
+    "status": "passed",
+    "table": {
+      "verdict": "passed",
+      "cells_compared": 66,
+      "failure_count": 0,
+      "maximum_absolute_difference": 4.991332902548606e-07,
+      "criterion": "Each numeric value agrees with the markdown reference within half one unit of its last displayed digit."
+    },
+    "figure": {
+      "verdict": "visually matched for the inspected image hashes",
+      "inspection_hashes_match": true,
+      "reference_size_px": [
+        475,
+        558
+      ],
+      "reproduced_size_px": [
+        475,
+        558
+      ],
+      "inspected_features": [
+        "2x2 panel order: FA cortex, FA hippocampus, DEA cortex, DEA hippocampus",
+        "Saline TG and TUDCA + HCQ TG groups with matching colors and point distributions",
+        "Aβ40/Aβ42 labels, log-scaled y axes, significance brackets/stars, legend and panel labels"
+      ],
+      "sha256": {
+        "reference": "75d7f18d4a0e1432a1c3f28707412e09b3afe875dd757ca26b760f4770245f7a",
+        "reproduced": "0e6970952165474ec3f0ce00b87852ee4c697216f2bc3003d1439bd90bed7c4f"
+      }
+    }
+  },
+  "inference_quality": {
+    "status": "target_model_full_rank; exploratory_warnings_retained",
+    "target_ols_models": [
+      {
+        "sex_subset": "both sexes",
+        "nobs": 94,
+        "design_columns": 11,
+        "design_rank": 11,
+        "rank_deficient": false
+      },
+      {
+        "sex_subset": "males only",
+        "nobs": 71,
+        "design_columns": 11,
+        "design_rank": 11,
+        "rank_deficient": false
+      }
+    ],
+    "nonestimable_ttest_rows": 10,
+    "total_ttest_rows": 88,
+    "rank_deficient_exploratory_ols_models": 6,
+    "total_ols_models": 40,
+    "mcmc": "not applicable; notebook uses OLS and t-tests"
+  },
+  "retained_warnings": [
+    "10/88 WT t-test rows returned NaN with SciPy SmallSampleWarning; exact rows are in nonestimable-ttests.csv.",
+    "6/40 exploratory OLS fits using the Sex-inclusive formula were rank deficient; target formula was full rank in both subsets.",
+    "Pandas future-compatibility warning remains in fit_one category assignment."
+  ],
+  "provenance": {
+    "starting_commit": "9406b22901613ce1568951ccff7e55e063d204b9",
+    "pre_fix_notebook_sha256": "2f2226b4985db36360740ea52cf208d2563486e392ead57f4fc2904bd3a3a988",
+    "promoted_notebook_sha256": "07f5a386d9117b2ff920e988009e77869f2d17165a5d14dcd58df904a03cd18d",
+    "inputs": {
+      "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28152-biochemistry-cleaned-Abeta.xlsx": {
+        "sha256": "ce2737a9b1876d0bd1965269fac382127caca54de8d09b9e2fe02ce13594b962",
+        "bytes": 10332
+      },
+      "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28154-biochemistry-cleaned-Abeta.xlsx": {
+        "sha256": "a4d56ddea0c6bc084941a7be70d6d7b23d63fc9cef67738bfbceac079f9a7986",
+        "bytes": 9852
+      }
+    },
+    "dependency_addition": {
+      "distribution": "statannotations",
+      "version": "0.7.2",
+      "environment": "base"
+    }
+  }
+}

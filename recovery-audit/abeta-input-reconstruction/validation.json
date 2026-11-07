@@ -1,0 +1,22 @@
+{
+  "CO28154": {
+    "historical_parameter_cells_matched": 66,
+    "rows": 60,
+    "numeric_cells": 291
+  },
+  "CO28152": {
+    "historical_parameter_cells_matched": 90,
+    "rows": 60,
+    "numeric_cells": 339
+  },
+  "status": "passed",
+  "wide_shape": [
+    120,
+    8
+  ],
+  "long_shape": [
+    960,
+    11
+  ],
+  "scope": "Input round trip and notebook import/data-engineering/selected OLS cells only; not full reproduction"
+}

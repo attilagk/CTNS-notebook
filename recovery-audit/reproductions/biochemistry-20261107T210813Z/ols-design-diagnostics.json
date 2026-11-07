@@ -1,0 +1,402 @@
+[
+  {
+    "sex_subset": "both_sexes",
+    "formula": "np.log(Ab) ~ Treatment",
+    "study": "CO28154",
+    "experiment": "TUDCA and HCQ",
+    "nobs": 94,
+    "design_columns": 2,
+    "design_rank": 2,
+    "rank_deficient": false
+  },
+  {
+    "sex_subset": "both_sexes",
+    "formula": "np.log(Ab) ~ Treatment",
+    "study": "CO28152",
+    "experiment": "TUDCA or HCQ",
+    "nobs": 142,
+    "design_columns": 3,
+    "design_rank": 3,
+    "rank_deficient": false
+  },
+  {
+    "sex_subset": "both_sexes",
+    "formula": "np.log(Ab) ~ Treatment",
+    "study": "CO28152",
+    "experiment": "HCQ analogs",
+    "nobs": 238,
+    "design_columns": 5,
+    "design_rank": 5,
+    "rank_deficient": false
+  },
+  {
+    "sex_subset": "both_sexes",
+    "formula": "np.log(Ab) ~ Treatment",
+    "study": "CO28154",
+    "experiment": "Arundine",
+    "nobs": 186,
+    "design_columns": 4,
+    "design_rank": 4,
+    "rank_deficient": false
+  },
+  {
+    "sex_subset": "both_sexes",
+    "formula": "np.log(Ab) ~ Treatment + Alloform + Region + Fraction",
+    "study": "CO28154",
+    "experiment": "TUDCA and HCQ",
+    "nobs": 94,
+    "design_columns": 5,
+    "design_rank": 5,
+    "rank_deficient": false
+  },
+  {
+    "sex_subset": "both_sexes",
+    "formula": "np.log(Ab) ~ Treatment + Alloform + Region + Fraction",
+    "study": "CO28152",
+    "experiment": "TUDCA or HCQ",
+    "nobs": 142,
+    "design_columns": 6,
+    "design_rank": 6,
+    "rank_deficient": false
+  },
+  {
+    "sex_subset": "both_sexes",
+    "formula": "np.log(Ab) ~ Treatment + Alloform + Region + Fraction",
+    "study": "CO28152",
+    "experiment": "HCQ analogs",
+    "nobs": 238,
+    "design_columns": 8,
+    "design_rank": 8,
+    "rank_deficient": false
+  },
+  {
+    "sex_subset": "both_sexes",
+    "formula": "np.log(Ab) ~ Treatment + Alloform + Region + Fraction",
+    "study": "CO28154",
+    "experiment": "Arundine",
+    "nobs": 186,
+    "design_columns": 7,
+    "design_rank": 7,
+    "rank_deficient": false
+  },
+  {
+    "sex_subset": "both_sexes",
+    "formula": "np.log(Ab) ~ Treatment + Alloform + Region + Fraction + Treatment * Region * Fraction - Treatment : Region : Fraction",
+    "study": "CO28154",
+    "experiment": "TUDCA and HCQ",
+    "nobs": 94,
+    "design_columns": 8,
+    "design_rank": 8,
+    "rank_deficient": false
+  },
+  {
+    "sex_subset": "both_sexes",
+    "formula": "np.log(Ab) ~ Treatment + Alloform + Region + Fraction + Treatment * Region * Fraction - Treatment : Region : Fraction",
+    "study": "CO28152",
+    "experiment": "TUDCA or HCQ",
+    "nobs": 142,
+    "design_columns": 11,
+    "design_rank": 11,
+    "rank_deficient": false
+  },
+  {
+    "sex_subset": "both_sexes",
+    "formula": "np.log(Ab) ~ Treatment + Alloform + Region + Fraction + Treatment * Region * Fraction - Treatment : Region : Fraction",
+    "study": "CO28152",
+    "experiment": "HCQ analogs",
+    "nobs": 238,
+    "design_columns": 17,
+    "design_rank": 17,
+    "rank_deficient": false
+  },
+  {
+    "sex_subset": "both_sexes",
+    "formula": "np.log(Ab) ~ Treatment + Alloform + Region + Fraction + Treatment * Region * Fraction - Treatment : Region : Fraction",
+    "study": "CO28154",
+    "experiment": "Arundine",
+    "nobs": 186,
+    "design_columns": 14,
+    "design_rank": 14,
+    "rank_deficient": false
+  },
+  {
+    "sex_subset": "both_sexes",
+    "formula": "np.log(Ab) ~ (Treatment + Alloform + Region + Fraction) ** 2",
+    "study": "CO28154",
+    "experiment": "TUDCA and HCQ",
+    "nobs": 94,
+    "design_columns": 11,
+    "design_rank": 11,
+    "rank_deficient": false
+  },
+  {
+    "sex_subset": "both_sexes",
+    "formula": "np.log(Ab) ~ (Treatment + Alloform + Region + Fraction) ** 2",
+    "study": "CO28152",
+    "experiment": "TUDCA or HCQ",
+    "nobs": 142,
+    "design_columns": 15,
+    "design_rank": 15,
+    "rank_deficient": false
+  },
+  {
+    "sex_subset": "both_sexes",
+    "formula": "np.log(Ab) ~ (Treatment + Alloform + Region + Fraction) ** 2",
+    "study": "CO28152",
+    "experiment": "HCQ analogs",
+    "nobs": 238,
+    "design_columns": 23,
+    "design_rank": 23,
+    "rank_deficient": false
+  },
+  {
+    "sex_subset": "both_sexes",
+    "formula": "np.log(Ab) ~ (Treatment + Alloform + Region + Fraction) ** 2",
+    "study": "CO28154",
+    "experiment": "Arundine",
+    "nobs": 186,
+    "design_columns": 19,
+    "design_rank": 19,
+    "rank_deficient": false
+  },
+  {
+    "sex_subset": "both_sexes",
+    "formula": "np.log(Ab) ~ (Treatment + Alloform + Region + Fraction + Sex) ** 2",
+    "study": "CO28154",
+    "experiment": "TUDCA and HCQ",
+    "nobs": 94,
+    "design_columns": 16,
+    "design_rank": 15,
+    "rank_deficient": true
+  },
+  {
+    "sex_subset": "both_sexes",
+    "formula": "np.log(Ab) ~ (Treatment + Alloform + Region + Fraction + Sex) ** 2",
+    "study": "CO28152",
+    "experiment": "TUDCA or HCQ",
+    "nobs": 142,
+    "design_columns": 21,
+    "design_rank": 20,
+    "rank_deficient": true
+  },
+  {
+    "sex_subset": "both_sexes",
+    "formula": "np.log(Ab) ~ (Treatment + Alloform + Region + Fraction + Sex) ** 2",
+    "study": "CO28152",
+    "experiment": "HCQ analogs",
+    "nobs": 238,
+    "design_columns": 31,
+    "design_rank": 31,
+    "rank_deficient": false
+  },
+  {
+    "sex_subset": "both_sexes",
+    "formula": "np.log(Ab) ~ (Treatment + Alloform + Region + Fraction + Sex) ** 2",
+    "study": "CO28154",
+    "experiment": "Arundine",
+    "nobs": 186,
+    "design_columns": 26,
+    "design_rank": 26,
+    "rank_deficient": false
+  },
+  {
+    "sex_subset": "males_only",
+    "formula": "np.log(Ab) ~ Treatment",
+    "study": "CO28154",
+    "experiment": "TUDCA and HCQ",
+    "nobs": 71,
+    "design_columns": 2,
+    "design_rank": 2,
+    "rank_deficient": false
+  },
+  {
+    "sex_subset": "males_only",
+    "formula": "np.log(Ab) ~ Treatment",
+    "study": "CO28152",
+    "experiment": "TUDCA or HCQ",
+    "nobs": 95,
+    "design_columns": 3,
+    "design_rank": 3,
+    "rank_deficient": false
+  },
+  {
+    "sex_subset": "males_only",
+    "formula": "np.log(Ab) ~ Treatment",
+    "study": "CO28152",
+    "experiment": "HCQ analogs",
+    "nobs": 104,
+    "design_columns": 5,
+    "design_rank": 5,
+    "rank_deficient": false
+  },
+  {
+    "sex_subset": "males_only",
+    "formula": "np.log(Ab) ~ Treatment",
+    "study": "CO28154",
+    "experiment": "Arundine",
+    "nobs": 95,
+    "design_columns": 4,
+    "design_rank": 4,
+    "rank_deficient": false
+  },
+  {
+    "sex_subset": "males_only",
+    "formula": "np.log(Ab) ~ Treatment + Alloform + Region + Fraction",
+    "study": "CO28154",
+    "experiment": "TUDCA and HCQ",
+    "nobs": 71,
+    "design_columns": 5,
+    "design_rank": 5,
+    "rank_deficient": false
+  },
+  {
+    "sex_subset": "males_only",
+    "formula": "np.log(Ab) ~ Treatment + Alloform + Region + Fraction",
+    "study": "CO28152",
+    "experiment": "TUDCA or HCQ",
+    "nobs": 95,
+    "design_columns": 6,
+    "design_rank": 6,
+    "rank_deficient": false
+  },
+  {
+    "sex_subset": "males_only",
+    "formula": "np.log(Ab) ~ Treatment + Alloform + Region + Fraction",
+    "study": "CO28152",
+    "experiment": "HCQ analogs",
+    "nobs": 104,
+    "design_columns": 8,
+    "design_rank": 8,
+    "rank_deficient": false
+  },
+  {
+    "sex_subset": "males_only",
+    "formula": "np.log(Ab) ~ Treatment + Alloform + Region + Fraction",
+    "study": "CO28154",
+    "experiment": "Arundine",
+    "nobs": 95,
+    "design_columns": 7,
+    "design_rank": 7,
+    "rank_deficient": false
+  },
+  {
+    "sex_subset": "males_only",
+    "formula": "np.log(Ab) ~ Treatment + Alloform + Region + Fraction + Treatment * Region * Fraction - Treatment : Region : Fraction",
+    "study": "CO28154",
+    "experiment": "TUDCA and HCQ",
+    "nobs": 71,
+    "design_columns": 8,
+    "design_rank": 8,
+    "rank_deficient": false
+  },
+  {
+    "sex_subset": "males_only",
+    "formula": "np.log(Ab) ~ Treatment + Alloform + Region + Fraction + Treatment * Region * Fraction - Treatment : Region : Fraction",
+    "study": "CO28152",
+    "experiment": "TUDCA or HCQ",
+    "nobs": 95,
+    "design_columns": 11,
+    "design_rank": 11,
+    "rank_deficient": false
+  },
+  {
+    "sex_subset": "males_only",
+    "formula": "np.log(Ab) ~ Treatment + Alloform + Region + Fraction + Treatment * Region * Fraction - Treatment : Region : Fraction",
+    "study": "CO28152",
+    "experiment": "HCQ analogs",
+    "nobs": 104,
+    "design_columns": 17,
+    "design_rank": 17,
+    "rank_deficient": false
+  },
+  {
+    "sex_subset": "males_only",
+    "formula": "np.log(Ab) ~ Treatment + Alloform + Region + Fraction + Treatment * Region * Fraction - Treatment : Region : Fraction",
+    "study": "CO28154",
+    "experiment": "Arundine",
+    "nobs": 95,
+    "design_columns": 14,
+    "design_rank": 14,
+    "rank_deficient": false
+  },
+  {
+    "sex_subset": "males_only",
+    "formula": "np.log(Ab) ~ (Treatment + Alloform + Region + Fraction) ** 2",
+    "study": "CO28154",
+    "experiment": "TUDCA and HCQ",
+    "nobs": 71,
+    "design_columns": 11,
+    "design_rank": 11,
+    "rank_deficient": false
+  },
+  {
+    "sex_subset": "males_only",
+    "formula": "np.log(Ab) ~ (Treatment + Alloform + Region + Fraction) ** 2",
+    "study": "CO28152",
+    "experiment": "TUDCA or HCQ",
+    "nobs": 95,
+    "design_columns": 15,
+    "design_rank": 15,
+    "rank_deficient": false
+  },
+  {
+    "sex_subset": "males_only",
+    "formula": "np.log(Ab) ~ (Treatment + Alloform + Region + Fraction) ** 2",
+    "study": "CO28152",
+    "experiment": "HCQ analogs",
+    "nobs": 104,
+    "design_columns": 23,
+    "design_rank": 23,
+    "rank_deficient": false
+  },
+  {
+    "sex_subset": "males_only",
+    "formula": "np.log(Ab) ~ (Treatment + Alloform + Region + Fraction) ** 2",
+    "study": "CO28154",
+    "experiment": "Arundine",
+    "nobs": 95,
+    "design_columns": 19,
+    "design_rank": 19,
+    "rank_deficient": false
+  },
+  {
+    "sex_subset": "males_only",
+    "formula": "np.log(Ab) ~ (Treatment + Alloform + Region + Fraction + Sex) ** 2",
+    "study": "CO28154",
+    "experiment": "TUDCA and HCQ",
+    "nobs": 71,
+    "design_columns": 16,
+    "design_rank": 11,
+    "rank_deficient": true
+  },
+  {
+    "sex_subset": "males_only",
+    "formula": "np.log(Ab) ~ (Treatment + Alloform + Region + Fraction + Sex) ** 2",
+    "study": "CO28152",
+    "experiment": "TUDCA or HCQ",
+    "nobs": 95,
+    "design_columns": 21,
+    "design_rank": 15,
+    "rank_deficient": true
+  },
+  {
+    "sex_subset": "males_only",
+    "formula": "np.log(Ab) ~ (Treatment + Alloform + Region + Fraction + Sex) ** 2",
+    "study": "CO28152",
+    "experiment": "HCQ analogs",
+    "nobs": 104,
+    "design_columns": 31,
+    "design_rank": 23,
+    "rank_deficient": true
+  },
+  {
+    "sex_subset": "males_only",
+    "formula": "np.log(Ab) ~ (Treatment + Alloform + Region + Fraction + Sex) ** 2",
+    "study": "CO28154",
+    "experiment": "Arundine",
+    "nobs": 95,
+    "design_columns": 26,
+    "design_rank": 19,
+    "rank_deficient": true
+  }
+]

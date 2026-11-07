@@ -649,6 +649,8 @@ notebook,manuscript,cell,source,line,loader,expression,expected_path,resolved_pa
 2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb,no,30,2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb#cell=30,2,attila_utils.savefig,"attila_utils.savefig(fig, 'scatter-max_ΔNfl-vs-Nfl-week-0_CO28152')",,,,,,,,,
 2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb,no,31,2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb#cell=31,2,attila_utils.savefig,"attila_utils.savefig(fig, 'scatter-max_ΔNfl-vs-Nfl-week-0_CO28154')",,,,,,,,,
 2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb,no,32,2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb#cell=32,10,attila_utils.savefig,"attila_utils.savefig(fig, 'data-violinplot')",,,,,,,,,
+2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb,no,35,src/mcmc_cache.py,56,save,"save(directory, key, spec, result, {'adopted_from': str(adopt), 'source_sha256': hashlib.sha256(Path(adopt).read_bytes()).hexdigest()})",,,,,,,,,Conditional branch; runtime necessity unverified
+2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb,no,35,src/mcmc_cache.py,57,save,"save(directory, key, spec, result)",,,,,,,,,
 2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb,no,39,2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb#cell=39,12,attila_utils.savefig,"attila_utils.savefig(fig, 'violinplot-CO28152')",,,,,,,,,
 2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb,no,40,2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb#cell=40,2,attila_utils.savefig,"attila_utils.savefig(fig, 'violinplot-CO28154a')",,,,,,,,,
 2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb,no,41,2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb#cell=41,2,attila_utils.savefig,"attila_utils.savefig(fig, 'violinplot-CO28154b')",,,,,,,,,

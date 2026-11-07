@@ -332,6 +332,8 @@ notebook,cell,line,call,expression,coverage
 2024-05-09-cell-bayes/2024-05-09-cell-bayes.ipynb,24,9,pd.read_csv,"pd.read_csv(fpath, index_col=[0, 1, 2, 3])",analyzed
 2024-05-14-cell-bayes/2024-05-14-cell-bayes.ipynb,12,9,cba.idatas_from_netcdf,"cba.idatas_from_netcdf(subdir='idatas/', maindir=maindir)",analyzed
 2024-05-14-cell-bayes/2024-05-14-cell-bayes.ipynb,42,9,pd.read_csv,"pd.read_csv(fpath, index_col=[0, 1, 2, 3])",analyzed
+2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb,1,27,p.read_bytes,p.read_bytes(),analyzed
+2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb,1,27,Path(m.__file__).read_bytes,Path(m.__file__).read_bytes(),analyzed
 2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb,2,17,nfl.read_nfl_data,"nfl.read_nfl_data(fpath, sheet_name, treatments_CO28152, study, fpath_subjects)",analyzed
 2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb,3,19,nfl.read_nfl_data,"nfl.read_nfl_data(fpath, sheet_name, treatments_CO28154, study, fpath_subjects)",analyzed
 2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb,3,46,mwm.read_data_train,"mwm.read_data_train(f, t, sheet_name=s)",analyzed

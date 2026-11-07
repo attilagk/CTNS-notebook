@@ -53,3 +53,16 @@ __pycache__/
 !/recovery-audit/reproductions/nfl-20261107T195833Z/figures/*.png
 /recovery-audit/reproductions/nfl-20261107T195748Z/
 /recovery-audit/reproductions/nfl-20261107T195807Z/
+
+# 2024-08-08 biochemistry reproduction: retain compact provenance and the target figure.
+/recovery-audit/reproductions/biochemistry-20261107T210813Z/work/
+/recovery-audit/reproductions/biochemistry-20261107T210813Z/results/
+/recovery-audit/reproductions/biochemistry-20261107T210813Z/mplconfig/
+/recovery-audit/reproductions/biochemistry-20261107T210813Z/source.ipynb
+/recovery-audit/reproductions/biochemistry-20261107T210813Z/*-executed.ipynb
+/recovery-audit/reproductions/biochemistry-20261107T210813Z/*-executed-events.json
+/recovery-audit/reproductions/biochemistry-20261107T210813Z/Abeta_long.csv
+/recovery-audit/reproductions/biochemistry-20261107T210813Z/reproduced-target-table.csv
+/recovery-audit/reproductions/biochemistry-20261107T210813Z/figures/*.pdf
+/recovery-audit/reproductions/biochemistry-20261107T210813Z/figures/*.png
+!/recovery-audit/reproductions/biochemistry-20261107T210813Z/figures/boxplot-Abeta-TUDCA-and-HCQ.png
