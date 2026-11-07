@@ -29,5 +29,29 @@
     "dirichlet_version": "0.7",
     "dirichlet_source_commit": "78ce7c7cf45af75d473ae80d55cc2b6f4caadf78"
   },
-  "execution_notes": "Fresh-kernel all-cell execution; seven references/inputs loaded; original scientific cells unchanged. Import-path bootstrap and isolated working directory were used."
+  "execution_notes": "Fresh-kernel all-cell execution; seven references/inputs loaded; original scientific cells unchanged. Import-path bootstrap and isolated working directory were used.",
+  "helper_hashes": {
+    "/home/attila/src/attila_utils.py": "1fca88c0c2c11368d0af3082a4fed336b1eecda417cb5b95ea32fc83f97c4857"
+  },
+  "package_inventory": {
+    "file": "conda-packages.json",
+    "captured_at": "2026-11-08 (review follow-up; not captured contemporaneously with execution)"
+  },
+  "run_start_git_state": {
+    "branch": "reproduce-2024-06-26-mwm-test-probe-CO28154",
+    "commit": "85ec216af9703c77000485d2eb7a635fde3e3720",
+    "dirty_paths": [
+      "recovery-audit/reproductions/co28154-20261107T130321Z/promotion-verified.ipynb",
+      "recovery-audit/reproductions/co28154-20261107T130321Z/promotion-workspace/",
+      "recovery-audit/reproductions/test-probe-20261107T161820Z/canonical-verified.ipynb"
+    ],
+    "captured_from_session_status_before_execution": true
+  },
+  "warning_capture": {
+    "dirichlet_numerical_warnings": "none in captured execution output",
+    "other_warnings": [
+      "SyntaxWarning for invalid regex escape in plotting helper",
+      "Matplotlib warning that color overrides edgecolor/facecolor"
+    ]
+  }
 }

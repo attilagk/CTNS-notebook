@@ -1,7 +1,7 @@
 {
   "execution": "completed",
   "reference_reproduction": "fractions table and target figures regenerated; displayed target fractions align",
-  "inference_quality": "non-MCMC Dirichlet MLE; numerical warnings retained",
+  "inference_quality": "non-MCMC Dirichlet MLE; numerical convergence not assessed; no Dirichlet numerical warnings in captured output; Python and Matplotlib warnings noted",
   "targets": {
     "1": "fractions table regenerated and compared with displayed target values",
     "2": "plotall-CO26990-CO28152.png generated",
