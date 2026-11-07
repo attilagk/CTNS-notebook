@@ -1,0 +1,697 @@
+{
+  "notebook": "2024-08-08-biochemistry",
+  "table": {
+    "verdict": "passed",
+    "cells_compared": 66,
+    "failure_count": 0,
+    "maximum_absolute_difference": 4.991332902548606e-07,
+    "criterion": "Each numeric value agrees with the markdown reference within half one unit of its last displayed digit.",
+    "comparisons": [
+      {
+        "term": "Intercept",
+        "dataset": "both sexes",
+        "statistic": "params",
+        "reference": 9.222642,
+        "observed": 9.222641787895036,
+        "absolute_difference": 2.1210496470303042e-07,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Intercept",
+        "dataset": "both sexes",
+        "statistic": "bse",
+        "reference": 0.114494,
+        "observed": 0.11449410796737838,
+        "absolute_difference": 1.079673783849211e-07,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Intercept",
+        "dataset": "both sexes",
+        "statistic": "pvalues",
+        "reference": 1.42052e-80,
+        "observed": 1.4205198427275228e-80,
+        "absolute_difference": 1.5727247719701922e-87,
+        "display_rounding_tolerance": 5e-87,
+        "passed": true
+      },
+      {
+        "term": "Intercept",
+        "dataset": "males only",
+        "statistic": "params",
+        "reference": 8.853977,
+        "observed": 8.853976669613477,
+        "absolute_difference": 3.3038652347272546e-07,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Intercept",
+        "dataset": "males only",
+        "statistic": "bse",
+        "reference": 0.123204,
+        "observed": 0.12320430093500297,
+        "absolute_difference": 3.009350029725688e-07,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Intercept",
+        "dataset": "males only",
+        "statistic": "pvalues",
+        "reference": 6.558046e-60,
+        "observed": 6.558045534088455e-60,
+        "absolute_difference": 4.659115458693525e-67,
+        "display_rounding_tolerance": 5e-67,
+        "passed": true
+      },
+      {
+        "term": "Treatment[T.TUDCA + HCQ TG]",
+        "dataset": "both sexes",
+        "statistic": "params",
+        "reference": -0.63522,
+        "observed": -0.6352200391022328,
+        "absolute_difference": 3.910223278502656e-08,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Treatment[T.TUDCA + HCQ TG]",
+        "dataset": "both sexes",
+        "statistic": "bse",
+        "reference": 0.137932,
+        "observed": 0.1379322561861596,
+        "absolute_difference": 2.561861595917758e-07,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Treatment[T.TUDCA + HCQ TG]",
+        "dataset": "both sexes",
+        "statistic": "pvalues",
+        "reference": 1.470138e-05,
+        "observed": 1.4701378368877188e-05,
+        "absolute_difference": 1.6311228118236296e-12,
+        "display_rounding_tolerance": 5e-12,
+        "passed": true
+      },
+      {
+        "term": "Treatment[T.TUDCA + HCQ TG]",
+        "dataset": "males only",
+        "statistic": "params",
+        "reference": -0.327158,
+        "observed": -0.32715797431060356,
+        "absolute_difference": 2.5689396443429047e-08,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Treatment[T.TUDCA + HCQ TG]",
+        "dataset": "males only",
+        "statistic": "bse",
+        "reference": 0.134892,
+        "observed": 0.13489219694611043,
+        "absolute_difference": 1.9694611042009313e-07,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Treatment[T.TUDCA + HCQ TG]",
+        "dataset": "males only",
+        "statistic": "pvalues",
+        "reference": 0.01832047,
+        "observed": 0.018320473494866832,
+        "absolute_difference": 3.494866833431143e-09,
+        "display_rounding_tolerance": 5e-09,
+        "passed": true
+      },
+      {
+        "term": "Alloform[T.Aβ42]",
+        "dataset": "both sexes",
+        "statistic": "params",
+        "reference": 2.123264,
+        "observed": 2.1232635008667096,
+        "absolute_difference": 4.991332902548606e-07,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Alloform[T.Aβ42]",
+        "dataset": "both sexes",
+        "statistic": "bse",
+        "reference": 0.138742,
+        "observed": 0.13874225601754375,
+        "absolute_difference": 2.560175437482659e-07,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Alloform[T.Aβ42]",
+        "dataset": "both sexes",
+        "statistic": "pvalues",
+        "reference": 6.941972e-26,
+        "observed": 6.941971765017689e-26,
+        "absolute_difference": 2.3498231025684638e-33,
+        "display_rounding_tolerance": 5e-33,
+        "passed": true
+      },
+      {
+        "term": "Alloform[T.Aβ42]",
+        "dataset": "males only",
+        "statistic": "params",
+        "reference": 2.339617,
+        "observed": 2.339617302134237,
+        "absolute_difference": 3.021342367404145e-07,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Alloform[T.Aβ42]",
+        "dataset": "males only",
+        "statistic": "bse",
+        "reference": 0.142189,
+        "observed": 0.1421888603112395,
+        "absolute_difference": 1.3968876050318713e-07,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Alloform[T.Aβ42]",
+        "dataset": "males only",
+        "statistic": "pvalues",
+        "reference": 6.497839e-24,
+        "observed": 6.497839066080355e-24,
+        "absolute_difference": 6.608035542207338e-32,
+        "display_rounding_tolerance": 5e-31,
+        "passed": true
+      },
+      {
+        "term": "Region[T.hippocampus]",
+        "dataset": "both sexes",
+        "statistic": "params",
+        "reference": 0.419143,
+        "observed": 0.4191427586876397,
+        "absolute_difference": 2.413123602607037e-07,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Region[T.hippocampus]",
+        "dataset": "both sexes",
+        "statistic": "bse",
+        "reference": 0.138742,
+        "observed": 0.13874225601754372,
+        "absolute_difference": 2.5601754372051033e-07,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Region[T.hippocampus]",
+        "dataset": "both sexes",
+        "statistic": "pvalues",
+        "reference": 0.003348331,
+        "observed": 0.003348331065515607,
+        "absolute_difference": 6.551560682854785e-11,
+        "display_rounding_tolerance": 5e-10,
+        "passed": true
+      },
+      {
+        "term": "Region[T.hippocampus]",
+        "dataset": "males only",
+        "statistic": "params",
+        "reference": 0.56515,
+        "observed": 0.565150381048166,
+        "absolute_difference": 3.810481659094478e-07,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Region[T.hippocampus]",
+        "dataset": "males only",
+        "statistic": "bse",
+        "reference": 0.142189,
+        "observed": 0.14218886031123878,
+        "absolute_difference": 1.396887612248321e-07,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Region[T.hippocampus]",
+        "dataset": "males only",
+        "statistic": "pvalues",
+        "reference": 0.0001918373,
+        "observed": 0.00019183730978204308,
+        "absolute_difference": 9.782043068357754e-12,
+        "display_rounding_tolerance": 5e-11,
+        "passed": true
+      },
+      {
+        "term": "Fraction[T.DEA]",
+        "dataset": "both sexes",
+        "statistic": "params",
+        "reference": -4.729629,
+        "observed": -4.729628558200758,
+        "absolute_difference": 4.417992425231887e-07,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Fraction[T.DEA]",
+        "dataset": "both sexes",
+        "statistic": "bse",
+        "reference": 0.138742,
+        "observed": 0.13874225601754356,
+        "absolute_difference": 2.560175435539769e-07,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Fraction[T.DEA]",
+        "dataset": "both sexes",
+        "statistic": "pvalues",
+        "reference": 1.401984e-50,
+        "observed": 1.4019843081925835e-50,
+        "absolute_difference": 3.0819258356040923e-57,
+        "display_rounding_tolerance": 5e-57,
+        "passed": true
+      },
+      {
+        "term": "Fraction[T.DEA]",
+        "dataset": "males only",
+        "statistic": "params",
+        "reference": -4.660383,
+        "observed": -4.660383097344809,
+        "absolute_difference": 9.734480865830619e-08,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Fraction[T.DEA]",
+        "dataset": "males only",
+        "statistic": "bse",
+        "reference": 0.143089,
+        "observed": 0.1430887987909018,
+        "absolute_difference": 2.0120909818843735e-07,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Fraction[T.DEA]",
+        "dataset": "males only",
+        "statistic": "pvalues",
+        "reference": 7.609302e-40,
+        "observed": 7.609302077458845e-40,
+        "absolute_difference": 7.745884528507616e-48,
+        "display_rounding_tolerance": 5e-47,
+        "passed": true
+      },
+      {
+        "term": "Treatment[T.TUDCA + HCQ TG]:Alloform[T.Aβ42]",
+        "dataset": "both sexes",
+        "statistic": "params",
+        "reference": 0.182799,
+        "observed": 0.18279855637934306,
+        "absolute_difference": 4.436206569313761e-07,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Treatment[T.TUDCA + HCQ TG]:Alloform[T.Aβ42]",
+        "dataset": "both sexes",
+        "statistic": "bse",
+        "reference": 0.139491,
+        "observed": 0.13949086222493007,
+        "absolute_difference": 1.377750699360636e-07,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Treatment[T.TUDCA + HCQ TG]:Alloform[T.Aβ42]",
+        "dataset": "both sexes",
+        "statistic": "pvalues",
+        "reference": 0.1936518,
+        "observed": 0.1936517814759601,
+        "absolute_difference": 1.8524039913092594e-08,
+        "display_rounding_tolerance": 5e-08,
+        "passed": true
+      },
+      {
+        "term": "Treatment[T.TUDCA + HCQ TG]:Alloform[T.Aβ42]",
+        "dataset": "males only",
+        "statistic": "params",
+        "reference": 0.005987,
+        "observed": 0.005987410556480777,
+        "absolute_difference": 4.105564807765569e-07,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Treatment[T.TUDCA + HCQ TG]:Alloform[T.Aβ42]",
+        "dataset": "males only",
+        "statistic": "bse",
+        "reference": 0.135426,
+        "observed": 0.135426425559346,
+        "absolute_difference": 4.2555934601229417e-07,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Treatment[T.TUDCA + HCQ TG]:Alloform[T.Aβ42]",
+        "dataset": "males only",
+        "statistic": "pvalues",
+        "reference": 0.9648826,
+        "observed": 0.9648825973523837,
+        "absolute_difference": 2.647616348383508e-09,
+        "display_rounding_tolerance": 5e-08,
+        "passed": true
+      },
+      {
+        "term": "Treatment[T.TUDCA + HCQ TG]:Region[T.hippocampus]",
+        "dataset": "both sexes",
+        "statistic": "params",
+        "reference": 0.362105,
+        "observed": 0.36210479219889036,
+        "absolute_difference": 2.0780110965290532e-07,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Treatment[T.TUDCA + HCQ TG]:Region[T.hippocampus]",
+        "dataset": "both sexes",
+        "statistic": "bse",
+        "reference": 0.139491,
+        "observed": 0.13949086222493018,
+        "absolute_difference": 1.3777506982504129e-07,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Treatment[T.TUDCA + HCQ TG]:Region[T.hippocampus]",
+        "dataset": "both sexes",
+        "statistic": "pvalues",
+        "reference": 0.01115498,
+        "observed": 0.011154980055139511,
+        "absolute_difference": 5.513951101265846e-11,
+        "display_rounding_tolerance": 5e-09,
+        "passed": true
+      },
+      {
+        "term": "Treatment[T.TUDCA + HCQ TG]:Region[T.hippocampus]",
+        "dataset": "males only",
+        "statistic": "params",
+        "reference": 0.330832,
+        "observed": 0.33083219851219137,
+        "absolute_difference": 1.985121913516963e-07,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Treatment[T.TUDCA + HCQ TG]:Region[T.hippocampus]",
+        "dataset": "males only",
+        "statistic": "bse",
+        "reference": 0.135426,
+        "observed": 0.1354264255593464,
+        "absolute_difference": 4.2555934640087223e-07,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Treatment[T.TUDCA + HCQ TG]:Region[T.hippocampus]",
+        "dataset": "males only",
+        "statistic": "pvalues",
+        "reference": 0.01753095,
+        "observed": 0.01753094582100608,
+        "absolute_difference": 4.178993918274587e-09,
+        "display_rounding_tolerance": 5e-09,
+        "passed": true
+      },
+      {
+        "term": "Treatment[T.TUDCA + HCQ TG]:Fraction[T.DEA]",
+        "dataset": "both sexes",
+        "statistic": "params",
+        "reference": 0.12659,
+        "observed": 0.12659043061033226,
+        "absolute_difference": 4.3061033225266776e-07,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Treatment[T.TUDCA + HCQ TG]:Fraction[T.DEA]",
+        "dataset": "both sexes",
+        "statistic": "bse",
+        "reference": 0.139491,
+        "observed": 0.1394908622249301,
+        "absolute_difference": 1.37775069908308e-07,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Treatment[T.TUDCA + HCQ TG]:Fraction[T.DEA]",
+        "dataset": "both sexes",
+        "statistic": "pvalues",
+        "reference": 0.3667604,
+        "observed": 0.36676044228473953,
+        "absolute_difference": 4.228473954315248e-08,
+        "display_rounding_tolerance": 5e-08,
+        "passed": true
+      },
+      {
+        "term": "Treatment[T.TUDCA + HCQ TG]:Fraction[T.DEA]",
+        "dataset": "males only",
+        "statistic": "params",
+        "reference": 0.146856,
+        "observed": 0.1468560734130928,
+        "absolute_difference": 7.3413092827046e-08,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Treatment[T.TUDCA + HCQ TG]:Fraction[T.DEA]",
+        "dataset": "males only",
+        "statistic": "bse",
+        "reference": 0.135426,
+        "observed": 0.13542642555934617,
+        "absolute_difference": 4.255593461788276e-07,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Treatment[T.TUDCA + HCQ TG]:Fraction[T.DEA]",
+        "dataset": "males only",
+        "statistic": "pvalues",
+        "reference": 0.2825268,
+        "observed": 0.2825267935590034,
+        "absolute_difference": 6.440996624945683e-09,
+        "display_rounding_tolerance": 5e-08,
+        "passed": true
+      },
+      {
+        "term": "Alloform[T.Aβ42]:Region[T.hippocampus]",
+        "dataset": "both sexes",
+        "statistic": "params",
+        "reference": -0.327938,
+        "observed": -0.3279380671980682,
+        "absolute_difference": 6.719806816546381e-08,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Alloform[T.Aβ42]:Region[T.hippocampus]",
+        "dataset": "both sexes",
+        "statistic": "bse",
+        "reference": 0.139604,
+        "observed": 0.13960422336694336,
+        "absolute_difference": 2.233669433582275e-07,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Alloform[T.Aβ42]:Region[T.hippocampus]",
+        "dataset": "both sexes",
+        "statistic": "pvalues",
+        "reference": 0.02119769,
+        "observed": 0.021197686052765216,
+        "absolute_difference": 3.947234785556253e-09,
+        "display_rounding_tolerance": 5e-09,
+        "passed": true
+      },
+      {
+        "term": "Alloform[T.Aβ42]:Region[T.hippocampus]",
+        "dataset": "males only",
+        "statistic": "params",
+        "reference": -0.388575,
+        "observed": -0.38857492620514855,
+        "absolute_difference": 7.379485145175835e-08,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Alloform[T.Aβ42]:Region[T.hippocampus]",
+        "dataset": "males only",
+        "statistic": "bse",
+        "reference": 0.128183,
+        "observed": 0.12818295495151202,
+        "absolute_difference": 4.504848796771377e-08,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Alloform[T.Aβ42]:Region[T.hippocampus]",
+        "dataset": "males only",
+        "statistic": "pvalues",
+        "reference": 0.003590497,
+        "observed": 0.0035904970900661084,
+        "absolute_difference": 9.006610865100462e-11,
+        "display_rounding_tolerance": 5e-10,
+        "passed": true
+      },
+      {
+        "term": "Alloform[T.Aβ42]:Fraction[T.DEA]",
+        "dataset": "both sexes",
+        "statistic": "params",
+        "reference": -0.734856,
+        "observed": -0.7348562099745668,
+        "absolute_difference": 2.09974566844906e-07,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Alloform[T.Aβ42]:Fraction[T.DEA]",
+        "dataset": "both sexes",
+        "statistic": "bse",
+        "reference": 0.139604,
+        "observed": 0.13960422336694323,
+        "absolute_difference": 2.233669432194496e-07,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Alloform[T.Aβ42]:Fraction[T.DEA]",
+        "dataset": "both sexes",
+        "statistic": "pvalues",
+        "reference": 1.086412e-06,
+        "observed": 1.086412400291389e-06,
+        "absolute_difference": 4.002913890434242e-13,
+        "display_rounding_tolerance": 5e-13,
+        "passed": true
+      },
+      {
+        "term": "Alloform[T.Aβ42]:Fraction[T.DEA]",
+        "dataset": "males only",
+        "statistic": "params",
+        "reference": -0.750552,
+        "observed": -0.7505515142217372,
+        "absolute_difference": 4.857782628375773e-07,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Alloform[T.Aβ42]:Fraction[T.DEA]",
+        "dataset": "males only",
+        "statistic": "bse",
+        "reference": 0.128183,
+        "observed": 0.12818295495151194,
+        "absolute_difference": 4.5048488050980495e-08,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Alloform[T.Aβ42]:Fraction[T.DEA]",
+        "dataset": "males only",
+        "statistic": "pvalues",
+        "reference": 2.14046e-07,
+        "observed": 2.1404596375920977e-07,
+        "absolute_difference": 3.624079023638203e-14,
+        "display_rounding_tolerance": 5e-14,
+        "passed": true
+      },
+      {
+        "term": "Region[T.hippocampus]:Fraction[T.DEA]",
+        "dataset": "both sexes",
+        "statistic": "params",
+        "reference": 0.673583,
+        "observed": 0.6735828846014946,
+        "absolute_difference": 1.1539850541808505e-07,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Region[T.hippocampus]:Fraction[T.DEA]",
+        "dataset": "both sexes",
+        "statistic": "bse",
+        "reference": 0.139604,
+        "observed": 0.13960422336694336,
+        "absolute_difference": 2.233669433582275e-07,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Region[T.hippocampus]:Fraction[T.DEA]",
+        "dataset": "both sexes",
+        "statistic": "pvalues",
+        "reference": 6.28293e-06,
+        "observed": 6.282930196629663e-06,
+        "absolute_difference": 1.9662966340463746e-13,
+        "display_rounding_tolerance": 5e-13,
+        "passed": true
+      },
+      {
+        "term": "Region[T.hippocampus]:Fraction[T.DEA]",
+        "dataset": "males only",
+        "statistic": "params",
+        "reference": 0.507503,
+        "observed": 0.5075028338960996,
+        "absolute_difference": 1.6610390041194023e-07,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Region[T.hippocampus]:Fraction[T.DEA]",
+        "dataset": "males only",
+        "statistic": "bse",
+        "reference": 0.128183,
+        "observed": 0.1281829549515122,
+        "absolute_difference": 4.5048487801180315e-08,
+        "display_rounding_tolerance": 5e-07,
+        "passed": true
+      },
+      {
+        "term": "Region[T.hippocampus]:Fraction[T.DEA]",
+        "dataset": "males only",
+        "statistic": "pvalues",
+        "reference": 0.0002019205,
+        "observed": 0.00020192049539224648,
+        "absolute_difference": 4.6077535233515765e-12,
+        "display_rounding_tolerance": 5e-11,
+        "passed": true
+      }
+    ]
+  },
+  "figure": {
+    "verdict": "visually matched on inspection",
+    "reference": "recovery-audit/target-artifacts/Pasted image 20261106220452.png",
+    "reproduced": "recovery-audit/reproductions/biochemistry-20261107T210813Z/figures/boxplot-Abeta-TUDCA-and-HCQ.png",
+    "reference_size_px": [
+      475,
+      558
+    ],
+    "reproduced_size_px": [
+      475,
+      558
+    ],
+    "resized_mean_absolute_pixel_difference_0_255": 8.017784065899516,
+    "resized_pixel_correlation": 0.7971247381008516,
+    "sha256": {
+      "reference": "75d7f18d4a0e1432a1c3f28707412e09b3afe875dd757ca26b760f4770245f7a",
+      "reproduced": "0e6970952165474ec3f0ce00b87852ee4c697216f2bc3003d1439bd90bed7c4f"
+    },
+    "inspected_features": [
+      "2x2 panel order: FA cortex, FA hippocampus, DEA cortex, DEA hippocampus",
+      "Saline TG and TUDCA + HCQ TG groups with matching colors and point distributions",
+      "Aβ40/Aβ42 labels, log-scaled y axes, significance brackets/stars, legend and panel labels"
+    ],
+    "note": "Pixel scores are descriptive because the reference is a screenshot with different crop/resolution; visual acceptance is based on the inspected panels and data correspondence."
+  }
+}

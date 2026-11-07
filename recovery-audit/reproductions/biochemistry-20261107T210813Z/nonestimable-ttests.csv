@@ -1,0 +1,11 @@
+conditionA,conditionB,study,alloform,region,fraction,statistic,pvalue,df
+Saline TG,Saline WT,CO28154,Aβ40,cortex,FA,,,
+Saline TG,Saline WT,CO28154,Aβ40,hippocampus,FA,,,
+Saline TG,Saline WT,CO28154,Aβ40,hippocampus,DEA,,,
+Saline TG,Saline WT,CO28154,Aβ42,hippocampus,FA,,,
+Saline TG,Saline WT,CO28154,Aβ42,hippocampus,DEA,,,
+Vehicle (Arundine) TG,Vehicle (Arundine) WT,CO28154,Aβ40,cortex,FA,,,
+Vehicle (Arundine) TG,Vehicle (Arundine) WT,CO28154,Aβ40,hippocampus,FA,,,
+Vehicle (Arundine) TG,Vehicle (Arundine) WT,CO28154,Aβ40,hippocampus,DEA,,,
+Vehicle (Arundine) TG,Vehicle (Arundine) WT,CO28154,Aβ42,hippocampus,FA,,,
+Vehicle (Arundine) TG,Vehicle (Arundine) WT,CO28154,Aβ42,hippocampus,DEA,,,

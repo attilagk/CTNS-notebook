@@ -1,0 +1,170 @@
+{
+  "notebook": "2024-08-08-biochemistry",
+  "conda_environment": "base",
+  "python": "/home/attila/miniconda3/bin/python",
+  "branch": "reproduce-2024-08-08-biochemistry",
+  "starting_commit": "9406b22901613ce1568951ccff7e55e063d204b9",
+  "source_sha256": "2f2226b4985db36360740ea52cf208d2563486e392ead57f4fc2904bd3a3a988",
+  "target_document_sha256": "96d42213cf8398fea5f20f31b5bdbf882086c33122d0334b04288725d0d9c023",
+  "inputs": {
+    "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28152-biochemistry-cleaned-Abeta.xlsx": {
+      "sha256": "ce2737a9b1876d0bd1965269fac382127caca54de8d09b9e2fe02ce13594b962",
+      "bytes": 10332
+    },
+    "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28154-biochemistry-cleaned-Abeta.xlsx": {
+      "sha256": "a4d56ddea0c6bc084941a7be70d6d7b23d63fc9cef67738bfbceac079f9a7986",
+      "bytes": 9852
+    }
+  },
+  "helpers": {
+    "/home/attila/src/attila_utils.py": "1fca88c0c2c11368d0af3082a4fed336b1eecda417cb5b95ea32fc83f97c4857"
+  },
+  "dependency_check": {
+    "required_imports": [
+      "pandas",
+      "numpy",
+      "scipy",
+      "matplotlib",
+      "seaborn",
+      "statsmodels",
+      "statannotations",
+      "attila_utils",
+      "openpyxl"
+    ],
+    "missing_dependencies_installed": {
+      "statannotations": "0.7.2 from PyPI"
+    },
+    "omitted_debug_cell": "%connect_info (prints live kernel connection credentials)"
+  },
+  "criteria": {
+    "table": "Compare all rows, columns, params, bse, and pvalues with target markdown at its displayed precision; treat displayed cells as rounded references.",
+    "figure": "Compare the TUDCA + HCQ figure with the target reference for cohort/treatment/alloform/fraction/region mapping, log scale, annotations, labels, and visual pattern."
+  },
+  "reproduction_compatibility_change": "pandas 3 removed DataFrame.applymap, and assigning a new categorical with fewer categories into an existing categorical column raises TypeError. Run copy changes summary calls to DataFrame.map and resets a copied plotting Treatment series with cat.set_categories(treatments, ordered=True). No model formula, input values, analysis selection, or inferential code changes.",
+  "execution_outcomes": {
+    "baseline_run": {
+      "status": "failed_as_expected",
+      "failure": "pandas 3.1.1 removed DataFrame.applymap; stopped in regression-diagnostics cell"
+    },
+    "fixed_reproduction": {
+      "started_at": "2026-11-07T21:10:52.860345+00:00",
+      "finished_at": "2026-11-07T21:11:05.342542+00:00",
+      "outcome": "completed",
+      "compatibility_fix": true,
+      "notebook": "/home/attila/projects/CTNS/notebooks/recovery-audit/reproductions/biochemistry-20261107T210813Z/fixed-executed.ipynb",
+      "error": null,
+      "cells_started": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ]
+    },
+    "canonical_fresh_kernel_verification": {
+      "started_at": "2026-11-07T21:17:16.584627+00:00",
+      "finished_at": "2026-11-07T21:17:29.093434+00:00",
+      "outcome": "completed",
+      "compatibility_fix": false,
+      "notebook": "/home/attila/projects/CTNS/notebooks/recovery-audit/reproductions/biochemistry-20261107T210813Z/verify-executed.ipynb",
+      "error": null,
+      "cells_started": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26
+      ]
+    }
+  },
+  "source_hashes": {
+    "pre_fix_canonical_notebook_sha256": "2f2226b4985db36360740ea52cf208d2563486e392ead57f4fc2904bd3a3a988",
+    "promoted_canonical_notebook_sha256": "c13d385cf793b7ddf5680e8e1cff093b627344cc358c1b41527e9df8bb2d545f"
+  },
+  "reference_reproduction": {
+    "status": "passed",
+    "comparison_file": "target-comparisons.json",
+    "table_numeric_cells": 66,
+    "table_failures": 0,
+    "figure": "figures/boxplot-Abeta-TUDCA-and-HCQ.png",
+    "figure_visual_inspection": "matched"
+  },
+  "inference_quality": {
+    "status": "target_model_full_rank; exploratory_warnings_retained",
+    "target_ols_models": [
+      {
+        "sex_subset": "both sexes",
+        "nobs": 94,
+        "design_columns": 11,
+        "design_rank": 11,
+        "rank_deficient": false
+      },
+      {
+        "sex_subset": "males only",
+        "nobs": 71,
+        "design_columns": 11,
+        "design_rank": 11,
+        "rank_deficient": false
+      }
+    ],
+    "nonestimable_ttest_rows": 10,
+    "total_ttest_rows": 88,
+    "rank_deficient_exploratory_ols_models": 6,
+    "total_ols_models": 40,
+    "mcmc": "not applicable; notebook uses OLS and t-tests"
+  },
+  "retained_warnings": [
+    "10/88 WT t-test rows returned NaN with SciPy SmallSampleWarning; exact rows are in nonestimable-ttests.csv.",
+    "6/40 exploratory OLS fits using the Sex-inclusive formula were rank deficient; target formula was full rank in both subsets.",
+    "Pandas future-compatibility warning remains in fit_one category assignment."
+  ],
+  "package_inventory_files": [
+    "pip-packages.json",
+    "conda-packages.json"
+  ]
+}
