@@ -1,0 +1,39 @@
+{
+  "started_at": "2026-11-07T19:58:35.044684+00:00",
+  "python": "/home/attila/miniconda3/bin/python",
+  "branch": "reproduce-2024-05-20-nfl-modeling",
+  "commit": "b04f3d9481671d821bf39661719bcb3267611dfa",
+  "dirty_paths": "?? recovery-audit/reproductions/nfl-20261107T195748Z/\n?? recovery-audit/reproductions/nfl-20261107T195807Z/\n?? recovery-audit/reproductions/nfl-20261107T195833Z/\n?? recovery-audit/reproductions/run_nfl.py\n",
+  "source_sha256": "50cecd3e3f8f09c34d7207f157591696aeaab0b5b5d8f8b5725d2318491a974c",
+  "inputs": {
+    "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28152-animal-list.csv": "b6a2d8b6a5bc394c6b0b67cd6613b830f2bb97da49d2226c106489b0ec97e433",
+    "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28154-animal-list.csv": "08828f6b00a07cd01770f2b1612c8f618b1629d37b0a825ecb6c7e470f40d843",
+    "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28154-biochemistry-cleaned.xlsx": "5f000360ed04348ccbe23a13d0e7e20916eed02bf775d11746abc6d4bae76ded",
+    "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28152_NFL-GFAP_datasum.xlsx": "7baef3675cca8620880c3d21b0f9c953494d743d42b32e1a35411df09926d88d"
+  },
+  "helpers": {
+    "/home/attila/projects/CTNS/notebooks/src/nfl.py": "1179bf41554055322d7ed392d662dc4782bb60d91255c30115f547037d0b46b1",
+    "/home/attila/projects/CTNS/notebooks/src/mcmc_cache.py": "11ddb73ea4bb6b309841e5ea97b9e84cab2bd06cc2b3961b39b630d88fac644d",
+    "/home/attila/src/attila_utils.py": "1fca88c0c2c11368d0af3082a4fed336b1eecda417cb5b95ea32fc83f97c4857"
+  },
+  "target_sha256": "96d42213cf8398fea5f20f31b5bdbf882086c33122d0334b04288725d0d9c023",
+  "dependency_probes": {
+    "arviz": "/home/attila/miniconda3/lib/python3.13/site-packages/arviz/__init__.py",
+    "statsmodels.formula.api": "/home/attila/miniconda3/lib/python3.13/site-packages/statsmodels/formula/api.py",
+    "pymc": "/home/attila/miniconda3/lib/python3.13/site-packages/pymc/__init__.py",
+    "bambi": "/home/attila/miniconda3/lib/python3.13/site-packages/bambi/__init__.py",
+    "pandas": "/home/attila/miniconda3/lib/python3.13/site-packages/pandas/__init__.py",
+    "numpy": "/home/attila/miniconda3/lib/python3.13/site-packages/numpy/__init__.py",
+    "matplotlib.pyplot": "/home/attila/miniconda3/lib/python3.13/site-packages/matplotlib/pyplot.py",
+    "seaborn": "/home/attila/miniconda3/lib/python3.13/site-packages/seaborn/__init__.py",
+    "scipy.stats": "/home/attila/miniconda3/lib/python3.13/site-packages/scipy/stats/__init__.py",
+    "nfl": "/home/attila/projects/CTNS/notebooks/src/nfl.py",
+    "attila_utils": "/home/attila/src/attila_utils.py",
+    "h5netcdf": "/home/attila/miniconda3/lib/python3.13/site-packages/h5netcdf/__init__.py",
+    "h5py": "/home/attila/miniconda3/lib/python3.13/site-packages/h5py/__init__.py"
+  },
+  "criteria": "Four deterministic target figures: compare source data and numeric t-test/OLS outputs at historical displayed precision; visually compare curves, labels and scientific interpretation. Bayesian models exploratory; diagnostics recorded separately.",
+  "sampling": "model.fit() defaults, no original seed; unchanged",
+  "execution": "completed",
+  "finished_at": "2026-11-07T19:58:58.287971+00:00"
+}

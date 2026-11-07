@@ -1,0 +1,5 @@
+Cache hit: 6f52e6e1d0e5
+Identity, valid hit, and corruption rejection checks passed
+Explicit factor-order changes invalidate cache
+Missing entry, forced refit, failed fit, and version invalidation checks passed
+Refit toggle preserves identity; scientific edits invalidate it

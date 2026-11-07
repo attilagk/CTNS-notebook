@@ -1,0 +1,22 @@
+{
+  "lineplot-tg-CO28154.png": {
+    "reproduction_sha256": "ff4290a900a6ac2e0b5b65f6864f38db924d75dd40e3afc560d635873c7647fd",
+    "canonical_sha256": "ff4290a900a6ac2e0b5b65f6864f38db924d75dd40e3afc560d635873c7647fd",
+    "identical": true
+  },
+  "lineplot-wt-CO28154.png": {
+    "reproduction_sha256": "bc2b0e36bad5aa9f076995907ff18bf0f7501ce1cdd1cbaf57a40c9e5294e702",
+    "canonical_sha256": "bc2b0e36bad5aa9f076995907ff18bf0f7501ce1cdd1cbaf57a40c9e5294e702",
+    "identical": true
+  },
+  "fx-size-p-val-all.png": {
+    "reproduction_sha256": "fc69d43a48e9be3bd63a4732064590d6f3b94c5ed7f26fe333e84e1d334dde24",
+    "canonical_sha256": "fc69d43a48e9be3bd63a4732064590d6f3b94c5ed7f26fe333e84e1d334dde24",
+    "identical": true
+  },
+  "ttest-heatmap-all-tg.png": {
+    "reproduction_sha256": "e36e116a43e074b7665ae4b48a2ad9138b6f52742cca4abb8c8a96e7aebfb680",
+    "canonical_sha256": "e36e116a43e074b7665ae4b48a2ad9138b6f52742cca4abb8c8a96e7aebfb680",
+    "identical": true
+  }
+}

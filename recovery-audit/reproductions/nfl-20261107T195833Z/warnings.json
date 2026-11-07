@@ -1,0 +1,22 @@
+[
+  "<>:1: SyntaxWarning: invalid escape sequence '\\+'\n<>:1: SyntaxWarning: invalid escape sequence '\\+'\n/tmp/ipykernel_147223/2355370354.py:1: SyntaxWarning: invalid escape sequence '\\+'\n  fig, ax = nfl.plot_dataw(dataw_CO28154, [x for x in dataw_CO28154.Treatment.cat.categories if re.match('.*(Saline|TUDCA \\+ HCQ).*', x)])\n",
+  "<>:10: SyntaxWarning: invalid escape sequence '\\d'\n<>:10: SyntaxWarning: invalid escape sequence '\\d'\n/tmp/ipykernel_147223/1830154223.py:10: SyntaxWarning: invalid escape sequence '\\d'\n  data_vars = [x for x in df.columns if re.match('^NF-L week \\d{1,2}$', x)]\n/tmp/ipykernel_147223/1830154223.py:15: Pandas4Warning: Constructing a Categorical with a dtype and values containing non-null entries not in that dtype's categories is deprecated and will raise in a future version.\n  df['Treatment'] = pd.Categorical(df.Treatment, categories=[treatment_a, treatment_b], ordered=True)\n",
+  "/tmp/ipykernel_147223/1830154223.py:15: Pandas4Warning: Constructing a Categorical with a dtype and values containing non-null entries not in that dtype's categories is deprecated and will raise in a future version.\n  df['Treatment'] = pd.Categorical(df.Treatment, categories=[treatment_a, treatment_b], ordered=True)\n",
+  "/tmp/ipykernel_147223/2243456930.py:3: Pandas4Warning: Constructing a Categorical with a dtype and values containing non-null entries not in that dtype's categories is deprecated and will raise in a future version.\n  data['Treatment'] = pd.Categorical(data.Treatment, categories=sel_treatments, ordered=True)\nInitializing NUTS using jitter+adapt_diag...\n",
+  "Multiprocess sampling (4 chains in 4 jobs)\n",
+  "NUTS: [sigma, Intercept, Treatment]\n",
+  "Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 1 seconds.\n",
+  "/tmp/ipykernel_147223/2243456930.py:3: Pandas4Warning: Constructing a Categorical with a dtype and values containing non-null entries not in that dtype's categories is deprecated and will raise in a future version.\n  data['Treatment'] = pd.Categorical(data.Treatment, categories=sel_treatments, ordered=True)\n",
+  "Initializing NUTS using jitter+adapt_diag...\n",
+  "Multiprocess sampling (4 chains in 4 jobs)\n",
+  "NUTS: [sigma, Intercept, Treatment]\n",
+  "Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 1 seconds.\n",
+  "/tmp/ipykernel_147223/2243456930.py:3: Pandas4Warning: Constructing a Categorical with a dtype and values containing non-null entries not in that dtype's categories is deprecated and will raise in a future version.\n  data['Treatment'] = pd.Categorical(data.Treatment, categories=sel_treatments, ordered=True)\nInitializing NUTS using jitter+adapt_diag...\n",
+  "Multiprocess sampling (4 chains in 4 jobs)\n",
+  "NUTS: [sigma, Intercept, Treatment]\n",
+  "Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 1 seconds.\n",
+  "/home/attila/miniconda3/lib/python3.13/site-packages/arviz/utils.py:146: UserWarning: Items starting with ~: ['max_\u0394Nfl_sigma'] have not been found and will be ignored\n  warnings.warn(\n",
+  "/home/attila/miniconda3/lib/python3.13/site-packages/arviz/utils.py:146: UserWarning: Items starting with ~: ['max_\u0394Nfl_sigma'] have not been found and will be ignored\n  warnings.warn(\n",
+  "/home/attila/miniconda3/lib/python3.13/site-packages/arviz/utils.py:146: UserWarning: Items starting with ~: ['max_\u0394Nfl_sigma'] have not been found and will be ignored\n  warnings.warn(\n",
+  "/tmp/ipykernel_147223/2243456930.py:3: Pandas4Warning: Constructing a Categorical with a dtype and values containing non-null entries not in that dtype's categories is deprecated and will raise in a future version.\n  data['Treatment'] = pd.Categorical(data.Treatment, categories=sel_treatments, ordered=True)\n/tmp/ipykernel_147223/2243456930.py:3: Pandas4Warning: Constructing a Categorical with a dtype and values containing non-null entries not in that dtype's categories is deprecated and will raise in a future version.\n  data['Treatment'] = pd.Categorical(data.Treatment, categories=sel_treatments, ordered=True)\n/tmp/ipykernel_147223/2243456930.py:3: Pandas4Warning: Constructing a Categorical with a dtype and values containing non-null entries not in that dtype's categories is deprecated and will raise in a future version.\n  data['Treatment'] = pd.Categorical(data.Treatment, categories=sel_treatments, ordered=True)\n"
+]

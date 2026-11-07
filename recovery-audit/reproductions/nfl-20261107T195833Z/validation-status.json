@@ -1,0 +1,13 @@
+{
+  "execution": "completed",
+  "reference_reproduction": "passed all four target figures; historical table values agree at displayed precision",
+  "inference_quality": "3 exploratory fits, zero divergences; max Rhat 1.002733; min bulk ESS 1565.998; see unrounded per-parameter diagnostics",
+  "figures": [
+    "lineplot-tg-CO28154",
+    "lineplot-wt-CO28154",
+    "ttest-heatmap-all-tg",
+    "fx-size-p-val-all"
+  ],
+  "comparisons": "table-comparisons.json",
+  "warnings": "warnings.json"
+}
