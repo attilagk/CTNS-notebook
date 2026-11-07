@@ -2,7 +2,7 @@
 
 ## Result
 
-The notebook completed in a fresh `base` environment kernel after two compatibility changes. Both requested targets pass: all 66 cells in `results_params[('CO28154', 'TUDCA and HCQ')]` agree with the target table at its displayed rounding, and the TUDCA + HCQ boxplot matches the reference visually. The promoted notebook was run again from its canonical path in a fresh kernel; all 26 canonical cells completed, and the target checks passed again.
+The notebook completed in a fresh `base` environment kernel after two compatibility changes. Both requested targets pass: all 66 cells in `results_params[('CO28154', 'TUDCA and HCQ')]` agree with the target table at its displayed rounding, and the TUDCA + HCQ boxplot matches the reference visually. The promoted notebook was run again from its canonical path in a fresh kernel; all 26 canonical cells completed, all seven inline plot outputs were retained, and the target checks passed again.
 
 The target OLS design is full rank for both sexes (`n=94`, 11/11 design columns) and males only (`n=71`, 11/11 columns). No Bayesian sampling or persistent fit cache applies to this notebook.
 
@@ -13,6 +13,7 @@ The target OLS design is full rank for both sexes (`n=94`, 11/11 design columns)
 - Environment: conda `base`, `/home/attila/miniconda3/bin/python` 3.13.12; pandas 3.1.1, NumPy 2.4.6, SciPy 1.18.1, Matplotlib 3.10.9, seaborn 0.13.2, statsmodels 0.15.0, statannotations 0.7.2, ipykernel 7.4.0.
 - `statannotations` was missing and installed into `base` from its matching PyPI package. The two recovered workbooks were present at the paths read by the notebook. Their SHA-256 values are recorded in the run manifest and match the recovery receipt.
 - Target comparison: `target-comparisons.json` (66 numeric cells, zero failures; maximum absolute difference `4.991332902548606e-07`, within each cell's displayed-rounding tolerance).
+- Visual acceptance is bound to the SHA-256 pair recorded in `target-comparisons.json`; the comparator reports uninspected and exits with failure if either image changes.
 - Target figure: `figures/boxplot-Abeta-TUDCA-and-HCQ.png`; dimensions 475×558 px, same as the supplied reference.
 - Machine-readable state: `manifest.json`, `baseline-execution.json`, `fixed-execution.json`, `verify-execution.json`, `ols-design-diagnostics.json`, and `nonestimable-ttests.csv`.
 

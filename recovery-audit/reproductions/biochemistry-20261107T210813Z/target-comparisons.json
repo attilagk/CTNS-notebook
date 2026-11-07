@@ -670,7 +670,8 @@
     ]
   },
   "figure": {
-    "verdict": "visually matched on inspection",
+    "verdict": "visually matched for the inspected image hashes",
+    "inspection_hashes_match": true,
     "reference": "recovery-audit/target-artifacts/Pasted image 20261106220452.png",
     "reproduced": "recovery-audit/reproductions/biochemistry-20261107T210813Z/figures/boxplot-Abeta-TUDCA-and-HCQ.png",
     "reference_size_px": [

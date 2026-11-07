@@ -1,6 +1,6 @@
 {
-  "started_at": "2026-11-07T21:10:52.860345+00:00",
-  "finished_at": "2026-11-07T21:11:05.342542+00:00",
+  "started_at": "2026-11-07T21:25:16.029930+00:00",
+  "finished_at": "2026-11-07T21:25:29.943244+00:00",
   "outcome": "completed",
   "compatibility_fix": true,
   "notebook": "/home/attila/projects/CTNS/notebooks/recovery-audit/reproductions/biochemistry-20261107T210813Z/fixed-executed.ipynb",
@@ -32,7 +32,6 @@
     23,
     24,
     25,
-    26,
-    27
+    26
   ]
 }

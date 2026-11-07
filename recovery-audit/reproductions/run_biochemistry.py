@@ -171,10 +171,11 @@ def write_manifest() -> None:
 
 if __name__ == "__main__":
     os.environ.setdefault("MPLCONFIGDIR", str(RUN / "mplconfig"))
-    os.environ.setdefault("MPLBACKEND", "Agg")
+    # Preserve inline figures in the executed notebook while remaining headless.
+    os.environ["MPLBACKEND"] = "module://matplotlib_inline.backend_inline"
     RUN.mkdir(parents=True, exist_ok=True)
     mode = sys.argv[1] if len(sys.argv) > 1 else "baseline"
-    if mode != "verify":
+    if mode == "baseline" and not (RUN / "manifest.json").exists():
         write_manifest()
     result = execute(compatibility_fix=(mode == "fixed"), output_name=f"{mode}-executed.ipynb")
     (RUN / f"{mode}-execution.json").write_text(json.dumps(result, indent=2) + "\n")

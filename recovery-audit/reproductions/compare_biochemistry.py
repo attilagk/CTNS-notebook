@@ -16,6 +16,8 @@ TARGETDOC = ROOT / "recovery-audit/target-artifacts/target-artifacts.md"
 TARGETIMAGE = ROOT / "recovery-audit/target-artifacts/Pasted image 20261106220452.png"
 OUTPUTIMAGE = RUN / "figures/boxplot-Abeta-TUDCA-and-HCQ.png"
 OUTPUTTABLE = RUN / "reproduced-target-table.csv"
+INSPECTED_REFERENCE_SHA256 = "75d7f18d4a0e1432a1c3f28707412e09b3afe875dd757ca26b760f4770245f7a"
+INSPECTED_OUTPUT_SHA256 = "0e6970952165474ec3f0ce00b87852ee4c697216f2bc3003d1439bd90bed7c4f"
 
 
 def sha(path: Path) -> str:
@@ -91,15 +93,22 @@ def compare_figure() -> dict:
     out_arr = np.asarray(resized, dtype=np.float64)
     mae = float(np.abs(ref_arr - out_arr).mean())
     corr = float(np.corrcoef(ref_arr.reshape(-1), out_arr.reshape(-1))[0, 1])
+    reference_sha = sha(TARGETIMAGE)
+    output_sha = sha(OUTPUTIMAGE)
+    inspected_pair_matches = (
+        reference_sha == INSPECTED_REFERENCE_SHA256
+        and output_sha == INSPECTED_OUTPUT_SHA256
+    )
     return {
-        "verdict": "visually matched on inspection",
+        "verdict": "visually matched for the inspected image hashes" if inspected_pair_matches else "uninspected: image hash differs from the inspected pair",
+        "inspection_hashes_match": inspected_pair_matches,
         "reference": str(TARGETIMAGE.relative_to(ROOT)),
         "reproduced": str(OUTPUTIMAGE.relative_to(ROOT)),
         "reference_size_px": list(ref.size),
         "reproduced_size_px": list(out.size),
         "resized_mean_absolute_pixel_difference_0_255": mae,
         "resized_pixel_correlation": corr,
-        "sha256": {"reference": sha(TARGETIMAGE), "reproduced": sha(OUTPUTIMAGE)},
+        "sha256": {"reference": reference_sha, "reproduced": output_sha},
         "inspected_features": [
             "2x2 panel order: FA cortex, FA hippocampus, DEA cortex, DEA hippocampus",
             "Saline TG and TUDCA + HCQ TG groups with matching colors and point distributions",
@@ -118,5 +127,5 @@ if __name__ == "__main__":
     path = RUN / "target-comparisons.json"
     path.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n")
     print(json.dumps({"table": {k: v for k, v in result["table"].items() if k != "comparisons"}, "figure": result["figure"]}, indent=2, ensure_ascii=False))
-    if result["table"]["verdict"] != "passed":
+    if result["table"]["verdict"] != "passed" or not result["figure"]["inspection_hashes_match"]:
         raise SystemExit(1)
