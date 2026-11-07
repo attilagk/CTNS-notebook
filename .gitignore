@@ -44,3 +44,7 @@ __pycache__/
 
 # Incomplete kernel-startup attempt; successful run retained separately
 /recovery-audit/reproductions/latency-20261107T031838Z/
+
+# Selected CO28154 reproduction targets
+!/recovery-audit/reproductions/co28154-*/figures/model-latency-CO28154-TUDCA_HCQ-TG.png
+!/recovery-audit/reproductions/co28154-*/figures/CI-BF-all.png

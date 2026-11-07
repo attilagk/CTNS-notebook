@@ -1,0 +1,22 @@
+{
+  "started_at": "2026-11-07T13:14:36.072973+00:00",
+  "source": "/home/attila/projects/CTNS/notebooks/2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+  "source_sha256": "0fbdd06d310560c37c7dcfe16e211ca121713e7b80bda489b281f36f60209c5f",
+  "inputs": {
+    "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO26990-behavioral-data-cleaned.xlsx": "6b8526b151d3b02cf8166f1d27428dff0e7608837d14692ca5e9702b54b1705a",
+    "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28152-behavioral-data-cleaned.xlsx": "bc46a377af66fb50b42ffe5aa781b071f99a18a544f5a2a511e683627b98bfbf",
+    "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28154-behavioral-data-cleaned.xlsx": "fc00b858abb33944755f63d090c263ce888c38629a0b235fce3145b5f56ef101"
+  },
+  "python": "/home/attila/miniconda3/envs/bayes/bin/python",
+  "git_commit": "8a3eb2d2b287baf1f2ff955170da4fb0ea5e78ef",
+  "target_sha256": "de88474aaaa396dce986317dfb5132a5404e80ec0b567b93b3cac3aca1ef3b69",
+  "helper_hashes": {
+    "/home/attila/projects/CTNS/notebooks/src/mwm.py": "95efa9cfb9c766d1d9dd04cf3e3f0c0004428f5b3aa587f5048cfbe15021021a",
+    "/home/attila/projects/CTNS/notebooks/src/cellbayesassay.py": "f087d3c8b7e5ccfede89052101779ccce658fd528a85337fc31edf0c2d070fbd",
+    "/home/attila/src/attila_utils.py": "1fca88c0c2c11368d0af3082a4fed336b1eecda417cb5b95ea32fc83f97c4857"
+  },
+  "execution_modifications": "Bootstrap adds import paths, redirects figures, and persists/reuses identical model fits; isolated working tree redirects relative results paths. Notebook science cells unchanged.",
+  "execution_status": "completed",
+  "finished_at": "2026-11-07T13:15:27.872402+00:00",
+  "elapsed_seconds": 50.99549105999995
+}

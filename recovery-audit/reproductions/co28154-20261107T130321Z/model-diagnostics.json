@@ -1,0 +1,594 @@
+[
+  {
+    "group": "idatas2_CO26990",
+    "experiment": "WT",
+    "divergences": 0,
+    "max_rhat": 1.0053325751133408,
+    "min_ess": 1596.2385229867646,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas2_CO26990",
+    "experiment": "Amiloride 10 TG",
+    "divergences": 0,
+    "max_rhat": 1.0026888325547052,
+    "min_ess": 1233.1141641993584,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas2_CO26990_m",
+    "experiment": "WT",
+    "divergences": 0,
+    "max_rhat": 1.0053325751133408,
+    "min_ess": 1596.2385229867646,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas2_CO26990_m",
+    "experiment": "Amiloride 10 TG",
+    "divergences": 0,
+    "max_rhat": 1.0028289501145453,
+    "min_ess": 1117.5500497418052,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas2_CO28152",
+    "experiment": "WT",
+    "divergences": 0,
+    "max_rhat": 1.0053325751133408,
+    "min_ess": 1596.2385229867646,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas2_CO28152",
+    "experiment": "Amiloride 12 TG",
+    "divergences": 0,
+    "max_rhat": 1.0029801990263107,
+    "min_ess": 1354.5447622609802,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas2_CO28152",
+    "experiment": "HCQ TG",
+    "divergences": 0,
+    "max_rhat": 1.0048806625330309,
+    "min_ess": 1626.6843167644945,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas2_CO28152",
+    "experiment": "HCQ nano TG",
+    "divergences": 0,
+    "max_rhat": 1.002905611556882,
+    "min_ess": 1228.6262291980909,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas2_CO28152",
+    "experiment": "R-HCQ TG",
+    "divergences": 0,
+    "max_rhat": 1.004829485538442,
+    "min_ess": 802.1843586910095,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas2_CO28152",
+    "experiment": "S-HCQ TG",
+    "divergences": 0,
+    "max_rhat": 1.0037681441646773,
+    "min_ess": 1298.8934717366453,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas2_CO28152",
+    "experiment": "TUDCA TG",
+    "divergences": 0,
+    "max_rhat": 1.003121040721127,
+    "min_ess": 1207.7628129693817,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas2_CO28152",
+    "experiment": "TUDCA WT",
+    "divergences": 0,
+    "max_rhat": 1.0024809619689234,
+    "min_ess": 1383.7880933814047,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas2_CO28152_m",
+    "experiment": "WT",
+    "divergences": 0,
+    "max_rhat": 1.0025363411026231,
+    "min_ess": 967.7058281367962,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas2_CO28152_m",
+    "experiment": "Amiloride 12 TG",
+    "divergences": 30,
+    "max_rhat": 1.0108658081468713,
+    "min_ess": 568.6710614278329,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas2_CO28152_m",
+    "experiment": "HCQ TG",
+    "divergences": 0,
+    "max_rhat": 1.0029178398344307,
+    "min_ess": 1062.0998049548493,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas2_CO28152_m",
+    "experiment": "HCQ nano TG",
+    "divergences": 1,
+    "max_rhat": 1.005658947848033,
+    "min_ess": 954.0959866400277,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas2_CO28152_m",
+    "experiment": "R-HCQ TG",
+    "divergences": 15,
+    "max_rhat": 1.0051724118163692,
+    "min_ess": 776.1774929909359,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas2_CO28152_m",
+    "experiment": "S-HCQ TG",
+    "divergences": 3,
+    "max_rhat": 1.0046459160384045,
+    "min_ess": 849.6886364803962,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas2_CO28152_m",
+    "experiment": "TUDCA TG",
+    "divergences": 0,
+    "max_rhat": 1.0030822885627886,
+    "min_ess": 1052.4249026249186,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas2_CO28152_m",
+    "experiment": "TUDCA WT",
+    "divergences": 0,
+    "max_rhat": 1.0028633219431282,
+    "min_ess": 897.332410039126,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas2_CO28154",
+    "experiment": "WT",
+    "divergences": 0,
+    "max_rhat": 1.003562661134116,
+    "min_ess": 834.5187545030437,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas2_CO28154",
+    "experiment": "TUDCA + HCQ TG",
+    "divergences": 0,
+    "max_rhat": 1.0029127973728407,
+    "min_ess": 1168.5279189057487,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas2_CO28154",
+    "experiment": "Arundine low dose TG",
+    "divergences": 0,
+    "max_rhat": 1.0046423197240357,
+    "min_ess": 789.1293490462924,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas2_CO28154",
+    "experiment": "Arundine mid dose TG",
+    "divergences": 0,
+    "max_rhat": 1.0035509148378416,
+    "min_ess": 995.7010126818313,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas2_CO28154",
+    "experiment": "Arundine high dose TG",
+    "divergences": 0,
+    "max_rhat": 1.0023624262048692,
+    "min_ess": 1259.4259061391183,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas2_CO28154",
+    "experiment": "Arundine high dose WT",
+    "divergences": 0,
+    "max_rhat": 1.0026013762378931,
+    "min_ess": 1603.7353645671874,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas2_CO28154",
+    "experiment": "TUDCA + HCQ WT",
+    "divergences": 0,
+    "max_rhat": 1.002831079641616,
+    "min_ess": 1427.8519252378335,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas2_CO28154_m",
+    "experiment": "WT",
+    "divergences": 2,
+    "max_rhat": 1.0035003746337177,
+    "min_ess": 770.7056254080543,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas2_CO28154_m",
+    "experiment": "TUDCA + HCQ TG",
+    "divergences": 0,
+    "max_rhat": 1.0041672837462985,
+    "min_ess": 1148.8550461468253,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas2_CO28154_m",
+    "experiment": "Arundine low dose TG",
+    "divergences": 9,
+    "max_rhat": 1.004281666724792,
+    "min_ess": 771.0583320934921,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas2_CO28154_m",
+    "experiment": "Arundine mid dose TG",
+    "divergences": 2,
+    "max_rhat": 1.0043649573663738,
+    "min_ess": 741.841610013541,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas2_CO28154_m",
+    "experiment": "Arundine high dose TG",
+    "divergences": 1,
+    "max_rhat": 1.0072309072762728,
+    "min_ess": 986.389002513523,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas2_CO28154_m",
+    "experiment": "Arundine high dose WT",
+    "divergences": 1,
+    "max_rhat": 1.0046994337419815,
+    "min_ess": 1339.0159434406492,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas2_CO28154_m",
+    "experiment": "TUDCA + HCQ WT",
+    "divergences": 0,
+    "max_rhat": 1.004053144126123,
+    "min_ess": 917.7139215018941,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas3_CO26990",
+    "experiment": "Amiloride 10 TG",
+    "divergences": 0,
+    "max_rhat": 1.0034892512048281,
+    "min_ess": 1262.0839664252987,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas3_CO26990_m",
+    "experiment": "Amiloride 10 TG",
+    "divergences": 0,
+    "max_rhat": 1.001861270291664,
+    "min_ess": 1153.0717331905278,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas3_CO28152",
+    "experiment": "Amiloride 12 TG",
+    "divergences": 0,
+    "max_rhat": 1.0042226373219196,
+    "min_ess": 1426.4213267976234,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas3_CO28152",
+    "experiment": "HCQ TG",
+    "divergences": 0,
+    "max_rhat": 1.0036278737337836,
+    "min_ess": 1519.2246235603272,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas3_CO28152",
+    "experiment": "HCQ nano TG",
+    "divergences": 0,
+    "max_rhat": 1.0039685460866232,
+    "min_ess": 1093.3187785682842,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas3_CO28152",
+    "experiment": "R-HCQ TG",
+    "divergences": 0,
+    "max_rhat": 1.0048130733924816,
+    "min_ess": 1534.6204902105296,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas3_CO28152",
+    "experiment": "S-HCQ TG",
+    "divergences": 0,
+    "max_rhat": 1.0052170264630695,
+    "min_ess": 1441.6101912586273,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas3_CO28152",
+    "experiment": "TUDCA TG",
+    "divergences": 0,
+    "max_rhat": 1.003488898735315,
+    "min_ess": 1390.2298676466144,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas3_CO28152",
+    "experiment": "TUDCA WT",
+    "divergences": 0,
+    "max_rhat": 1.003488898735315,
+    "min_ess": 1390.2298676466144,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas3_CO28152_m",
+    "experiment": "Amiloride 12 TG",
+    "divergences": 0,
+    "max_rhat": 1.0069643151513807,
+    "min_ess": 755.1130035775765,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas3_CO28152_m",
+    "experiment": "HCQ TG",
+    "divergences": 0,
+    "max_rhat": 1.001987884024294,
+    "min_ess": 915.9038284131461,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas3_CO28152_m",
+    "experiment": "HCQ nano TG",
+    "divergences": 0,
+    "max_rhat": 1.005127671090214,
+    "min_ess": 940.5656291398635,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas3_CO28152_m",
+    "experiment": "R-HCQ TG",
+    "divergences": 3,
+    "max_rhat": 1.003152772765409,
+    "min_ess": 828.1628073776177,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas3_CO28152_m",
+    "experiment": "S-HCQ TG",
+    "divergences": 0,
+    "max_rhat": 1.0030561911309759,
+    "min_ess": 980.7018405675533,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas3_CO28152_m",
+    "experiment": "TUDCA TG",
+    "divergences": 0,
+    "max_rhat": 1.0030809995276595,
+    "min_ess": 855.8038775098224,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas3_CO28152_m",
+    "experiment": "TUDCA WT",
+    "divergences": 0,
+    "max_rhat": 1.0030809995276595,
+    "min_ess": 855.8038775098224,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas3_CO28154",
+    "experiment": "TUDCA + HCQ TG",
+    "divergences": 0,
+    "max_rhat": 1.004303040094216,
+    "min_ess": 1037.2689644445452,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas3_CO28154",
+    "experiment": "Arundine low dose TG",
+    "divergences": 0,
+    "max_rhat": 1.0049349613608227,
+    "min_ess": 712.9387015874653,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas3_CO28154",
+    "experiment": "Arundine mid dose TG",
+    "divergences": 0,
+    "max_rhat": 1.0029209249533928,
+    "min_ess": 1340.2826802211764,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas3_CO28154",
+    "experiment": "Arundine high dose TG",
+    "divergences": 0,
+    "max_rhat": 1.0043331449724489,
+    "min_ess": 1440.9685546687988,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas3_CO28154",
+    "experiment": "Arundine high dose WT",
+    "divergences": 0,
+    "max_rhat": 1.0049283825041315,
+    "min_ess": 1461.9733826676065,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas3_CO28154",
+    "experiment": "TUDCA + HCQ WT",
+    "divergences": 0,
+    "max_rhat": 1.003525713703989,
+    "min_ess": 1366.9314282443243,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas3_CO28154_m",
+    "experiment": "TUDCA + HCQ TG",
+    "divergences": 0,
+    "max_rhat": 1.0035489227394163,
+    "min_ess": 906.1518224841103,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas3_CO28154_m",
+    "experiment": "Arundine low dose TG",
+    "divergences": 2,
+    "max_rhat": 1.0051262845053643,
+    "min_ess": 985.1049412704818,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas3_CO28154_m",
+    "experiment": "Arundine mid dose TG",
+    "divergences": 0,
+    "max_rhat": 1.0045007328366446,
+    "min_ess": 757.5771849671995,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas3_CO28154_m",
+    "experiment": "Arundine high dose TG",
+    "divergences": 1,
+    "max_rhat": 1.0030823006661855,
+    "min_ess": 1030.5882209426936,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas3_CO28154_m",
+    "experiment": "Arundine high dose WT",
+    "divergences": 2,
+    "max_rhat": 1.0038676364838108,
+    "min_ess": 1088.1968849304883,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas3_CO28154_m",
+    "experiment": "TUDCA + HCQ WT",
+    "divergences": 0,
+    "max_rhat": 1.0037008415997093,
+    "min_ess": 978.3310420246585,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas_CO28152",
+    "experiment": "CO28152 TG",
+    "divergences": 0,
+    "max_rhat": 1.0054353099878643,
+    "min_ess": 948.1314419308026,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas_CO28152",
+    "experiment": "CO28152 WT",
+    "divergences": 0,
+    "max_rhat": 1.002969040380981,
+    "min_ess": 1445.0025691132714,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas_CO28152_m",
+    "experiment": "CO28152 TG",
+    "divergences": 0,
+    "max_rhat": 1.003234365741459,
+    "min_ess": 1059.7370614519448,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas_CO28152_m",
+    "experiment": "CO28152 WT",
+    "divergences": 0,
+    "max_rhat": 1.0052527622046756,
+    "min_ess": 874.6653739420764,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas_CO28154",
+    "experiment": "TUDCA + HCQ TG",
+    "divergences": 0,
+    "max_rhat": 1.004303040094216,
+    "min_ess": 1037.2689644445452,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas_CO28154",
+    "experiment": "Arundine TG",
+    "divergences": 0,
+    "max_rhat": 1.0037738619648293,
+    "min_ess": 831.7792842993472,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas_CO28154",
+    "experiment": "TUDCA + HCQ WT",
+    "divergences": 0,
+    "max_rhat": 1.002831079641616,
+    "min_ess": 1427.8519252378335,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas_CO28154",
+    "experiment": "Arundine WT",
+    "divergences": 0,
+    "max_rhat": 1.0026013762378931,
+    "min_ess": 1603.7353645671874,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas_CO28154_m",
+    "experiment": "TUDCA + HCQ TG",
+    "divergences": 0,
+    "max_rhat": 1.0035489227394163,
+    "min_ess": 906.1518224841103,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas_CO28154_m",
+    "experiment": "Arundine TG",
+    "divergences": 0,
+    "max_rhat": 1.0043867876626598,
+    "min_ess": 996.6503573696206,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas_CO28154_m",
+    "experiment": "TUDCA + HCQ WT",
+    "divergences": 0,
+    "max_rhat": 1.004053144126123,
+    "min_ess": 917.7139215018941,
+    "finite_log_likelihood": true
+  },
+  {
+    "group": "idatas_CO28154_m",
+    "experiment": "Arundine WT",
+    "divergences": 1,
+    "max_rhat": 1.0046994337419815,
+    "min_ess": 1339.0159434406492,
+    "finite_log_likelihood": true
+  }
+]
