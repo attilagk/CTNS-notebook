@@ -1,5 +1,5 @@
 """Conservative, checksum-verified local Bambi fit cache."""
-import hashlib,json,os,tempfile,platform
+import hashlib,json,os,tempfile,platform,re
 from pathlib import Path
 from importlib.metadata import version
 import numpy as np
@@ -55,3 +55,14 @@ def fit_or_load(model,directory,settings,context,force=False,adopt=None):
     if adopt is not None and not force:
         result=az.from_netcdf(adopt);save(directory,key,spec,result,{'adopted_from':str(adopt),'source_sha256':hashlib.sha256(Path(adopt).read_bytes()).hexdigest()});return result
     result=model.fit(**settings);save(directory,key,spec,result);return result
+
+
+def analysis_code_hash(cells):
+    """Hash analysis code while normalizing the operational refit toggle."""
+    code=[]
+    for cell in cells:
+        if cell['cell_type']!='code':continue
+        source=''.join(cell['source'])
+        source=re.sub(r'^force_refit[ \t]*=[ \t]*(?:True|False)[ \t]*(?:#.*)?$', 'force_refit = False', source, flags=re.MULTILINE)
+        code.append(source)
+    return hashlib.sha256(json.dumps(code).encode()).hexdigest()

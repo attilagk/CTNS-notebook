@@ -47,3 +47,10 @@ with tempfile.TemporaryDirectory() as td:
         assert c.identity(m,settings,context)[0]!=k
     finally:c.version=original_version
 print('Missing entry, forced refit, failed fit, and version invalidation checks passed')
+
+normal=[{'cell_type':'code','source':['force_refit = False\n','prior = 1\n']}]
+forced=[{'cell_type':'code','source':['force_refit = True\n','prior = 1\n']}]
+assert c.analysis_code_hash(normal)==c.analysis_code_hash(forced)
+forced[0]['source'][1]='prior = 2\n'
+assert c.analysis_code_hash(normal)!=c.analysis_code_hash(forced)
+print('Refit toggle preserves identity; scientific edits invalidate it')
