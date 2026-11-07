@@ -1,0 +1,3 @@
+{"model": "results_CO28152", "divergences": 0, "max_rhat": 1.00273257521257, "min_ess_bulk": 1565.997823841187, "min_ess_tail": 2191.556020616989}
+{"model": "results_CO28154a", "divergences": 0, "max_rhat": 1.0026985511109425, "min_ess_bulk": 2538.2046157474233, "min_ess_tail": 2305.0953812608323}
+{"model": "results_CO28154b", "divergences": 0, "max_rhat": 1.0017667753863813, "min_ess_bulk": 2143.14324579335, "min_ess_tail": 2277.7444682695696}

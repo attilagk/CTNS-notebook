@@ -1,0 +1,18 @@
+{
+  "1": {
+    "verdict": "matches historical displayed precision",
+    "cells_compared": 1003
+  },
+  "2": {
+    "verdict": "matches historical displayed precision",
+    "cells_compared": 1020
+  },
+  "17": {
+    "verdict": "matches historical displayed precision",
+    "cells_compared": 160
+  },
+  "49": {
+    "verdict": "matches historical displayed precision",
+    "cells_compared": 98
+  }
+}
