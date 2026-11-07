@@ -16,3 +16,8 @@ with tempfile.TemporaryDirectory() as td:
  except ValueError:pass
  else:raise AssertionError('corrupt cache accepted')
 print('Identity, valid hit, and corruption rejection checks passed')
+
+a=b.Model('y ~ C(g, levels=lev)',pd.DataFrame({'y':[1.,2.,3.,4.],'g':['a','b','a','b']}),extra_namespace={'lev':['a','b']})
+bb=b.Model('y ~ C(g, levels=lev)',pd.DataFrame({'y':[1.,2.,3.,4.],'g':['a','b','a','b']}),extra_namespace={'lev':['b','a']})
+assert c.identity(a,settings,context)[0]!=c.identity(bb,settings,context)[0]
+print('Explicit factor-order changes invalidate cache')

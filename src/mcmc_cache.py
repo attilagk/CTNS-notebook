@@ -19,8 +19,20 @@ def identity(model,settings,context):
     priors={}
     for name,c in model.components.items():
         priors[name]=encode(c.prior) if hasattr(c,'prior') else {n:encode(t.prior) for n,t in c.terms.items()}
+    design={}
+    for name,component in model.components.items():
+        matrices=getattr(component,'design',None)
+        if matrices is None:continue
+        design[name]={}
+        for kind in ['common','group']:
+            part=getattr(matrices,kind,None)
+            if part is None:continue
+            matrix=part.design_matrix
+            if hasattr(matrix,'toarray'):matrix=matrix.toarray()
+            matrix=np.asarray(matrix)
+            design[name][kind]={'shape':list(matrix.shape),'dtype':str(matrix.dtype),'sha256':hashlib.sha256(matrix.tobytes()).hexdigest(),'terms':{n:encode(getattr(t,'levels',None)) for n,t in part.terms.items()}}
     data=model.data
-    spec=dict(schema=1,context=context,formula=str(model.formula),family=model.family.name,links={k:v.name for k,v in model.family.link.items()},center=model.center_predictors,priors=priors,data_hash=hashlib.sha256(pd.util.hash_pandas_object(data,index=True).values.tobytes()).hexdigest(),columns=list(data.columns),index_names=list(data.index.names),dtypes=[str(t) for t in data.dtypes],categories={c:{'values':list(data[c].cat.categories),'ordered':data[c].cat.ordered} for c in data.select_dtypes('category')},settings=encode(settings),python=platform.python_version(),packages={p:version(p) for p in ['bambi','pymc','pytensor','arviz','numpy','pandas']})
+    spec=dict(schema=1,design=design,context=context,formula=str(model.formula),family=model.family.name,links={k:v.name for k,v in model.family.link.items()},center=model.center_predictors,priors=priors,data_hash=hashlib.sha256(pd.util.hash_pandas_object(data,index=True).values.tobytes()).hexdigest(),columns=list(data.columns),index_names=list(data.index.names),dtypes=[str(t) for t in data.dtypes],categories={c:{'values':list(data[c].cat.categories),'ordered':data[c].cat.ordered} for c in data.select_dtypes('category')},settings=encode(settings),python=platform.python_version(),packages={p:version(p) for p in ['bambi','pymc','pytensor','arviz','numpy','pandas']})
     return hashlib.sha256(json.dumps(spec,sort_keys=True).encode()).hexdigest(),spec
 
 def save(directory,key,spec,result,provenance=None):
