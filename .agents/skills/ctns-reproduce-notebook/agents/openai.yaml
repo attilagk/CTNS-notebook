@@ -1,0 +1,4 @@
+interface:
+  display_name: "CTNS Notebook Reproduction"
+  short_description: "Execute CTNS notebooks and verify target artifacts"
+  default_prompt: "Use $ctns-reproduce-notebook to reproduce the selected CTNS notebook in its declared conda environment and validate all target artifacts."

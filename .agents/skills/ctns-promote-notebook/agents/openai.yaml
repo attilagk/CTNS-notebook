@@ -1,0 +1,4 @@
+interface:
+  display_name: "CTNS Notebook Promotion"
+  short_description: "Promote validated CTNS notebooks with fit caches"
+  default_prompt: "Use $ctns-promote-notebook to promote the selected validated CTNS reproduction with persistent cache support and the authorized Git workflow."

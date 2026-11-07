@@ -1,5 +1,7 @@
 ## 2023-11-07-5xfad-maze-latency
 
+conda env: bayes
+
 ### Artifact 1
 
 `day_summary` data frame
@@ -20,6 +22,7 @@ TUDCA WT 	-0.235 	0.023 	-0.278 	-0.191 	0.000 	0.0 	3885.0 	3023.0 	1.0
 
 ## 2023-11-07-5xfad-maze-test-probe
 
+conda env: base
 ### Artifact 1
 
 Output of `my_dirichlet_plot`
@@ -46,6 +49,9 @@ Result of the Dirichlet uniformity test for group 5xFAD + Amiloride:
 
 ## 2024-02-29-Y-maze
 
+conda env: base
+### Artifact 1
+
 ### Artifact 1
 
 `2024-02-29-Y-maze.png`
@@ -64,6 +70,9 @@ Result of the Dirichlet uniformity test for group 5xFAD + Amiloride:
 
 
 ## 2024-05-20-nfl-modeling
+
+conda env: base
+### Artifact 1
 
 ### Artifact 1
 
@@ -87,6 +96,9 @@ Result of the Dirichlet uniformity test for group 5xFAD + Amiloride:
 ![[Pasted image 20261106215024.png]]
 
 ## 2024-06-04-5xfad-behavior-CO28154
+
+conda env: bayes
+### Artifact 1
 
 ### Artifact 1
 
@@ -169,6 +181,7 @@ censored(Latency, Status)_alpha 	2.815 	0.241 	2.322 	3.273 	0.004 	0.003 	3843.
 
 ## 2024-06-26-mwm-test-probe-CO28154
 
+conda env: base
 ### Artifact 1
 
 `fractions`
@@ -226,6 +239,9 @@ Arundine high dose WT 	0.504155 	0.224440 	0.143116 	0.128289 	0.488759 	0.23437
 
 ## 2024-08-08-biochemistry
 
+conda env: base
+### Artifact 1
+
 ### Artifact 1
 
 `results_params[('CO28154', 'TUDCA and HCQ')]`
@@ -252,6 +268,9 @@ Arundine high dose WT 	0.504155 	0.224440 	0.143116 	0.128289 	0.488759 	0.23437
 ![[Pasted image 20261106220452.png]]
 
 ## 2024-11-11-cytokines
+
+conda env: base
+### Artifact 1
 
 ### Artifact 1
 
