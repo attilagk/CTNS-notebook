@@ -21,3 +21,29 @@ a=b.Model('y ~ C(g, levels=lev)',pd.DataFrame({'y':[1.,2.,3.,4.],'g':['a','b','a
 bb=b.Model('y ~ C(g, levels=lev)',pd.DataFrame({'y':[1.,2.,3.,4.],'g':['a','b','a','b']}),extra_namespace={'lev':['b','a']})
 assert c.identity(a,settings,context)[0]!=c.identity(bb,settings,context)[0]
 print('Explicit factor-order changes invalidate cache')
+
+with tempfile.TemporaryDirectory() as td:
+    m.fit=lambda **kw:d
+    loaded=c.fit_or_load(m,td,settings,context)
+    assert loaded.posterior.equals(d.posterior)
+    called=[]
+    def replacement(**kw):
+        called.append(True)
+        return d
+    m.fit=replacement
+    c.fit_or_load(m,td,settings,context,force=True)
+    assert called
+    changed={'input':'failed fit'}
+    badkey,_=c.identity(m,settings,changed)
+    def fail(**kw):raise RuntimeError('simulated sampling failure')
+    m.fit=fail
+    try:c.fit_or_load(m,td,settings,changed)
+    except RuntimeError:pass
+    else:raise AssertionError('failure not propagated')
+    assert not pathlib.Path(td,badkey+'.nc').exists()
+    original_version=c.version
+    try:
+        c.version=lambda package:original_version(package)+'-changed'
+        assert c.identity(m,settings,context)[0]!=k
+    finally:c.version=original_version
+print('Missing entry, forced refit, failed fit, and version invalidation checks passed')
