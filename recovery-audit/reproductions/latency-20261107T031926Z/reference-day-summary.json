@@ -1,0 +1,98 @@
+[
+  {
+    "experiment": "Amiloride 10",
+    "mean": -0.292,
+    "sd": 0.03,
+    "hdi_3%": -0.346,
+    "hdi_97%": -0.231,
+    "mcse_mean": 0.001,
+    "mcse_sd": 0.0,
+    "ess_bulk": 3302.0,
+    "ess_tail": 2716.0,
+    "r_hat": 1.0
+  },
+  {
+    "experiment": "Amiloride 12",
+    "mean": -0.23,
+    "sd": 0.024,
+    "hdi_3%": -0.276,
+    "hdi_97%": -0.184,
+    "mcse_mean": 0.0,
+    "mcse_sd": 0.0,
+    "ess_bulk": 3054.0,
+    "ess_tail": 3088.0,
+    "r_hat": 1.0
+  },
+  {
+    "experiment": "HCQ",
+    "mean": -0.239,
+    "sd": 0.023,
+    "hdi_3%": -0.281,
+    "hdi_97%": -0.196,
+    "mcse_mean": 0.0,
+    "mcse_sd": 0.0,
+    "ess_bulk": 3014.0,
+    "ess_tail": 2905.0,
+    "r_hat": 1.0
+  },
+  {
+    "experiment": "HCQ nano",
+    "mean": -0.221,
+    "sd": 0.024,
+    "hdi_3%": -0.263,
+    "hdi_97%": -0.174,
+    "mcse_mean": 0.0,
+    "mcse_sd": 0.0,
+    "ess_bulk": 3059.0,
+    "ess_tail": 2967.0,
+    "r_hat": 1.0
+  },
+  {
+    "experiment": "R-HCQ",
+    "mean": -0.219,
+    "sd": 0.029,
+    "hdi_3%": -0.276,
+    "hdi_97%": -0.167,
+    "mcse_mean": 0.001,
+    "mcse_sd": 0.0,
+    "ess_bulk": 2968.0,
+    "ess_tail": 2678.0,
+    "r_hat": 1.0
+  },
+  {
+    "experiment": "S-HCQ",
+    "mean": -0.238,
+    "sd": 0.029,
+    "hdi_3%": -0.292,
+    "hdi_97%": -0.184,
+    "mcse_mean": 0.001,
+    "mcse_sd": 0.0,
+    "ess_bulk": 2751.0,
+    "ess_tail": 2778.0,
+    "r_hat": 1.0
+  },
+  {
+    "experiment": "TUDCA",
+    "mean": -0.216,
+    "sd": 0.023,
+    "hdi_3%": -0.257,
+    "hdi_97%": -0.173,
+    "mcse_mean": 0.0,
+    "mcse_sd": 0.0,
+    "ess_bulk": 2993.0,
+    "ess_tail": 2938.0,
+    "r_hat": 1.0
+  },
+  {
+    "experiment": "TUDCA WT",
+    "mean": -0.235,
+    "sd": 0.023,
+    "hdi_3%": -0.278,
+    "hdi_97%": -0.191,
+    "mcse_mean": 0.0,
+    "mcse_sd": 0.0,
+    "ess_bulk": 3885.0,
+    "ess_tail": 3023.0,
+    "r_hat": 1.0
+  }
+]

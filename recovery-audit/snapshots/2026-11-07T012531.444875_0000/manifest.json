@@ -1,0 +1,9 @@
+{
+  "snapshot_id": "2026-11-07T012531.444875_0000",
+  "files": {
+    "dependency-state.json": "0eb9a9532780d2e4811d8d359c26bd4bff08a7115ee52e1f57816201f3e2393a",
+    "dependencies.csv": "59ce5c7bd85b6c0e78e8dba6f108732b40bab7e4d375c3e25c0dc3ca582f4df8",
+    "recovery-status-summary.json": "8a6f678292b8404e66e019157a5bb94188ad0a7659efcb415342c56faa6bca50",
+    "files.csv": "a4b5bccc1fdfabe42e77578e519297ee2026f34baa10d46f5f6563bf6a9450ef"
+  }
+}

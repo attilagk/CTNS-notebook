@@ -1,0 +1,98 @@
+[
+  {
+    "path": "ns:2431259427//in vivo/CO26990-MWM-mean-distance-to-platform.xlsx",
+    "status": "fulfilled",
+    "metadata_type": "file",
+    "file": {
+      "client_modified": "2024-06-03T15:58:43Z",
+      "id": "id:ZyRwCbUuGSwAAAAAAAAP9w",
+      "is_downloadable": true,
+      "mime_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "name": "CO26990-MWM-mean-distance-to-platform.xlsx",
+      "path_display": "/QPS/in vivo/CO26990-MWM-mean-distance-to-platform.xlsx",
+      "rev": "619fe685a5f7790ea1323",
+      "server_modified": "2024-06-03T15:58:43Z",
+      "size": 13843
+    }
+  },
+  {
+    "path": "ns:2431259427//in vivo/CO28152_NFL-GFAP_datasum.xlsx",
+    "status": "fulfilled",
+    "metadata_type": "file",
+    "file": {
+      "client_modified": "2024-06-03T15:54:35Z",
+      "id": "id:ZyRwCbUuGSwAAAAAAAAP7g",
+      "is_downloadable": true,
+      "mime_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "name": "CO28152_NFL-GFAP_datasum.xlsx",
+      "path_display": "/QPS/in vivo/CO28152_NFL-GFAP_datasum.xlsx",
+      "rev": "619fe599f0ab890ea1323",
+      "server_modified": "2024-06-03T15:54:36Z",
+      "size": 29039
+    }
+  },
+  {
+    "path": "ns:2431259427//in vivo/CO28152-MWM-mean-distance-to-platform.xlsx",
+    "status": "fulfilled",
+    "metadata_type": "file",
+    "file": {
+      "client_modified": "2024-06-03T15:58:42Z",
+      "id": "id:ZyRwCbUuGSwAAAAAAAAP9g",
+      "is_downloadable": true,
+      "mime_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "name": "CO28152-MWM-mean-distance-to-platform.xlsx",
+      "path_display": "/QPS/in vivo/CO28152-MWM-mean-distance-to-platform.xlsx",
+      "rev": "619fe684e866b90ea1323",
+      "server_modified": "2024-06-03T15:58:42Z",
+      "size": 20901
+    }
+  },
+  {
+    "path": "ns:2431259427//in vivo/CO26990-behavioral-data-cleaned.xlsx",
+    "status": "fulfilled",
+    "metadata_type": "file",
+    "file": {
+      "client_modified": "2024-06-03T15:55:26Z",
+      "id": "id:ZyRwCbUuGSwAAAAAAAAP8g",
+      "is_downloadable": true,
+      "mime_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "name": "CO26990-behavioral-data-cleaned.xlsx",
+      "path_display": "/QPS/in vivo/CO26990-behavioral-data-cleaned.xlsx",
+      "rev": "619fe5c9b647f90ea1323",
+      "server_modified": "2024-06-03T15:55:26Z",
+      "size": 27920
+    }
+  },
+  {
+    "path": "ns:2431259427//in vivo/CO28152-behavioral-data-cleaned.xlsx",
+    "status": "fulfilled",
+    "metadata_type": "file",
+    "file": {
+      "client_modified": "2024-06-03T15:55:26Z",
+      "id": "id:ZyRwCbUuGSwAAAAAAAAP8w",
+      "is_downloadable": true,
+      "mime_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "name": "CO28152-behavioral-data-cleaned.xlsx",
+      "path_display": "/QPS/in vivo/CO28152-behavioral-data-cleaned.xlsx",
+      "rev": "619fe5c9b648090ea1323",
+      "server_modified": "2024-06-03T15:55:26Z",
+      "size": 64325
+    }
+  },
+  {
+    "path": "ns:2431259427//cell-based assays/raw-data-cleaned-by-tina-CO28151-draft1.xlsx",
+    "status": "fulfilled",
+    "metadata_type": "file",
+    "file": {
+      "client_modified": "2024-04-08T17:26:26Z",
+      "id": "id:ZyRwCbUuGSwAAAAAAAAPuQ",
+      "is_downloadable": true,
+      "mime_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "name": "raw-data-cleaned-by-tina-CO28151-draft1.xlsx",
+      "path_display": "/QPS/cell-based assays/raw-data-cleaned-by-tina-CO28151-draft1.xlsx",
+      "rev": "615991aee9dd490ea1323",
+      "server_modified": "2024-04-08T17:26:26Z",
+      "size": 73652
+    }
+  }
+]

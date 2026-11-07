@@ -1,0 +1,67 @@
+{
+  "baseline_id": "audit-2026-11-04",
+  "archived_at": "2026-11-07T01:25:31.444875+00:00",
+  "files": {
+    "dropbox-candidate-metadata.json": {
+      "sha256": "30f64e0b5fbed79b1c08503d42b86a8323fe40afe139bac9b935b9fa843ebdde",
+      "source_commit": "17e477f"
+    },
+    "dropbox-qps-listing.json": {
+      "sha256": "54c53bb3c3dea25cbed06c3a09249c94d7c3563c3772bbfe66a6ad48b52a6bbc",
+      "source_commit": "17e477f"
+    },
+    "input-inventory.csv": {
+      "sha256": "4c00eb2f3498d986119f66648c82e5bc35ea95c036cccf972edcb4fe255001b4",
+      "source_commit": "17e477f"
+    },
+    "loading-sites.csv": {
+      "sha256": "8bd99ec2259523ac7b95763cae0c176c09e52d9033b7c751e822ce6262339936",
+      "source_commit": "17e477f"
+    },
+    "missing-files.csv": {
+      "sha256": "87de59da3a3d9ff95e4b60894b763a15de769adf0a7ba4ceb8eee43479716c66",
+      "source_commit": "17e477f"
+    },
+    "notebook-coverage.csv": {
+      "sha256": "5b4cc2c2a831d5ea4113ae31d25ad269ecdf8e65756efd59a0ea99d59eb12ea4",
+      "source_commit": "17e477f"
+    },
+    "notebook-dependencies.dot": {
+      "sha256": "87fc848bd989243672d7584fafd5548eb03fde22865ceba6411353b1896c735f",
+      "source_commit": "17e477f"
+    },
+    "notebook-dependencies.mapping.json": {
+      "sha256": "01dcab4aefc2d0a59669108916559721c8cefc9f66edade5f57e67e45043af88",
+      "source_commit": "17e477f"
+    },
+    "notebook-dependencies.svg": {
+      "sha256": "2f53a5befe313ddf08fa7a323421d5ae16178683dacfcbd478f11887ace23138",
+      "source_commit": "17e477f"
+    },
+    "output-producers.csv": {
+      "sha256": "3e4cdd72629d4973a67770bf6a483098aa8f6ca4835140e4d12568f99943d89d",
+      "source_commit": "17e477f"
+    },
+    "summary.json": {
+      "sha256": "8a511469c97f1409843ff723d2790224f1af66f63d0eff99dbb8fe9b7a2af640",
+      "source_commit": "17e477f"
+    }
+  },
+  "graph_observation_note": "Preserved separately; graph filesystem observations need not match audit time.",
+  "graphs": {
+    "notebook-dependencies-preview.png": "54627078e095183f75975d6a1b16dcdf34f9d33ace38e887152b0ee448736773",
+    "notebook-dependencies.svg": "2f53a5befe313ddf08fa7a323421d5ae16178683dacfcbd478f11887ace23138",
+    "notebook-dependencies.dot": "87fc848bd989243672d7584fafd5548eb03fde22865ceba6411353b1896c735f",
+    "notebook-dependencies-v2.png": "50e75da9f80798aea1da9715e33b0972066edfb7fbf1d4fd600abd3d740ba91f",
+    "notebook-dependencies-v3.png": "a5c27829f816cb1502fea82ae53f85b439efed3e869b5b125eac66566ef3d095",
+    "notebook-dependencies.mapping.json": "01dcab4aefc2d0a59669108916559721c8cefc9f66edade5f57e67e45043af88",
+    "notebook-dependencies-v2.status.json": "0aa929920463de3345da80a2edaff0410c4ff86de9c3ae703094d089bdb62ba8",
+    "notebook-dependencies-v1.png": "334faa53592e282f2ca3720e6155a892bd277cbe3ab2384310c565d6f35b1617",
+    "notebook-dependencies-v3.svg": "7c387c5d83728a8e04173578d26cd4cb0a0e14efb7bca07eacf01e62e571026c",
+    "notebook-dependencies-v2.svg": "1f78046a393b99750f790df90b23abd12d16fe6dc0351fd910c4ff03d325d4d7",
+    "notebook-dependencies-v2.dot": "1d1a1ed01cd282ec37917bbe8bfb4847c9c879304e9c16c7e2a14c8a3611c51b",
+    "notebook-dependencies-v1.svg": "10814b45ffb7215d29b460b35975e36f1becb3d19528fc232f5c9106e2008a0e",
+    "notebook-dependencies-v3.dot": "5ce3926e7fe2aada91bd6d9a0a149d100f50b3e03e599f91290156566045d22d",
+    "notebook-dependencies-v1.dot": "55def929f086a8b534db8f650151f0d1299aa1e8347e50c454c489f746ab0ca5"
+  }
+}

@@ -1,26 +1,61 @@
 {
-  "recovery_checked_at": "2026-11-05T18:06:55.990476+00:00",
-  "original_missing_paths": 241,
-  "original_missing_paths_by_recovery_status": {
-    "still missing": 235,
-    "recovered": 6
+  "baseline_id": "audit-2026-11-04",
+  "snapshot_id": "2026-11-07T012637.391121_0000",
+  "checked_at": "2026-11-07T01:26:37.391121+00:00",
+  "baseline": {
+    "audited_at_utc": "2026-11-04T22:59:38.800547+00:00",
+    "notebooks": 83,
+    "checkpoint_notebooks": 2,
+    "loading_sites": 345,
+    "input_records": 764,
+    "statuses": {
+      "missing at expected path": 601,
+      "present": 101,
+      "unresolved": 60,
+      "directory present; members need review": 1,
+      "remote URL (not checked)": 1
+    },
+    "unique_missing_paths": 241,
+    "local_files_indexed": 661,
+    "scan_errors": [],
+    "dropbox_listing_complete": true,
+    "dropbox_files": 51
   },
-  "manuscript_source_paths_by_recovery_status": {
-    "recovered": 6,
-    "still missing": 5
+  "current": {
+    "audited_at_utc": "2026-11-07T01:26:44.161497+00:00",
+    "notebooks": 84,
+    "checkpoint_notebooks": 3,
+    "loading_sites": 349,
+    "input_records": 767,
+    "statuses": {
+      "missing at expected path": 577,
+      "present": 128,
+      "unresolved": 60,
+      "directory present; members need review": 1,
+      "remote URL (not checked)": 1
+    },
+    "unique_missing_paths": 231,
+    "local_files_indexed": 716,
+    "scan_errors": [],
+    "dropbox_listing_complete": true,
+    "dropbox_files": 51
   },
-  "manuscript_source_paths_still_missing": [
-    "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28152-biochemistry-cleaned-Abeta.xlsx",
-    "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28154-biochemistry-cleaned-Abeta.xlsx",
-    "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28154-biochemistry-cleaned.xlsx",
-    "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/amiloride-behavioral-data-cleaned.xlsx",
-    "/home/attila/projects/CTNS/resources/testdata/bambi/kidney.csv"
-  ],
-  "files_updated": [
-    "input-inventory.csv",
-    "missing-files.csv",
-    "output-producers.csv",
-    "notebook-coverage.csv"
-  ],
-  "unchanged_loading_sites": "loading-sites.csv describes code coverage rather than file availability; use input-inventory.csv for recovery filters."
+  "unique_file_statuses": {
+    "missing": 312,
+    "present": 50,
+    "directory": 1,
+    "remote not checked": 1
+  },
+  "recovery_statuses": {
+    "still missing": 231,
+    "already present": 38,
+    "unknown": 85,
+    "recovered": 10
+  },
+  "study_recovery_statuses": {
+    "recovered": 10,
+    "still missing": 21,
+    "unknown": 6
+  },
+  "original_missing_paths": 241
 }

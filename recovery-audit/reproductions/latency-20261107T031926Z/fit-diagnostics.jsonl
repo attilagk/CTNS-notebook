@@ -1,0 +1,10 @@
+{"fit": 1, "formula": "Formula(censored(Latency, Status) ~ 1 + Group + Day + (1 | IRN))", "seconds": 31.62847071999977, "divergences": 0, "max_rhat": 1.01, "min_ess_bulk": 1293.0}
+{"fit": 2, "formula": "Formula(censored(Latency, Status) ~ 1 + C(Condition, levels=lvl) + Day + (1 | IRN))", "seconds": 7.131963589999941, "divergences": 0, "max_rhat": 1.0, "min_ess_bulk": 1246.0}
+{"fit": 3, "formula": "Formula(censored(Latency, Status) ~ 1 + C(Condition, levels=lvl) + Day + (1 | IRN))", "seconds": 7.128026813000361, "divergences": 0, "max_rhat": 1.0, "min_ess_bulk": 1440.0}
+{"fit": 4, "formula": "Formula(censored(Latency, Status) ~ 1 + C(Condition, levels=lvl) + Day + (1 | IRN))", "seconds": 6.958387471000151, "divergences": 0, "max_rhat": 1.01, "min_ess_bulk": 1209.0}
+{"fit": 5, "formula": "Formula(censored(Latency, Status) ~ 1 + C(Condition, levels=lvl) + Day + (1 | IRN))", "seconds": 7.903601670999706, "divergences": 0, "max_rhat": 1.01, "min_ess_bulk": 1468.0}
+{"fit": 6, "formula": "Formula(censored(Latency, Status) ~ 1 + C(Condition, levels=lvl) + Day + (1 | IRN))", "seconds": 7.237389979, "divergences": 0, "max_rhat": 1.0, "min_ess_bulk": 1228.0}
+{"fit": 7, "formula": "Formula(censored(Latency, Status) ~ 1 + C(Condition, levels=lvl) + Day + (1 | IRN))", "seconds": 7.104231900999821, "divergences": 0, "max_rhat": 1.0, "min_ess_bulk": 1154.0}
+{"fit": 8, "formula": "Formula(censored(Latency, Status) ~ 1 + C(Condition, levels=lvl) + Day + (1 | IRN))", "seconds": 7.381997964999755, "divergences": 0, "max_rhat": 1.0, "min_ess_bulk": 1124.0}
+{"fit": 9, "formula": "Formula(censored(Latency, Status) ~ 1 + C(Condition, levels=lvl) + Day + (1 | IRN))", "seconds": 7.247821316999762, "divergences": 0, "max_rhat": 1.0, "min_ess_bulk": 1230.0}
+{"fit": 10, "formula": "Formula(censored(Latency, Status) ~ 1 + C(Condition, levels=lvl) + Day + (1 | IRN))", "seconds": 7.376053662999766, "divergences": 0, "max_rhat": 1.01, "min_ess_bulk": 1193.0}

@@ -1,0 +1,52 @@
+[
+  {
+    "fit": "fit-01.nc",
+    "max_rhat": 1.0063831261302272,
+    "finite_log_likelihood": true
+  },
+  {
+    "fit": "fit-02.nc",
+    "max_rhat": 1.0037922993055575,
+    "finite_log_likelihood": true
+  },
+  {
+    "fit": "fit-03.nc",
+    "max_rhat": 1.0031863201132225,
+    "finite_log_likelihood": true
+  },
+  {
+    "fit": "fit-04.nc",
+    "max_rhat": 1.005308499848381,
+    "finite_log_likelihood": true
+  },
+  {
+    "fit": "fit-05.nc",
+    "max_rhat": 1.0069633833371305,
+    "finite_log_likelihood": true
+  },
+  {
+    "fit": "fit-06.nc",
+    "max_rhat": 1.0040002046210676,
+    "finite_log_likelihood": true
+  },
+  {
+    "fit": "fit-07.nc",
+    "max_rhat": 1.002962839231306,
+    "finite_log_likelihood": true
+  },
+  {
+    "fit": "fit-08.nc",
+    "max_rhat": 1.0038092501750546,
+    "finite_log_likelihood": true
+  },
+  {
+    "fit": "fit-09.nc",
+    "max_rhat": 1.0039637284250769,
+    "finite_log_likelihood": true
+  },
+  {
+    "fit": "fit-10.nc",
+    "max_rhat": 1.0051733723695022,
+    "finite_log_likelihood": true
+  }
+]

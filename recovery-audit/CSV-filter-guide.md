@@ -1,32 +1,21 @@
-# Filtering the recovery inventories
+# Baseline and recovery progress
 
-The CSVs retain their original audit observations and now have current recovery fields. `missing-files.csv` is the original list of missing paths, including paths since recovered; no historical rows have been dropped.
+Run `python3 recovery-audit/refresh_inventory.py` (the old update_recovery_status.py command delegates to it). This performs static analysis and local availability/hash checks, not notebook execution or a fresh Dropbox search.
 
-## Main filters
+## Historical evidence
 
-- `recovery_status = still missing`: file remains absent at the expected notebook path.
-- `recovery_status = recovered`: previously missing file now exists, either restored from Dropbox or reconstructed from raw data.
-- `recovery_status = present`: existing file not recorded as a recovered missing input.
-- `recovery_status = unresolved`: audit could not establish a concrete path.
+`baseline/` is anchored to commit 17e477f and the November 4 audit. Its manifest checks hashes before refresh. The original 241 missing paths remain in missing-files.csv; original input status and coverage counts remain historical. summary.json stays unchanged. Output availability absent from historical observations is unknown. Archived graph filesystem observations are separate from the audit baseline.
 
-Other statuses are `remote not checked`, `directory present`, and `pattern matches`; these should not be interpreted as verified data files.
+## Current views
 
-Start with **missing-files.csv** for one row per originally missing path. Add `manuscript = yes` for the selected study. Add `role = source data / resource` to focus on source inputs rather than generated results or caches.
+- Original top-level CSVs retain their original rows and fields, plus explicit initial_status/current_status, recovery status, validation, timestamps, IDs and evidence links.
+- `current/` contains a fresh static audit, including newly discovered and removed references. Its status columns describe this scan, not the initial audit.
+- `files.csv` is the unique file registry, including baseline and current identities. Filter study=True for the selected studies. A missing initial observation means unknown, never presumed missing. Recovery and validation are independent.
+- `dependencies.csv` records baseline/current consumes and produces links, unresolved references, alias relationships and reconstruction provenance. Current cell IDs are included when available. Dynamic or ambiguous identities still require review; unresolved records have no confirmed file_id.
+- `recovery-status-summary.json` separates baseline counts from current counts and unique-file recovery totals. Counts of files differ from counts of loading references.
+- `dependency-state.json` is the graph interchange artifact. It includes original graph IDs and positions where matched, filenames, availability and provenance. Use the original graph topology and positions for fair before/after overlays; do not conflate dependency changes with recovery.
+- `snapshots/` stores timestamped views and hash manifests. `recovery-events.jsonl` records distinct observed status combinations without duplicating identical events. It is an observation journal, not an exact chronology of physical restoration actions; restoration receipts provide those dates.
 
-Use **input-inventory.csv** to see which notebook and cell uses a file; shared inputs appear more than once. Its original `status` column remains the initial audit result. Filter the new `recovery_status` column for current availability.
+The archived manual observations preserve human CSV changes. Files present without recovery receipts remain unvalidated, and hashes differing from logged receipts are marked changed since validation. The report symlink in professional-vault and existing graphs are not rewritten.
 
-Use **output-producers.csv** to check current availability of generated files. A missing generated file may be reproducible from its notebook; its absence does not imply that a source backup is required.
-
-Use **notebook-coverage.csv** for the added `recovered_paths`, `still_missing_paths`, `still_missing_source_paths`, `still_missing_generated_paths`, and `current_unresolved_records` counts. The original `missing_paths` and `unresolved_records` remain historical.
-
-`recovery_method` distinguishes `restored from Dropbox` and `reconstructed from raw data`. `recovery_note` states whether a recovered file matches the logged SHA-256. `recovery_checked_at` is the UTC check time.
-
-`loading-sites.csv` is unchanged: it records code operations, not file paths or file availability. A code site's `coverage` is not a recovery status.
-
-Refresh only these recovery columns with:
-
-```sh
-python3 recovery-audit/update_recovery_status.py
-```
-
-This does not execute notebooks, change source data, or update the report in professional-vault. Graphs and original audit counts remain snapshots until separately regenerated.
+Study scope uses the nine distinct directories listed in results/study-dirs, with all their references, including exploratory notebook sections. Fine-grained scientific relevance remains to be curated before drawing the detailed canvas. Dropbox candidates are historical candidates, not proof of recovery. No tldraw canvas is created by the refresh.

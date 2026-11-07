@@ -1,0 +1,27 @@
+{
+  "started_at": "2026-11-07T03:19:26.239606+00:00",
+  "source": "/home/attila/projects/CTNS/notebooks/2023-11-07-5xfad-maze-latency/2023-11-07-5xfad-maze-latency.ipynb",
+  "source_sha256": "5f30b93d36bdf759448c3e8d7d9f086cb6daf7975049a235bc506a79151dbb48",
+  "python": "/home/attila/miniconda3/envs/bayes/bin/python",
+  "git_commit": "c87cf135c65909f3a49dfcd69e549af4508603ee",
+  "inputs": {
+    "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/data_train-CO26990.csv": "5bc050d5e7021aadf95b6978420cdb462942ddda2ee27c55a2768ef18e5e34e9",
+    "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/data_train-CO28152.csv": "d9a4ade319c148331f517fbef4131a055361dcc9ec7e8eb9c02cc5b2115ab716"
+  },
+  "target_sha256": "de88474aaaa396dce986317dfb5132a5404e80ec0b567b93b3cac3aca1ef3b69",
+  "modifications": "Added bootstrap for isolated figure paths and fit persistence; original cells execute unchanged.",
+  "execution_status": "completed",
+  "finished_at": "2026-11-07T03:21:09.801178+00:00",
+  "elapsed_seconds": 102.75104358999988,
+  "checks": {
+    "source_unchanged": true,
+    "inputs_unchanged": true,
+    "all_log_likelihoods_finite": true,
+    "maximum_unrounded_rhat": 1.0069633833371305
+  },
+  "helper_hashes": {
+    "/home/attila/src/attila_utils.py": "1fca88c0c2c11368d0af3082a4fed336b1eecda417cb5b95ea32fc83f97c4857",
+    "src/mwm.py": "f9c98335d6b213900d0dbd63104e80c74f5fb900e46b5adfa94c664cb900af26",
+    "src/cellbayesassay.py": "f087d3c8b7e5ccfede89052101779ccce658fd528a85337fc31edf0c2d070fbd"
+  }
+}

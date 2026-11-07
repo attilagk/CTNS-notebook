@@ -1,0 +1,596 @@
+{
+  "scope": "/QPS",
+  "listing_complete": true,
+  "cursor": "",
+  "entries": [
+    {
+      "client_modified": "2024-03-29T19:57:05Z",
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAGIw",
+      "folder": {},
+      "modified_time": "2024-03-29T19:57:05Z",
+      "name": "in vivo",
+      "object_type": "folder",
+      "path": "ns:2431259427//in vivo"
+    },
+    {
+      "client_modified": "2024-06-03T15:58:43Z",
+      "file": {
+        "size": 13843
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP9w",
+      "modified_time": "2024-06-03T15:58:43Z",
+      "name": "CO26990-MWM-mean-distance-to-platform.xlsx",
+      "object_type": "file",
+      "path": "ns:2431259427//in vivo/CO26990-MWM-mean-distance-to-platform.xlsx"
+    },
+    {
+      "client_modified": "2024-06-03T15:55:26Z",
+      "file": {
+        "size": 69970
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP9A",
+      "modified_time": "2024-06-03T15:55:26Z",
+      "name": "MWM rawdata Task Order 1 (CO28152).xlsx",
+      "object_type": "file",
+      "path": "ns:2431259427//in vivo/MWM rawdata Task Order 1 (CO28152).xlsx"
+    },
+    {
+      "client_modified": "2024-06-03T15:54:03Z",
+      "file": {
+        "size": 93356
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP7Q",
+      "modified_time": "2024-06-03T15:54:04Z",
+      "name": "Animal Lists NIA in vivo projects.xlsx",
+      "object_type": "file",
+      "path": "ns:2431259427//in vivo/Animal Lists NIA in vivo projects.xlsx"
+    },
+    {
+      "client_modified": "2024-06-03T15:54:35Z",
+      "file": {
+        "size": 29039
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP7g",
+      "modified_time": "2024-06-03T15:54:36Z",
+      "name": "CO28152_NFL-GFAP_datasum.xlsx",
+      "object_type": "file",
+      "path": "ns:2431259427//in vivo/CO28152_NFL-GFAP_datasum.xlsx"
+    },
+    {
+      "client_modified": "2024-03-29T19:57:05Z",
+      "file": {
+        "size": 146166
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAGIg",
+      "modified_time": "2024-03-29T19:57:05Z",
+      "name": "CO28154 preliminary data.pdf",
+      "object_type": "file",
+      "path": "ns:2431259427//in vivo/CO28154 preliminary data.pdf"
+    },
+    {
+      "client_modified": "2024-05-15T15:06:36Z",
+      "file": {
+        "size": 85841
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP6w",
+      "modified_time": "2024-05-15T15:06:37Z",
+      "name": "CO28154 rawdata biochemistry.xlsx",
+      "object_type": "file",
+      "path": "ns:2431259427//in vivo/CO28154 rawdata biochemistry.xlsx"
+    },
+    {
+      "client_modified": "2024-06-03T15:58:42Z",
+      "file": {
+        "size": 20901
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP9g",
+      "modified_time": "2024-06-03T15:58:42Z",
+      "name": "CO28152-MWM-mean-distance-to-platform.xlsx",
+      "object_type": "file",
+      "path": "ns:2431259427//in vivo/CO28152-MWM-mean-distance-to-platform.xlsx"
+    },
+    {
+      "client_modified": "2024-06-03T15:55:25Z",
+      "file": {
+        "size": 41785
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP8Q",
+      "modified_time": "2024-06-03T15:55:25Z",
+      "name": "CO28152 rawdata part 2.xlsx",
+      "object_type": "file",
+      "path": "ns:2431259427//in vivo/CO28152 rawdata part 2.xlsx"
+    },
+    {
+      "client_modified": "2024-06-04T13:56:48Z",
+      "file": {
+        "size": 110617
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP-A",
+      "modified_time": "2024-06-04T13:56:48Z",
+      "name": "CO28154-rawdata-in-vivo.xlsx",
+      "object_type": "file",
+      "path": "ns:2431259427//in vivo/CO28154-rawdata-in-vivo.xlsx"
+    },
+    {
+      "client_modified": "2024-06-03T15:55:41Z",
+      "file": {
+        "size": 8522368
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP9Q",
+      "modified_time": "2024-06-03T15:55:42Z",
+      "name": "CO28152_Report_final.pdf",
+      "object_type": "file",
+      "path": "ns:2431259427//in vivo/CO28152_Report_final.pdf"
+    },
+    {
+      "client_modified": "2024-06-03T15:54:54Z",
+      "file": {
+        "size": 1901816
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP7w",
+      "modified_time": "2024-06-03T15:54:54Z",
+      "name": "CO28154 Report draft.pdf",
+      "object_type": "file",
+      "path": "ns:2431259427//in vivo/CO28154 Report draft.pdf"
+    },
+    {
+      "client_modified": "2024-06-03T15:54:55Z",
+      "file": {
+        "size": 7879590
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP8A",
+      "modified_time": "2024-06-03T15:54:56Z",
+      "name": "CO28154 Report draft.docx",
+      "object_type": "file",
+      "path": "ns:2431259427//in vivo/CO28154 Report draft.docx"
+    },
+    {
+      "client_modified": "2024-06-03T15:55:26Z",
+      "file": {
+        "size": 27920
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP8g",
+      "modified_time": "2024-06-03T15:55:26Z",
+      "name": "CO26990-behavioral-data-cleaned.xlsx",
+      "object_type": "file",
+      "path": "ns:2431259427//in vivo/CO26990-behavioral-data-cleaned.xlsx"
+    },
+    {
+      "client_modified": "2024-06-03T15:55:26Z",
+      "file": {
+        "size": 64325
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP8w",
+      "modified_time": "2024-06-03T15:55:26Z",
+      "name": "CO28152-behavioral-data-cleaned.xlsx",
+      "object_type": "file",
+      "path": "ns:2431259427//in vivo/CO28152-behavioral-data-cleaned.xlsx"
+    },
+    {
+      "client_modified": "2024-05-24T14:15:12Z",
+      "file": {
+        "size": 103574
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP7A",
+      "modified_time": "2024-05-24T14:15:12Z",
+      "name": "RD51842_GFAPand NFL_sum for NIA_23052024.xlsm",
+      "object_type": "file",
+      "path": "ns:2431259427//RD51842_GFAPand NFL_sum for NIA_23052024.xlsm"
+    },
+    {
+      "client_modified": "2024-03-29T20:10:56Z",
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAGJA",
+      "folder": {},
+      "modified_time": "2024-03-29T20:10:56Z",
+      "name": "cell-based assays",
+      "object_type": "folder",
+      "path": "ns:2431259427//cell-based assays"
+    },
+    {
+      "client_modified": "2024-03-29T20:11:10Z",
+      "file": {
+        "size": 690800
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAGJg",
+      "modified_time": "2024-03-29T20:11:10Z",
+      "name": "QPS_Study Report interim CO28153_Abeta secretion_batch2 (amendment 1).docx",
+      "object_type": "file",
+      "path": "ns:2431259427//cell-based assays/QPS_Study Report interim CO28153_Abeta secretion_batch2 (amendment 1).docx"
+    },
+    {
+      "client_modified": "2024-05-03T18:03:14Z",
+      "file": {
+        "size": 15342
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAPzQ",
+      "modified_time": "2024-05-03T18:03:15Z",
+      "name": "presence-in-old-new-datasets.xlsx",
+      "object_type": "file",
+      "path": "ns:2431259427//cell-based assays/presence-in-old-new-datasets.xlsx"
+    },
+    {
+      "client_modified": "2024-05-06T10:03:08Z",
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAPzw",
+      "folder": {},
+      "modified_time": "2024-05-06T10:03:09Z",
+      "name": "CO25360",
+      "object_type": "folder",
+      "path": "ns:2431259427//cell-based assays/CO25360"
+    },
+    {
+      "client_modified": "2024-05-06T10:07:17Z",
+      "file": {
+        "size": 2089701
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP5Q",
+      "modified_time": "2024-05-06T10:07:17Z",
+      "name": "QPS_ CO25360_Interim Report2_ batch1_Tau_aggregation.docx",
+      "object_type": "file",
+      "path": "ns:2431259427//cell-based assays/CO25360/QPS_ CO25360_Interim Report2_ batch1_Tau_aggregation.docx"
+    },
+    {
+      "client_modified": "2024-05-06T19:03:18Z",
+      "file": {
+        "size": 434782
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP6g",
+      "modified_time": "2024-05-06T19:03:18Z",
+      "name": "data-format-specification_NIA_Tau_Infl_GFW CO25360.xlsx",
+      "object_type": "file",
+      "path": "ns:2431259427//cell-based assays/CO25360/data-format-specification_NIA_Tau_Infl_GFW CO25360.xlsx"
+    },
+    {
+      "client_modified": "2024-05-06T19:03:16Z",
+      "file": {
+        "size": 171233
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP6A",
+      "modified_time": "2024-05-06T19:03:16Z",
+      "name": "data-format-specification_NIA_NOG_tox CO25360.xlsx",
+      "object_type": "file",
+      "path": "ns:2431259427//cell-based assays/CO25360/data-format-specification_NIA_NOG_tox CO25360.xlsx"
+    },
+    {
+      "client_modified": "2024-05-06T10:07:03Z",
+      "file": {
+        "size": 441610
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP3g",
+      "modified_time": "2024-05-06T10:07:03Z",
+      "name": "QPS_ CO25360_Interim Report2_ batch2_Tau phosphorylation.docx",
+      "object_type": "file",
+      "path": "ns:2431259427//cell-based assays/CO25360/QPS_ CO25360_Interim Report2_ batch2_Tau phosphorylation.docx"
+    },
+    {
+      "client_modified": "2024-05-06T10:07:15Z",
+      "file": {
+        "size": 547915
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP4g",
+      "modified_time": "2024-05-06T10:07:15Z",
+      "name": "QPS_ CO25360_Interim Report2_ batch2_Tau_aggregation.docx",
+      "object_type": "file",
+      "path": "ns:2431259427//cell-based assays/CO25360/QPS_ CO25360_Interim Report2_ batch2_Tau_aggregation.docx"
+    },
+    {
+      "client_modified": "2024-05-06T10:06:59Z",
+      "file": {
+        "size": 4038266
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP3Q",
+      "modified_time": "2024-05-06T10:06:59Z",
+      "name": "QPS_ CO25360_Interim Report2_ batch1_2_NOG.docx",
+      "object_type": "file",
+      "path": "ns:2431259427//cell-based assays/CO25360/QPS_ CO25360_Interim Report2_ batch1_2_NOG.docx"
+    },
+    {
+      "client_modified": "2024-05-06T10:06:58Z",
+      "file": {
+        "size": 2905861
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP2w",
+      "modified_time": "2024-05-06T10:06:59Z",
+      "name": "QPS_ CO25360_Interim Report2_ batch1_2_Abeta release_draft3.docx",
+      "object_type": "file",
+      "path": "ns:2431259427//cell-based assays/CO25360/QPS_ CO25360_Interim Report2_ batch1_2_Abeta release_draft3.docx"
+    },
+    {
+      "client_modified": "2024-05-06T10:07:17Z",
+      "file": {
+        "size": 1521745
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP5A",
+      "modified_time": "2024-05-06T10:07:17Z",
+      "name": "QPS_ CO25360_Interim Report2_ batch1_2_growth factor withdrawal.docx",
+      "object_type": "file",
+      "path": "ns:2431259427//cell-based assays/CO25360/QPS_ CO25360_Interim Report2_ batch1_2_growth factor withdrawal.docx"
+    },
+    {
+      "client_modified": "2024-05-06T10:07:18Z",
+      "file": {
+        "size": 1669194
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP5g",
+      "modified_time": "2024-05-06T10:07:18Z",
+      "name": "QPS_ CO25360_Interim Report2_ batch1_Abeta release.docx",
+      "object_type": "file",
+      "path": "ns:2431259427//cell-based assays/CO25360/QPS_ CO25360_Interim Report2_ batch1_Abeta release.docx"
+    },
+    {
+      "client_modified": "2024-05-06T10:06:58Z",
+      "file": {
+        "size": 1683552
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP2g",
+      "modified_time": "2024-05-06T10:06:58Z",
+      "name": "QPS_ CO25360_Interim Report2_ batch1_2_growth factor withdrawal_draft2.docx",
+      "object_type": "file",
+      "path": "ns:2431259427//cell-based assays/CO25360/QPS_ CO25360_Interim Report2_ batch1_2_growth factor withdrawal_draft2.docx"
+    },
+    {
+      "client_modified": "2024-05-06T10:07:16Z",
+      "file": {
+        "size": 834677
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP4w",
+      "modified_time": "2024-05-06T10:07:16Z",
+      "name": "QPS_ CO25360_Interim Report2_ batch1_2_Abeta toxicity.docx",
+      "object_type": "file",
+      "path": "ns:2431259427//cell-based assays/CO25360/QPS_ CO25360_Interim Report2_ batch1_2_Abeta toxicity.docx"
+    },
+    {
+      "client_modified": "2024-05-06T10:06:34Z",
+      "file": {
+        "size": 817285
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP0g",
+      "modified_time": "2024-05-06T10:06:34Z",
+      "name": "QPS_ CO25360_Interim Report2_ batch3_Abeta clearance.docx",
+      "object_type": "file",
+      "path": "ns:2431259427//cell-based assays/CO25360/QPS_ CO25360_Interim Report2_ batch3_Abeta clearance.docx"
+    },
+    {
+      "client_modified": "2024-05-06T10:06:35Z",
+      "file": {
+        "size": 3772824
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP1w",
+      "modified_time": "2024-05-06T10:06:35Z",
+      "name": "QPS_ CO25360_Interim Report2_ batch3_NOG.docx",
+      "object_type": "file",
+      "path": "ns:2431259427//cell-based assays/CO25360/QPS_ CO25360_Interim Report2_ batch3_NOG.docx"
+    },
+    {
+      "client_modified": "2024-05-06T10:06:34Z",
+      "file": {
+        "size": 2178713
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP1g",
+      "modified_time": "2024-05-06T10:06:34Z",
+      "name": "QPS_ CO25360_Interim Report_ batch3_LPSInflammation.docx",
+      "object_type": "file",
+      "path": "ns:2431259427//cell-based assays/CO25360/QPS_ CO25360_Interim Report_ batch3_LPSInflammation.docx"
+    },
+    {
+      "client_modified": "2024-05-06T10:07:03Z",
+      "file": {
+        "size": 744196
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP4Q",
+      "modified_time": "2024-05-06T10:07:04Z",
+      "name": "QPS_ CO25360_Interim Report2_ batch2_LPSInflammation.docx",
+      "object_type": "file",
+      "path": "ns:2431259427//cell-based assays/CO25360/QPS_ CO25360_Interim Report2_ batch2_LPSInflammation.docx"
+    },
+    {
+      "client_modified": "2024-05-06T10:07:03Z",
+      "file": {
+        "size": 371508
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP4A",
+      "modified_time": "2024-05-06T10:07:04Z",
+      "name": "QPS_ CO25360_Interim Report2_ batch2_Abeta clearance.docx",
+      "object_type": "file",
+      "path": "ns:2431259427//cell-based assays/CO25360/QPS_ CO25360_Interim Report2_ batch2_Abeta clearance.docx"
+    },
+    {
+      "client_modified": "2024-05-06T10:06:34Z",
+      "file": {
+        "size": 1368413
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP0w",
+      "modified_time": "2024-05-06T10:06:34Z",
+      "name": "QPS_ CO25360_Interim Report2_ batch3_Abeta release.docx",
+      "object_type": "file",
+      "path": "ns:2431259427//cell-based assays/CO25360/QPS_ CO25360_Interim Report2_ batch3_Abeta release.docx"
+    },
+    {
+      "client_modified": "2024-05-06T10:06:43Z",
+      "file": {
+        "size": 415313
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP2Q",
+      "modified_time": "2024-05-06T10:06:44Z",
+      "name": "QPS_CO25360_Interim Report_batch3_viability_draft2.docx",
+      "object_type": "file",
+      "path": "ns:2431259427//cell-based assays/CO25360/QPS_CO25360_Interim Report_batch3_viability_draft2.docx"
+    },
+    {
+      "client_modified": "2024-05-06T10:07:19Z",
+      "file": {
+        "size": 4459937
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP5w",
+      "modified_time": "2024-05-06T10:07:19Z",
+      "name": "QPS_ CO25360_Interim Report2_ batch1_LPSInflammation.docx",
+      "object_type": "file",
+      "path": "ns:2431259427//cell-based assays/CO25360/QPS_ CO25360_Interim Report2_ batch1_LPSInflammation.docx"
+    },
+    {
+      "client_modified": "2024-05-06T10:07:03Z",
+      "file": {
+        "size": 1384603
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP3w",
+      "modified_time": "2024-05-06T10:07:04Z",
+      "name": "QPS_ CO25360_Interim Report2_ batch1_Abeta clearance.docx",
+      "object_type": "file",
+      "path": "ns:2431259427//cell-based assays/CO25360/QPS_ CO25360_Interim Report2_ batch1_Abeta clearance.docx"
+    },
+    {
+      "client_modified": "2024-05-06T10:06:34Z",
+      "file": {
+        "size": 1338625
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP1A",
+      "modified_time": "2024-05-06T10:06:34Z",
+      "name": "QPS_ CO25360_Interim Report2_ batch3_Tau phosphorylation.docx",
+      "object_type": "file",
+      "path": "ns:2431259427//cell-based assays/CO25360/QPS_ CO25360_Interim Report2_ batch3_Tau phosphorylation.docx"
+    },
+    {
+      "client_modified": "2024-05-06T10:06:43Z",
+      "file": {
+        "size": 1478186
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP2A",
+      "modified_time": "2024-05-06T10:06:43Z",
+      "name": "QPS_ CO25360_Interim Report2_ batch1_Tau phosphorylation_corr.docx",
+      "object_type": "file",
+      "path": "ns:2431259427//cell-based assays/CO25360/QPS_ CO25360_Interim Report2_ batch1_Tau phosphorylation_corr.docx"
+    },
+    {
+      "client_modified": "2024-05-06T19:03:18Z",
+      "file": {
+        "size": 172361
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP6Q",
+      "modified_time": "2024-05-06T19:03:18Z",
+      "name": "data-format-specification_NIA_AB CO25360.xlsx",
+      "object_type": "file",
+      "path": "ns:2431259427//cell-based assays/CO25360/data-format-specification_NIA_AB CO25360.xlsx"
+    },
+    {
+      "client_modified": "2024-05-06T10:06:59Z",
+      "file": {
+        "size": 2904044
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP3A",
+      "modified_time": "2024-05-06T10:06:59Z",
+      "name": "QPS_ CO25360_Interim Report2_ batch1_2_Abeta release_draft2.docx",
+      "object_type": "file",
+      "path": "ns:2431259427//cell-based assays/CO25360/QPS_ CO25360_Interim Report2_ batch1_2_Abeta release_draft2.docx"
+    },
+    {
+      "client_modified": "2024-05-06T10:06:33Z",
+      "file": {
+        "size": 611878
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP0Q",
+      "modified_time": "2024-05-06T10:06:33Z",
+      "name": "QPS_ CO25360_Interim Report2_ batch3_Abeta toxicity.docx",
+      "object_type": "file",
+      "path": "ns:2431259427//cell-based assays/CO25360/QPS_ CO25360_Interim Report2_ batch3_Abeta toxicity.docx"
+    },
+    {
+      "client_modified": "2024-05-06T10:06:34Z",
+      "file": {
+        "size": 997289
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP1Q",
+      "modified_time": "2024-05-06T10:06:34Z",
+      "name": "QPS_ CO25360_Interim Report_ batch3_growth factor withdrawal.docx",
+      "object_type": "file",
+      "path": "ns:2431259427//cell-based assays/CO25360/QPS_ CO25360_Interim Report_ batch3_growth factor withdrawal.docx"
+    },
+    {
+      "client_modified": "2024-04-17T17:12:15Z",
+      "file": {
+        "size": 393573
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAPvg",
+      "modified_time": "2024-04-17T17:12:15Z",
+      "name": "data-format-specification_NIA_all CO28151_CO28153.xlsx",
+      "object_type": "file",
+      "path": "ns:2431259427//cell-based assays/data-format-specification_NIA_all CO28151_CO28153.xlsx"
+    },
+    {
+      "client_modified": "2024-03-29T20:11:10Z",
+      "file": {
+        "size": 454148
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAGJw",
+      "modified_time": "2024-03-29T20:11:10Z",
+      "name": "QPS_Study Report interim CO28153_Growth Factor withdrawal_batch2 (amendment 1).docx",
+      "object_type": "file",
+      "path": "ns:2431259427//cell-based assays/QPS_Study Report interim CO28153_Growth Factor withdrawal_batch2 (amendment 1).docx"
+    },
+    {
+      "client_modified": "2024-04-08T17:30:37Z",
+      "file": {
+        "size": 861
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAPug",
+      "modified_time": "2024-04-08T17:30:37Z",
+      "name": "treatment2drug-name.csv",
+      "object_type": "file",
+      "path": "ns:2431259427//cell-based assays/treatment2drug-name.csv"
+    },
+    {
+      "client_modified": "2024-04-08T17:26:26Z",
+      "file": {
+        "size": 73652
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAPuQ",
+      "modified_time": "2024-04-08T17:26:26Z",
+      "name": "raw-data-cleaned-by-tina-CO28151-draft1.xlsx",
+      "object_type": "file",
+      "path": "ns:2431259427//cell-based assays/raw-data-cleaned-by-tina-CO28151-draft1.xlsx"
+    },
+    {
+      "client_modified": "2024-03-29T20:11:10Z",
+      "file": {
+        "size": 586956
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAGKQ",
+      "modified_time": "2024-03-29T20:11:10Z",
+      "name": "QPS_Study Report interim CO28153_Tau phosphorylation_batch2 (amendment 1).docx",
+      "object_type": "file",
+      "path": "ns:2431259427//cell-based assays/QPS_Study Report interim CO28153_Tau phosphorylation_batch2 (amendment 1).docx"
+    },
+    {
+      "client_modified": "2024-03-29T20:11:10Z",
+      "file": {
+        "size": 1027723
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAGKA",
+      "modified_time": "2024-03-29T20:11:10Z",
+      "name": "QPS_Study Report interim CO28153_LPS inflammation_batch2 (amendment 1).docx",
+      "object_type": "file",
+      "path": "ns:2431259427//cell-based assays/QPS_Study Report interim CO28153_LPS inflammation_batch2 (amendment 1).docx"
+    },
+    {
+      "client_modified": "2024-03-29T20:11:10Z",
+      "file": {
+        "size": 303082
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAGJQ",
+      "modified_time": "2024-03-29T20:11:10Z",
+      "name": "QPS_Study Report interim CO28153_Abeta clearance_amendment 1.docx",
+      "object_type": "file",
+      "path": "ns:2431259427//cell-based assays/QPS_Study Report interim CO28153_Abeta clearance_amendment 1.docx"
+    },
+    {
+      "client_modified": "2024-05-03T18:03:15Z",
+      "file": {
+        "size": 20504
+      },
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAPvw",
+      "modified_time": "2024-05-03T18:03:16Z",
+      "name": "cell-based-assays-Bayes-factors.xlsx",
+      "object_type": "file",
+      "path": "ns:2431259427//cell-based assays/cell-based-assays-Bayes-factors.xlsx"
+    }
+  ],
+  "has_more": false
+}

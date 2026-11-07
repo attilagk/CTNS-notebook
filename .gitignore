@@ -26,3 +26,21 @@ __pycache__/
 
 # Machine-specific link to the professional vault
 /recovery-audit/CTNS-notebooks-recovery-audit-REPORT.md
+
+# Local Obsidian configuration
+/.obsidian/
+
+# Preserve reference images and immutable baseline graph archives
+!/recovery-audit/target-artifacts/*.png
+!/recovery-audit/baseline/graphs/*.png
+
+# Large or redundant notebook execution artifacts
+/recovery-audit/reproductions/**/fits/
+/recovery-audit/reproductions/**/executed.ipynb
+/recovery-audit/reproductions/**/source.ipynb
+
+# Preserve the reproduced target figure for comparison
+!/recovery-audit/reproductions/**/figures/condition-posteriors-study1.png
+
+# Incomplete kernel-startup attempt; successful run retained separately
+/recovery-audit/reproductions/latency-20261107T031838Z/

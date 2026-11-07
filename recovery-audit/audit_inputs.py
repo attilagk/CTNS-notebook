@@ -376,4 +376,19 @@ def main():
     (OUT/'REPORT.md').write_text('\n'.join(report)+'\n')
     print(json.dumps(summary,indent=2))
 
-if __name__=='__main__':main()
+if __name__=='__main__':
+    import argparse
+    import shutil
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--output-dir', type=Path, default=OUT/'current')
+    args=parser.parse_args()
+    original=OUT
+    OUT=args.output_dir.resolve()
+    if OUT==original or (original/'baseline')==OUT or (original/'baseline') in OUT.parents:
+        parser.error('Audit output must not overwrite legacy inventories or the baseline')
+    OUT.mkdir(parents=True,exist_ok=True)
+    for metadata in original.glob('dropbox-*.json'):
+        shutil.copy2(metadata,OUT/metadata.name)
+    scope=ROOT.parent/'results/study-dirs'
+    if scope.exists():STUDY=set(scope.read_text().split())
+    main()
