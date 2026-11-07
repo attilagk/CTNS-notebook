@@ -301,7 +301,9 @@ def same_study(a,b):
 
 def main():
     audit=Audit()
-    notebooks=sorted(ROOT.rglob('*.ipynb'))
+    # Reproduction copies and their workspaces are evidence, not canonical notebooks.
+    notebooks=sorted(p for p in ROOT.rglob('*.ipynb')
+                     if 'recovery-audit' not in p.relative_to(ROOT).parts)
     for p in notebooks:audit.notebook(p)
     files=[];scan_errors=[]
     for base in [ROOT.parent/'resources',ROOT.parent/'results',ROOT]:
@@ -344,7 +346,7 @@ def main():
     fields=list(audit.rows[0])
     def write_csv(name,rows,fields):
         with (OUT/name).open('w',newline='') as f:
-            w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerows(rows)
+            w=csv.DictWriter(f,fieldnames=fields,lineterminator='\n');w.writeheader();w.writerows(rows)
     write_csv('input-inventory.csv',audit.rows,fields)
     write_csv('output-producers.csv',audit.writes,fields)
     write_csv('loading-sites.csv',audit.sites,list(audit.sites[0]))

@@ -1,0 +1,24 @@
+{
+  "CO28152": {
+    "animal_list_rows": 160,
+    "joined_nfl_rows": 59,
+    "saved_table_cells_matched": 1003,
+    "join_losses": 0,
+    "source_metadata_disagreements_preserved": [
+      {
+        "IRN": "14631 A",
+        "column": "Sex",
+        "nfl_value": "m",
+        "animal_list_value": "f"
+      }
+    ]
+  },
+  "CO28154": {
+    "animal_list_rows": 192,
+    "joined_nfl_rows": 60,
+    "saved_table_cells_matched": 1020,
+    "join_losses": 0,
+    "source_metadata_disagreements_preserved": []
+  },
+  "status": "passed: source extraction, XLSX round trip, metadata joins and both historical dataframes"
+}

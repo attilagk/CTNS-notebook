@@ -1,0 +1,102 @@
+{
+  "animal_lists": {
+    "CO28152": {
+      "rows": 160,
+      "columns": [
+        "Cohort",
+        "Group",
+        "Date of Birth",
+        "IRN",
+        "Sex",
+        "Genotype",
+        "Curriculum vitae",
+        "Date of Death",
+        "Histo-ID:",
+        "Lifespan (days)"
+      ]
+    },
+    "CO28154": {
+      "rows": 192,
+      "columns": [
+        "Cohort",
+        "Group",
+        "Date of Birth",
+        "IRN",
+        "Sex",
+        "Genotype",
+        "Curriculum vitae",
+        "Date of Death",
+        "Histo-ID:",
+        "Lifespan (days)"
+      ]
+    }
+  },
+  "date_normalizations": [
+    {
+      "study": "CO28152",
+      "IRN": "15998",
+      "source": "04:07.2023",
+      "normalized": "2023-07-04"
+    }
+  ],
+  "flagged_measurements": [
+    {
+      "source_cell": "G24",
+      "IRN": "16850",
+      "column": "NF-L week 0",
+      "source_value": "*1556,2",
+      "cleaned_value": null
+    },
+    {
+      "source_cell": "G29",
+      "IRN": "15815",
+      "column": "NF-L week 0",
+      "source_value": "*107,5",
+      "cleaned_value": null
+    },
+    {
+      "source_cell": "H29",
+      "IRN": "15815",
+      "column": "NF-L week 4",
+      "source_value": "*373,2",
+      "cleaned_value": null
+    },
+    {
+      "source_cell": "I29",
+      "IRN": "15815",
+      "column": "NF-L week 8",
+      "source_value": "*209,9",
+      "cleaned_value": null
+    },
+    {
+      "source_cell": "J29",
+      "IRN": "15815",
+      "column": "NF-L week 12",
+      "source_value": "*55,2",
+      "cleaned_value": null
+    },
+    {
+      "source_cell": "H41",
+      "IRN": "17202",
+      "column": "NF-L week 4",
+      "source_value": "*3160,2",
+      "cleaned_value": null
+    },
+    {
+      "source_cell": "G53",
+      "IRN": "15837",
+      "column": "NF-L week 0",
+      "source_value": "n.m.",
+      "cleaned_value": null
+    },
+    {
+      "source_cell": "I55",
+      "IRN": "16720",
+      "column": "NF-L week 8",
+      "source_value": "*174,7",
+      "cleaned_value": null
+    }
+  ],
+  "nfl_rows": 60,
+  "scope": "NFL in vivo clean only, as consumed by the May 20 and January 5 notebooks; other biochemical assays are not reconstructed."
+}

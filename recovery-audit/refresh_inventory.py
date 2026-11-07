@@ -37,6 +37,10 @@ def main():
  for r in json.loads((H/'manuscript-restoration.json').read_text())['files']:
   if r.get('action') in ['restored','existing identical file retained']:receipts[r['destination']]=(r['sha256'],'restored from Dropbox','manuscript-restoration.json')
  r=json.loads((H/'co28154-cleaning-log.json').read_text());receipts[r['destination']]=(r['sha256'],'reconstructed from raw data','co28154-cleaning-log.json')
+ reconstruction_receipt=H/'nfl-input-reconstruction/receipt.json'
+ if reconstruction_receipt.exists():
+  for r in json.loads(reconstruction_receipt.read_text())['files']:
+   receipts[r['destination']]=(r['sha256'],'reconstructed from raw data','nfl-input-reconstruction/receipt.json')
  def fid(path):
   try:key=str(Path(path).relative_to(H.parent.parent))
   except ValueError:key=path
@@ -87,6 +91,10 @@ def main():
  rawfile=file(raw)
  edges.append(dict(dependency_id='raw-co28154',file_id=fid(destination),target_file_id=rawfile['file_id'],direction='reconstructed_from',version='current',evidence='co28154-cleaning-log.json',study='yes'))
  rawfile['study']=True
+ if reconstruction_receipt.exists():
+  for r in json.loads(reconstruction_receipt.read_text())['files']:
+   sourcefile=file(r['source']);sourcefile['study']=True
+   edges.append(dict(dependency_id='nfl-reconstruction-'+fid(r['destination']),file_id=fid(r['destination']),target_file_id=sourcefile['file_id'],direction='reconstructed_from',version='current',evidence='nfl-input-reconstruction/receipt.json',study='yes'))
  write(H/'files.csv',list(records.values()));write(H/'dependencies.csv',edges)
  coverage=read(H/'notebook-coverage.csv')
  for r in coverage:

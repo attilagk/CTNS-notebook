@@ -249,12 +249,14 @@ notebook,cell,line,call,expression,coverage
 2023-10-13-5xfad-maze/.ipynb_checkpoints/2023-10-13-5xfad-maze-checkpoint.ipynb,4,21,read_data_train,"read_data_train(fpath2, group2condition2)",analyzed
 2023-10-13-5xfad-maze/.ipynb_checkpoints/2023-10-13-5xfad-maze-checkpoint.ipynb,4,2,pd.read_excel,"pd.read_excel(fpath, sheet_name='rawdata MWM day 1-4', header=[0, 1], index_col=None)",analyzed
 2023-10-13-5xfad-maze/.ipynb_checkpoints/2023-10-13-5xfad-maze-checkpoint.ipynb,14,2,pd.read_csv,pd.read_csv(fpath),analyzed
-2023-10-13-5xfad-maze/2023-10-13-5xfad-maze.ipynb,4,17,read_data_train,"read_data_train(fpath1, group2condition1)",analyzed
-2023-10-13-5xfad-maze/2023-10-13-5xfad-maze.ipynb,4,21,read_data_train,"read_data_train(fpath2, group2condition2)",analyzed
-2023-10-13-5xfad-maze/2023-10-13-5xfad-maze.ipynb,4,2,pd.read_excel,"pd.read_excel(fpath, sheet_name='rawdata MWM day 1-4', header=[0, 1], index_col=None)",analyzed
+2023-10-13-5xfad-maze/2023-10-13-5xfad-maze.ipynb,4,2,mwm.read_data_train,"mwm.read_data_train(fpath1, group2condition1, sheet_name='rawdata MWM day 1-4')",analyzed
+2023-10-13-5xfad-maze/2023-10-13-5xfad-maze.ipynb,4,6,mwm.read_data_train,"mwm.read_data_train(fpath2, group2condition2, sheet_name='rawdata MWM day 1-4')",analyzed
 2023-10-13-5xfad-maze/2023-10-13-5xfad-maze.ipynb,14,2,pd.read_csv,pd.read_csv(fpath),analyzed
-2023-11-07-5xfad-maze-latency/2023-11-07-5xfad-maze-latency.ipynb,3,2,pd.read_csv,"pd.read_csv(fpath, index_col=['cohort', 'group', 'sex', 'irn', 'day'])",analyzed
 2023-11-07-5xfad-maze-latency/2023-11-07-5xfad-maze-latency.ipynb,4,2,pd.read_csv,"pd.read_csv(fpath, index_col=['cohort', 'group', 'sex', 'irn', 'day'])",analyzed
+2023-11-07-5xfad-maze-latency/2023-11-07-5xfad-maze-latency.ipynb,5,2,pd.read_csv,"pd.read_csv(fpath, index_col=['cohort', 'group', 'sex', 'irn', 'day'])",analyzed
+2023-11-07-5xfad-maze-latency/2023-11-07-5xfad-maze-latency.ipynb,8,5,Path('2023-11-07-5xfad-maze-latency.ipynb').read_text,Path('2023-11-07-5xfad-maze-latency.ipynb').read_text(),analyzed
+2023-11-07-5xfad-maze-latency/2023-11-07-5xfad-maze-latency.ipynb,8,8,Path(mcmc_cache.__file__).read_bytes,Path(mcmc_cache.__file__).read_bytes(),analyzed
+2023-11-07-5xfad-maze-latency/2023-11-07-5xfad-maze-latency.ipynb,8,3,p.read_bytes,p.read_bytes(),analyzed
 2023-11-07-5xfad-maze-test-probe/2023-11-07-5xfad-maze-test-probe.ipynb,3,8,pd.read_excel,"pd.read_excel(fpath, sheet_name='rawdata MWM day 5', index_col='IRN')",analyzed
 2023-11-07-5xfad-maze-test-probe/2023-11-07-5xfad-maze-test-probe.ipynb,3,12,pd.read_excel,"pd.read_excel(fpath, sheet_name='cleaned', index_col='IRN')",analyzed
 2023-11-07-5xfad-maze-test-probe/2023-11-07-5xfad-maze-test-probe.ipynb,4,15,pd.read_excel,"pd.read_excel(fpath, sheet_name='cleaned', index_col='IRN')",analyzed
@@ -332,10 +334,8 @@ notebook,cell,line,call,expression,coverage
 2024-05-14-cell-bayes/2024-05-14-cell-bayes.ipynb,42,9,pd.read_csv,"pd.read_csv(fpath, index_col=[0, 1, 2, 3])",analyzed
 2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb,2,17,nfl.read_nfl_data,"nfl.read_nfl_data(fpath, sheet_name, treatments_CO28152, study, fpath_subjects)",analyzed
 2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb,3,19,nfl.read_nfl_data,"nfl.read_nfl_data(fpath, sheet_name, treatments_CO28154, study, fpath_subjects)",analyzed
-2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb,2,46,mwm.read_data_train,"mwm.read_data_train(f, t, sheet_name=s)",analyzed
-2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb,12,7,mwm.idatas_from_netcdf,"mwm.idatas_from_netcdf(subdir=subdir, maindir=maindir)",analyzed
-2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb,50,9,pd.read_csv,"pd.read_csv(fpath, index_col=[0, 1], header=[0, 1])",analyzed
-2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb,51,9,pd.read_csv,"pd.read_csv(fpath, index_col=[0, 1], header=[0, 1])",analyzed
+2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb,3,46,mwm.read_data_train,"mwm.read_data_train(f, t, sheet_name=s)",analyzed
+2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb,13,7,mwm.idatas_from_netcdf,"mwm.idatas_from_netcdf(subdir=subdir, maindir=maindir)",analyzed
 2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb,2,9,pd.read_excel,"pd.read_excel(fpath, sheet_name='rawdata MWM day 5', index_col='IRN')",analyzed
 2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb,3,15,pd.read_excel,"pd.read_excel(fpath, sheet_name='raw data MWM day 5', index_col='IRN')",analyzed
 2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb,4,17,pd.read_excel,"pd.read_excel(fpath, sheet_name='Probe Trial day5', index_col='IRN')",analyzed

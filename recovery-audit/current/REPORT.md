@@ -4,9 +4,9 @@ Static audit of all 84 notebooks. No notebooks were executed; no source data or 
 
 ## Findings
 
-- 767 input records; 231 distinct paths missing at the expected location.
-- 128 records point to existing files; 60 records require manual resolution.
-- Local filename candidates searched across resources, results, and notebooks (716 files indexed; AppleDouble files excluded).
+- 775 input records; 211 distinct paths missing at the expected location.
+- 151 records point to existing files; 66 records require manual resolution.
+- Local filename candidates searched across resources, results, and notebooks (934 files indexed; AppleDouble files excluded).
 - Supplied Dropbox /QPS folder fully listed: 51 files. Candidate matching is by filename, not verified contents.
 
 Counts describe static references, including conditional and exploratory code, rather than guaranteed execution failures. Multiple records may reference the same file.
@@ -15,27 +15,9 @@ Counts describe static references, including conditional and exploratory code, r
 
 | Expected path | Local / Dropbox candidates | Upstream producer |
 |---|---|---|
+| notebooks/2023-11-07-5xfad-maze-latency/.json | None found | Not identified |
 | resources/QPS/5xFAD-mouse/CO28152-biochemistry-cleaned-Abeta.xlsx | None found | Not identified |
-| resources/QPS/5xFAD-mouse/CO28154-biochemistry-cleaned-Abeta.xlsx | None found | Not identified |
-| resources/QPS/5xFAD-mouse/CO28154-biochemistry-cleaned.xlsx | None found | Not identified |
-| results/2024-06-04-5xfad-behavior-CO28154/BF-all.csv | None found | 2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb cell 50 (2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb#cell=50:7) |
-| results/2024-06-04-5xfad-behavior-CO28154/BF-all_m.csv | None found | 2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb cell 51 (2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb#cell=51:7) |
-| results/2024-06-04-5xfad-behavior-CO28154/idatas2_CO26990/fpaths.csv | None found | 2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb cell 15 (src/cellbayesassay.py:377) |
-| results/2024-06-04-5xfad-behavior-CO28154/idatas2_CO26990_m/fpaths.csv | None found | 2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb cell 16 (src/cellbayesassay.py:377) |
-| results/2024-06-04-5xfad-behavior-CO28154/idatas2_CO28152/fpaths.csv | None found | 2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb cell 19 (src/cellbayesassay.py:377) |
-| results/2024-06-04-5xfad-behavior-CO28154/idatas2_CO28152_m/fpaths.csv | None found | 2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb cell 20 (src/cellbayesassay.py:377) |
-| results/2024-06-04-5xfad-behavior-CO28154/idatas2_CO28154/fpaths.csv | None found | 2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb cell 25 (src/cellbayesassay.py:377) |
-| results/2024-06-04-5xfad-behavior-CO28154/idatas2_CO28154_m/fpaths.csv | None found | 2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb cell 26 (src/cellbayesassay.py:377) |
-| results/2024-06-04-5xfad-behavior-CO28154/idatas3_CO26990/fpaths.csv | None found | 2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb cell 13 (src/cellbayesassay.py:377) |
-| results/2024-06-04-5xfad-behavior-CO28154/idatas3_CO26990_m/fpaths.csv | None found | 2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb cell 14 (src/cellbayesassay.py:377) |
-| results/2024-06-04-5xfad-behavior-CO28154/idatas3_CO28152/fpaths.csv | None found | 2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb cell 17 (src/cellbayesassay.py:377) |
-| results/2024-06-04-5xfad-behavior-CO28154/idatas3_CO28152_m/fpaths.csv | None found | 2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb cell 18 (src/cellbayesassay.py:377) |
-| results/2024-06-04-5xfad-behavior-CO28154/idatas3_CO28154/fpaths.csv | None found | 2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb cell 23 (src/cellbayesassay.py:377) |
-| results/2024-06-04-5xfad-behavior-CO28154/idatas3_CO28154_m/fpaths.csv | None found | 2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb cell 24 (src/cellbayesassay.py:377) |
-| results/2024-06-04-5xfad-behavior-CO28154/idatas_CO28152/fpaths.csv | None found | 2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb cell 21 (src/cellbayesassay.py:377) |
-| results/2024-06-04-5xfad-behavior-CO28154/idatas_CO28152_m/fpaths.csv | None found | 2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb cell 22 (src/cellbayesassay.py:377) |
-| results/2024-06-04-5xfad-behavior-CO28154/idatas_CO28154/fpaths.csv | None found | 2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb cell 27 (src/cellbayesassay.py:377) |
-| results/2024-06-04-5xfad-behavior-CO28154/idatas_CO28154_m/fpaths.csv | None found | 2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb cell 28 (src/cellbayesassay.py:377) |
+| resources/QPS/5xFAD-mouse/CO28154-biochemistry-cleaned-Abeta.xlsx | /home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28154-biochemistry-cleaned.xlsx | Not identified |
 
 ## Missing input summary by notebook
 
@@ -101,12 +83,12 @@ Counts describe static references, including conditional and exploratory code, r
 | 2023-09-26-cell-bayes-assays/2023-09-26-cell-bayes-assays.ipynb | 8 | 4 |
 | 2023-10-13-5xfad-maze/.ipynb_checkpoints/2023-10-13-5xfad-maze-checkpoint.ipynb | 0 | 0 |
 | **2023-10-13-5xfad-maze/2023-10-13-5xfad-maze.ipynb** | 0 | 0 |
-| **2023-11-07-5xfad-maze-latency/2023-11-07-5xfad-maze-latency.ipynb** | 0 | 0 |
+| **2023-11-07-5xfad-maze-latency/2023-11-07-5xfad-maze-latency.ipynb** | 1 | 6 |
 | **2023-11-07-5xfad-maze-test-probe/2023-11-07-5xfad-maze-test-probe.ipynb** | 0 | 0 |
 | **2023-11-15-5xfad-nfl-gfap/2023-11-15-5xfad-nfl-gfap.ipynb** | 0 | 0 |
 | 2023-11-19-cell-based-assays/2023-11-19-cell-based-assays.ipynb | 3 | 1 |
 | **2023-12-18-5xfad-nfl-gfap-frequentist/2023-12-18-5xfad-nfl-gfap-frequentist.ipynb** | 0 | 0 |
-| **2024-01-05-5xfad-nfl-frequentist/2024-01-05-5xfad-nfl-frequentist.ipynb** | 1 | 0 |
+| **2024-01-05-5xfad-nfl-frequentist/2024-01-05-5xfad-nfl-frequentist.ipynb** | 0 | 0 |
 | 2024-01-08-apoe-logistic-regression/2024-01-08-apoe-logistic-regression.ipynb | 1 | 0 |
 | 2024-01-21-cell-bayes-assays-dim/2024-01-21-cell-bayes-assays-dim.ipynb | 9 | 1 |
 | 2024-02-14-cell-bayes/2024-02-14-cell-bayes.ipynb | 8 | 0 |
@@ -117,8 +99,8 @@ Counts describe static references, including conditional and exploratory code, r
 | 2024-04-29-cell-bayes/2024-04-29-cell-bayes.ipynb | 10 | 0 |
 | 2024-05-09-cell-bayes/2024-05-09-cell-bayes.ipynb | 8 | 0 |
 | 2024-05-14-cell-bayes/2024-05-14-cell-bayes.ipynb | 8 | 0 |
-| 2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb | 3 | 0 |
-| **2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb** | 18 | 0 |
+| 2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb | 0 | 0 |
+| **2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb** | 0 | 0 |
 | 2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb | 0 | 0 |
 | **2024-08-08-biochemistry/2024-08-08-biochemistry.ipynb** | 2 | 0 |
 | **2024-08-08-biochemistry/statannotations-example.ipynb** | 0 | 0 |

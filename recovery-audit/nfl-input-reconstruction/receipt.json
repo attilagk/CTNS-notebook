@@ -1,0 +1,36 @@
+{
+  "installed_at": "2026-11-07T19:27:02.303201+00:00",
+  "git_revision": "6fce41f55f325ba78792317a9183f5165c1acddc",
+  "sources": [
+    {
+      "path": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/Animal Lists NIA in vivo projects.xlsx",
+      "sha256": "d7f95acdfb96f9b2ef51c2aeaea9b1fedfa0e43c4b7c1e1e224e874b7f6be9f3",
+      "shared_url": "https://www.dropbox.com/scl/fi/dbi7amn0wf2oxht1brmk3/Animal-Lists-NIA-in-vivo-projects.xlsx?rlkey=4ps72za0kk2lhqk2foug14gx3&dl=0"
+    },
+    {
+      "path": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28154 rawdata biochemistry.xlsx",
+      "sha256": "d480bdbe6f5fcc38cef34fe2a9286048739144309525a4b3e676f7408ad4fdf5",
+      "shared_url": "https://www.dropbox.com/scl/fi/4pw5yj6qpp8x8ilv8x9a9/CO28154-rawdata-biochemistry.xlsx?rlkey=vlh7nygwyn0l4pr7bmpible1k&dl=0"
+    }
+  ],
+  "files": [
+    {
+      "destination": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28152-animal-list.csv",
+      "sha256": "b6a2d8b6a5bc394c6b0b67cd6613b830f2bb97da49d2226c106489b0ec97e433",
+      "source": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/Animal Lists NIA in vivo projects.xlsx",
+      "validation": "nfl-input-reconstruction/validation.json"
+    },
+    {
+      "destination": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28154-animal-list.csv",
+      "sha256": "08828f6b00a07cd01770f2b1612c8f618b1629d37b0a825ecb6c7e470f40d843",
+      "source": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/Animal Lists NIA in vivo projects.xlsx",
+      "validation": "nfl-input-reconstruction/validation.json"
+    },
+    {
+      "destination": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28154-biochemistry-cleaned.xlsx",
+      "sha256": "5f000360ed04348ccbe23a13d0e7e20916eed02bf775d11746abc6d4bae76ded",
+      "source": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28154 rawdata biochemistry.xlsx",
+      "validation": "nfl-input-reconstruction/validation.json"
+    }
+  ]
+}

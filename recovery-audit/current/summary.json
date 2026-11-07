@@ -1,18 +1,18 @@
 {
-  "audited_at_utc": "2026-11-07T01:26:44.161497+00:00",
+  "audited_at_utc": "2026-11-07T19:28:00.168483+00:00",
   "notebooks": 84,
   "checkpoint_notebooks": 3,
   "loading_sites": 349,
-  "input_records": 767,
+  "input_records": 775,
   "statuses": {
-    "missing at expected path": 577,
-    "present": 128,
-    "unresolved": 60,
+    "missing at expected path": 556,
+    "present": 151,
+    "unresolved": 66,
     "directory present; members need review": 1,
     "remote URL (not checked)": 1
   },
-  "unique_missing_paths": 231,
-  "local_files_indexed": 716,
+  "unique_missing_paths": 211,
+  "local_files_indexed": 934,
   "scan_errors": [],
   "dropbox_listing_complete": true,
   "dropbox_files": 51
