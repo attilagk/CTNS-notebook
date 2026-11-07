@@ -1,0 +1,21 @@
+{
+  "execution": "completed",
+  "reference_reproduction": "matched_at_displayed_precision",
+  "inference_quality": "warnings_present; no MCMC",
+  "targets": {
+    "WT Dirichlet uniformity": {
+      "statistic": 14.3535,
+      "p_value": 0.00246142,
+      "verdict": "match"
+    },
+    "5xFAD + Amiloride Dirichlet uniformity": {
+      "statistic": 3.68336,
+      "p_value": 0.297748,
+      "verdict": "match"
+    },
+    "figures": {
+      "generated": 7,
+      "verdict": "generated; inspect run artifacts"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "started_at": "2026-11-07T16:18:20.763936+00:00",
+  "source": "/home/attila/projects/CTNS/notebooks/2023-11-07-5xfad-maze-test-probe/2023-11-07-5xfad-maze-test-probe.ipynb",
+  "source_sha256": "1760ba2f5edecb76d428d328c1fd3e1e1c237e31996f03823697b44eb39e29c7",
+  "input_hashes": {
+    "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/amiloride-behavioral-data-cleaned.xlsx": "6b8526b151d3b02cf8166f1d27428dff0e7608837d14692ca5e9702b54b1705a",
+    "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO26990-MWM-mean-distance-to-platform.xlsx": "2727433d849724d1d6f9a96c235b33184ba53f9fe4796f349666a248e6ff2740",
+    "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28152-MWM-mean-distance-to-platform.xlsx": "96b2d3f69aeb2aee84ca28567fc34beda529876ae913f0b1c745965971b6813d"
+  },
+  "target_sha256": "96d42213cf8398fea5f20f31b5bdbf882086c33122d0334b04288725d0d9c023",
+  "git_commit": "8d7c777c3f67adefc4d00a4fee4a53c5fa2c89d6",
+  "git_status": " M .agents/skills/ctns-reproduce-notebook/SKILL.md\n?? recovery-audit/reproductions/test-probe-20261107T153410Z/\n?? recovery-audit/reproductions/test-probe-20261107T153807Z/\n?? recovery-audit/reproductions/test-probe-20261107T161537Z/\n?? recovery-audit/reproductions/test-probe-20261107T161820Z/\n",
+  "environment": "base",
+  "python": "/home/attila/miniconda3/bin/python",
+  "execution": {
+    "status": "completed",
+    "kernel": "fresh base kernel",
+    "notebook_cells_completed": 13
+  },
+  "package_versions": {
+    "dirichlet": "0.7",
+    "numpy": "2.5.4",
+    "pandas": "2.3.3",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2",
+    "seaborn": "0.13.2",
+    "openpyxl": "3.1.5"
+  },
+  "dirichlet_source": {
+    "repository": "https://github.com/xuod/dirichlet",
+    "commit": "78ce7c7cf45af75d473ae80d55cc2b6f4caadf78",
+    "api_verified": "dirichlet.plot"
+  }
+}

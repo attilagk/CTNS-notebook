@@ -14,6 +14,14 @@ Work from the CTNS notebooks repository root and read its `AGENTS.md`. Produce a
 3. Inspect Git status, the dependency/recovery inventory, load/save cells, and shared helper code. Confirm required inputs and upstream generated files exist and have the correct schemas/units. Run prerequisites in dependency order only within the requested scope; report unavailable prerequisites rather than silently substituting data. Inspect missing dependencies directly, not only stale CSV status.
 4. Select or create the task branch consistently with the user's current workflow. Record the Git revision and dirty paths. Notify the user before editing an open notebook and explain Jupyter Revert versus Overwrite when relevant.
 
+### Check dependencies before execution
+
+- Build a notebook-specific dependency checklist from code-cell imports, `%run`/`%load` magics, local helper imports, file reads, and invoked external programs. Include packages imported indirectly by the helpers that will run. Do not mistake imports in inactive/commented cells or optional error-handling branches for mandatory requirements without checking their use.
+- In the environment declared for this notebook, probe `sys.executable` and import each required Python module in a fresh process; check command-line tools separately. Verify local imports resolve to the expected file and inspect required data paths and workbook sheets. Record the environment and concise check results in the run manifest before starting the kernel.
+- When an import is missing, identify its owning package and source first. Install it into the declared environment only when the mapping is clear and installation is within the user's request; then rerun the probes and record package/version changes. Do not silently switch environments or install a similarly named package based on guesswork.
+- For a missing custom/local module, search the repository, configured source directories, and available project resources for the expected implementation; use saved notebook output or historical paths as clues, not proof of availability. Do not replace it with an unrelated package or recreate scientific algorithms from output alone. If no verified source or equivalent exists, stop execution at that dependency, record the precise blocker, and report what source is needed.
+- Likewise, if required input files are absent, identify recovery candidates and verify content/schema before using them. Do not proceed with a substitute input merely because its filename looks plausible.
+
 ## Execute with provenance and recoverable results
 
 - Create a timestamped directory under `recovery-audit/reproductions/`. Capture the source snapshot/hash, input and relevant helper hashes, target-document hash, exact interpreter, conda package list, seeds/sampler settings, timestamps, execution log, and any execution-only instrumentation.
