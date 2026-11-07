@@ -1,0 +1,10 @@
+{
+  "execution": "completed",
+  "reference_reproduction": "fractions table and target figures regenerated; displayed target fractions align",
+  "inference_quality": "non-MCMC Dirichlet MLE; numerical warnings retained",
+  "targets": {
+    "1": "fractions table regenerated and compared with displayed target values",
+    "2": "plotall-CO26990-CO28152.png generated",
+    "3": "pie-chart-wt-tg-uniform.png generated"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "started_at": "2026-11-07T18:52:53.289206+00:00",
+  "source": "/home/attila/projects/CTNS/notebooks/2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb",
+  "source_sha256": "5bc258d2c1b250535b149ee691bfac3a339137ff008a5d39a578473233341fde",
+  "input_hashes": {
+    "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO26990-behavioral-data-cleaned.xlsx": "6b8526b151d3b02cf8166f1d27428dff0e7608837d14692ca5e9702b54b1705a",
+    "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28152-behavioral-data-cleaned.xlsx": "bc46a377af66fb50b42ffe5aa781b071f99a18a544f5a2a511e683627b98bfbf",
+    "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28154-behavioral-data-cleaned.xlsx": "fc00b858abb33944755f63d090c263ce888c38629a0b235fce3145b5f56ef101"
+  },
+  "target_sha256": "96d42213cf8398fea5f20f31b5bdbf882086c33122d0334b04288725d0d9c023",
+  "git_commit": "bbafebe562a9246c787910496f7a6a925ad4e360",
+  "git_branch": "reproduce-2024-06-26-mwm-test-probe-CO28154",
+  "environment": "base",
+  "python": "/home/attila/miniconda3/bin/python",
+  "execution": "completed",
+  "execution_status": "completed",
+  "dependency_check": {
+    "environment": "base",
+    "modules": [
+      "numpy",
+      "pandas",
+      "scipy",
+      "matplotlib",
+      "seaborn",
+      "openpyxl",
+      "dirichlet",
+      "attila_utils"
+    ],
+    "dirichlet_version": "0.7",
+    "dirichlet_source_commit": "78ce7c7cf45af75d473ae80d55cc2b6f4caadf78"
+  },
+  "execution_notes": "Fresh-kernel all-cell execution; seven references/inputs loaded; original scientific cells unchanged. Import-path bootstrap and isolated working directory were used."
+}
