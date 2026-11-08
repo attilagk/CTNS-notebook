@@ -4,9 +4,9 @@ Static audit of all 84 notebooks. No notebooks were executed; no source data or 
 
 ## Findings
 
-- 786 input records; 210 distinct paths missing at the expected location.
-- 157 records point to existing files; 72 records require manual resolution.
-- Local filename candidates searched across resources, results, and notebooks (1003 files indexed; AppleDouble files excluded).
+- 786 input records; 209 distinct paths missing at the expected location.
+- 158 records point to existing files; 72 records require manual resolution.
+- Local filename candidates searched across resources, results, and notebooks (1004 files indexed; AppleDouble files excluded).
 - Supplied Dropbox /QPS folder fully listed: 51 files. Candidate matching is by filename, not verified contents.
 
 Counts describe static references, including conditional and exploratory code, rather than guaranteed execution failures. Multiple records may reference the same file.
@@ -102,7 +102,7 @@ Counts describe static references, including conditional and exploratory code, r
 | 2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb | 0 | 0 |
 | **2024-08-08-biochemistry/2024-08-08-biochemistry.ipynb** | 0 | 0 |
 | **2024-08-08-biochemistry/statannotations-example.ipynb** | 0 | 0 |
-| 2024-11-11-cytokines/2024-11-11-cytokines.ipynb | 1 | 0 |
+| 2024-11-11-cytokines/2024-11-11-cytokines.ipynb | 0 | 0 |
 | 2025-05-25-ad-subtype-random-fx/.ipynb_checkpoints/2025-05-25-ad-subtype-random-fx-checkpoint.ipynb | 0 | 0 |
 | 2025-05-25-ad-subtype-random-fx/2025-05-25-ad-subtype-random-fx.ipynb | 0 | 1 |
 
