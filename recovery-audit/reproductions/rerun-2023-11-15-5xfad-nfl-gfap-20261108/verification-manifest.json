@@ -1,0 +1,72 @@
+{
+  "notebook": "2023-11-15-5xfad-nfl-gfap",
+  "phase": "verification",
+  "environment": "base",
+  "acceptance": "all analysis cells complete without unhandled error; no reference comparisons",
+  "reference_reproduction": "not assessed",
+  "inference_quality": "not assessed; no MCMC",
+  "started_at": "2026-11-08T15:38:53.084625+00:00",
+  "source_sha256": "182dbdee846ae6f2b0c3c9ff6301b12e2bfa9ddc3d85db524dbeec6a0af496a9",
+  "input_sha256": {
+    "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28152_NFL-GFAP_datasum.xlsx": "7baef3675cca8620880c3d21b0f9c953494d743d42b32e1a35411df09926d88d"
+  },
+  "helpers": {
+    "attila_utils.py": "1fca88c0c2c11368d0af3082a4fed336b1eecda417cb5b95ea32fc83f97c4857"
+  },
+  "git_revision": "858be5db5c4b0af29451f4648756826ca6d2235e",
+  "git_dirty": " M 2023-11-15-5xfad-nfl-gfap/2023-11-15-5xfad-nfl-gfap.ipynb\n",
+  "interpreter": "/home/attila/miniconda3/bin/python",
+  "versions": {
+    "pandas": "3.1.1",
+    "numpy": "2.4.6",
+    "matplotlib": "3.10.9",
+    "seaborn": "0.13.2",
+    "statsmodels": "0.15.0",
+    "openpyxl": "3.1.5",
+    "nbclient": "0.11.0",
+    "nbformat": "5.11.1"
+  },
+  "removed_cells": [
+    "%connect_info"
+  ],
+  "execution": "passed",
+  "finished_at": "2026-11-08T15:38:58.977348+00:00",
+  "warnings": [],
+  "code_cells": 25,
+  "artifacts": {
+    "repo/2023-11-15-5xfad-nfl-gfap/named-figure/NF-L-in-vivo-treatments-tg-TUDCA.pdf": "2bff6f852de284e17b6814ce6ed54d8f4cb1e4524d1a4ea91878cb8841b7e089",
+    "repo/2023-11-15-5xfad-nfl-gfap/named-figure/NF-L-terminal-wt.png": "63cb3a17808d9d81f253280891bda62daac526270e2c191f53206209fd805d35",
+    "repo/2023-11-15-5xfad-nfl-gfap/named-figure/NFL-terminal-CSF-scatter.pdf": "1c161dcb109d49b64e189689f2b618bf3a59a3a9f284b666bb56422e3b8302cb",
+    "repo/2023-11-15-5xfad-nfl-gfap/named-figure/NF-L-in-vivo-treatments-wt.png": "abac7b0581578d94317794aaf7427c22163cc8e4d205acb31bad57233a917bcd",
+    "repo/2023-11-15-5xfad-nfl-gfap/named-figure/NF-L-in-vivo-treatments-tg-TUDCA-anonym.png": "35f402519567759c6543363c9b75553ec0f9e3ee6fc9cfe137d65953b386ab25",
+    "repo/2023-11-15-5xfad-nfl-gfap/named-figure/GFAP-boxplot-treatments-tg.png": "add48a30370b1a5553b3f8016fb9e071877291f475af65ef7a419e32f24bf715",
+    "repo/2023-11-15-5xfad-nfl-gfap/named-figure/NF-L-terminal-wt.pdf": "975d6e821cfee3326e07562b27dba092ded26ac6848fe2bf771c2d6ea6183525",
+    "repo/2023-11-15-5xfad-nfl-gfap/named-figure/NF-L-boxplot-treatments-wt.png": "2cb90c08f5e9353e51ed36b0c740c336886972db543acd9c87160a7fc57f5500",
+    "repo/2023-11-15-5xfad-nfl-gfap/named-figure/NF-L-in-vivo-treatments-tg.png": "a2fd7dacc55af7fc375d1f2473b523f3acd15c1ba5a127b4e8999328739484a5",
+    "repo/2023-11-15-5xfad-nfl-gfap/named-figure/GFAP-boxplot-treatments-wt.png": "1c8348554d2d8cef167cccadf5fba145d0ce71b3e5819907c72745d6319ff7ae",
+    "repo/2023-11-15-5xfad-nfl-gfap/named-figure/NF-L-in-vivo-treatments-tg-TUDCA-anonym.pdf": "fb5f2c7cc85858059e86caeeb2a66cd41009fcbbb06c7a3f4be64ac8235dfdc6",
+    "repo/2023-11-15-5xfad-nfl-gfap/named-figure/NF-L-boxplot-treatments-tg.png": "7145218dbc32e1d3b42e628f055d12defe0eb213bd8930ca9e584a74106003a3",
+    "repo/2023-11-15-5xfad-nfl-gfap/named-figure/NF-L-in-vivo-wt-tg-sharey-off.pdf": "dc5c0e37089c4eb07028e7f75609a063c261c0eacb4131a58c53868568b4a5fa",
+    "repo/2023-11-15-5xfad-nfl-gfap/named-figure/NF-L-terminal-tg.pdf": "cdf15a81d0b62b62cc8fe0d17c8191376b484ae7b0bf543a26a7023f851586a4",
+    "repo/2023-11-15-5xfad-nfl-gfap/named-figure/NF-L-terminal-tg.png": "d6a53332e07ee7aa4ba0eebb2cbd4ef9ab496c4e621c61ea2c07d978aca210bc",
+    "repo/2023-11-15-5xfad-nfl-gfap/named-figure/NF-L-boxplot-treatments-tg.pdf": "c4baaf41ed4a2e66dada88e5b6c46ccdaf6c39ab2d579db025b3ace0a53f9731",
+    "repo/2023-11-15-5xfad-nfl-gfap/named-figure/GFAP-boxplot-wt-tg.pdf": "ab16d14e3702ed934ef1ae9af6bd3bb5fae40698f45adacdb8b68641ab5b014d",
+    "repo/2023-11-15-5xfad-nfl-gfap/named-figure/NF-L-in-vivo.png": "ce4bcc28f625ee69ebf41dfd3b06618fa4ea0bd24b882f8eb5c79d4fbac7b12e",
+    "repo/2023-11-15-5xfad-nfl-gfap/named-figure/NF-L-in-vivo-treatments-tg-TUDCA.png": "83e73ff836a354b46b9c27f6ecdaf645a9efedd48bfaf488c97a0e3a09a5e863",
+    "repo/2023-11-15-5xfad-nfl-gfap/named-figure/NF-L-in-vivo-treatments-tg.pdf": "c5ff6c8b5fbf6d7389773e92c5da52e947ac25523a0bf16c25e219b31689c08d",
+    "repo/2023-11-15-5xfad-nfl-gfap/named-figure/NF-L-in-vivo-treatments-wt.pdf": "e75e1fcbc447198f368133bfc2255068514dcb529b694eda367aec44a36ad81e",
+    "repo/2023-11-15-5xfad-nfl-gfap/named-figure/GFAP-boxplot-treatments-tg.pdf": "c10c637a554c36829adf6f092fb5c6b1609b706135bf003c67a24bced2a45194",
+    "repo/2023-11-15-5xfad-nfl-gfap/named-figure/NF-L-terminal.pdf": "985b070dccd5a0fe205e7fb13ccfa5b7362623c3bbef427ed00248f8a910dbae",
+    "repo/2023-11-15-5xfad-nfl-gfap/named-figure/NF-L-in-vivo.pdf": "d1603cbce7f1cdd0b1da0f9bdcbbfa720b8ab08facf3ae17755fbca8d450f49a",
+    "repo/2023-11-15-5xfad-nfl-gfap/named-figure/NF-L-boxplot-wt-tg.png": "2dbd337cd7f1120e51e8d72770e3a830b3614ae61e490b4ebc53a93ac1bbf23b",
+    "repo/2023-11-15-5xfad-nfl-gfap/named-figure/NF-L-boxplot-treatments-wt.pdf": "11e3f86b6554438c2a92abf7a01961515cd9efdf991c3bfadf7c25910c8f6de2",
+    "repo/2023-11-15-5xfad-nfl-gfap/named-figure/NF-L-in-vivo-wt-tg.png": "0cbc637d2e44dc86acb9d73b14cde4ee2e255f5b3819b10cef825a0b896b5c74",
+    "repo/2023-11-15-5xfad-nfl-gfap/named-figure/NF-L-boxplot-wt-tg.pdf": "41f8a2bbf402b63ff7364b3eb752eaa8f7b73d64e9cf95a623b4a873d8c3b96e",
+    "repo/2023-11-15-5xfad-nfl-gfap/named-figure/NF-L-in-vivo-wt-tg-sharey-off.png": "6fc17b11aac4793ca0aa425a4bdc1ed4235311b4783c16a43f3a91bd69c26d79",
+    "repo/2023-11-15-5xfad-nfl-gfap/named-figure/NF-L-in-vivo-wt-tg.pdf": "ac4a6098f11d414621cd7541b8b0c93418716206a5c6fc9cc9331c56e2688014",
+    "repo/2023-11-15-5xfad-nfl-gfap/named-figure/NF-L-terminal.png": "cb96abaa688a7fc5fda745255aa6e43659256bf155a10433a04dfbb981b133cb",
+    "repo/2023-11-15-5xfad-nfl-gfap/named-figure/GFAP-boxplot-treatments-wt.pdf": "433ca44aee62b0e186d4ca06c7a49ced8cb5346d39a737c569356a615a6e3289",
+    "repo/2023-11-15-5xfad-nfl-gfap/named-figure/NFL-terminal-CSF-scatter.png": "1599c1343ef5f3fb5825ddaf8932280feac800f45d23c27e211953d472692716",
+    "repo/2023-11-15-5xfad-nfl-gfap/named-figure/GFAP-boxplot-wt-tg.png": "c42e34dbdc52459cb19fabfea58eafc473559620eb85b3dfa6efadf1554867cf"
+  }
+}
