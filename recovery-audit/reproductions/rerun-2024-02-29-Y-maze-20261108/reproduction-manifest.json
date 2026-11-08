@@ -3,9 +3,9 @@
   "acceptance": "execution-only; no target comparisons requested",
   "environment": "base",
   "python": "/home/attila/miniconda3/bin/python",
-  "git_revision": "074997a2c545473ae8232d66d385f276df0d4d60",
-  "git_status": "?? recovery-audit/reproductions/rerun-2024-02-29-Y-maze-20261108/\n",
-  "source_sha256": "47a4e908a7fc31a8411b164c70f4c339031c4263eeeba102f256ddc684b257d9",
+  "git_revision": "73fe9200b8638a9ff4f7a06a60fbcdabdf672cc4",
+  "git_status": " M recovery-audit/reproductions/rerun-2024-02-29-Y-maze-20261108/execution.log\n M recovery-audit/reproductions/rerun-2024-02-29-Y-maze-20261108/run.py\n",
+  "source_sha256": "9211a7c4e7bffd5671045999477e072590c4af0439c1794a27ed439432b27a9f",
   "inputs": {
     "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO26990-behavioral-data-cleaned.xlsx": "6b8526b151d3b02cf8166f1d27428dff0e7608837d14692ca5e9702b54b1705a",
     "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28152-behavioral-data-cleaned.xlsx": "bc46a377af66fb50b42ffe5aa781b071f99a18a544f5a2a511e683627b98bfbf",
@@ -22,7 +22,7 @@
     "src/mcmc_cache.py": "11ddb73ea4bb6b309841e5ea97b9e84cab2bd06cc2b3961b39b630d88fac644d",
     "src/ratmetab.py": "3a51bd348152673bc6d9f7ea6e74d88f4d92a7ad7109bee9b44cd82dfde8399a"
   },
-  "started_at": "2026-11-08T15:38:48.873652+00:00",
+  "started_at": "2026-11-08T21:45:59.790522+00:00",
   "mode": "reproduction",
   "packages": [
     "anaconda-anon-usage @ file:///home/task_176160626771849/conda-bld/anaconda-anon-usage_1761606317374/work",
@@ -236,13 +236,19 @@
     "zstandard @ file:///home/task_175818846949212/conda-bld/zstandard_1758189073015/work"
   ],
   "execution": "passed",
-  "finished_at": "2026-11-08T15:38:51.729396+00:00",
+  "external_helpers": {
+    "attila_utils": {
+      "path": "/home/attila/src/attila_utils.py",
+      "sha256": "1fca88c0c2c11368d0af3082a4fed336b1eecda417cb5b95ea32fc83f97c4857"
+    }
+  },
+  "finished_at": "2026-11-08T21:46:01.919490+00:00",
   "executed_cells": 11,
   "warnings": [
-    "/tmp/ipykernel_29261/3668789426.py:5: FutureWarning: Use \"auto\" to set automatic grayscale colors. From v0.14.0, \"gray\" will default to matplotlib's definition.\n  sns.stripplot(data, x=x, y='Condition', ax=ax, color='lightgray', edgecolor='gray', linewidth=1)\n",
-    "/tmp/ipykernel_29261/3668789426.py:5: FutureWarning: Use \"auto\" to set automatic grayscale colors. From v0.14.0, \"gray\" will default to matplotlib's definition.\n  sns.stripplot(data, x=x, y='Condition', ax=ax, color='lightgray', edgecolor='gray', linewidth=1)\n",
-    "/tmp/ipykernel_29261/3668789426.py:5: FutureWarning: Use \"auto\" to set automatic grayscale colors. From v0.14.0, \"gray\" will default to matplotlib's definition.\n  sns.stripplot(data, x=x, y='Condition', ax=ax, color='lightgray', edgecolor='gray', linewidth=1)\n",
-    "/tmp/ipykernel_29261/3668789426.py:5: FutureWarning: Use \"auto\" to set automatic grayscale colors. From v0.14.0, \"gray\" will default to matplotlib's definition.\n  sns.stripplot(data, x=x, y='Condition', ax=ax, color='lightgray', edgecolor='gray', linewidth=1)\n",
-    "/tmp/ipykernel_29261/3668789426.py:5: FutureWarning: Use \"auto\" to set automatic grayscale colors. From v0.14.0, \"gray\" will default to matplotlib's definition.\n  sns.stripplot(data, x=x, y='Condition', ax=ax, color='lightgray', edgecolor='gray', linewidth=1)\n"
+    "/tmp/ipykernel_143904/3668789426.py:5: FutureWarning: Use \"auto\" to set automatic grayscale colors. From v0.14.0, \"gray\" will default to matplotlib's definition.\n  sns.stripplot(data, x=x, y='Condition', ax=ax, color='lightgray', edgecolor='gray', linewidth=1)\n",
+    "/tmp/ipykernel_143904/3668789426.py:5: FutureWarning: Use \"auto\" to set automatic grayscale colors. From v0.14.0, \"gray\" will default to matplotlib's definition.\n  sns.stripplot(data, x=x, y='Condition', ax=ax, color='lightgray', edgecolor='gray', linewidth=1)\n",
+    "/tmp/ipykernel_143904/3668789426.py:5: FutureWarning: Use \"auto\" to set automatic grayscale colors. From v0.14.0, \"gray\" will default to matplotlib's definition.\n  sns.stripplot(data, x=x, y='Condition', ax=ax, color='lightgray', edgecolor='gray', linewidth=1)\n",
+    "/tmp/ipykernel_143904/3668789426.py:5: FutureWarning: Use \"auto\" to set automatic grayscale colors. From v0.14.0, \"gray\" will default to matplotlib's definition.\n  sns.stripplot(data, x=x, y='Condition', ax=ax, color='lightgray', edgecolor='gray', linewidth=1)\n",
+    "/tmp/ipykernel_143904/3668789426.py:5: FutureWarning: Use \"auto\" to set automatic grayscale colors. From v0.14.0, \"gray\" will default to matplotlib's definition.\n  sns.stripplot(data, x=x, y='Condition', ax=ax, color='lightgray', edgecolor='gray', linewidth=1)\n"
   ]
 }
