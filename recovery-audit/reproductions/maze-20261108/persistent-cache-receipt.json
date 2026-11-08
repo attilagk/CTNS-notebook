@@ -1,0 +1,158 @@
+[
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/02eb66bbcd64197eb66b601545a7c1b33f28e3ddc390045158f527f1775f79be.json",
+    "sha256": "19c2277a9e6586403c24e73118f279843597e7ec79433d7b58779729cd20de95"
+  },
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/02eb66bbcd64197eb66b601545a7c1b33f28e3ddc390045158f527f1775f79be.nc",
+    "sha256": "f05ff5da238a3e578b9f442a8ac85246fddcdb653e19828c85cb2fc1142bc947"
+  },
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/99e3f1686938aaa4d4d965ea1287426ef8ec8e8e174757b102c2702c6c0549ef.json",
+    "sha256": "74b1e862e830d27f678e36200e883e7852220b07c95d2aff6f07fbf3db924b8d"
+  },
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/99e3f1686938aaa4d4d965ea1287426ef8ec8e8e174757b102c2702c6c0549ef.nc",
+    "sha256": "83b310b1ab7f760fadb4e5e49bf319b3e37e6f7fe18fe6faf0367b69b28de978"
+  },
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/3330be848dd8ee873a622fe3ff673212afe3b983b1e8aa640caa7c8c7d07d48d.json",
+    "sha256": "c64e6f6e6d05810dc2c116b73bf77feb1b55056bb5791add0d5ad41e55b5aa11"
+  },
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/3330be848dd8ee873a622fe3ff673212afe3b983b1e8aa640caa7c8c7d07d48d.nc",
+    "sha256": "bf9ff05e6398ffcf5f61da514877e324946d80ad89fe196aa3e4a2dc9ce06ddb"
+  },
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/e994c38715d3c208a84dfa60556d3ebc0f68db9d520bb3de511f18214428b273.sampling-error.json",
+    "sha256": "4dbbf5e459b7bb8fffd6c020c7be730c52b69eb774e33c862f270b14e28477ee"
+  },
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/92d2bc7b8f688d340bd06f3cf8bfdaf4d9a1e97c37248ad88d256509c0ee56f5.json",
+    "sha256": "46752a9ba5a860f8fc8172928ceca8f78385a6c2a0e70a53d3af67793fdad055"
+  },
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/92d2bc7b8f688d340bd06f3cf8bfdaf4d9a1e97c37248ad88d256509c0ee56f5.nc",
+    "sha256": "1220d9ae241ee9fceffadb6f7f15431e7ba4953bbf7110995a243545acc33661"
+  },
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/d2a16fdee8ebe1ff639418dc66a05d739341b11406e2358e498450e17d756b44.json",
+    "sha256": "43d7614018dd6857bebc3a94212c29ffe21b2995eef58cf4b953601482a4da6a"
+  },
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/d2a16fdee8ebe1ff639418dc66a05d739341b11406e2358e498450e17d756b44.nc",
+    "sha256": "363f2147d4faabccf8c52a3cf9f28efd2359d9f66fa4fa0273733b0216a7fb8e"
+  },
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/a9384de9ae033cf8dfa618321f628aa5821ebf49f7acb434d918c648f9f019b4.sampling-error.json",
+    "sha256": "ae42c2acc04c69e33cfe8a82e6adf8f55ea743e2ec8490245e512d9996179db8"
+  },
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/e15b42107d98ef720ef7acc3048f0941c01c8ad8214f82a4ba3e60f9d5813946.json",
+    "sha256": "1692e2de46f83434ede77868a3b905cd10db2d4146110e97aaf4781c7746cfeb"
+  },
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/e15b42107d98ef720ef7acc3048f0941c01c8ad8214f82a4ba3e60f9d5813946.nc",
+    "sha256": "755fd848742a44a8cd685f4e79a6b64287bac9746760fee6bd19d1f07a22b0ca"
+  },
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/d5bb775b6994120cbd74e9a49efd4b1fd55bd221771ed161b5cd39a3945ef0d1.json",
+    "sha256": "ea25eee7aaa45364d7be5589e90d5171f2a97846184406fbb46a035d2103a2e4"
+  },
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/d5bb775b6994120cbd74e9a49efd4b1fd55bd221771ed161b5cd39a3945ef0d1.nc",
+    "sha256": "cbcaf6e076b60f97111ec27ac884f0c8210f923c8540e94c760fed277523f049"
+  },
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/900d0c00bd1a99b089cf28c7119c91b712fa5395f514a5f6a996f0200e66574c.json",
+    "sha256": "848612164d764de0bda4ae8f14893106f737c7486e9411dd769ec6dcc6dedb70"
+  },
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/900d0c00bd1a99b089cf28c7119c91b712fa5395f514a5f6a996f0200e66574c.nc",
+    "sha256": "adf6ffe201ce3d541d7ebbd711199f0211a14f7012885d065b9fbf828a4f35c9"
+  },
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/cbb8036ccad713094f7e54ab3a0895d18c4f84b486e913681f45cee29d7c9f57.json",
+    "sha256": "6bf8fe49bbcdcb5242691dda7376e342859800a5e52c5c0c4e6dc6f9025f3a22"
+  },
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/cbb8036ccad713094f7e54ab3a0895d18c4f84b486e913681f45cee29d7c9f57.nc",
+    "sha256": "57ad29bec12e4cf7f3964d39892917e1b5f1dd7c7b449c9893bad6f5008e499f"
+  },
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/56312410d1eb926ac0d3b983a29192a15c10954a34156f87ef6c5cc34bbe710e.json",
+    "sha256": "6f2a371f1866df46748b48aca81c7d098a04e33cba29a00a9d2d622f03417056"
+  },
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/56312410d1eb926ac0d3b983a29192a15c10954a34156f87ef6c5cc34bbe710e.nc",
+    "sha256": "e5f7eceaf05c0e0d20a87d5f2dcbbefa421b19ce0a973890d12d21240b2002fe"
+  },
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/f7641d1323d8e6f333631c5e8c04044e306de44e77e311b3460fb33817c6f143.json",
+    "sha256": "afe391b74adeb87014d3f69deae238832aa35729da033619eea9324a564ed537"
+  },
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/f7641d1323d8e6f333631c5e8c04044e306de44e77e311b3460fb33817c6f143.nc",
+    "sha256": "6816599ed8216d08f3e33f1ffcfd554b1ba6aec74dfb820e5111ba17c043be3e"
+  },
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/4b0f06579538489a5e950dfe7e85c87199d8af546d46fffff849efee6f74e2c1.json",
+    "sha256": "2e3004b1a78a8dc247042a4fa27e5af04dd6f539de36366e2fcdb9ed5bfdca2e"
+  },
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/4b0f06579538489a5e950dfe7e85c87199d8af546d46fffff849efee6f74e2c1.nc",
+    "sha256": "b5289c0bf8695f90defbf6d359c30afa60af31afe5a35edc13f039254f0b79ed"
+  },
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/47c17c9ca7f357177603e83b58532133142a8f6296dc58a3d3f9fba64b94c9da.json",
+    "sha256": "c7f2379cbbce38d5352e5f798f74f5e5e40bc6f9270eb53f9f2fc970185971a3"
+  },
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/47c17c9ca7f357177603e83b58532133142a8f6296dc58a3d3f9fba64b94c9da.nc",
+    "sha256": "008469de7ad7bce34fe4182f86f58516f5a5216a58e8489b2445cfe1147ef4b4"
+  },
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/e4115c35393d5ba75cab8f17c4df4339395200e1676e3a22fc5c51ad5726fafc.json",
+    "sha256": "ae818e58c195690bff158e7ec0d9d80d8541f0de299dc56a4e63b7f7da41729f"
+  },
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/e4115c35393d5ba75cab8f17c4df4339395200e1676e3a22fc5c51ad5726fafc.nc",
+    "sha256": "9856b304c99d4f4edce23e3e4774b29ef27b20b36493440582f5c39b9bd4368c"
+  },
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/cd4dd7d47a7e82a6f2573053a0a6ea663f28a7dcfcf3c648c1fef2b3714e5428.json",
+    "sha256": "d04bf75aec5aaf156b6a6b28883551a63c5b8cecdd11a678b6647200703d8f9b"
+  },
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/cd4dd7d47a7e82a6f2573053a0a6ea663f28a7dcfcf3c648c1fef2b3714e5428.nc",
+    "sha256": "681dc633af55ccd9bd760264a391c78380153cba6d583c07c5cc741932f82dcb"
+  },
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/1ee01cba829764740578559029782e8020b46aa36f29121de5fedc937eda538a.sampling-error.json",
+    "sha256": "322a00f03e689b5c4be1dc73f48311b37f8a51f6bc2d806d84dce69fbdf76e3b"
+  },
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/f92238cea0d04956ad868f45e9b425eb3042c317ff7659d5c64c850571a8ba67.json",
+    "sha256": "33675f41890d74cd90c473ccc8123d91d7b19b808c340420ca2ca58584727cf4"
+  },
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/f92238cea0d04956ad868f45e9b425eb3042c317ff7659d5c64c850571a8ba67.nc",
+    "sha256": "6f96a7b2a96b7a6cbe7b818a4e7d3f7bd2e7b3336bc459a3bd671129a8d9386e"
+  },
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/8de62d1ed51e3f0279b21961570b28869de3b44aea5689dfe48e6df510d81019.json",
+    "sha256": "686e11c67d790ed5d88d6f6f480a54eb761145a90f79327b204711471a329663"
+  },
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/8de62d1ed51e3f0279b21961570b28869de3b44aea5689dfe48e6df510d81019.nc",
+    "sha256": "19d5d3507faf94bcb90fec73f41c26dcd163d1af488a2b9668275f160c7e6212"
+  },
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/92df234c3195009d74d4f351359eb4c54ff3ab112342851514fc7315a93d8f47.json",
+    "sha256": "cf32a86b2ab5e9f3fa1b48843acfb1ef6ef820c9a08bc2b4cd44f240a15c5ccc"
+  },
+  {
+    "file": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache/92df234c3195009d74d4f351359eb4c54ff3ab112342851514fc7315a93d8f47.nc",
+    "sha256": "f05021e5ef39f9e1a1d3b2c2ebb70318517c62a67eeb4ef153feba1cfaeb32ba"
+  }
+]

@@ -1,0 +1,117 @@
+{
+  "kidney_gamma": {
+    "divergences": 1,
+    "max_finite_rhat": 1.0035132791203927,
+    "min_finite_bulk_ess": 1364.5117676351497,
+    "min_finite_tail_ess": 1197.46054758181,
+    "finite_log_likelihood": null
+  },
+  "kidney_weibull": {
+    "divergences": 0,
+    "max_finite_rhat": 1.0033914009674938,
+    "min_finite_bulk_ess": 1495.4641775500618,
+    "min_finite_tail_ess": 1280.4388355524675,
+    "finite_log_likelihood": null
+  },
+  "M_2FE": {
+    "divergences": 0,
+    "max_finite_rhat": 1.0012021058870617,
+    "min_finite_bulk_ess": 2209.145777743638,
+    "min_finite_tail_ess": 2077.495726096014,
+    "finite_log_likelihood": true
+  },
+  "M_4FE": {
+    "divergences": 0,
+    "max_finite_rhat": 1.0019894587464506,
+    "min_finite_bulk_ess": 1848.7989469033364,
+    "min_finite_tail_ess": 2041.8203589447303,
+    "finite_log_likelihood": true
+  },
+  "M_6FE": {
+    "divergences": 0,
+    "max_finite_rhat": 1.0029296518829864,
+    "min_finite_bulk_ess": 1715.135585539885,
+    "min_finite_tail_ess": 2176.3866742662167,
+    "finite_log_likelihood": true
+  },
+  "M_2FE_uncensored": {
+    "divergences": 0,
+    "max_finite_rhat": 1.0008111171914107,
+    "min_finite_bulk_ess": 2046.4592177813904,
+    "min_finite_tail_ess": 1909.6772850895563,
+    "finite_log_likelihood": true
+  },
+  "M_2FE_gamma": {
+    "divergences": 0,
+    "max_finite_rhat": 1.0013671025706228,
+    "min_finite_bulk_ess": 1867.370036975057,
+    "min_finite_tail_ess": 2110.0875782068333,
+    "finite_log_likelihood": true
+  },
+  "M_2FE_Rintcp|IRN": {
+    "divergences": 0,
+    "max_finite_rhat": 1.0038166044169448,
+    "min_finite_bulk_ess": 1414.2796499332558,
+    "min_finite_tail_ess": 1746.9694285434107,
+    "finite_log_likelihood": true
+  },
+  "M_2FE_Rday|IRN": {
+    "divergences": 1000,
+    "max_finite_rhat": 1.5324129388625818,
+    "min_finite_bulk_ess": 7.1621627464378905,
+    "min_finite_tail_ess": 4.032258064516129,
+    "finite_log_likelihood": true
+  },
+  "M_2FE_Rintcp+Rday|IRN": {
+    "divergences": 2014,
+    "max_finite_rhat": 3.4263505905890503,
+    "min_finite_bulk_ess": 4.42027151367103,
+    "min_finite_tail_ess": 4.032258064516129,
+    "finite_log_likelihood": true
+  },
+  "M_2FE_Rintcp+Rday|Cohort/IRN": {
+    "divergences": 4000,
+    "max_finite_rhat": null,
+    "min_finite_bulk_ess": 4.032258064516129,
+    "min_finite_tail_ess": 4.032258064516129,
+    "finite_log_likelihood": true
+  },
+  "M_4FE_Rday|IRN": {
+    "divergences": 3002,
+    "max_finite_rhat": 9.436346592001534,
+    "min_finite_bulk_ess": 4.080074172726501,
+    "min_finite_tail_ess": 4.032258064516129,
+    "finite_log_likelihood": true
+  },
+  "M_4FE_Rday|IRN_gamma": {
+    "divergences": 1000,
+    "max_finite_rhat": 1.5294450634293046,
+    "min_finite_bulk_ess": 7.173156651482059,
+    "min_finite_tail_ess": 4.032258064516129,
+    "finite_log_likelihood": true
+  },
+  "M_4FE_Rintcp+Rday|Cohort/IRN": {
+    "fit": "caught SamplingError returned None"
+  },
+  "direct_y_inf random": {
+    "divergences": 29,
+    "max_finite_rhat": 1.0057879119177178,
+    "min_finite_bulk_ess": 757.239683125907,
+    "min_finite_tail_ess": 427.1199198805055,
+    "finite_log_likelihood": true
+  },
+  "direct_y_inf = 0": {
+    "divergences": 0,
+    "max_finite_rhat": 1.0035517711131,
+    "min_finite_bulk_ess": 2060.424720088958,
+    "min_finite_tail_ess": 1609.5583769378193,
+    "finite_log_likelihood": true
+  },
+  "direct_y_inf = 10": {
+    "divergences": 0,
+    "max_finite_rhat": 1.0016261149024555,
+    "min_finite_bulk_ess": 2247.2884986028107,
+    "min_finite_tail_ess": 1498.8117344145576,
+    "finite_log_likelihood": true
+  }
+}

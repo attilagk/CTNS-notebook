@@ -297,3 +297,8 @@ conda env: base
 
 `estimates-TUDCA-and-orHCQ.png`
 ![[Pasted image 20261106220755.png]]
+## 2023-10-13-5xfad-maze
+
+conda env: bayes
+
+2026-11-08 rerun contract: execution-only acceptance (fresh-kernel completion without an unhandled error). Reference artifact agreement is not assessed; warnings and caught fit failures are reported separately.

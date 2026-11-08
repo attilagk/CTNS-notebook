@@ -1,0 +1,26 @@
+{
+  "notebook": "2023-10-13-5xfad-maze",
+  "execution": "passed",
+  "promotion": "passed under execution-only contract",
+  "reference_reproduction": "not assessed",
+  "inference_quality": "substantial unresolved warnings; not scientifically validated",
+  "cache_only_verification": "passed with Bambi Model.fit and PyMC sample guarded by RuntimeError",
+  "diagnostics_unchanged_on_cache_only_run": true,
+  "remaining_failed_fits": [
+    "M_4FE_Rintcp+Rday|Cohort/IRN"
+  ],
+  "divergences_by_model": {
+    "kidney_gamma": 1,
+    "M_2FE_Rday|IRN": 1000,
+    "M_2FE_Rintcp+Rday|IRN": 2014,
+    "M_2FE_Rintcp+Rday|Cohort/IRN": 4000,
+    "M_4FE_Rday|IRN": 3002,
+    "M_4FE_Rday|IRN_gamma": 1000,
+    "direct_y_inf random": 29
+  },
+  "canonical_sha256": "b83ea1be6d07b67db62b42de390cb1986251e727db94644fd759ac137b3c47fb",
+  "base_commit": "074997a2c545473ae8232d66d385f276df0d4d60",
+  "branch": "promote-2023-10-13-5xfad-maze-20261108",
+  "persistent_cache": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/fit-cache",
+  "cache_backup": "local only; not in Git; separate backup needed"
+}
