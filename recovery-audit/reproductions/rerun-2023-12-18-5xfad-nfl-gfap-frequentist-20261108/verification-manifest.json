@@ -1,0 +1,64 @@
+{
+  "notebook": "2023-12-18-5xfad-nfl-gfap-frequentist",
+  "phase": "verification",
+  "environment": "base",
+  "acceptance": "all analysis cells complete without unhandled error; no reference comparisons",
+  "reference_reproduction": "not assessed",
+  "inference_quality": "not assessed; no MCMC",
+  "started_at": "2026-11-08T15:39:57.290245+00:00",
+  "source_sha256": "e02e107790956fd9c131a3730048d294f4e592de3d1c4f13203bcd161c6c22dc",
+  "input_sha256": {
+    "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28152_NFL-GFAP_datasum.xlsx": "7baef3675cca8620880c3d21b0f9c953494d743d42b32e1a35411df09926d88d"
+  },
+  "helpers": {
+    "attila_utils.py": "1fca88c0c2c11368d0af3082a4fed336b1eecda417cb5b95ea32fc83f97c4857"
+  },
+  "git_revision": "922c808a64cc87ca62020d82d1973de1ffd4b8db",
+  "git_dirty": " M 2023-12-18-5xfad-nfl-gfap-frequentist/2023-12-18-5xfad-nfl-gfap-frequentist.ipynb\n",
+  "interpreter": "/home/attila/miniconda3/bin/python",
+  "versions": {
+    "pandas": "3.1.1",
+    "numpy": "2.4.6",
+    "matplotlib": "3.10.9",
+    "seaborn": "0.13.2",
+    "statsmodels": "0.15.0",
+    "openpyxl": "3.1.5",
+    "nbclient": "0.11.0",
+    "nbformat": "5.11.1"
+  },
+  "removed_cells": [
+    "%connect_info"
+  ],
+  "execution": "passed",
+  "finished_at": "2026-11-08T15:40:03.389646+00:00",
+  "warnings": [
+    "/home/attila/miniconda3/lib/python3.13/site-packages/statsmodels/base/model.py:589: SingularMatrixWarning: Random effects covariance is singular\n  return -self.score(params, *args) / nobs\n/home/attila/miniconda3/lib/python3.13/site-packages/statsmodels/base/model.py:589: SingularMatrixWarning: Random effects covariance is singular\n  return -self.score(params, *args) / nobs\n/home/attila/miniconda3/lib/python3.13/site-packages/statsmodels/base/model.py:589: SingularMatrixWarning: Random effects covariance is singular\n  return -self.score(params, *args) / nobs\n/tmp/ipykernel_31242/2612931825.py:10: ConvergenceWarning: The MLE may be on the boundary of the parameter space.\n  result = smf.mixedlm(formula, data=data, groups='IRN').fit()\n"
+  ],
+  "code_cells": 18,
+  "artifacts": {
+    "repo/2023-12-18-5xfad-nfl-gfap-frequentist/named-figure/nfl-terminal-CSF-vs-terminal-plasma-tg.png": "1e77132fdf3382b5550520d3357c7ac6f18b4782032ee5573ca9dd05e76a5e31",
+    "repo/2023-12-18-5xfad-nfl-gfap-frequentist/named-figure/nfl-terminal-CSF-vs-terminal-plasma-wt.pdf": "983b08f74bde165140a2558a36ec3b64ac46aba1dd60f79503cecb3272ffa4c8",
+    "repo/2023-12-18-5xfad-nfl-gfap-frequentist/named-figure/nfl-week-12-vs-terminal-plasma-tg.pdf": "c58eee91992153e54137d076d492a6fe70a44f3c3d6403354f7971e454e49dc2",
+    "repo/2023-12-18-5xfad-nfl-gfap-frequentist/named-figure/NF-L-week12-terminal-plasma-S-HCQ-wt.pdf": "7f69456dfa06ca1d20fcb38ec4c62ca9a34cf878db4b1c87fc7beb9135a72dfe",
+    "repo/2023-12-18-5xfad-nfl-gfap-frequentist/named-figure/NF-L-week12-terminal-plasma-treatments-tg.png": "44d749c05e1a2b550d932d52653ada4fb81eed96eefbe497272c042c6cb73998",
+    "repo/2023-12-18-5xfad-nfl-gfap-frequentist/named-figure/NF-L-week12-terminal-plasma-treatments-wt.png": "b3680bcc171bee9910ac255529a24e09c358c5c7f77b8d42ce4542ea8e86a697",
+    "repo/2023-12-18-5xfad-nfl-gfap-frequentist/named-figure/NF-L-in-vivo-treatments-wt.png": "0597997cca26cd7ec106cc0f3ecfe8757157c925273b3511b1347c3209e9ed0d",
+    "repo/2023-12-18-5xfad-nfl-gfap-frequentist/named-figure/NF-L-in-vivo-treatments-tg.png": "6c5f50328ee126427884465fbc724b196cd174149314b3dba75011dba4190302",
+    "repo/2023-12-18-5xfad-nfl-gfap-frequentist/named-figure/NF-L-in-vivo-S-HCQ-tg.png": "f8f849c3d4feee8e82edb839958e53494f7a467e1e8eec2eec0429e23d41be48",
+    "repo/2023-12-18-5xfad-nfl-gfap-frequentist/named-figure/NF-L-week12-terminal-plasma-S-HCQ-wt.png": "9afaf027a2320585349205c4f6dfff09c573bbd5aca25fc0a125ba978a9cc3db",
+    "repo/2023-12-18-5xfad-nfl-gfap-frequentist/named-figure/NF-L-week12-terminal-plasma-treatments-wt.pdf": "94279f675f8f376c562fd20075b7ae21c684b2b487f9173e2c9d5eab2db7139a",
+    "repo/2023-12-18-5xfad-nfl-gfap-frequentist/named-figure/nfl-terminal-CSF-vs-terminal-plasma-tg.pdf": "5bffd4386ccd1c038e6f486250017a5955cf134bb666725c42a9fddfd8882568",
+    "repo/2023-12-18-5xfad-nfl-gfap-frequentist/named-figure/nfl-week-12-vs-terminal-plasma-wt.png": "0bdcdb77602fdf83f38f248fe0404e9dbbb604e200243f0e56438c34fcf2f505",
+    "repo/2023-12-18-5xfad-nfl-gfap-frequentist/named-figure/NF-L-week12-terminal-plasma-treatments-tg.pdf": "bc15e6df9b17a6fb3eecdb3def27829267aa97b32819f523ece585c40681a323",
+    "repo/2023-12-18-5xfad-nfl-gfap-frequentist/named-figure/nfl-week-12-vs-terminal-plasma-wt.pdf": "94b50ace0c5c34db4ab5f3667c79d2e1e734ca2094c5cc1b19dbd6d811fb817e",
+    "repo/2023-12-18-5xfad-nfl-gfap-frequentist/named-figure/NF-L-in-vivo-treatments-tg.pdf": "9dcf4c4301b039f406d64d31e05142affe6063801867ce1cec697f6e35ed632d",
+    "repo/2023-12-18-5xfad-nfl-gfap-frequentist/named-figure/NF-L-in-vivo-treatments-wt.pdf": "218bdb67d5444b2718abce997afad73cf247f6c19caa8f3fb02fd04735d70841",
+    "repo/2023-12-18-5xfad-nfl-gfap-frequentist/named-figure/NF-L-in-vivo-S-HCQ-tg-fixed.pdf": "f7be254b66ffd312863e185772e81b0f6635ca3f021307622aeec383d80deaaa",
+    "repo/2023-12-18-5xfad-nfl-gfap-frequentist/named-figure/NF-L-in-vivo-S-HCQ-tg.pdf": "7817803d6c025659ccea6af015bb06e00354fd8d1d387e6e7ce595af5bdc8b2b",
+    "repo/2023-12-18-5xfad-nfl-gfap-frequentist/named-figure/NF-L-in-vivo-S-HCQ-tg-fixed.png": "cb300a3825b5a543e28b93ee476ae7b8762381403f0eadeb74cee3fd6044b93f",
+    "repo/2023-12-18-5xfad-nfl-gfap-frequentist/named-figure/nfl-terminal-CSF-vs-terminal-plasma-wt.png": "522fa653e47cc1d01b61af0c1e7e7d79dba2a87ce92a90671cfdb3b9e47d20bc",
+    "repo/2023-12-18-5xfad-nfl-gfap-frequentist/named-figure/NF-L-in-vivo-wt-tg.png": "3cb351f6aa37737926905418c914a1c22e9be75b4bfd42d0f5c902cbe7dff3cd",
+    "repo/2023-12-18-5xfad-nfl-gfap-frequentist/named-figure/NF-L-in-vivo-wt-tg.pdf": "26ddf52ad8e72cc7d3f4fb8ec84d4a2346149becb53e84c5858d7a442a68b977",
+    "repo/2023-12-18-5xfad-nfl-gfap-frequentist/named-figure/nfl-week-12-vs-terminal-plasma-tg.png": "1a52ce150ae46187452aff434e14f34a91de0ffdf980d3265911fb75e246bfb6"
+  }
+}
