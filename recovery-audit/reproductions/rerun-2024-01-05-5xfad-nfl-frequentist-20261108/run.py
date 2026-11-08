@@ -7,7 +7,7 @@ from jupyter_client import KernelManager
 root=Path(sys.argv[1]); name=sys.argv[2]; mode=sys.argv[3]
 run=root/'recovery-audit/reproductions'/('rerun-'+name+'-20261108')
 run.mkdir(parents=True,exist_ok=True)
-(run/'.gitignore').write_text('work/\nmplconfig/\nsource.ipynb\nexecuted.ipynb\n')
+(run/'.gitignore').write_text(chr(10).join(['work/', 'mplconfig/', 'source.ipynb', 'executed.ipynb', '']))
 work=run/'work'; repo=work/'repo'; cwd=repo/name; cwd.mkdir(parents=True,exist_ok=True)
 resources=work/'resources'
 if not resources.exists():resources.symlink_to('/home/attila/projects/CTNS/resources',target_is_directory=True)
