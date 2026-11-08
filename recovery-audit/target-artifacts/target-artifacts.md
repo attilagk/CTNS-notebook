@@ -297,3 +297,8 @@ conda env: base
 
 `estimates-TUDCA-and-orHCQ.png`
 ![[Pasted image 20261106220755.png]]
+## 2024-01-05-5xfad-nfl-frequentist
+
+conda env: base
+
+Execution-only rerun authorized for the 2026-11-08 batch; reference artifact agreement is not assessed. No artifact targets added.
