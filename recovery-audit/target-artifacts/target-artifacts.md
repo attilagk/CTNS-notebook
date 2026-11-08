@@ -312,6 +312,13 @@ Execution-only rerun approved 2026-11-08: success is completing all analysis cel
 
 
 
+## 2024-01-05-5xfad-nfl-frequentist
+
+conda env: base
+
+Execution-only rerun approved 2026-11-08. Success means completing all analysis cells without an unhandled error; reference artifact agreement is not assessed.
+
+
 ## 2023-10-13-5xfad-maze
 
 conda env: bayes
