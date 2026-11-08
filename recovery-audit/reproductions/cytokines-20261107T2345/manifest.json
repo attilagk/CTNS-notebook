@@ -1,0 +1,10 @@
+{
+  "notebook": "2024-11-11-cytokines",
+  "branch": "reproduce-2024-11-11-cytokines",
+  "start_commit": "78ccff2289eac26878362ffd74aeb2494f391bf1",
+  "environment": "base",
+  "interpreter": "/home/attila/miniconda3/bin/python",
+  "source_sha256": "3038b1dcd302e5d48af4e52235dd356c10a11cc381cd9bccfd93486e69daa7f8",
+  "input_sha256": "6c449d691fd8e2095067e1a53fb2d3f69f66e4be488d3506fd80fe2e3acde4e6",
+  "execution_only": "%connect_info replaced to avoid saving kernel connection credentials; attila_utils.savefig redirected to run/figures"
+}

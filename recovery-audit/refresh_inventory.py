@@ -37,7 +37,7 @@ def main():
  for r in json.loads((H/'manuscript-restoration.json').read_text())['files']:
   if r.get('action') in ['restored','existing identical file retained']:receipts[r['destination']]=(r['sha256'],'restored from Dropbox','manuscript-restoration.json')
  r=json.loads((H/'co28154-cleaning-log.json').read_text());receipts[r['destination']]=(r['sha256'],'reconstructed from raw data','co28154-cleaning-log.json')
- reconstruction_receipts=[H/name/'receipt.json' for name in ['nfl-input-reconstruction','abeta-input-reconstruction']]
+ reconstruction_receipts=[H/name/'receipt.json' for name in ['nfl-input-reconstruction','abeta-input-reconstruction','inflammation-input-reconstruction']]
  for reconstruction_receipt in reconstruction_receipts:
   if reconstruction_receipt.exists():
    for r in json.loads(reconstruction_receipt.read_text())['files']:
