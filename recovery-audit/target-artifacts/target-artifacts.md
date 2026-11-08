@@ -310,3 +310,10 @@ conda env: base
 
 Execution-only rerun approved 2026-11-08: success is completing all analysis cells without an unhandled error. Reference artifact agreement is not assessed.
 
+
+
+## 2024-01-05-5xfad-nfl-frequentist
+
+conda env: base
+
+Execution-only rerun approved 2026-11-08. Success means completing all analysis cells without an unhandled error; reference artifact agreement is not assessed.
