@@ -1,0 +1,40 @@
+{
+  "TUDCA and HCQ": {
+    "visible_numeric_cells": 200,
+    "failed_at_saved_display_precision": 2,
+    "failures": [
+      {
+        "cytokine": "IL-10",
+        "column": [
+          "both sexes",
+          "Intercept",
+          "pvalues"
+        ],
+        "saved": "3.365444e-21",
+        "recovered": 3.3654434746700268e-21,
+        "absolute_difference": 5.2532997327344145e-28
+      },
+      {
+        "cytokine": "IL-2",
+        "column": [
+          "both sexes",
+          "Treatment[T.Saline WT]",
+          "params"
+        ],
+        "saved": "-5.483121",
+        "recovered": -5.483120499611648,
+        "absolute_difference": 5.003883520871e-07
+      }
+    ]
+  },
+  "TUDCA or HCQ": {
+    "visible_numeric_cells": 200,
+    "failed_at_saved_display_precision": 0,
+    "failures": []
+  },
+  "warnings": [
+    "Constructing a Categorical with a dtype and values containing non-null entries not in that dtype's categories is deprecated and will raise in a future version.",
+    "The design matrix is rank-deficient. The model parameters are not uniquely determined."
+  ],
+  "scope": "Selected original OLS/estimate cells only, excluding result exports and plots; not full reproduction."
+}

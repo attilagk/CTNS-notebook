@@ -297,8 +297,16 @@ conda env: base
 
 `estimates-TUDCA-and-orHCQ.png`
 ![[Pasted image 20261106220755.png]]
+
+## 2023-11-15-5xfad-nfl-gfap
+
+conda env: base
+
+Execution-only rerun approved 2026-11-08: success is completing all analysis cells without an unhandled error. Reference artifact agreement is not assessed.
+
+
 ## 2024-01-05-5xfad-nfl-frequentist
 
 conda env: base
 
-Execution-only rerun authorized for the 2026-11-08 batch; reference artifact agreement is not assessed. No artifact targets added.
+Execution-only rerun approved 2026-11-08. Success means completing all analysis cells without an unhandled error; reference artifact agreement is not assessed.

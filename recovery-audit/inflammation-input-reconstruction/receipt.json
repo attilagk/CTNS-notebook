@@ -1,0 +1,48 @@
+{
+  "installed_at": "2026-11-07T23:42:15.724618+00:00",
+  "files": [
+    {
+      "destination": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/inflammation-cleaned.csv",
+      "sha256": "6c449d691fd8e2095067e1a53fb2d3f69f66e4be488d3506fd80fe2e3acde4e6",
+      "source": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28154 rawdata biochemistry.xlsx",
+      "supporting_sources": [
+        "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28152_IV_data all.xlsx",
+        "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28152_Report_final.pdf"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "path": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28152_IV_data all.xlsx",
+      "sha256": "455872e302760be5a54e107cc91321166a67c963bf0107c16ccb7b442fa45364"
+    },
+    {
+      "path": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28154 rawdata biochemistry.xlsx",
+      "sha256": "d480bdbe6f5fcc38cef34fe2a9286048739144309525a4b3e676f7408ad4fdf5"
+    },
+    {
+      "path": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28152_Report_final.pdf",
+      "sha256": "2de8529e7f32c498724f09d542c4c7ef158ff5338d307bd66c329a72db1d4699"
+    }
+  ],
+  "dropbox_verified_sources": [
+    {
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP6w",
+      "path_display": "/QPS/in vivo/CO28154 rawdata biochemistry.xlsx",
+      "rev": "6187f7707eda490ea1323",
+      "content_hash": "f842b5da31c9419160ad69e866459b4ff5da39c0400002a74dee21e0d493af3b"
+    },
+    {
+      "file_id": "id:ZyRwCbUuGSwAAAAAAAAP9Q",
+      "path_display": "/QPS/in vivo/CO28152_Report_final.pdf",
+      "rev": "619fe5d91811190ea1323",
+      "content_hash": "8eb4d606cad25f55ad6f737be2185169ab6fcfcb7236f46b28f3ade4ffabf7b6"
+    }
+  ],
+  "source_verification": "Local bytes match current Dropbox content hashes; existing identical raw sources reused.",
+  "validation": "inflammation-input-reconstruction/validation.json",
+  "ols_comparison": "inflammation-input-reconstruction/ols-comparison.json",
+  "validation_scope": "Source reconciliation and input schema passed; targeted OLS agreement has two documented rounding-boundary differences; not full reproduction.",
+  "git_commit": "78ccff2289eac26878362ffd74aeb2494f391bf1",
+  "branch": "recover-inflammation-input"
+}

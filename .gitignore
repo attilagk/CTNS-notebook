@@ -66,3 +66,7 @@ __pycache__/
 /recovery-audit/reproductions/biochemistry-20261107T210813Z/figures/*.pdf
 /recovery-audit/reproductions/biochemistry-20261107T210813Z/figures/*.png
 !/recovery-audit/reproductions/biochemistry-20261107T210813Z/figures/boxplot-Abeta-TUDCA-and-HCQ.png
+
+# Cytokines reproduction: retain provenance/logs, exclude temporary execution assets.
+/recovery-audit/reproductions/cytokines-20261107T2345/work/
+/recovery-audit/reproductions/cytokines-20261107T2345/mplconfig/
