@@ -1,0 +1,48 @@
+{
+  "notebook": "2024-11-11-cytokines",
+  "branch": "promote-2024-11-11-cytokines",
+  "base_commit": "78ccff2289eac26878362ffd74aeb2494f391bf1",
+  "environment": "base",
+  "python": "3.13.12 | packaged by conda-forge | (main, Feb  5 2026, 05:53:46) [GCC 14.3.0]",
+  "executable": "/home/attila/miniconda3/bin/python",
+  "package_versions": {
+    "pandas": "3.1.1",
+    "numpy": "2.4.6",
+    "matplotlib": "3.10.9",
+    "seaborn": "0.13.2",
+    "statsmodels": "0.15.0",
+    "openpyxl": "3.1.5",
+    "nbclient": "0.11.0",
+    "nbformat": "5.11.1"
+  },
+  "completed_at_utc": "2026-11-08T00:05:33Z",
+  "source_notebook_sha256": "3038b1dcd302e5d48af4e52235dd356c10a11cc381cd9bccfd93486e69daa7f8",
+  "input_sha256": "6c449d691fd8e2095067e1a53fb2d3f69f66e4be488d3506fd80fe2e3acde4e6",
+  "helper_sha256": "1fca88c0c2c11368d0af3082a4fed336b1eecda417cb5b95ea32fc83f97c4857",
+  "promoted_notebook_sha256": "039dbb589e106ee8b89441fd20cd37f220bcae48be4e4ef1de2436005d302989",
+  "target_figure_sha256": "b146003658650ec91dcf5b5318c7d7e845e1829eaa2fba995fcf3ab9495651f1",
+  "reproduced_figure_sha256": "55f0952747e72e6fd2503bf53ccfe14f3a10df161c0a244d9dcc10db5cac08ce",
+  "parameter_workbook_sha256": "fb05446c2eb9ac2467a746cf51002e95e0e0340470054dcbb0ae2136a7e24664",
+  "execution": {
+    "executable_code_cells": 17,
+    "errors": [],
+    "connect_info_cell_removed": true,
+    "workspace": "/home/attila/projects/CTNS/notebooks/recovery-audit/reproductions/cytokines-20261107T2345/work",
+    "cell_count": 19
+  },
+  "target_comparison": {
+    "table": "400 visible saved estimate/SE/p-value/t-value cells",
+    "match_at_displayed_precision": 398,
+    "last_digit_boundary_differences": 2,
+    "figure": "visually consistent with target; not byte-identical (captured screen vs freshly rendered PNG)"
+  },
+  "warnings": [
+    "Pandas categorical category-mismatch deprecation warning from existing treatment filtering",
+    "Statsmodels design matrix is rank-deficient for some existing model specifications"
+  ],
+  "mcmc_cache": "not applicable; notebook fits OLS models, not MCMC",
+  "input_reconstruction_receipt": {
+    "path": "recovery-audit/promotions/2024-11-11-cytokines-input-receipt.json",
+    "sha256": "2e13e63a091e21c6cc08463060a5e1520b74dcd121a08e295e4c614b31ef3067"
+  }
+}
