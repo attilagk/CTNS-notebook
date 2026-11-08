@@ -1,0 +1,80 @@
+{
+  "reconstructed_file": "resources/QPS/5xFAD-mouse/inflammation-cleaned.csv",
+  "sha256": "6c449d691fd8e2095067e1a53fb2d3f69f66e4be488d3506fd80fe2e3acde4e6",
+  "sources": [
+    {
+      "study": "CO28154",
+      "workbook_sheet": "Inflammation",
+      "local_file": "resources/QPS/5xFAD-mouse/CO28154 rawdata biochemistry.xlsx",
+      "sha256": "d480bdbe6f5fcc38cef34fe2a9286048739144309525a4b3e676f7408ad4fdf5",
+      "dropbox_path": "/QPS/in vivo/CO28154 rawdata biochemistry.xlsx",
+      "dropbox_file_id": "id:ZyRwCbUuGSwAAAAAAAAP6w",
+      "dropbox_rev": "6187f7707eda490ea1323",
+      "dropbox_content_hash": "f842b5da31c9419160ad69e866459b4ff5da39c0400002a74dee21e0d493af3b"
+    },
+    {
+      "study": "CO28152",
+      "workbook_sheet": "Inflammation",
+      "local_file": "resources/QPS/5xFAD-mouse/CO28152_IV_data all.xlsx",
+      "sha256": "455872e302760be5a54e107cc91321166a67c963bf0107c16ccb7b442fa45364",
+      "cross_check_pdf": "resources/QPS/5xFAD-mouse/CO28152_Report_final.pdf",
+      "pdf_sha256": "2de8529e7f32c498724f09d542c4c7ef158ff5338d307bd66c329a72db1d4699",
+      "pdf_sections": ["9.3.1.3 Cortex", "9.3.1.4 Hippocampus"],
+      "pdf_pages": [67, 68, 69, 70, 71, 72],
+      "dropbox_path": "/QPS/in vivo/CO28152_Report_final.pdf",
+      "dropbox_file_id": "id:ZyRwCbUuGSwAAAAAAAAP9Q",
+      "dropbox_rev": "619fe5d91811190ea1323",
+      "dropbox_content_hash": "8eb4d606cad25f55ad6f737be2185169ab6fcfcb7236f46b28f3ade4ffabf7b6"
+    }
+  ],
+  "mapping_and_schema": {
+    "animal_counts": {"CO28152": 59, "CO28154": 60},
+    "index_columns": ["Study", "Cohort", "Group", "IRN", "Sex", "Genotype"],
+    "group_to_treatment": {
+      "CO28152": {
+        "A": "Amiloride TG",
+        "B": "HCQ TG",
+        "C": "HCQ nano TG",
+        "D": "Saline TG",
+        "E": "R-HCQ TG",
+        "F": "S-HCQ TG",
+        "G": "TUDCA TG",
+        "H": "Saline WT",
+        "I": "TUDCA WT",
+        "J": "DMSO WT"
+      },
+      "CO28154": {
+        "A": "Saline TG",
+        "B": "absent from this dataset",
+        "C": "TUDCA + HCQ TG",
+        "D": "Arundine low dose TG",
+        "E": "Arundine mid dose TG",
+        "F": "Arundine high dose TG",
+        "G": "Vehicle (Arundine) TG",
+        "H": "Arundine high dose WT",
+        "I": "absent from this dataset",
+        "J": "TUDCA + HCQ WT",
+        "K": "Saline WT",
+        "L": "Vehicle (Arundine) WT"
+      }
+    },
+    "measurement_columns": 20,
+    "regions": ["Cortex", "Hippocampus"],
+    "cytokines_per_region": 10,
+    "units": "pg/g tissue",
+    "measurement_totals": {"numeric": 2251, "blank": 129}
+  },
+  "transformations": [
+    "Removed decorative headers, the leading empty column, and group mean/SEM rows.",
+    "Preserved animal row order, identifiers, metadata, and IRN suffixes; mapped each study's group codes to the notebook's treatment mapping.",
+    "Mapped starred measurements and n.m. values to blank cells; did not drop animals with missing assays.",
+    "Preserved full precision from workbook measurements: no rounding, normalization, imputation, or unit conversion.",
+    "Preserved CO28152 animal 16192 Cortex IFN-γ as blank to match the original notebook's saved Out[3], although its unflagged raw value is 1.3143269688796921. This is a single-cell reconstruction decision; its biological rationale is unknown."
+  ],
+  "source_precision_limit": "The CO28152 PDF reports rounded values; the workbook supplies full-precision measurements. All 1,180 PDF measurement tokens, identifiers, and flags for 59 CO28152 animals in both regions were reconciled.",
+  "verification": {
+    "records_read_back": 119,
+    "all_identifiers_and_measurements_reconciled": true,
+    "targeted_ols_comparison": "398 of 400 visible estimate cells match saved display precision; the two remaining differences are at the final printed digit. See this promotion's verification JSON."
+  }
+}

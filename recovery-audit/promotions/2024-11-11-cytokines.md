@@ -21,6 +21,9 @@ is unrelated to the analysis.
   are at the last printed digit (CO28154 IL-10 intercept p-value differs by
   5.25e-28; IL-2 Saline WT coefficient differs by 5.00e-7). No scientific
   choices were changed to force exact printed rounding.
+- Source workbooks, the CO28152 cross-check PDF, their checksums, animal and
+  region mapping, precision limits, and every reconstruction decision are
+  recorded in `2024-11-11-cytokines-input-receipt.json`.
 - The existing analyses emit a Pandas categorical-category deprecation warning
   and statsmodels rank-deficiency warnings. These arise from the retained
   treatment category/model structure; they were not suppressed or altered.
