@@ -24,6 +24,7 @@ inputs={r['resolved_path']:sha(r['resolved_path']) for r in csv.DictReader(open(
 manifest=dict(notebook=name,acceptance='execution-only; no target comparisons requested',environment='base',python=sys.executable,git_revision=subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip(),git_status=subprocess.check_output(['git','status','--porcelain'],cwd=root,text=True),source_sha256=sha(source),inputs=inputs,helpers={str(p.relative_to(root)):sha(p) for p in (root/'src').glob('*.py')},started_at=datetime.now(timezone.utc).isoformat(),mode=mode)
 manifest['packages']=subprocess.check_output([sys.executable,'-m','pip','freeze'],text=True).splitlines()
 os.environ['PYTHONPATH']=str(root/'src')+':/home/attila/src';os.environ['MPLCONFIGDIR']=str(run/'mplconfig');os.environ['OPENBLAS_NUM_THREADS']='1';os.environ['OMP_NUM_THREADS']='1'
+nb.cells.insert(0, nbformat.v4.new_code_cell("import attila_utils, hashlib, json\nfrom pathlib import Path\n_helper_path = Path(attila_utils.__file__).resolve()\nprint('HELPER_PROVENANCE:' + json.dumps({'path': str(_helper_path), 'sha256': hashlib.sha256(_helper_path.read_bytes()).hexdigest()}))"))
 km=KernelManager(kernel_name='python3');km.kernel_spec.argv=[sys.executable,'-m','ipykernel_launcher','-f','{connection_file}']
 try:
  client=NotebookClient(nb,km=km,timeout=1800,resources={'metadata':{'path':str(cwd)}},on_cell_start=lambda cell,cell_index,**k: print('CELL',cell_index,flush=True))
@@ -31,6 +32,11 @@ try:
 except Exception:
  manifest['execution']='failed';manifest['error']=traceback.format_exc();print(manifest['error'])
 finally:
+ for output in nb.cells[0].get('outputs', []):
+  for line in output.get('text', '').splitlines():
+   if line.startswith('HELPER_PROVENANCE:'):
+    manifest['external_helpers'] = {'attila_utils': json.loads(line.split(':', 1)[1])}
+ nb.cells.pop(0)
  nbformat.write(nb,run/'executed.ipynb');manifest['finished_at']=datetime.now(timezone.utc).isoformat();manifest['executed_cells']=sum(c.cell_type=='code' and c.execution_count is not None for c in nb.cells);manifest['warnings']=[o.get('text','') for c in nb.cells if c.cell_type=='code' for o in c.get('outputs',[]) if o.output_type=='stream' and o.name=='stderr'];(run/(mode+'-manifest.json')).write_text(json.dumps(manifest,indent=2)+'\n')
 if manifest['execution']!='passed':sys.exit(1)
 if mode=='reproduction':shutil.copy2(run/'executed.ipynb',source)
