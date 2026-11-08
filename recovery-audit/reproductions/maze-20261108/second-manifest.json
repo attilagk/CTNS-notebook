@@ -1,0 +1,11 @@
+{
+  "environment": "bayes",
+  "python": "/home/attila/miniconda3/envs/bayes/bin/python",
+  "acceptance": "execution-only",
+  "reference_agreement": "not assessed",
+  "started_at": 1794152895.9030793,
+  "source_sha256": "3f63c8735233774bec31609a88c0f5223b6904a6c9c95a05057169575712ef23",
+  "executed_source_sha256": "cdb3e2a8f5c7d56aa54fbec79b97c0db10a46c4a431536f652819716577aafb8",
+  "execution": "passed",
+  "finished_at": 1794152955.8926322
+}

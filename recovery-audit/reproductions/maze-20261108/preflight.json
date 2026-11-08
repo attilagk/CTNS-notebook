@@ -1,0 +1,24 @@
+{
+  "python": "/home/attila/miniconda3/envs/bayes/bin/python",
+  "packages": {
+    "bambi": "0.14.0",
+    "pymc": "5.16.1",
+    "pytensor": "2.23.0",
+    "arviz": "0.17.1",
+    "numpy": "1.26.4",
+    "pandas": "2.2.3",
+    "nbclient": "0.11.0",
+    "nbformat": "5.10.4"
+  },
+  "inputs_helpers": {
+    "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO26990-behavioral-data-cleaned.xlsx": "6b8526b151d3b02cf8166f1d27428dff0e7608837d14692ca5e9702b54b1705a",
+    "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28152-behavioral-data-cleaned.xlsx": "bc46a377af66fb50b42ffe5aa781b071f99a18a544f5a2a511e683627b98bfbf",
+    "/home/attila/projects/CTNS/resources/testdata/bambi/kidney.csv": "46e49372b4e8c3044dca0ffbb4eb2244f56d7398746802e351baac6c12625564",
+    "src/mwm.py": "95efa9cfb9c766d1d9dd04cf3e3f0c0004428f5b3aa587f5048cfbe15021021a",
+    "src/mcmc_cache.py": "11ddb73ea4bb6b309841e5ea97b9e84cab2bd06cc2b3961b39b630d88fac644d"
+  },
+  "canonical_csv_hashes": {
+    "CO26990": "5bc050d5e7021aadf95b6978420cdb462942ddda2ee27c55a2768ef18e5e34e9",
+    "CO28152": "d9a4ade319c148331f517fbef4131a055361dcc9ec7e8eb9c02cc5b2115ab716"
+  }
+}

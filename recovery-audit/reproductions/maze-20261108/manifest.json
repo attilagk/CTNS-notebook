@@ -1,0 +1,15 @@
+{
+  "environment": "bayes",
+  "python": "/home/attila/miniconda3/envs/bayes/bin/python",
+  "acceptance": "execution-only",
+  "cache_only": true,
+  "reference_agreement": "not assessed",
+  "started_at": 1794174818.9352334,
+  "source_sha256": "3f63c8735233774bec31609a88c0f5223b6904a6c9c95a05057169575712ef23",
+  "executed_source_sha256": "06a62efe387e760b81337735f94c29e9de6229cdf3125741c0fe56c20a92a352",
+  "git_revision": "811ac73804a32c4466e2d448558ce0464bedec05",
+  "git_dirty": " M recovery-audit/reproductions/maze-20261108/run.py\n?? recovery-audit/reproductions/maze-20261108/provenance-verification.log\n",
+  "git_branch": "promote-2023-10-13-5xfad-maze-20261108",
+  "execution": "passed",
+  "finished_at": 1794174847.588304
+}
