@@ -1,0 +1,1241 @@
+{
+  "sources": {
+    "CO28154": {
+      "path": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28154 rawdata biochemistry.xlsx",
+      "sha256": "d480bdbe6f5fcc38cef34fe2a9286048739144309525a4b3e676f7408ad4fdf5",
+      "sheet": "Inflammation",
+      "animals": 60
+    },
+    "CO28152": {
+      "path": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28152_IV_data all.xlsx",
+      "sha256": "455872e302760be5a54e107cc91321166a67c963bf0107c16ccb7b442fa45364",
+      "sheet": "Inflammation",
+      "animals": 59
+    }
+  },
+  "pdf_comparison": {
+    "Cortex": {
+      "animals": 59,
+      "measurement_tokens": 590,
+      "starred_tokens": 14,
+      "not_measured_tokens": 0,
+      "metadata_and_values_and_flags_match": true
+    },
+    "Hippocampus": {
+      "animals": 59,
+      "measurement_tokens": 590,
+      "starred_tokens": 11,
+      "not_measured_tokens": 47,
+      "metadata_and_values_and_flags_match": true
+    }
+  },
+  "notebook_comparison": {
+    "visible_rows": 10,
+    "numeric_cells": 93,
+    "missing_cells": 7,
+    "absolute_tolerance": 1e-06,
+    "rounding_boundary_differences": [
+      {
+        "IRN": "15119",
+        "region": "Cortex",
+        "cytokine": "IL-6",
+        "saved_display": "118.149094",
+        "recovered_value": 118.1490934730664,
+        "absolute_difference": 5.269336043056683e-07
+      },
+      {
+        "IRN": "14627 A",
+        "region": "Cortex",
+        "cytokine": "IL-6",
+        "saved_display": "118.149094",
+        "recovered_value": 118.1490934730664,
+        "absolute_difference": 5.269336043056683e-07
+      }
+    ],
+    "original_shape_matched": true,
+    "limitation": "Out[3] is truncated; hidden rows cannot be compared to the lost cleaned CSV."
+  },
+  "status": "passed",
+  "wide_shape": [
+    119,
+    20
+  ],
+  "long_shapes": {
+    "CO28154": [
+      120,
+      18
+    ],
+    "CO28152": [
+      118,
+      18
+    ]
+  },
+  "cleaning_changes": [
+    {
+      "study": "CO28154",
+      "IRN": "15721",
+      "region": "Cortex",
+      "cytokine": "IFN-\u03b3",
+      "source_cell": "G4",
+      "source_token": "*6,96",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "16179",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V6",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "16179",
+      "region": "Hippocampus",
+      "cytokine": "TNF-\u03b1",
+      "source_cell": "Z6",
+      "source_token": "*42,32",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "16542",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V8",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "16718",
+      "region": "Hippocampus",
+      "cytokine": "IFN-\u03b3",
+      "source_cell": "Q9",
+      "source_token": "*5,35",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "16718",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V9",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "16540",
+      "region": "Cortex",
+      "cytokine": "IL-6",
+      "source_cell": "N13",
+      "source_token": "*221,98",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "16540",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V13",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "16926",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V15",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "16926",
+      "region": "Hippocampus",
+      "cytokine": "KC/GRO",
+      "source_cell": "Y15",
+      "source_token": "*439,13",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "17214",
+      "region": "Cortex",
+      "cytokine": "IL-5",
+      "source_cell": "M17",
+      "source_token": "*11,46",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "17214",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V17",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "15817",
+      "region": "Cortex",
+      "cytokine": "IL-6",
+      "source_cell": "N21",
+      "source_token": "*327,94",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "15817",
+      "region": "Hippocampus",
+      "cytokine": "IL-6",
+      "source_cell": "X21",
+      "source_token": "*493,65",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "16031",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V22",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "16786",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V23",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "15747",
+      "region": "Cortex",
+      "cytokine": "IL-6",
+      "source_cell": "N28",
+      "source_token": "*197,12",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "15815",
+      "region": "Cortex",
+      "cytokine": "IFN-\u03b3",
+      "source_cell": "G29",
+      "source_token": "*1,01",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "15815",
+      "region": "Cortex",
+      "cytokine": "IL-10",
+      "source_cell": "H29",
+      "source_token": "*114,52",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "15815",
+      "region": "Cortex",
+      "cytokine": "IL-12p70",
+      "source_cell": "I29",
+      "source_token": "*290,93",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "15815",
+      "region": "Cortex",
+      "cytokine": "IL-1\u03b2",
+      "source_cell": "J29",
+      "source_token": "*7,58",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "15815",
+      "region": "Cortex",
+      "cytokine": "IL-2",
+      "source_cell": "K29",
+      "source_token": "*8,50",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "15815",
+      "region": "Cortex",
+      "cytokine": "IL-4",
+      "source_cell": "L29",
+      "source_token": "*14,22",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "15815",
+      "region": "Cortex",
+      "cytokine": "IL-5",
+      "source_cell": "M29",
+      "source_token": "*9,36",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "15815",
+      "region": "Cortex",
+      "cytokine": "IL-6",
+      "source_cell": "N29",
+      "source_token": "*126,30",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "15815",
+      "region": "Cortex",
+      "cytokine": "KC/GRO",
+      "source_cell": "O29",
+      "source_token": "*64,84",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "15815",
+      "region": "Cortex",
+      "cytokine": "TNF-\u03b1",
+      "source_cell": "P29",
+      "source_token": "*23,11",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "15815",
+      "region": "Hippocampus",
+      "cytokine": "IFN-\u03b3",
+      "source_cell": "Q29",
+      "source_token": "*2,06",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "15815",
+      "region": "Hippocampus",
+      "cytokine": "IL-10",
+      "source_cell": "R29",
+      "source_token": "*169,98",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "15815",
+      "region": "Hippocampus",
+      "cytokine": "IL-12p70",
+      "source_cell": "S29",
+      "source_token": "*475,97",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "15815",
+      "region": "Hippocampus",
+      "cytokine": "IL-1\u03b2",
+      "source_cell": "T29",
+      "source_token": "*5,88",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "15815",
+      "region": "Hippocampus",
+      "cytokine": "IL-2",
+      "source_cell": "U29",
+      "source_token": "*28,87",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "15815",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V29",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "15815",
+      "region": "Hippocampus",
+      "cytokine": "IL-5",
+      "source_cell": "W29",
+      "source_token": "*15,03",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "15815",
+      "region": "Hippocampus",
+      "cytokine": "IL-6",
+      "source_cell": "X29",
+      "source_token": "*199,23",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "15815",
+      "region": "Hippocampus",
+      "cytokine": "KC/GRO",
+      "source_cell": "Y29",
+      "source_token": "*163,23",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "15815",
+      "region": "Hippocampus",
+      "cytokine": "TNF-\u03b1",
+      "source_cell": "Z29",
+      "source_token": "*16,89",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "15827",
+      "region": "Hippocampus",
+      "cytokine": "IFN-\u03b3",
+      "source_cell": "Q37",
+      "source_token": "*22,57",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "16025",
+      "region": "Cortex",
+      "cytokine": "IL-10",
+      "source_cell": "H38",
+      "source_token": "*120,28",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "16025",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V38",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "17202",
+      "region": "Cortex",
+      "cytokine": "IL-4",
+      "source_cell": "L41",
+      "source_token": "*21,13",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "17202",
+      "region": "Hippocampus",
+      "cytokine": "IL-6",
+      "source_cell": "X41",
+      "source_token": "*364,68",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "17202",
+      "region": "Hippocampus",
+      "cytokine": "KC/GRO",
+      "source_cell": "Y41",
+      "source_token": "*491,84",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "17202",
+      "region": "Hippocampus",
+      "cytokine": "TNF-\u03b1",
+      "source_cell": "Z41",
+      "source_token": "*88,60",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "15821",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V45",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "16798",
+      "region": "Hippocampus",
+      "cytokine": "IFN-\u03b3",
+      "source_cell": "Q48",
+      "source_token": "*9,62",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "16798",
+      "region": "Hippocampus",
+      "cytokine": "TNF-\u03b1",
+      "source_cell": "Z48",
+      "source_token": "*64,72",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "15781",
+      "region": "Hippocampus",
+      "cytokine": "TNF-\u03b1",
+      "source_cell": "Z52",
+      "source_token": "*23,91",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "16023",
+      "region": "Hippocampus",
+      "cytokine": "IL-2",
+      "source_cell": "U54",
+      "source_token": "*77,40",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "16554",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V60",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "16882",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V62",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "16890",
+      "region": "Hippocampus",
+      "cytokine": "KC/GRO",
+      "source_cell": "Y63",
+      "source_token": "*230,59",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "16686",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V72",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "17144",
+      "region": "Hippocampus",
+      "cytokine": "IL-5",
+      "source_cell": "W73",
+      "source_token": "*20,37",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "15823",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V77",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28154",
+      "IRN": "16746",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V79",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15117",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V4",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15119",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V5",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "14627 A",
+      "region": "Cortex",
+      "cytokine": "IFN-\u03b3",
+      "source_cell": "G6",
+      "source_token": "*1,509",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "14627 A",
+      "region": "Hippocampus",
+      "cytokine": "IFN-\u03b3",
+      "source_cell": "Q6",
+      "source_token": "*3,86",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15161",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V7",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15938",
+      "region": "Cortex",
+      "cytokine": "IL-6",
+      "source_cell": "N8",
+      "source_token": "*98,2",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15938",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V8",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "16122",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V9",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15127",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V12",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15201",
+      "region": "Hippocampus",
+      "cytokine": "IL-5",
+      "source_cell": "W13",
+      "source_token": "*20,1",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15245",
+      "region": "Cortex",
+      "cytokine": "KC/GRO",
+      "source_cell": "O14",
+      "source_token": "*290,7",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15245",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V14",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15245",
+      "region": "Hippocampus",
+      "cytokine": "KC/GRO",
+      "source_cell": "Y14",
+      "source_token": "*444,6",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15928",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V15",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "16026",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V17",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15183",
+      "region": "Hippocampus",
+      "cytokine": "IL-1\u03b2",
+      "source_cell": "T21",
+      "source_token": "*107,5",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15201 A",
+      "region": "Cortex",
+      "cytokine": "IL-6",
+      "source_cell": "N22",
+      "source_token": "*209,8",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "16106",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V25",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "14629 A",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V28",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15221",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V29",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15227",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V30",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15778 A",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V31",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15990",
+      "region": "Hippocampus",
+      "cytokine": "IFN-\u03b3",
+      "source_cell": "Q32",
+      "source_token": "*5,01",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "16042",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V33",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15239",
+      "region": "Hippocampus",
+      "cytokine": "IFN-\u03b3",
+      "source_cell": "Q36",
+      "source_token": "*9,27",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15239",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V36",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15239 A",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V37",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15267",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V38",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15267",
+      "region": "Hippocampus",
+      "cytokine": "TNF-\u03b1",
+      "source_cell": "Z38",
+      "source_token": "*27,9",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15287",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V39",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15303",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V40",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "16162",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V41",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15241 A",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V44",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15263",
+      "region": "Hippocampus",
+      "cytokine": "IFN-\u03b3",
+      "source_cell": "Q45",
+      "source_token": "*6,48",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15263",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V45",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15291",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V46",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "16176",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V47",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "16206",
+      "region": "Cortex",
+      "cytokine": "IL-12p70",
+      "source_cell": "I48",
+      "source_token": "*338,9",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "16206",
+      "region": "Cortex",
+      "cytokine": "IL-2",
+      "source_cell": "K48",
+      "source_token": "*18,7",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "16206",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V48",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "16222",
+      "region": "Cortex",
+      "cytokine": "KC/GRO",
+      "source_cell": "O49",
+      "source_token": "*1297,2",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "16222",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V49",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "16222",
+      "region": "Hippocampus",
+      "cytokine": "KC/GRO",
+      "source_cell": "Y49",
+      "source_token": "*722,3",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15916",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V52",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15996",
+      "region": "Cortex",
+      "cytokine": "IL-12p70",
+      "source_cell": "I53",
+      "source_token": "*127,2",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15996",
+      "region": "Cortex",
+      "cytokine": "IL-6",
+      "source_cell": "N53",
+      "source_token": "*577,6",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15996",
+      "region": "Cortex",
+      "cytokine": "KC/GRO",
+      "source_cell": "O53",
+      "source_token": "*370,3",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15996",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V53",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15996",
+      "region": "Hippocampus",
+      "cytokine": "IL-6",
+      "source_cell": "X53",
+      "source_token": "*1085,5",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15994",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V54",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "16104",
+      "region": "Hippocampus",
+      "cytokine": "IL-2",
+      "source_cell": "U57",
+      "source_token": "*38,2",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "16104",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V57",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "14691 A",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V60",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "14857 A",
+      "region": "Cortex",
+      "cytokine": "KC/GRO",
+      "source_cell": "O62",
+      "source_token": "*156,4",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "14857 A",
+      "region": "Cortex",
+      "cytokine": "TNF-\u03b1",
+      "source_cell": "P62",
+      "source_token": "*155,4",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "14857 A",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V62",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15806 A",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V63",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15932",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V64",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "16040",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V65",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15920",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V68",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15846 A",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V69",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "16002",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V70",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15968",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V71",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "16020",
+      "region": "Cortex",
+      "cytokine": "IL-4",
+      "source_cell": "L72",
+      "source_token": "*10,6",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "16020",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V72",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "16102",
+      "region": "Cortex",
+      "cytokine": "IFN-\u03b3",
+      "source_cell": "G73",
+      "source_token": "*1,952",
+      "reason": "starred source value"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "16102",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V73",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15195 A",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V76",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "15251",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V77",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "16180",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V78",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "16192",
+      "region": "Cortex",
+      "cytokine": "IFN-\u03b3",
+      "source_cell": "G79",
+      "source_token": 1.3143269688796921,
+      "reason": "blank in canonical notebook saved Out[3], despite unflagged raw value"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "16192",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V79",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    },
+    {
+      "study": "CO28152",
+      "IRN": "16220",
+      "region": "Hippocampus",
+      "cytokine": "IL-4",
+      "source_cell": "V80",
+      "source_token": "n.m.",
+      "reason": "not measured"
+    }
+  ],
+  "numeric_cells": 2251,
+  "missing_cells": 129,
+  "output_sha256": "6c449d691fd8e2095067e1a53fb2d3f69f66e4be488d3506fd80fe2e3acde4e6",
+  "notebook_sha256": "3038b1dcd302e5d48af4e52235dd356c10a11cc381cd9bccfd93486e69daa7f8",
+  "scope": "Source/PDF reconciliation, CSV round trip, and notebook input cell only; not full notebook reproduction."
+}
