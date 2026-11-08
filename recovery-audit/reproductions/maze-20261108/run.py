@@ -1,4 +1,4 @@
-import os,sys,json,time,hashlib,traceback
+import os,sys,json,time,hashlib,traceback,subprocess
 from pathlib import Path
 R=Path(__file__).resolve().parent;root=R.parents[2];n='2023-10-13-5xfad-maze';work=R/'work/repo'/n
 os.environ['PYTHONPATH']=str(root/'src')+':/home/attila/src';os.environ['MPLCONFIGDIR']=str(R/'mplconfig');os.environ['OMP_NUM_THREADS']='1';os.environ['OPENBLAS_NUM_THREADS']='1'
@@ -8,6 +8,9 @@ from jupyter_client import KernelManager
 b=nbformat.read(work/(n+'.ipynb'),as_version=4)
 km=KernelManager(kernel_name='python3');km.kernel_spec.argv=[sys.executable,'-m','ipykernel_launcher','-f','{connection_file}']
 status={'environment':'bayes','python':sys.executable,'acceptance':'execution-only','cache_only':'--cache-only' in sys.argv,'reference_agreement':'not assessed','started_at':time.time(), 'source_sha256':hashlib.sha256((R/'source.ipynb').read_bytes()).hexdigest(), 'executed_source_sha256':hashlib.sha256((work/(n+'.ipynb')).read_bytes()).hexdigest()}
+status['git_revision']=subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip()
+status['git_dirty']=subprocess.check_output(['git','status','--porcelain=v1','--untracked-files=all'],cwd=root,text=True)
+status['git_branch']=subprocess.check_output(['git','branch','--show-current'],cwd=root,text=True).strip()
 def progress(cell,cell_index,**kw):print('CELL',cell_index,flush=True)
 try:
  client=NotebookClient(b,km=km,timeout=None,resources={'metadata':{'path':str(work)}},on_cell_start=progress)
