@@ -1,0 +1,16 @@
+{
+  "nodes": 55,
+  "edges": 75,
+  "event_batches": 20,
+  "duration_seconds": 15,
+  "notebook_axis_and_file_band_checks": "passed",
+  "rendered_frames": 450,
+  "video_sha256": "522edc306cbe30c49ae370061f52f9bbc712d2743968472f57b20c5659b26988",
+  "visual_inspection": "15-second export regenerated with 0.7-second yellow halo diffusion and fade",
+  "halo": {
+    "color": "yellow",
+    "inner_diameter": "node outer diameter",
+    "initial_outer_diameter": "1.25 \u00d7 inner diameter",
+    "diffusion_fade_seconds": 0.7
+  }
+}
