@@ -1,0 +1,3727 @@
+{
+  "nodes": [
+    {
+      "id": "n058",
+      "kind": "notebook",
+      "row": "middle",
+      "notebook": "2023-10-13-5xfad-maze/2023-10-13-5xfad-maze.ipynb",
+      "date": "2023-10-13",
+      "date_evidence": "date from notebook filename",
+      "checkpoint": false,
+      "position_inches": {
+        "x": 27.535,
+        "y": 2.1042
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "n059",
+      "kind": "notebook",
+      "row": "middle",
+      "notebook": "2023-11-07-5xfad-maze-latency/2023-11-07-5xfad-maze-latency.ipynb",
+      "date": "2023-11-07",
+      "date_evidence": "date from notebook filename",
+      "checkpoint": false,
+      "position_inches": {
+        "x": 28.035,
+        "y": 2.1042
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "n060",
+      "kind": "notebook",
+      "row": "middle",
+      "notebook": "2023-11-07-5xfad-maze-test-probe/2023-11-07-5xfad-maze-test-probe.ipynb",
+      "date": "2023-11-07",
+      "date_evidence": "date from notebook filename",
+      "checkpoint": false,
+      "position_inches": {
+        "x": 28.368,
+        "y": 2.1042
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "n061",
+      "kind": "notebook",
+      "row": "middle",
+      "notebook": "2023-11-15-5xfad-nfl-gfap/2023-11-15-5xfad-nfl-gfap.ipynb",
+      "date": "2023-11-15",
+      "date_evidence": "date from notebook filename",
+      "checkpoint": false,
+      "position_inches": {
+        "x": 28.868,
+        "y": 2.1042
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "n063",
+      "kind": "notebook",
+      "row": "middle",
+      "notebook": "2023-12-18-5xfad-nfl-gfap-frequentist/2023-12-18-5xfad-nfl-gfap-frequentist.ipynb",
+      "date": "2023-12-18",
+      "date_evidence": "date from notebook filename",
+      "checkpoint": false,
+      "position_inches": {
+        "x": 29.868,
+        "y": 2.1042
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "n064",
+      "kind": "notebook",
+      "row": "middle",
+      "notebook": "2024-01-05-5xfad-nfl-frequentist/2024-01-05-5xfad-nfl-frequentist.ipynb",
+      "date": "2024-01-05",
+      "date_evidence": "date from notebook filename",
+      "checkpoint": false,
+      "position_inches": {
+        "x": 30.368,
+        "y": 2.1042
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "n068",
+      "kind": "notebook",
+      "row": "middle",
+      "notebook": "2024-02-29-Y-maze/2024-02-29-Y-maze.ipynb",
+      "date": "2024-02-29",
+      "date_evidence": "date from notebook filename",
+      "checkpoint": false,
+      "position_inches": {
+        "x": 32.201,
+        "y": 2.1042
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "n075",
+      "kind": "notebook",
+      "row": "middle",
+      "notebook": "2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb",
+      "date": "2024-05-20",
+      "date_evidence": "date from notebook filename",
+      "checkpoint": false,
+      "position_inches": {
+        "x": 35.535,
+        "y": 2.1042
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "n076",
+      "kind": "notebook",
+      "row": "middle",
+      "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+      "date": "2024-06-04",
+      "date_evidence": "date from notebook filename",
+      "checkpoint": false,
+      "position_inches": {
+        "x": 36.035,
+        "y": 2.1042
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "n077",
+      "kind": "notebook",
+      "row": "middle",
+      "notebook": "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb",
+      "date": "2024-06-26",
+      "date_evidence": "date from notebook filename",
+      "checkpoint": false,
+      "position_inches": {
+        "x": 36.535,
+        "y": 2.1042
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "n078",
+      "kind": "notebook",
+      "row": "middle",
+      "notebook": "2024-08-08-biochemistry/2024-08-08-biochemistry.ipynb",
+      "date": "2024-08-08",
+      "date_evidence": "date from notebook filename",
+      "checkpoint": false,
+      "position_inches": {
+        "x": 37.035,
+        "y": 2.1042
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "n080",
+      "kind": "notebook",
+      "row": "middle",
+      "notebook": "2024-11-11-cytokines/2024-11-11-cytokines.ipynb",
+      "date": "2024-11-11",
+      "date_evidence": "date from notebook filename",
+      "checkpoint": false,
+      "position_inches": {
+        "x": 37.868,
+        "y": 2.1042
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "fc29ff1255f24c8",
+      "kind": "file",
+      "row": "top",
+      "resolved_path": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO26990-behavioral-data-cleaned.xlsx",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [
+        "2023-10-13-5xfad-maze/2023-10-13-5xfad-maze.ipynb",
+        "2024-02-29-Y-maze/2024-02-29-Y-maze.ipynb",
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+        "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb"
+      ],
+      "producers": [],
+      "evidence": [
+        {
+          "notebook": "2023-10-13-5xfad-maze/2023-10-13-5xfad-maze.ipynb",
+          "cell": "4",
+          "source": "2023-10-13-5xfad-maze/2023-10-13-5xfad-maze.ipynb#cell=4",
+          "line": "2",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='rawdata MWM day 1-4', header=[0, 1], index_col=None)",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO26990-behavioral-data-cleaned.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        },
+        {
+          "notebook": "2024-02-29-Y-maze/2024-02-29-Y-maze.ipynb",
+          "cell": "3",
+          "source": "2024-02-29-Y-maze/2024-02-29-Y-maze.ipynb#cell=3",
+          "line": "2",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='Y-Maze')",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO26990-behavioral-data-cleaned.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        },
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "2",
+          "source": "src/mwm.py",
+          "line": "61",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name=sheet_name, header=[0, 1], index_col=None)",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO26990-behavioral-data-cleaned.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        },
+        {
+          "notebook": "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb",
+          "cell": "2",
+          "source": "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb#cell=2",
+          "line": "9",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='rawdata MWM day 5', index_col='IRN')",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO26990-behavioral-data-cleaned.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        }
+      ],
+      "recovery_candidates": [
+        "/QPS/in vivo/CO26990-behavioral-data-cleaned.xlsx"
+      ],
+      "uncertainty": [
+        "Dropbox: same basename; contents unverified"
+      ],
+      "position_inches": {
+        "x": 34.868,
+        "y": 4.1736
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "fa85e937d5c3bac",
+      "kind": "file",
+      "row": "top",
+      "resolved_path": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28152-behavioral-data-cleaned.xlsx",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [
+        "2023-10-13-5xfad-maze/2023-10-13-5xfad-maze.ipynb",
+        "2024-02-29-Y-maze/2024-02-29-Y-maze.ipynb",
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+        "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb"
+      ],
+      "producers": [],
+      "evidence": [
+        {
+          "notebook": "2023-10-13-5xfad-maze/2023-10-13-5xfad-maze.ipynb",
+          "cell": "4",
+          "source": "2023-10-13-5xfad-maze/2023-10-13-5xfad-maze.ipynb#cell=4",
+          "line": "2",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='rawdata MWM day 1-4', header=[0, 1], index_col=None)",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28152-behavioral-data-cleaned.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        },
+        {
+          "notebook": "2024-02-29-Y-maze/2024-02-29-Y-maze.ipynb",
+          "cell": "4",
+          "source": "2024-02-29-Y-maze/2024-02-29-Y-maze.ipynb#cell=3",
+          "line": "2",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='Y-Maze')",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28152-behavioral-data-cleaned.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        },
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "2",
+          "source": "src/mwm.py",
+          "line": "61",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name=sheet_name, header=[0, 1], index_col=None)",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28152-behavioral-data-cleaned.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        },
+        {
+          "notebook": "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb",
+          "cell": "3",
+          "source": "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb#cell=3",
+          "line": "15",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='raw data MWM day 5', index_col='IRN')",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28152-behavioral-data-cleaned.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        }
+      ],
+      "recovery_candidates": [
+        "/QPS/in vivo/CO28152-behavioral-data-cleaned.xlsx"
+      ],
+      "uncertainty": [
+        "Dropbox: same basename; contents unverified"
+      ],
+      "position_inches": {
+        "x": 35.035,
+        "y": 4.1736
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "fb8e9c2fb26e482",
+      "kind": "file",
+      "row": "top",
+      "resolved_path": "/home/attila/projects/CTNS/resources/testdata/bambi/kidney.csv",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [
+        "2023-10-13-5xfad-maze/2023-10-13-5xfad-maze.ipynb"
+      ],
+      "producers": [],
+      "evidence": [
+        {
+          "notebook": "2023-10-13-5xfad-maze/2023-10-13-5xfad-maze.ipynb",
+          "cell": "14",
+          "source": "2023-10-13-5xfad-maze/2023-10-13-5xfad-maze.ipynb#cell=14",
+          "line": "2",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath)",
+          "expected_path": "../../resources/testdata/bambi/kidney.csv",
+          "status": "missing at expected path",
+          "notes": "; Other Dropbox backups not searched; only supplied /QPS scope available"
+        }
+      ],
+      "recovery_candidates": [],
+      "uncertainty": [],
+      "position_inches": {
+        "x": 31.035,
+        "y": 4.1736
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "f5d867ad672b7c1",
+      "kind": "file",
+      "row": "bottom",
+      "resolved_path": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/data_train-CO26990.csv",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [
+        "2023-11-07-5xfad-maze-latency/2023-11-07-5xfad-maze-latency.ipynb"
+      ],
+      "producers": [
+        "2023-10-13-5xfad-maze/2023-10-13-5xfad-maze.ipynb"
+      ],
+      "evidence": [
+        {
+          "notebook": "2023-11-07-5xfad-maze-latency/2023-11-07-5xfad-maze-latency.ipynb",
+          "cell": "3",
+          "source": "2023-11-07-5xfad-maze-latency/2023-11-07-5xfad-maze-latency.ipynb#cell=3",
+          "line": "2",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=['cohort', 'group', 'sex', 'irn', 'day'])",
+          "expected_path": "../../results/2023-10-13-5xfad-maze/data_train-CO26990.csv",
+          "status": "missing at expected path",
+          "notes": "; Other Dropbox backups not searched; only supplied /QPS scope available"
+        },
+        {
+          "notebook": "2023-10-13-5xfad-maze/2023-10-13-5xfad-maze.ipynb",
+          "cell": "4",
+          "source": "2023-10-13-5xfad-maze/2023-10-13-5xfad-maze.ipynb#cell=4",
+          "line": "18",
+          "loader": "data_train1.to_csv",
+          "expression": "data_train1.to_csv('../../results/2023-10-13-5xfad-maze/data_train-CO26990.csv')",
+          "expected_path": "../../results/2023-10-13-5xfad-maze/data_train-CO26990.csv",
+          "status": "",
+          "notes": ""
+        }
+      ],
+      "recovery_candidates": [],
+      "uncertainty": [],
+      "position_inches": {
+        "x": 26.701,
+        "y": 0.034722
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "f9a45ef0756f4bd",
+      "kind": "file",
+      "row": "bottom",
+      "resolved_path": "/home/attila/projects/CTNS/results/2023-10-13-5xfad-maze/data_train-CO28152.csv",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [
+        "2023-11-07-5xfad-maze-latency/2023-11-07-5xfad-maze-latency.ipynb"
+      ],
+      "producers": [
+        "2023-10-13-5xfad-maze/2023-10-13-5xfad-maze.ipynb"
+      ],
+      "evidence": [
+        {
+          "notebook": "2023-11-07-5xfad-maze-latency/2023-11-07-5xfad-maze-latency.ipynb",
+          "cell": "4",
+          "source": "2023-11-07-5xfad-maze-latency/2023-11-07-5xfad-maze-latency.ipynb#cell=4",
+          "line": "2",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=['cohort', 'group', 'sex', 'irn', 'day'])",
+          "expected_path": "../../results/2023-10-13-5xfad-maze/data_train-CO28152.csv",
+          "status": "missing at expected path",
+          "notes": "; Other Dropbox backups not searched; only supplied /QPS scope available"
+        },
+        {
+          "notebook": "2023-10-13-5xfad-maze/2023-10-13-5xfad-maze.ipynb",
+          "cell": "4",
+          "source": "2023-10-13-5xfad-maze/2023-10-13-5xfad-maze.ipynb#cell=4",
+          "line": "22",
+          "loader": "data_train2.to_csv",
+          "expression": "data_train2.to_csv('../../results/2023-10-13-5xfad-maze/data_train-CO28152.csv')",
+          "expected_path": "../../results/2023-10-13-5xfad-maze/data_train-CO28152.csv",
+          "status": "",
+          "notes": ""
+        }
+      ],
+      "recovery_candidates": [],
+      "uncertainty": [],
+      "position_inches": {
+        "x": 26.868,
+        "y": 0.034722
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "fec99d8a748f1b7",
+      "kind": "file",
+      "row": "top",
+      "resolved_path": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/amiloride-behavioral-data-cleaned.xlsx",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [
+        "2023-11-07-5xfad-maze-test-probe/2023-11-07-5xfad-maze-test-probe.ipynb"
+      ],
+      "producers": [],
+      "evidence": [
+        {
+          "notebook": "2023-11-07-5xfad-maze-test-probe/2023-11-07-5xfad-maze-test-probe.ipynb",
+          "cell": "3",
+          "source": "2023-11-07-5xfad-maze-test-probe/2023-11-07-5xfad-maze-test-probe.ipynb#cell=3",
+          "line": "8",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='rawdata MWM day 5', index_col='IRN')",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/amiloride-behavioral-data-cleaned.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        }
+      ],
+      "recovery_candidates": [],
+      "uncertainty": [],
+      "position_inches": {
+        "x": 31.535,
+        "y": 4.1736
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "fcb7feca0bf5e18",
+      "kind": "file",
+      "row": "top",
+      "resolved_path": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO26990-MWM-mean-distance-to-platform.xlsx",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [
+        "2023-11-07-5xfad-maze-test-probe/2023-11-07-5xfad-maze-test-probe.ipynb"
+      ],
+      "producers": [],
+      "evidence": [
+        {
+          "notebook": "2023-11-07-5xfad-maze-test-probe/2023-11-07-5xfad-maze-test-probe.ipynb",
+          "cell": "3",
+          "source": "2023-11-07-5xfad-maze-test-probe/2023-11-07-5xfad-maze-test-probe.ipynb#cell=3",
+          "line": "12",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='cleaned', index_col='IRN')",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO26990-MWM-mean-distance-to-platform.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        }
+      ],
+      "recovery_candidates": [
+        "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO26990 MWM mean distance to platform rawdata.xlsx",
+        "/QPS/in vivo/CO26990-MWM-mean-distance-to-platform.xlsx"
+      ],
+      "uncertainty": [
+        "Local: similar filename only; may be a different version; Dropbox: same basename; contents unverified"
+      ],
+      "position_inches": {
+        "x": 31.201,
+        "y": 4.1736
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "f95e37bebc96e73",
+      "kind": "file",
+      "row": "top",
+      "resolved_path": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28152-MWM-mean-distance-to-platform.xlsx",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [
+        "2023-11-07-5xfad-maze-test-probe/2023-11-07-5xfad-maze-test-probe.ipynb"
+      ],
+      "producers": [],
+      "evidence": [
+        {
+          "notebook": "2023-11-07-5xfad-maze-test-probe/2023-11-07-5xfad-maze-test-probe.ipynb",
+          "cell": "4",
+          "source": "2023-11-07-5xfad-maze-test-probe/2023-11-07-5xfad-maze-test-probe.ipynb#cell=4",
+          "line": "15",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='cleaned', index_col='IRN')",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28152-MWM-mean-distance-to-platform.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        }
+      ],
+      "recovery_candidates": [
+        "/QPS/in vivo/CO28152-MWM-mean-distance-to-platform.xlsx"
+      ],
+      "uncertainty": [
+        "Dropbox: same basename; contents unverified"
+      ],
+      "position_inches": {
+        "x": 31.368,
+        "y": 4.1736
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "ff073a722208b51",
+      "kind": "file",
+      "row": "top",
+      "resolved_path": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28152_NFL-GFAP_datasum.xlsx",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [
+        "2023-11-15-5xfad-nfl-gfap/2023-11-15-5xfad-nfl-gfap.ipynb",
+        "2023-12-18-5xfad-nfl-gfap-frequentist/2023-12-18-5xfad-nfl-gfap-frequentist.ipynb",
+        "2024-01-05-5xfad-nfl-frequentist/2024-01-05-5xfad-nfl-frequentist.ipynb",
+        "2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb"
+      ],
+      "producers": [],
+      "evidence": [
+        {
+          "notebook": "2023-11-15-5xfad-nfl-gfap/2023-11-15-5xfad-nfl-gfap.ipynb",
+          "cell": "3",
+          "source": "2023-11-15-5xfad-nfl-gfap/2023-11-15-5xfad-nfl-gfap.ipynb#cell=3",
+          "line": "2",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='NFL in vivo clean')",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28152_NFL-GFAP_datasum.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        },
+        {
+          "notebook": "2023-11-15-5xfad-nfl-gfap/2023-11-15-5xfad-nfl-gfap.ipynb",
+          "cell": "11",
+          "source": "2023-11-15-5xfad-nfl-gfap/2023-11-15-5xfad-nfl-gfap.ipynb#cell=11",
+          "line": "2",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='NFL terminal clean')",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28152_NFL-GFAP_datasum.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        },
+        {
+          "notebook": "2023-11-15-5xfad-nfl-gfap/2023-11-15-5xfad-nfl-gfap.ipynb",
+          "cell": "21",
+          "source": "2023-11-15-5xfad-nfl-gfap/2023-11-15-5xfad-nfl-gfap.ipynb#cell=21",
+          "line": "2",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='GFAP plasma clean')",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28152_NFL-GFAP_datasum.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        },
+        {
+          "notebook": "2023-12-18-5xfad-nfl-gfap-frequentist/2023-12-18-5xfad-nfl-gfap-frequentist.ipynb",
+          "cell": "3",
+          "source": "2023-12-18-5xfad-nfl-gfap-frequentist/2023-12-18-5xfad-nfl-gfap-frequentist.ipynb#cell=3",
+          "line": "2",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='NFL in vivo clean')",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28152_NFL-GFAP_datasum.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        },
+        {
+          "notebook": "2023-12-18-5xfad-nfl-gfap-frequentist/2023-12-18-5xfad-nfl-gfap-frequentist.ipynb",
+          "cell": "14",
+          "source": "2023-12-18-5xfad-nfl-gfap-frequentist/2023-12-18-5xfad-nfl-gfap-frequentist.ipynb#cell=14",
+          "line": "2",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='NFL terminal clean')",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28152_NFL-GFAP_datasum.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        },
+        {
+          "notebook": "2024-01-05-5xfad-nfl-frequentist/2024-01-05-5xfad-nfl-frequentist.ipynb",
+          "cell": "4",
+          "source": "2024-01-05-5xfad-nfl-frequentist/2024-01-05-5xfad-nfl-frequentist.ipynb#cell=4",
+          "line": "2",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='NFL in vivo clean')",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28152_NFL-GFAP_datasum.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        },
+        {
+          "notebook": "2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb",
+          "cell": "2",
+          "source": "src/nfl.py",
+          "line": "12",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name=sheet_name)",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28152_NFL-GFAP_datasum.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        }
+      ],
+      "recovery_candidates": [
+        "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28152_NFL and GFAP_datasum.xlsx",
+        "/QPS/in vivo/CO28152_NFL-GFAP_datasum.xlsx"
+      ],
+      "uncertainty": [
+        "Local: similar filename only; may be a different version; Dropbox: same basename; contents unverified"
+      ],
+      "position_inches": {
+        "x": 33.201,
+        "y": 4.1736
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "fad7e509f33c4c2",
+      "kind": "file",
+      "row": "top",
+      "resolved_path": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28154-biochemistry-cleaned.xlsx",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [
+        "2024-01-05-5xfad-nfl-frequentist/2024-01-05-5xfad-nfl-frequentist.ipynb",
+        "2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb"
+      ],
+      "producers": [],
+      "evidence": [
+        {
+          "notebook": "2024-01-05-5xfad-nfl-frequentist/2024-01-05-5xfad-nfl-frequentist.ipynb",
+          "cell": "4",
+          "source": "2024-01-05-5xfad-nfl-frequentist/2024-01-05-5xfad-nfl-frequentist.ipynb#cell=4",
+          "line": "2",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='NFL in vivo clean')",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28154-biochemistry-cleaned.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        },
+        {
+          "notebook": "2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb",
+          "cell": "3",
+          "source": "src/nfl.py",
+          "line": "12",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name=sheet_name)",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28154-biochemistry-cleaned.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        }
+      ],
+      "recovery_candidates": [],
+      "uncertainty": [],
+      "position_inches": {
+        "x": 34.701,
+        "y": 4.1736
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "f74aa5c01bb0ba1",
+      "kind": "file",
+      "row": "top",
+      "resolved_path": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28154-behavioral-data-cleaned.xlsx",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [
+        "2024-02-29-Y-maze/2024-02-29-Y-maze.ipynb",
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+        "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb"
+      ],
+      "producers": [],
+      "evidence": [
+        {
+          "notebook": "2024-02-29-Y-maze/2024-02-29-Y-maze.ipynb",
+          "cell": "5",
+          "source": "2024-02-29-Y-maze/2024-02-29-Y-maze.ipynb#cell=3",
+          "line": "2",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='Y-Maze')",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28154-behavioral-data-cleaned.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        },
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "2",
+          "source": "src/mwm.py",
+          "line": "61",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name=sheet_name, header=[0, 1], index_col=None)",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28154-behavioral-data-cleaned.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        },
+        {
+          "notebook": "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb",
+          "cell": "4",
+          "source": "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb#cell=4",
+          "line": "17",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='Probe Trial day5', index_col='IRN')",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28154-behavioral-data-cleaned.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        }
+      ],
+      "recovery_candidates": [],
+      "uncertainty": [],
+      "reconstruction": {
+        "raw_local_path": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28154-rawdata-in-vivo.xlsx",
+        "raw_dropbox_url": "https://www.dropbox.com/scl/fi/tfj5cq637eq7md7f01lcj/CO28154-rawdata-in-vivo.xlsx?rlkey=bmuemeuw7bxhfe9xmac9kqocc&dl=0",
+        "method": "Reconstruct cleaning using CO28152 raw/cleaned reference pair, then adapt to CO28154 cohort and sheets; not implemented or validated"
+      },
+      "position_inches": {
+        "x": 37.535,
+        "y": 4.1736
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "f27c4567f1bfc72",
+      "kind": "file",
+      "row": "top",
+      "resolved_path": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28152-animal-list.csv",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [
+        "2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb"
+      ],
+      "producers": [],
+      "evidence": [
+        {
+          "notebook": "2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb",
+          "cell": "2",
+          "source": "src/nfl.py",
+          "line": "27",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath_subjects, dtype={'IRN': str}, index_col='IRN')",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28152-animal-list.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "recovery_candidates": [],
+      "uncertainty": [],
+      "position_inches": {
+        "x": 37.868,
+        "y": 4.1736
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "febc64f25c22185",
+      "kind": "file",
+      "row": "top",
+      "resolved_path": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28154-animal-list.csv",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [
+        "2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb"
+      ],
+      "producers": [],
+      "evidence": [
+        {
+          "notebook": "2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb",
+          "cell": "3",
+          "source": "src/nfl.py",
+          "line": "27",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath_subjects, dtype={'IRN': str}, index_col='IRN')",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28154-animal-list.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "recovery_candidates": [],
+      "uncertainty": [],
+      "position_inches": {
+        "x": 38.035,
+        "y": 4.1736
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "f8aca22a5cdf597",
+      "kind": "file",
+      "row": "bottom",
+      "resolved_path": "/home/attila/projects/CTNS/results/2024-06-04-5xfad-behavior-CO28154/idatas3_CO26990/fpaths.csv",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb"
+      ],
+      "producers": [
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb"
+      ],
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "13",
+          "source": "src/mwm.py",
+          "line": "156",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=0)",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas3_CO26990/fpaths.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified; Other Dropbox backups not searched; only supplied /QPS scope available"
+        },
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "13",
+          "source": "src/cellbayesassay.py",
+          "line": "377",
+          "loader": "fpathdf.to_csv",
+          "expression": "fpathdf.to_csv(os.path.join(dirname, 'fpaths.csv'))",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas3_CO26990/fpaths.csv",
+          "status": "",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "recovery_candidates": [],
+      "uncertainty": [],
+      "position_inches": {
+        "x": 34.368,
+        "y": 0.034722
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "f3318c53acb0712",
+      "kind": "file",
+      "row": "bottom",
+      "resolved_path": "/home/attila/projects/CTNS/results/2024-06-04-5xfad-behavior-CO28154/idatas3_CO26990_m/fpaths.csv",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb"
+      ],
+      "producers": [
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb"
+      ],
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "14",
+          "source": "src/mwm.py",
+          "line": "156",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=0)",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas3_CO26990_m/fpaths.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified; Other Dropbox backups not searched; only supplied /QPS scope available"
+        },
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "14",
+          "source": "src/cellbayesassay.py",
+          "line": "377",
+          "loader": "fpathdf.to_csv",
+          "expression": "fpathdf.to_csv(os.path.join(dirname, 'fpaths.csv'))",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas3_CO26990_m/fpaths.csv",
+          "status": "",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "recovery_candidates": [],
+      "uncertainty": [],
+      "position_inches": {
+        "x": 34.535,
+        "y": 0.034722
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "f325c1f27e6f0a4",
+      "kind": "file",
+      "row": "bottom",
+      "resolved_path": "/home/attila/projects/CTNS/results/2024-06-04-5xfad-behavior-CO28154/idatas2_CO26990/fpaths.csv",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb"
+      ],
+      "producers": [
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb"
+      ],
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "15",
+          "source": "src/mwm.py",
+          "line": "156",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=0)",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas2_CO26990/fpaths.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified; Other Dropbox backups not searched; only supplied /QPS scope available"
+        },
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "15",
+          "source": "src/cellbayesassay.py",
+          "line": "377",
+          "loader": "fpathdf.to_csv",
+          "expression": "fpathdf.to_csv(os.path.join(dirname, 'fpaths.csv'))",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas2_CO26990/fpaths.csv",
+          "status": "",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "recovery_candidates": [],
+      "uncertainty": [],
+      "position_inches": {
+        "x": 33.035,
+        "y": 0.034722
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "f57bc6d4631c03d",
+      "kind": "file",
+      "row": "bottom",
+      "resolved_path": "/home/attila/projects/CTNS/results/2024-06-04-5xfad-behavior-CO28154/idatas2_CO26990_m/fpaths.csv",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb"
+      ],
+      "producers": [
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb"
+      ],
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "16",
+          "source": "src/mwm.py",
+          "line": "156",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=0)",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas2_CO26990_m/fpaths.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified; Other Dropbox backups not searched; only supplied /QPS scope available"
+        },
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "16",
+          "source": "src/cellbayesassay.py",
+          "line": "377",
+          "loader": "fpathdf.to_csv",
+          "expression": "fpathdf.to_csv(os.path.join(dirname, 'fpaths.csv'))",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas2_CO26990_m/fpaths.csv",
+          "status": "",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "recovery_candidates": [],
+      "uncertainty": [],
+      "position_inches": {
+        "x": 33.201,
+        "y": 0.034722
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "feb2572276eab3d",
+      "kind": "file",
+      "row": "bottom",
+      "resolved_path": "/home/attila/projects/CTNS/results/2024-06-04-5xfad-behavior-CO28154/idatas3_CO28152/fpaths.csv",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb"
+      ],
+      "producers": [
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb"
+      ],
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "17",
+          "source": "src/mwm.py",
+          "line": "156",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=0)",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas3_CO28152/fpaths.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified; Other Dropbox backups not searched; only supplied /QPS scope available"
+        },
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "17",
+          "source": "src/cellbayesassay.py",
+          "line": "377",
+          "loader": "fpathdf.to_csv",
+          "expression": "fpathdf.to_csv(os.path.join(dirname, 'fpaths.csv'))",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas3_CO28152/fpaths.csv",
+          "status": "",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "recovery_candidates": [],
+      "uncertainty": [],
+      "position_inches": {
+        "x": 34.701,
+        "y": 0.034722
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "fd724bdc61101b3",
+      "kind": "file",
+      "row": "bottom",
+      "resolved_path": "/home/attila/projects/CTNS/results/2024-06-04-5xfad-behavior-CO28154/idatas3_CO28152_m/fpaths.csv",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb"
+      ],
+      "producers": [
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb"
+      ],
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "18",
+          "source": "src/mwm.py",
+          "line": "156",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=0)",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas3_CO28152_m/fpaths.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified; Other Dropbox backups not searched; only supplied /QPS scope available"
+        },
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "18",
+          "source": "src/cellbayesassay.py",
+          "line": "377",
+          "loader": "fpathdf.to_csv",
+          "expression": "fpathdf.to_csv(os.path.join(dirname, 'fpaths.csv'))",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas3_CO28152_m/fpaths.csv",
+          "status": "",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "recovery_candidates": [],
+      "uncertainty": [],
+      "position_inches": {
+        "x": 34.868,
+        "y": 0.034722
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "f958bfa2edca568",
+      "kind": "file",
+      "row": "bottom",
+      "resolved_path": "/home/attila/projects/CTNS/results/2024-06-04-5xfad-behavior-CO28154/idatas2_CO28152/fpaths.csv",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb"
+      ],
+      "producers": [
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb"
+      ],
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "19",
+          "source": "src/mwm.py",
+          "line": "156",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=0)",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas2_CO28152/fpaths.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified; Other Dropbox backups not searched; only supplied /QPS scope available"
+        },
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "19",
+          "source": "src/cellbayesassay.py",
+          "line": "377",
+          "loader": "fpathdf.to_csv",
+          "expression": "fpathdf.to_csv(os.path.join(dirname, 'fpaths.csv'))",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas2_CO28152/fpaths.csv",
+          "status": "",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "recovery_candidates": [],
+      "uncertainty": [],
+      "position_inches": {
+        "x": 33.368,
+        "y": 0.034722
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "fa4f70e229d3036",
+      "kind": "file",
+      "row": "bottom",
+      "resolved_path": "/home/attila/projects/CTNS/results/2024-06-04-5xfad-behavior-CO28154/idatas2_CO28152_m/fpaths.csv",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb"
+      ],
+      "producers": [
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb"
+      ],
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "20",
+          "source": "src/mwm.py",
+          "line": "156",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=0)",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas2_CO28152_m/fpaths.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified; Other Dropbox backups not searched; only supplied /QPS scope available"
+        },
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "20",
+          "source": "src/cellbayesassay.py",
+          "line": "377",
+          "loader": "fpathdf.to_csv",
+          "expression": "fpathdf.to_csv(os.path.join(dirname, 'fpaths.csv'))",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas2_CO28152_m/fpaths.csv",
+          "status": "",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "recovery_candidates": [],
+      "uncertainty": [],
+      "position_inches": {
+        "x": 33.701,
+        "y": 0.034722
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "fbbe5284cb7214c",
+      "kind": "file",
+      "row": "bottom",
+      "resolved_path": "/home/attila/projects/CTNS/results/2024-06-04-5xfad-behavior-CO28154/idatas_CO28152/fpaths.csv",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb"
+      ],
+      "producers": [
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb"
+      ],
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "21",
+          "source": "src/mwm.py",
+          "line": "156",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=0)",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas_CO28152/fpaths.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified; Other Dropbox backups not searched; only supplied /QPS scope available"
+        },
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "21",
+          "source": "src/cellbayesassay.py",
+          "line": "377",
+          "loader": "fpathdf.to_csv",
+          "expression": "fpathdf.to_csv(os.path.join(dirname, 'fpaths.csv'))",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas_CO28152/fpaths.csv",
+          "status": "",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "recovery_candidates": [],
+      "uncertainty": [],
+      "position_inches": {
+        "x": 35.535,
+        "y": 0.034722
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "fb95db5ad6b6374",
+      "kind": "file",
+      "row": "bottom",
+      "resolved_path": "/home/attila/projects/CTNS/results/2024-06-04-5xfad-behavior-CO28154/idatas_CO28152_m/fpaths.csv",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb"
+      ],
+      "producers": [
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb"
+      ],
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "22",
+          "source": "src/mwm.py",
+          "line": "156",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=0)",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas_CO28152_m/fpaths.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified; Other Dropbox backups not searched; only supplied /QPS scope available"
+        },
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "22",
+          "source": "src/cellbayesassay.py",
+          "line": "377",
+          "loader": "fpathdf.to_csv",
+          "expression": "fpathdf.to_csv(os.path.join(dirname, 'fpaths.csv'))",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas_CO28152_m/fpaths.csv",
+          "status": "",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "recovery_candidates": [],
+      "uncertainty": [],
+      "position_inches": {
+        "x": 35.868,
+        "y": 0.034722
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "f48f19e1b91104d",
+      "kind": "file",
+      "row": "bottom",
+      "resolved_path": "/home/attila/projects/CTNS/results/2024-06-04-5xfad-behavior-CO28154/idatas3_CO28154/fpaths.csv",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb"
+      ],
+      "producers": [
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb"
+      ],
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "23",
+          "source": "src/mwm.py",
+          "line": "156",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=0)",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas3_CO28154/fpaths.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified; Other Dropbox backups not searched; only supplied /QPS scope available"
+        },
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "23",
+          "source": "src/cellbayesassay.py",
+          "line": "377",
+          "loader": "fpathdf.to_csv",
+          "expression": "fpathdf.to_csv(os.path.join(dirname, 'fpaths.csv'))",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas3_CO28154/fpaths.csv",
+          "status": "",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "recovery_candidates": [],
+      "uncertainty": [],
+      "position_inches": {
+        "x": 35.201,
+        "y": 0.034722
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "fe1c6df416a25f3",
+      "kind": "file",
+      "row": "bottom",
+      "resolved_path": "/home/attila/projects/CTNS/results/2024-06-04-5xfad-behavior-CO28154/idatas3_CO28154_m/fpaths.csv",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb"
+      ],
+      "producers": [
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb"
+      ],
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "24",
+          "source": "src/mwm.py",
+          "line": "156",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=0)",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas3_CO28154_m/fpaths.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified; Other Dropbox backups not searched; only supplied /QPS scope available"
+        },
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "24",
+          "source": "src/cellbayesassay.py",
+          "line": "377",
+          "loader": "fpathdf.to_csv",
+          "expression": "fpathdf.to_csv(os.path.join(dirname, 'fpaths.csv'))",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas3_CO28154_m/fpaths.csv",
+          "status": "",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "recovery_candidates": [],
+      "uncertainty": [],
+      "position_inches": {
+        "x": 35.368,
+        "y": 0.034722
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "f242cf00f212394",
+      "kind": "file",
+      "row": "bottom",
+      "resolved_path": "/home/attila/projects/CTNS/results/2024-06-04-5xfad-behavior-CO28154/idatas2_CO28154/fpaths.csv",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb"
+      ],
+      "producers": [
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb"
+      ],
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "25",
+          "source": "src/mwm.py",
+          "line": "156",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=0)",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas2_CO28154/fpaths.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified; Other Dropbox backups not searched; only supplied /QPS scope available"
+        },
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "25",
+          "source": "src/cellbayesassay.py",
+          "line": "377",
+          "loader": "fpathdf.to_csv",
+          "expression": "fpathdf.to_csv(os.path.join(dirname, 'fpaths.csv'))",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas2_CO28154/fpaths.csv",
+          "status": "",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "recovery_candidates": [],
+      "uncertainty": [],
+      "position_inches": {
+        "x": 33.868,
+        "y": 0.034722
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "fda82f661043b25",
+      "kind": "file",
+      "row": "bottom",
+      "resolved_path": "/home/attila/projects/CTNS/results/2024-06-04-5xfad-behavior-CO28154/idatas2_CO28154_m/fpaths.csv",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb"
+      ],
+      "producers": [
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb"
+      ],
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "26",
+          "source": "src/mwm.py",
+          "line": "156",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=0)",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas2_CO28154_m/fpaths.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified; Other Dropbox backups not searched; only supplied /QPS scope available"
+        },
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "26",
+          "source": "src/cellbayesassay.py",
+          "line": "377",
+          "loader": "fpathdf.to_csv",
+          "expression": "fpathdf.to_csv(os.path.join(dirname, 'fpaths.csv'))",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas2_CO28154_m/fpaths.csv",
+          "status": "",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "recovery_candidates": [],
+      "uncertainty": [],
+      "position_inches": {
+        "x": 34.035,
+        "y": 0.034722
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "f96e484fe5ae4c6",
+      "kind": "file",
+      "row": "bottom",
+      "resolved_path": "/home/attila/projects/CTNS/results/2024-06-04-5xfad-behavior-CO28154/idatas_CO28154/fpaths.csv",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb"
+      ],
+      "producers": [
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb"
+      ],
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "27",
+          "source": "src/mwm.py",
+          "line": "156",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=0)",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas_CO28154/fpaths.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified; Other Dropbox backups not searched; only supplied /QPS scope available"
+        },
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "27",
+          "source": "src/cellbayesassay.py",
+          "line": "377",
+          "loader": "fpathdf.to_csv",
+          "expression": "fpathdf.to_csv(os.path.join(dirname, 'fpaths.csv'))",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas_CO28154/fpaths.csv",
+          "status": "",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "recovery_candidates": [],
+      "uncertainty": [],
+      "position_inches": {
+        "x": 36.035,
+        "y": 0.034722
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "fcee524a7511246",
+      "kind": "file",
+      "row": "bottom",
+      "resolved_path": "/home/attila/projects/CTNS/results/2024-06-04-5xfad-behavior-CO28154/idatas_CO28154_m/fpaths.csv",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb"
+      ],
+      "producers": [
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb"
+      ],
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "28",
+          "source": "src/mwm.py",
+          "line": "156",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=0)",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas_CO28154_m/fpaths.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified; Other Dropbox backups not searched; only supplied /QPS scope available"
+        },
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "28",
+          "source": "src/cellbayesassay.py",
+          "line": "377",
+          "loader": "fpathdf.to_csv",
+          "expression": "fpathdf.to_csv(os.path.join(dirname, 'fpaths.csv'))",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas_CO28154_m/fpaths.csv",
+          "status": "",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "recovery_candidates": [],
+      "uncertainty": [],
+      "position_inches": {
+        "x": 36.201,
+        "y": 0.034722
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "ff1ce9e030456a9",
+      "kind": "file",
+      "row": "bottom",
+      "resolved_path": "/home/attila/projects/CTNS/results/2024-06-04-5xfad-behavior-CO28154/BF-all.csv",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb"
+      ],
+      "producers": [
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb"
+      ],
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "50",
+          "source": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb#cell=50",
+          "line": "9",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=[0, 1], header=[0, 1])",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/BF-all.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified; Other Dropbox backups not searched; only supplied /QPS scope available"
+        },
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "50",
+          "source": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb#cell=50",
+          "line": "7",
+          "loader": "BF_all.to_csv",
+          "expression": "BF_all.to_csv(fpath)",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/BF-all.csv",
+          "status": "",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "recovery_candidates": [],
+      "uncertainty": [],
+      "position_inches": {
+        "x": 32.535,
+        "y": 0.034722
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "f6e9d9532dacaa3",
+      "kind": "file",
+      "row": "bottom",
+      "resolved_path": "/home/attila/projects/CTNS/results/2024-06-04-5xfad-behavior-CO28154/BF-all_m.csv",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb"
+      ],
+      "producers": [
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb"
+      ],
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "51",
+          "source": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb#cell=51",
+          "line": "9",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=[0, 1], header=[0, 1])",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/BF-all_m.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified; Other Dropbox backups not searched; only supplied /QPS scope available"
+        },
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "51",
+          "source": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb#cell=51",
+          "line": "7",
+          "loader": "BF_all_m.to_csv",
+          "expression": "BF_all_m.to_csv(fpath)",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/BF-all_m.csv",
+          "status": "",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "recovery_candidates": [],
+      "uncertainty": [],
+      "position_inches": {
+        "x": 32.701,
+        "y": 0.034722
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "f0817e4ac628ddd",
+      "kind": "file",
+      "row": "top",
+      "resolved_path": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28152-biochemistry-cleaned-Abeta.xlsx",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [
+        "2024-08-08-biochemistry/2024-08-08-biochemistry.ipynb"
+      ],
+      "producers": [],
+      "evidence": [
+        {
+          "notebook": "2024-08-08-biochemistry/2024-08-08-biochemistry.ipynb",
+          "cell": "3",
+          "source": "2024-08-08-biochemistry/2024-08-08-biochemistry.ipynb#cell=3",
+          "line": "32",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='Abeta', header=[0, 1], index_col=[0, 1, 2, 3, 4])",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28152-biochemistry-cleaned-Abeta.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        }
+      ],
+      "recovery_candidates": [],
+      "uncertainty": [],
+      "position_inches": {
+        "x": 38.201,
+        "y": 4.1736
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "f3cb6e9b6251109",
+      "kind": "file",
+      "row": "top",
+      "resolved_path": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/CO28154-biochemistry-cleaned-Abeta.xlsx",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [
+        "2024-08-08-biochemistry/2024-08-08-biochemistry.ipynb"
+      ],
+      "producers": [],
+      "evidence": [
+        {
+          "notebook": "2024-08-08-biochemistry/2024-08-08-biochemistry.ipynb",
+          "cell": "3",
+          "source": "2024-08-08-biochemistry/2024-08-08-biochemistry.ipynb#cell=3",
+          "line": "32",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='Abeta', header=[0, 1], index_col=[0, 1, 2, 3, 4])",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28154-biochemistry-cleaned-Abeta.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        }
+      ],
+      "recovery_candidates": [],
+      "uncertainty": [],
+      "position_inches": {
+        "x": 38.368,
+        "y": 4.1736
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "fcff7de78ee425f",
+      "kind": "file",
+      "row": "top",
+      "resolved_path": "/home/attila/projects/CTNS/resources/QPS/5xFAD-mouse/inflammation-cleaned.csv",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [
+        "2024-11-11-cytokines/2024-11-11-cytokines.ipynb"
+      ],
+      "producers": [],
+      "evidence": [
+        {
+          "notebook": "2024-11-11-cytokines/2024-11-11-cytokines.ipynb",
+          "cell": "3",
+          "source": "2024-11-11-cytokines/2024-11-11-cytokines.ipynb#cell=3",
+          "line": "2",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, header=[0, 1], index_col=[0, 1, 2, 3, 4, 5])",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/inflammation-cleaned.csv",
+          "status": "missing at expected path",
+          "notes": ""
+        }
+      ],
+      "recovery_candidates": [],
+      "uncertainty": [],
+      "position_inches": {
+        "x": 38.701,
+        "y": 4.1736
+      },
+      "initial": "missing"
+    },
+    {
+      "id": "f2ae4c6ac974f39",
+      "kind": "file",
+      "row": "bottom",
+      "resolved_path": "/home/attila/projects/CTNS/results/2024-01-05-5xfad-nfl-frequentist/results.csv",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [],
+      "producers": [
+        "2024-01-05-5xfad-nfl-frequentist/2024-01-05-5xfad-nfl-frequentist.ipynb"
+      ],
+      "evidence": [
+        {
+          "notebook": "2024-01-05-5xfad-nfl-frequentist/2024-01-05-5xfad-nfl-frequentist.ipynb",
+          "cell": "22",
+          "source": "2024-01-05-5xfad-nfl-frequentist/2024-01-05-5xfad-nfl-frequentist.ipynb#cell=22",
+          "line": "9",
+          "loader": "resultsdf_all.to_csv",
+          "expression": "resultsdf_all.to_csv('../../results/2024-01-05-5xfad-nfl-frequentist/results.csv')",
+          "expected_path": "../../results/2024-01-05-5xfad-nfl-frequentist/results.csv",
+          "status": "",
+          "notes": ""
+        }
+      ],
+      "recovery_candidates": [],
+      "uncertainty": [],
+      "position_inches": {
+        "x": 27.035,
+        "y": 0.034722
+      },
+      "initial": "unknown"
+    },
+    {
+      "id": "fccaade837a8bbb",
+      "kind": "file",
+      "row": "bottom",
+      "resolved_path": "/home/attila/projects/CTNS/results/2024-05-20-nfl-modeling/results.csv",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [],
+      "producers": [
+        "2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb"
+      ],
+      "evidence": [
+        {
+          "notebook": "2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb",
+          "cell": "50",
+          "source": "2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb#cell=50",
+          "line": "9",
+          "loader": "resultsdf_all.to_csv",
+          "expression": "resultsdf_all.to_csv('../../results/2024-05-20-nfl-modeling/results.csv')",
+          "expected_path": "../../results/2024-05-20-nfl-modeling/results.csv",
+          "status": "",
+          "notes": ""
+        }
+      ],
+      "recovery_candidates": [],
+      "uncertainty": [],
+      "position_inches": {
+        "x": 32.368,
+        "y": 0.034722
+      },
+      "initial": "unknown"
+    },
+    {
+      "id": "f51aba6585ee723",
+      "kind": "file",
+      "row": "bottom",
+      "resolved_path": "/home/attila/projects/CTNS/results/2024-06-04-5xfad-behavior-CO28154/ttest_res.csv",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [],
+      "producers": [
+        "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb"
+      ],
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "10",
+          "source": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb#cell=10",
+          "line": "22",
+          "loader": "ttest_res.to_csv",
+          "expression": "ttest_res.to_csv('../../results/2024-06-04-5xfad-behavior-CO28154/ttest_res.csv', index=False)",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/ttest_res.csv",
+          "status": "",
+          "notes": ""
+        }
+      ],
+      "recovery_candidates": [],
+      "uncertainty": [],
+      "position_inches": {
+        "x": 36.535,
+        "y": 0.034722
+      },
+      "initial": "unknown"
+    },
+    {
+      "id": "fc40461d633a861",
+      "kind": "file",
+      "row": "bottom",
+      "resolved_path": "/home/attila/projects/CTNS/results/2024-06-26-mwm-test-probe-CO28154/dirichlet-mle-results.csv",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [],
+      "producers": [
+        "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb"
+      ],
+      "evidence": [
+        {
+          "notebook": "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb",
+          "cell": "14",
+          "source": "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb#cell=14",
+          "line": "3",
+          "loader": "results.to_csv",
+          "expression": "results.to_csv('../../results/2024-06-26-mwm-test-probe-CO28154/dirichlet-mle-results.csv')",
+          "expected_path": "../../results/2024-06-26-mwm-test-probe-CO28154/dirichlet-mle-results.csv",
+          "status": "",
+          "notes": ""
+        }
+      ],
+      "recovery_candidates": [],
+      "uncertainty": [],
+      "position_inches": {
+        "x": 37.201,
+        "y": 0.034722
+      },
+      "initial": "unknown"
+    },
+    {
+      "id": "f59b06763083c6b",
+      "kind": "file",
+      "row": "bottom",
+      "resolved_path": "/home/attila/projects/CTNS/results/2024-06-26-mwm-test-probe-CO28154/dirichlet-mle-fractions.csv",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [],
+      "producers": [
+        "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb"
+      ],
+      "evidence": [
+        {
+          "notebook": "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb",
+          "cell": "15",
+          "source": "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb#cell=15",
+          "line": "15",
+          "loader": "fractions.to_csv",
+          "expression": "fractions.to_csv('../../results/2024-06-26-mwm-test-probe-CO28154/dirichlet-mle-fractions.csv')",
+          "expected_path": "../../results/2024-06-26-mwm-test-probe-CO28154/dirichlet-mle-fractions.csv",
+          "status": "",
+          "notes": ""
+        }
+      ],
+      "recovery_candidates": [],
+      "uncertainty": [],
+      "position_inches": {
+        "x": 36.868,
+        "y": 0.034722
+      },
+      "initial": "unknown"
+    },
+    {
+      "id": "f632bb69742c22a",
+      "kind": "file",
+      "row": "bottom",
+      "resolved_path": "/home/attila/projects/CTNS/results/2024-06-26-mwm-test-probe-CO28154/dirichlet-mle-stdeviations.csv",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [],
+      "producers": [
+        "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb"
+      ],
+      "evidence": [
+        {
+          "notebook": "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb",
+          "cell": "16",
+          "source": "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb#cell=16",
+          "line": "23",
+          "loader": "stdeviations.to_csv",
+          "expression": "stdeviations.to_csv('../../results/2024-06-26-mwm-test-probe-CO28154/dirichlet-mle-stdeviations.csv')",
+          "expected_path": "../../results/2024-06-26-mwm-test-probe-CO28154/dirichlet-mle-stdeviations.csv",
+          "status": "",
+          "notes": ""
+        }
+      ],
+      "recovery_candidates": [],
+      "uncertainty": [],
+      "position_inches": {
+        "x": 37.368,
+        "y": 0.034722
+      },
+      "initial": "unknown"
+    },
+    {
+      "id": "fad273a56d1ed21",
+      "kind": "file",
+      "row": "bottom",
+      "resolved_path": "/home/attila/projects/CTNS/results/2024-06-26-mwm-test-probe-CO28154/dirichlet-mle-variances.csv",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [],
+      "producers": [
+        "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb"
+      ],
+      "evidence": [
+        {
+          "notebook": "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb",
+          "cell": "16",
+          "source": "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb#cell=16",
+          "line": "24",
+          "loader": "variances.to_csv",
+          "expression": "variances.to_csv('../../results/2024-06-26-mwm-test-probe-CO28154/dirichlet-mle-variances.csv')",
+          "expected_path": "../../results/2024-06-26-mwm-test-probe-CO28154/dirichlet-mle-variances.csv",
+          "status": "",
+          "notes": ""
+        }
+      ],
+      "recovery_candidates": [],
+      "uncertainty": [],
+      "position_inches": {
+        "x": 37.535,
+        "y": 0.034722
+      },
+      "initial": "unknown"
+    },
+    {
+      "id": "f7e590b6c76fcea",
+      "kind": "file",
+      "row": "bottom",
+      "resolved_path": "/home/attila/projects/CTNS/results/2024-06-26-mwm-test-probe-CO28154/dirichlet-mle-entropies.csv",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [],
+      "producers": [
+        "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb"
+      ],
+      "evidence": [
+        {
+          "notebook": "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb",
+          "cell": "17",
+          "source": "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb#cell=17",
+          "line": "14",
+          "loader": "entropies.to_csv",
+          "expression": "entropies.to_csv('../../results/2024-06-26-mwm-test-probe-CO28154/dirichlet-mle-entropies.csv')",
+          "expected_path": "../../results/2024-06-26-mwm-test-probe-CO28154/dirichlet-mle-entropies.csv",
+          "status": "",
+          "notes": ""
+        }
+      ],
+      "recovery_candidates": [],
+      "uncertainty": [],
+      "position_inches": {
+        "x": 36.701,
+        "y": 0.034722
+      },
+      "initial": "unknown"
+    },
+    {
+      "id": "f81366e9bfe7e79",
+      "kind": "file",
+      "row": "bottom",
+      "resolved_path": "/home/attila/projects/CTNS/results/2024-08-08-biochemistry/ttest_res.csv",
+      "unresolved": false,
+      "pattern": false,
+      "present_on_disk": false,
+      "consumers": [],
+      "producers": [
+        "2024-08-08-biochemistry/2024-08-08-biochemistry.ipynb"
+      ],
+      "evidence": [
+        {
+          "notebook": "2024-08-08-biochemistry/2024-08-08-biochemistry.ipynb",
+          "cell": "8",
+          "source": "2024-08-08-biochemistry/2024-08-08-biochemistry.ipynb#cell=8",
+          "line": "35",
+          "loader": "ttest_res.to_csv",
+          "expression": "ttest_res.to_csv('../../results/2024-08-08-biochemistry/ttest_res.csv', index=True)",
+          "expected_path": "../../results/2024-08-08-biochemistry/ttest_res.csv",
+          "status": "",
+          "notes": ""
+        }
+      ],
+      "recovery_candidates": [],
+      "uncertainty": [],
+      "position_inches": {
+        "x": 38.035,
+        "y": 0.034722
+      },
+      "initial": "unknown"
+    }
+  ],
+  "edges": [
+    {
+      "source": "fc29ff1255f24c8",
+      "target": "n058",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2023-10-13-5xfad-maze/2023-10-13-5xfad-maze.ipynb",
+          "cell": "4",
+          "source": "2023-10-13-5xfad-maze/2023-10-13-5xfad-maze.ipynb#cell=4",
+          "line": "2",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='rawdata MWM day 1-4', header=[0, 1], index_col=None)",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO26990-behavioral-data-cleaned.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        }
+      ],
+      "id": "e0344"
+    },
+    {
+      "source": "fa85e937d5c3bac",
+      "target": "n058",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2023-10-13-5xfad-maze/2023-10-13-5xfad-maze.ipynb",
+          "cell": "4",
+          "source": "2023-10-13-5xfad-maze/2023-10-13-5xfad-maze.ipynb#cell=4",
+          "line": "2",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='rawdata MWM day 1-4', header=[0, 1], index_col=None)",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28152-behavioral-data-cleaned.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        }
+      ],
+      "id": "e0345"
+    },
+    {
+      "source": "fb8e9c2fb26e482",
+      "target": "n058",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2023-10-13-5xfad-maze/2023-10-13-5xfad-maze.ipynb",
+          "cell": "14",
+          "source": "2023-10-13-5xfad-maze/2023-10-13-5xfad-maze.ipynb#cell=14",
+          "line": "2",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath)",
+          "expected_path": "../../resources/testdata/bambi/kidney.csv",
+          "status": "missing at expected path",
+          "notes": "; Other Dropbox backups not searched; only supplied /QPS scope available"
+        }
+      ],
+      "id": "e0346"
+    },
+    {
+      "source": "f5d867ad672b7c1",
+      "target": "n059",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2023-11-07-5xfad-maze-latency/2023-11-07-5xfad-maze-latency.ipynb",
+          "cell": "3",
+          "source": "2023-11-07-5xfad-maze-latency/2023-11-07-5xfad-maze-latency.ipynb#cell=3",
+          "line": "2",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=['cohort', 'group', 'sex', 'irn', 'day'])",
+          "expected_path": "../../results/2023-10-13-5xfad-maze/data_train-CO26990.csv",
+          "status": "missing at expected path",
+          "notes": "; Other Dropbox backups not searched; only supplied /QPS scope available"
+        }
+      ],
+      "id": "e0347"
+    },
+    {
+      "source": "f9a45ef0756f4bd",
+      "target": "n059",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2023-11-07-5xfad-maze-latency/2023-11-07-5xfad-maze-latency.ipynb",
+          "cell": "4",
+          "source": "2023-11-07-5xfad-maze-latency/2023-11-07-5xfad-maze-latency.ipynb#cell=4",
+          "line": "2",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=['cohort', 'group', 'sex', 'irn', 'day'])",
+          "expected_path": "../../results/2023-10-13-5xfad-maze/data_train-CO28152.csv",
+          "status": "missing at expected path",
+          "notes": "; Other Dropbox backups not searched; only supplied /QPS scope available"
+        }
+      ],
+      "id": "e0348"
+    },
+    {
+      "source": "fec99d8a748f1b7",
+      "target": "n060",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2023-11-07-5xfad-maze-test-probe/2023-11-07-5xfad-maze-test-probe.ipynb",
+          "cell": "3",
+          "source": "2023-11-07-5xfad-maze-test-probe/2023-11-07-5xfad-maze-test-probe.ipynb#cell=3",
+          "line": "8",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='rawdata MWM day 5', index_col='IRN')",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/amiloride-behavioral-data-cleaned.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        }
+      ],
+      "id": "e0349"
+    },
+    {
+      "source": "fcb7feca0bf5e18",
+      "target": "n060",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2023-11-07-5xfad-maze-test-probe/2023-11-07-5xfad-maze-test-probe.ipynb",
+          "cell": "3",
+          "source": "2023-11-07-5xfad-maze-test-probe/2023-11-07-5xfad-maze-test-probe.ipynb#cell=3",
+          "line": "12",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='cleaned', index_col='IRN')",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO26990-MWM-mean-distance-to-platform.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        }
+      ],
+      "id": "e0350"
+    },
+    {
+      "source": "f95e37bebc96e73",
+      "target": "n060",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2023-11-07-5xfad-maze-test-probe/2023-11-07-5xfad-maze-test-probe.ipynb",
+          "cell": "4",
+          "source": "2023-11-07-5xfad-maze-test-probe/2023-11-07-5xfad-maze-test-probe.ipynb#cell=4",
+          "line": "15",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='cleaned', index_col='IRN')",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28152-MWM-mean-distance-to-platform.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        }
+      ],
+      "id": "e0351"
+    },
+    {
+      "source": "ff073a722208b51",
+      "target": "n061",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2023-11-15-5xfad-nfl-gfap/2023-11-15-5xfad-nfl-gfap.ipynb",
+          "cell": "3",
+          "source": "2023-11-15-5xfad-nfl-gfap/2023-11-15-5xfad-nfl-gfap.ipynb#cell=3",
+          "line": "2",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='NFL in vivo clean')",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28152_NFL-GFAP_datasum.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        },
+        {
+          "notebook": "2023-11-15-5xfad-nfl-gfap/2023-11-15-5xfad-nfl-gfap.ipynb",
+          "cell": "11",
+          "source": "2023-11-15-5xfad-nfl-gfap/2023-11-15-5xfad-nfl-gfap.ipynb#cell=11",
+          "line": "2",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='NFL terminal clean')",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28152_NFL-GFAP_datasum.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        },
+        {
+          "notebook": "2023-11-15-5xfad-nfl-gfap/2023-11-15-5xfad-nfl-gfap.ipynb",
+          "cell": "21",
+          "source": "2023-11-15-5xfad-nfl-gfap/2023-11-15-5xfad-nfl-gfap.ipynb#cell=21",
+          "line": "2",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='GFAP plasma clean')",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28152_NFL-GFAP_datasum.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        }
+      ],
+      "id": "e0352"
+    },
+    {
+      "source": "ff073a722208b51",
+      "target": "n063",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2023-12-18-5xfad-nfl-gfap-frequentist/2023-12-18-5xfad-nfl-gfap-frequentist.ipynb",
+          "cell": "3",
+          "source": "2023-12-18-5xfad-nfl-gfap-frequentist/2023-12-18-5xfad-nfl-gfap-frequentist.ipynb#cell=3",
+          "line": "2",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='NFL in vivo clean')",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28152_NFL-GFAP_datasum.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        },
+        {
+          "notebook": "2023-12-18-5xfad-nfl-gfap-frequentist/2023-12-18-5xfad-nfl-gfap-frequentist.ipynb",
+          "cell": "14",
+          "source": "2023-12-18-5xfad-nfl-gfap-frequentist/2023-12-18-5xfad-nfl-gfap-frequentist.ipynb#cell=14",
+          "line": "2",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='NFL terminal clean')",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28152_NFL-GFAP_datasum.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        }
+      ],
+      "id": "e0356"
+    },
+    {
+      "source": "ff073a722208b51",
+      "target": "n064",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2024-01-05-5xfad-nfl-frequentist/2024-01-05-5xfad-nfl-frequentist.ipynb",
+          "cell": "4",
+          "source": "2024-01-05-5xfad-nfl-frequentist/2024-01-05-5xfad-nfl-frequentist.ipynb#cell=4",
+          "line": "2",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='NFL in vivo clean')",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28152_NFL-GFAP_datasum.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        }
+      ],
+      "id": "e0357"
+    },
+    {
+      "source": "fad7e509f33c4c2",
+      "target": "n064",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2024-01-05-5xfad-nfl-frequentist/2024-01-05-5xfad-nfl-frequentist.ipynb",
+          "cell": "4",
+          "source": "2024-01-05-5xfad-nfl-frequentist/2024-01-05-5xfad-nfl-frequentist.ipynb#cell=4",
+          "line": "2",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='NFL in vivo clean')",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28154-biochemistry-cleaned.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        }
+      ],
+      "id": "e0358"
+    },
+    {
+      "source": "fc29ff1255f24c8",
+      "target": "n068",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2024-02-29-Y-maze/2024-02-29-Y-maze.ipynb",
+          "cell": "3",
+          "source": "2024-02-29-Y-maze/2024-02-29-Y-maze.ipynb#cell=3",
+          "line": "2",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='Y-Maze')",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO26990-behavioral-data-cleaned.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        }
+      ],
+      "id": "e0384"
+    },
+    {
+      "source": "fa85e937d5c3bac",
+      "target": "n068",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2024-02-29-Y-maze/2024-02-29-Y-maze.ipynb",
+          "cell": "4",
+          "source": "2024-02-29-Y-maze/2024-02-29-Y-maze.ipynb#cell=3",
+          "line": "2",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='Y-Maze')",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28152-behavioral-data-cleaned.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        }
+      ],
+      "id": "e0385"
+    },
+    {
+      "source": "f74aa5c01bb0ba1",
+      "target": "n068",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2024-02-29-Y-maze/2024-02-29-Y-maze.ipynb",
+          "cell": "5",
+          "source": "2024-02-29-Y-maze/2024-02-29-Y-maze.ipynb#cell=3",
+          "line": "2",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='Y-Maze')",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28154-behavioral-data-cleaned.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        }
+      ],
+      "id": "e0386"
+    },
+    {
+      "source": "ff073a722208b51",
+      "target": "n075",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb",
+          "cell": "2",
+          "source": "src/nfl.py",
+          "line": "12",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name=sheet_name)",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28152_NFL-GFAP_datasum.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        }
+      ],
+      "id": "e0444"
+    },
+    {
+      "source": "f27c4567f1bfc72",
+      "target": "n075",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb",
+          "cell": "2",
+          "source": "src/nfl.py",
+          "line": "27",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath_subjects, dtype={'IRN': str}, index_col='IRN')",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28152-animal-list.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "id": "e0445"
+    },
+    {
+      "source": "fad7e509f33c4c2",
+      "target": "n075",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb",
+          "cell": "3",
+          "source": "src/nfl.py",
+          "line": "12",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name=sheet_name)",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28154-biochemistry-cleaned.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        }
+      ],
+      "id": "e0446"
+    },
+    {
+      "source": "febc64f25c22185",
+      "target": "n075",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb",
+          "cell": "3",
+          "source": "src/nfl.py",
+          "line": "27",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath_subjects, dtype={'IRN': str}, index_col='IRN')",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28154-animal-list.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "id": "e0447"
+    },
+    {
+      "source": "fc29ff1255f24c8",
+      "target": "n076",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "2",
+          "source": "src/mwm.py",
+          "line": "61",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name=sheet_name, header=[0, 1], index_col=None)",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO26990-behavioral-data-cleaned.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        }
+      ],
+      "id": "e0448"
+    },
+    {
+      "source": "fa85e937d5c3bac",
+      "target": "n076",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "2",
+          "source": "src/mwm.py",
+          "line": "61",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name=sheet_name, header=[0, 1], index_col=None)",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28152-behavioral-data-cleaned.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        }
+      ],
+      "id": "e0449"
+    },
+    {
+      "source": "f74aa5c01bb0ba1",
+      "target": "n076",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "2",
+          "source": "src/mwm.py",
+          "line": "61",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name=sheet_name, header=[0, 1], index_col=None)",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28154-behavioral-data-cleaned.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        }
+      ],
+      "id": "e0450"
+    },
+    {
+      "source": "f8aca22a5cdf597",
+      "target": "n076",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "13",
+          "source": "src/mwm.py",
+          "line": "156",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=0)",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas3_CO26990/fpaths.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified; Other Dropbox backups not searched; only supplied /QPS scope available"
+        }
+      ],
+      "id": "e0451"
+    },
+    {
+      "source": "f3318c53acb0712",
+      "target": "n076",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "14",
+          "source": "src/mwm.py",
+          "line": "156",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=0)",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas3_CO26990_m/fpaths.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified; Other Dropbox backups not searched; only supplied /QPS scope available"
+        }
+      ],
+      "id": "e0452"
+    },
+    {
+      "source": "f325c1f27e6f0a4",
+      "target": "n076",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "15",
+          "source": "src/mwm.py",
+          "line": "156",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=0)",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas2_CO26990/fpaths.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified; Other Dropbox backups not searched; only supplied /QPS scope available"
+        }
+      ],
+      "id": "e0453"
+    },
+    {
+      "source": "f57bc6d4631c03d",
+      "target": "n076",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "16",
+          "source": "src/mwm.py",
+          "line": "156",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=0)",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas2_CO26990_m/fpaths.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified; Other Dropbox backups not searched; only supplied /QPS scope available"
+        }
+      ],
+      "id": "e0454"
+    },
+    {
+      "source": "feb2572276eab3d",
+      "target": "n076",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "17",
+          "source": "src/mwm.py",
+          "line": "156",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=0)",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas3_CO28152/fpaths.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified; Other Dropbox backups not searched; only supplied /QPS scope available"
+        }
+      ],
+      "id": "e0455"
+    },
+    {
+      "source": "fd724bdc61101b3",
+      "target": "n076",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "18",
+          "source": "src/mwm.py",
+          "line": "156",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=0)",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas3_CO28152_m/fpaths.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified; Other Dropbox backups not searched; only supplied /QPS scope available"
+        }
+      ],
+      "id": "e0456"
+    },
+    {
+      "source": "f958bfa2edca568",
+      "target": "n076",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "19",
+          "source": "src/mwm.py",
+          "line": "156",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=0)",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas2_CO28152/fpaths.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified; Other Dropbox backups not searched; only supplied /QPS scope available"
+        }
+      ],
+      "id": "e0457"
+    },
+    {
+      "source": "fa4f70e229d3036",
+      "target": "n076",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "20",
+          "source": "src/mwm.py",
+          "line": "156",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=0)",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas2_CO28152_m/fpaths.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified; Other Dropbox backups not searched; only supplied /QPS scope available"
+        }
+      ],
+      "id": "e0458"
+    },
+    {
+      "source": "fbbe5284cb7214c",
+      "target": "n076",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "21",
+          "source": "src/mwm.py",
+          "line": "156",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=0)",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas_CO28152/fpaths.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified; Other Dropbox backups not searched; only supplied /QPS scope available"
+        }
+      ],
+      "id": "e0459"
+    },
+    {
+      "source": "fb95db5ad6b6374",
+      "target": "n076",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "22",
+          "source": "src/mwm.py",
+          "line": "156",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=0)",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas_CO28152_m/fpaths.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified; Other Dropbox backups not searched; only supplied /QPS scope available"
+        }
+      ],
+      "id": "e0460"
+    },
+    {
+      "source": "f48f19e1b91104d",
+      "target": "n076",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "23",
+          "source": "src/mwm.py",
+          "line": "156",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=0)",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas3_CO28154/fpaths.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified; Other Dropbox backups not searched; only supplied /QPS scope available"
+        }
+      ],
+      "id": "e0461"
+    },
+    {
+      "source": "fe1c6df416a25f3",
+      "target": "n076",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "24",
+          "source": "src/mwm.py",
+          "line": "156",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=0)",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas3_CO28154_m/fpaths.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified; Other Dropbox backups not searched; only supplied /QPS scope available"
+        }
+      ],
+      "id": "e0462"
+    },
+    {
+      "source": "f242cf00f212394",
+      "target": "n076",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "25",
+          "source": "src/mwm.py",
+          "line": "156",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=0)",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas2_CO28154/fpaths.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified; Other Dropbox backups not searched; only supplied /QPS scope available"
+        }
+      ],
+      "id": "e0463"
+    },
+    {
+      "source": "fda82f661043b25",
+      "target": "n076",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "26",
+          "source": "src/mwm.py",
+          "line": "156",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=0)",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas2_CO28154_m/fpaths.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified; Other Dropbox backups not searched; only supplied /QPS scope available"
+        }
+      ],
+      "id": "e0464"
+    },
+    {
+      "source": "f96e484fe5ae4c6",
+      "target": "n076",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "27",
+          "source": "src/mwm.py",
+          "line": "156",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=0)",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas_CO28154/fpaths.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified; Other Dropbox backups not searched; only supplied /QPS scope available"
+        }
+      ],
+      "id": "e0465"
+    },
+    {
+      "source": "fcee524a7511246",
+      "target": "n076",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "28",
+          "source": "src/mwm.py",
+          "line": "156",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=0)",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas_CO28154_m/fpaths.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified; Other Dropbox backups not searched; only supplied /QPS scope available"
+        }
+      ],
+      "id": "e0466"
+    },
+    {
+      "source": "ff1ce9e030456a9",
+      "target": "n076",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "50",
+          "source": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb#cell=50",
+          "line": "9",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=[0, 1], header=[0, 1])",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/BF-all.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified; Other Dropbox backups not searched; only supplied /QPS scope available"
+        }
+      ],
+      "id": "e0467"
+    },
+    {
+      "source": "f6e9d9532dacaa3",
+      "target": "n076",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "51",
+          "source": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb#cell=51",
+          "line": "9",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, index_col=[0, 1], header=[0, 1])",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/BF-all_m.csv",
+          "status": "missing at expected path",
+          "notes": "Conditional branch; runtime necessity unverified; Other Dropbox backups not searched; only supplied /QPS scope available"
+        }
+      ],
+      "id": "e0468"
+    },
+    {
+      "source": "fc29ff1255f24c8",
+      "target": "n077",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb",
+          "cell": "2",
+          "source": "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb#cell=2",
+          "line": "9",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='rawdata MWM day 5', index_col='IRN')",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO26990-behavioral-data-cleaned.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        }
+      ],
+      "id": "e0469"
+    },
+    {
+      "source": "fa85e937d5c3bac",
+      "target": "n077",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb",
+          "cell": "3",
+          "source": "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb#cell=3",
+          "line": "15",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='raw data MWM day 5', index_col='IRN')",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28152-behavioral-data-cleaned.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        }
+      ],
+      "id": "e0470"
+    },
+    {
+      "source": "f74aa5c01bb0ba1",
+      "target": "n077",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb",
+          "cell": "4",
+          "source": "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb#cell=4",
+          "line": "17",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='Probe Trial day5', index_col='IRN')",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28154-behavioral-data-cleaned.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        }
+      ],
+      "id": "e0471"
+    },
+    {
+      "source": "f0817e4ac628ddd",
+      "target": "n078",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2024-08-08-biochemistry/2024-08-08-biochemistry.ipynb",
+          "cell": "3",
+          "source": "2024-08-08-biochemistry/2024-08-08-biochemistry.ipynb#cell=3",
+          "line": "32",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='Abeta', header=[0, 1], index_col=[0, 1, 2, 3, 4])",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28152-biochemistry-cleaned-Abeta.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        }
+      ],
+      "id": "e0472"
+    },
+    {
+      "source": "f3cb6e9b6251109",
+      "target": "n078",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2024-08-08-biochemistry/2024-08-08-biochemistry.ipynb",
+          "cell": "3",
+          "source": "2024-08-08-biochemistry/2024-08-08-biochemistry.ipynb#cell=3",
+          "line": "32",
+          "loader": "pd.read_excel",
+          "expression": "pd.read_excel(fpath, sheet_name='Abeta', header=[0, 1], index_col=[0, 1, 2, 3, 4])",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/CO28154-biochemistry-cleaned-Abeta.xlsx",
+          "status": "missing at expected path",
+          "notes": ""
+        }
+      ],
+      "id": "e0473"
+    },
+    {
+      "source": "fcff7de78ee425f",
+      "target": "n080",
+      "relation": "consumes",
+      "evidence": [
+        {
+          "notebook": "2024-11-11-cytokines/2024-11-11-cytokines.ipynb",
+          "cell": "3",
+          "source": "2024-11-11-cytokines/2024-11-11-cytokines.ipynb#cell=3",
+          "line": "2",
+          "loader": "pd.read_csv",
+          "expression": "pd.read_csv(fpath, header=[0, 1], index_col=[0, 1, 2, 3, 4, 5])",
+          "expected_path": "../../resources/QPS/5xFAD-mouse/inflammation-cleaned.csv",
+          "status": "missing at expected path",
+          "notes": ""
+        }
+      ],
+      "id": "e0475"
+    },
+    {
+      "source": "n058",
+      "target": "f5d867ad672b7c1",
+      "relation": "produces",
+      "evidence": [
+        {
+          "notebook": "2023-10-13-5xfad-maze/2023-10-13-5xfad-maze.ipynb",
+          "cell": "4",
+          "source": "2023-10-13-5xfad-maze/2023-10-13-5xfad-maze.ipynb#cell=4",
+          "line": "18",
+          "loader": "data_train1.to_csv",
+          "expression": "data_train1.to_csv('../../results/2023-10-13-5xfad-maze/data_train-CO26990.csv')",
+          "expected_path": "../../results/2023-10-13-5xfad-maze/data_train-CO26990.csv",
+          "status": "",
+          "notes": ""
+        }
+      ],
+      "id": "e0611"
+    },
+    {
+      "source": "n058",
+      "target": "f9a45ef0756f4bd",
+      "relation": "produces",
+      "evidence": [
+        {
+          "notebook": "2023-10-13-5xfad-maze/2023-10-13-5xfad-maze.ipynb",
+          "cell": "4",
+          "source": "2023-10-13-5xfad-maze/2023-10-13-5xfad-maze.ipynb#cell=4",
+          "line": "22",
+          "loader": "data_train2.to_csv",
+          "expression": "data_train2.to_csv('../../results/2023-10-13-5xfad-maze/data_train-CO28152.csv')",
+          "expected_path": "../../results/2023-10-13-5xfad-maze/data_train-CO28152.csv",
+          "status": "",
+          "notes": ""
+        }
+      ],
+      "id": "e0612"
+    },
+    {
+      "source": "n064",
+      "target": "f2ae4c6ac974f39",
+      "relation": "produces",
+      "evidence": [
+        {
+          "notebook": "2024-01-05-5xfad-nfl-frequentist/2024-01-05-5xfad-nfl-frequentist.ipynb",
+          "cell": "22",
+          "source": "2024-01-05-5xfad-nfl-frequentist/2024-01-05-5xfad-nfl-frequentist.ipynb#cell=22",
+          "line": "9",
+          "loader": "resultsdf_all.to_csv",
+          "expression": "resultsdf_all.to_csv('../../results/2024-01-05-5xfad-nfl-frequentist/results.csv')",
+          "expected_path": "../../results/2024-01-05-5xfad-nfl-frequentist/results.csv",
+          "status": "",
+          "notes": ""
+        }
+      ],
+      "id": "e0613"
+    },
+    {
+      "source": "n075",
+      "target": "fccaade837a8bbb",
+      "relation": "produces",
+      "evidence": [
+        {
+          "notebook": "2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb",
+          "cell": "50",
+          "source": "2024-05-20-nfl-modeling/2024-05-20-nfl-modeling.ipynb#cell=50",
+          "line": "9",
+          "loader": "resultsdf_all.to_csv",
+          "expression": "resultsdf_all.to_csv('../../results/2024-05-20-nfl-modeling/results.csv')",
+          "expected_path": "../../results/2024-05-20-nfl-modeling/results.csv",
+          "status": "",
+          "notes": ""
+        }
+      ],
+      "id": "e0637"
+    },
+    {
+      "source": "n076",
+      "target": "f51aba6585ee723",
+      "relation": "produces",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "10",
+          "source": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb#cell=10",
+          "line": "22",
+          "loader": "ttest_res.to_csv",
+          "expression": "ttest_res.to_csv('../../results/2024-06-04-5xfad-behavior-CO28154/ttest_res.csv', index=False)",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/ttest_res.csv",
+          "status": "",
+          "notes": ""
+        }
+      ],
+      "id": "e0638"
+    },
+    {
+      "source": "n076",
+      "target": "f8aca22a5cdf597",
+      "relation": "produces",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "13",
+          "source": "src/cellbayesassay.py",
+          "line": "377",
+          "loader": "fpathdf.to_csv",
+          "expression": "fpathdf.to_csv(os.path.join(dirname, 'fpaths.csv'))",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas3_CO26990/fpaths.csv",
+          "status": "",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "id": "e0639"
+    },
+    {
+      "source": "n076",
+      "target": "f3318c53acb0712",
+      "relation": "produces",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "14",
+          "source": "src/cellbayesassay.py",
+          "line": "377",
+          "loader": "fpathdf.to_csv",
+          "expression": "fpathdf.to_csv(os.path.join(dirname, 'fpaths.csv'))",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas3_CO26990_m/fpaths.csv",
+          "status": "",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "id": "e0640"
+    },
+    {
+      "source": "n076",
+      "target": "f325c1f27e6f0a4",
+      "relation": "produces",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "15",
+          "source": "src/cellbayesassay.py",
+          "line": "377",
+          "loader": "fpathdf.to_csv",
+          "expression": "fpathdf.to_csv(os.path.join(dirname, 'fpaths.csv'))",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas2_CO26990/fpaths.csv",
+          "status": "",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "id": "e0641"
+    },
+    {
+      "source": "n076",
+      "target": "f57bc6d4631c03d",
+      "relation": "produces",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "16",
+          "source": "src/cellbayesassay.py",
+          "line": "377",
+          "loader": "fpathdf.to_csv",
+          "expression": "fpathdf.to_csv(os.path.join(dirname, 'fpaths.csv'))",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas2_CO26990_m/fpaths.csv",
+          "status": "",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "id": "e0642"
+    },
+    {
+      "source": "n076",
+      "target": "feb2572276eab3d",
+      "relation": "produces",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "17",
+          "source": "src/cellbayesassay.py",
+          "line": "377",
+          "loader": "fpathdf.to_csv",
+          "expression": "fpathdf.to_csv(os.path.join(dirname, 'fpaths.csv'))",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas3_CO28152/fpaths.csv",
+          "status": "",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "id": "e0643"
+    },
+    {
+      "source": "n076",
+      "target": "fd724bdc61101b3",
+      "relation": "produces",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "18",
+          "source": "src/cellbayesassay.py",
+          "line": "377",
+          "loader": "fpathdf.to_csv",
+          "expression": "fpathdf.to_csv(os.path.join(dirname, 'fpaths.csv'))",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas3_CO28152_m/fpaths.csv",
+          "status": "",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "id": "e0644"
+    },
+    {
+      "source": "n076",
+      "target": "f958bfa2edca568",
+      "relation": "produces",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "19",
+          "source": "src/cellbayesassay.py",
+          "line": "377",
+          "loader": "fpathdf.to_csv",
+          "expression": "fpathdf.to_csv(os.path.join(dirname, 'fpaths.csv'))",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas2_CO28152/fpaths.csv",
+          "status": "",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "id": "e0645"
+    },
+    {
+      "source": "n076",
+      "target": "fa4f70e229d3036",
+      "relation": "produces",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "20",
+          "source": "src/cellbayesassay.py",
+          "line": "377",
+          "loader": "fpathdf.to_csv",
+          "expression": "fpathdf.to_csv(os.path.join(dirname, 'fpaths.csv'))",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas2_CO28152_m/fpaths.csv",
+          "status": "",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "id": "e0646"
+    },
+    {
+      "source": "n076",
+      "target": "fbbe5284cb7214c",
+      "relation": "produces",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "21",
+          "source": "src/cellbayesassay.py",
+          "line": "377",
+          "loader": "fpathdf.to_csv",
+          "expression": "fpathdf.to_csv(os.path.join(dirname, 'fpaths.csv'))",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas_CO28152/fpaths.csv",
+          "status": "",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "id": "e0647"
+    },
+    {
+      "source": "n076",
+      "target": "fb95db5ad6b6374",
+      "relation": "produces",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "22",
+          "source": "src/cellbayesassay.py",
+          "line": "377",
+          "loader": "fpathdf.to_csv",
+          "expression": "fpathdf.to_csv(os.path.join(dirname, 'fpaths.csv'))",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas_CO28152_m/fpaths.csv",
+          "status": "",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "id": "e0648"
+    },
+    {
+      "source": "n076",
+      "target": "f48f19e1b91104d",
+      "relation": "produces",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "23",
+          "source": "src/cellbayesassay.py",
+          "line": "377",
+          "loader": "fpathdf.to_csv",
+          "expression": "fpathdf.to_csv(os.path.join(dirname, 'fpaths.csv'))",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas3_CO28154/fpaths.csv",
+          "status": "",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "id": "e0649"
+    },
+    {
+      "source": "n076",
+      "target": "fe1c6df416a25f3",
+      "relation": "produces",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "24",
+          "source": "src/cellbayesassay.py",
+          "line": "377",
+          "loader": "fpathdf.to_csv",
+          "expression": "fpathdf.to_csv(os.path.join(dirname, 'fpaths.csv'))",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas3_CO28154_m/fpaths.csv",
+          "status": "",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "id": "e0650"
+    },
+    {
+      "source": "n076",
+      "target": "f242cf00f212394",
+      "relation": "produces",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "25",
+          "source": "src/cellbayesassay.py",
+          "line": "377",
+          "loader": "fpathdf.to_csv",
+          "expression": "fpathdf.to_csv(os.path.join(dirname, 'fpaths.csv'))",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas2_CO28154/fpaths.csv",
+          "status": "",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "id": "e0651"
+    },
+    {
+      "source": "n076",
+      "target": "fda82f661043b25",
+      "relation": "produces",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "26",
+          "source": "src/cellbayesassay.py",
+          "line": "377",
+          "loader": "fpathdf.to_csv",
+          "expression": "fpathdf.to_csv(os.path.join(dirname, 'fpaths.csv'))",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas2_CO28154_m/fpaths.csv",
+          "status": "",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "id": "e0652"
+    },
+    {
+      "source": "n076",
+      "target": "f96e484fe5ae4c6",
+      "relation": "produces",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "27",
+          "source": "src/cellbayesassay.py",
+          "line": "377",
+          "loader": "fpathdf.to_csv",
+          "expression": "fpathdf.to_csv(os.path.join(dirname, 'fpaths.csv'))",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas_CO28154/fpaths.csv",
+          "status": "",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "id": "e0653"
+    },
+    {
+      "source": "n076",
+      "target": "fcee524a7511246",
+      "relation": "produces",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "28",
+          "source": "src/cellbayesassay.py",
+          "line": "377",
+          "loader": "fpathdf.to_csv",
+          "expression": "fpathdf.to_csv(os.path.join(dirname, 'fpaths.csv'))",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/idatas_CO28154_m/fpaths.csv",
+          "status": "",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "id": "e0654"
+    },
+    {
+      "source": "n076",
+      "target": "ff1ce9e030456a9",
+      "relation": "produces",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "50",
+          "source": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb#cell=50",
+          "line": "7",
+          "loader": "BF_all.to_csv",
+          "expression": "BF_all.to_csv(fpath)",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/BF-all.csv",
+          "status": "",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "id": "e0655"
+    },
+    {
+      "source": "n076",
+      "target": "f6e9d9532dacaa3",
+      "relation": "produces",
+      "evidence": [
+        {
+          "notebook": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb",
+          "cell": "51",
+          "source": "2024-06-04-5xfad-behavior-CO28154/2024-06-04-5xfad-behavior-CO28154.ipynb#cell=51",
+          "line": "7",
+          "loader": "BF_all_m.to_csv",
+          "expression": "BF_all_m.to_csv(fpath)",
+          "expected_path": "../../results/2024-06-04-5xfad-behavior-CO28154/BF-all_m.csv",
+          "status": "",
+          "notes": "Conditional branch; runtime necessity unverified"
+        }
+      ],
+      "id": "e0656"
+    },
+    {
+      "source": "n077",
+      "target": "fc40461d633a861",
+      "relation": "produces",
+      "evidence": [
+        {
+          "notebook": "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb",
+          "cell": "14",
+          "source": "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb#cell=14",
+          "line": "3",
+          "loader": "results.to_csv",
+          "expression": "results.to_csv('../../results/2024-06-26-mwm-test-probe-CO28154/dirichlet-mle-results.csv')",
+          "expected_path": "../../results/2024-06-26-mwm-test-probe-CO28154/dirichlet-mle-results.csv",
+          "status": "",
+          "notes": ""
+        }
+      ],
+      "id": "e0657"
+    },
+    {
+      "source": "n077",
+      "target": "f59b06763083c6b",
+      "relation": "produces",
+      "evidence": [
+        {
+          "notebook": "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb",
+          "cell": "15",
+          "source": "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb#cell=15",
+          "line": "15",
+          "loader": "fractions.to_csv",
+          "expression": "fractions.to_csv('../../results/2024-06-26-mwm-test-probe-CO28154/dirichlet-mle-fractions.csv')",
+          "expected_path": "../../results/2024-06-26-mwm-test-probe-CO28154/dirichlet-mle-fractions.csv",
+          "status": "",
+          "notes": ""
+        }
+      ],
+      "id": "e0658"
+    },
+    {
+      "source": "n077",
+      "target": "f632bb69742c22a",
+      "relation": "produces",
+      "evidence": [
+        {
+          "notebook": "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb",
+          "cell": "16",
+          "source": "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb#cell=16",
+          "line": "23",
+          "loader": "stdeviations.to_csv",
+          "expression": "stdeviations.to_csv('../../results/2024-06-26-mwm-test-probe-CO28154/dirichlet-mle-stdeviations.csv')",
+          "expected_path": "../../results/2024-06-26-mwm-test-probe-CO28154/dirichlet-mle-stdeviations.csv",
+          "status": "",
+          "notes": ""
+        }
+      ],
+      "id": "e0659"
+    },
+    {
+      "source": "n077",
+      "target": "fad273a56d1ed21",
+      "relation": "produces",
+      "evidence": [
+        {
+          "notebook": "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb",
+          "cell": "16",
+          "source": "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb#cell=16",
+          "line": "24",
+          "loader": "variances.to_csv",
+          "expression": "variances.to_csv('../../results/2024-06-26-mwm-test-probe-CO28154/dirichlet-mle-variances.csv')",
+          "expected_path": "../../results/2024-06-26-mwm-test-probe-CO28154/dirichlet-mle-variances.csv",
+          "status": "",
+          "notes": ""
+        }
+      ],
+      "id": "e0660"
+    },
+    {
+      "source": "n077",
+      "target": "f7e590b6c76fcea",
+      "relation": "produces",
+      "evidence": [
+        {
+          "notebook": "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb",
+          "cell": "17",
+          "source": "2024-06-26-mwm-test-probe-CO28154/2024-06-26-mwm-test-probe-CO28154.ipynb#cell=17",
+          "line": "14",
+          "loader": "entropies.to_csv",
+          "expression": "entropies.to_csv('../../results/2024-06-26-mwm-test-probe-CO28154/dirichlet-mle-entropies.csv')",
+          "expected_path": "../../results/2024-06-26-mwm-test-probe-CO28154/dirichlet-mle-entropies.csv",
+          "status": "",
+          "notes": ""
+        }
+      ],
+      "id": "e0661"
+    },
+    {
+      "source": "n078",
+      "target": "f81366e9bfe7e79",
+      "relation": "produces",
+      "evidence": [
+        {
+          "notebook": "2024-08-08-biochemistry/2024-08-08-biochemistry.ipynb",
+          "cell": "8",
+          "source": "2024-08-08-biochemistry/2024-08-08-biochemistry.ipynb#cell=8",
+          "line": "35",
+          "loader": "ttest_res.to_csv",
+          "expression": "ttest_res.to_csv('../../results/2024-08-08-biochemistry/ttest_res.csv', index=True)",
+          "expected_path": "../../results/2024-08-08-biochemistry/ttest_res.csv",
+          "status": "",
+          "notes": ""
+        }
+      ],
+      "id": "e0662"
+    }
+  ],
+  "events": [
+    {
+      "time": "2026-11-07T01:25:31.444875+00:00",
+      "kind": "data recovery",
+      "nodes": [
+        "fc29ff1255f24c8",
+        "fa85e937d5c3bac",
+        "fb8e9c2fb26e482"
+      ],
+      "evidence": "recovery-events.jsonl:ef04157cc93b7efe4b1705a7f6d632d9649ce460ebe0060d63677cabde1b0fdc; recovery-events.jsonl:27391d8d8d8de40f13bbaf71eab808f06fa1a316877e2fd33bea53d2acbb41ed; recovery-events.jsonl:199beffc2253d567263f3b05252e4e88d2353b08abe41526d598ade41abb6c5e",
+      "timing": "first documented observation"
+    },
+    {
+      "time": "2026-11-07T01:25:31.444875+00:00",
+      "kind": "notebook reproduction",
+      "nodes": [
+        "f5d867ad672b7c1",
+        "f9a45ef0756f4bd"
+      ],
+      "evidence": "recovery-events.jsonl:98258c0d2d24a34adf4107c6df27ef7067a6263f9dc649fe88013dce52962fb2; recovery-events.jsonl:0e06c5d0b9dcc05d40ea492ce57d6467625cfc4125cb0bb54bb2cfbc25112bec",
+      "timing": "first documented observation"
+    },
+    {
+      "time": "2026-11-07T01:25:31.444875+00:00",
+      "kind": "data recovery",
+      "nodes": [
+        "fec99d8a748f1b7",
+        "fcb7feca0bf5e18",
+        "f95e37bebc96e73",
+        "ff073a722208b51",
+        "f74aa5c01bb0ba1"
+      ],
+      "evidence": "recovery-events.jsonl:b217a413469ea9e987edd351e38a22e1983ad0c39c172783fe8dca50bc486cc5; recovery-events.jsonl:d4ad7f611cf46d5afbd588850454e8275d3d0914e6fe3a8588b69e34d643c6af; recovery-events.jsonl:6f4973ac78767ebf07796a3e8917e9ddc2ede2783807d31b7510624e3c3a6b67; recovery-events.jsonl:abeb6a5e1155bd7d99f6c0cffc933db73e8fcba9a2befde122dd9df3a86b41fe; recovery-events.jsonl:7133414d4c4e6d852037d608d092e5927fd6ac212938ead1416af20685a5c583",
+      "timing": "first documented observation"
+    },
+    {
+      "time": "2026-11-07T03:21:09.801178+00:00",
+      "kind": "notebook reproduction",
+      "nodes": [
+        "n059"
+      ],
+      "evidence": "reproductions/latency-20261107T031926Z/manifest.json",
+      "timing": "recorded execution"
+    },
+    {
+      "time": "2026-11-07T13:15:27.872402+00:00",
+      "kind": "notebook reproduction",
+      "nodes": [
+        "n076"
+      ],
+      "evidence": "reproductions/co28154-20261107T130321Z/manifest.json",
+      "timing": "recorded execution"
+    },
+    {
+      "time": "2026-11-07T16:54:45+00:00",
+      "kind": "notebook reproduction",
+      "nodes": [
+        "n060"
+      ],
+      "evidence": "promotions/2023-11-07-5xfad-maze-test-probe.md",
+      "timing": "report committed by this time"
+    },
+    {
+      "time": "2026-11-07T18:52:53.289206+00:00",
+      "kind": "notebook reproduction",
+      "nodes": [
+        "n077"
+      ],
+      "evidence": "reproductions/mwm-test-probe-20261107T185253Z/manifest.json",
+      "timing": "recorded execution"
+    },
+    {
+      "time": "2026-11-07T19:27:53.069090+00:00",
+      "kind": "data recovery",
+      "nodes": [
+        "fad7e509f33c4c2",
+        "f27c4567f1bfc72",
+        "febc64f25c22185"
+      ],
+      "evidence": "recovery-events.jsonl:7c7edba4d261646a1f9c324b45d0fd3b81886e7b69d707eb45ef43078e7fdea5; recovery-events.jsonl:01195a049e747f8b208386eed0d60070deb3e6c4b017a30a604e332db5c0dfd8; recovery-events.jsonl:32c99b7b5bea2e0dd2ca8ea6222919f24bfcc909ab79fe6d912fe754a1a35156",
+      "timing": "first documented observation"
+    },
+    {
+      "time": "2026-11-07T19:27:53.069090+00:00",
+      "kind": "notebook reproduction",
+      "nodes": [
+        "f8aca22a5cdf597",
+        "f3318c53acb0712",
+        "f325c1f27e6f0a4",
+        "f57bc6d4631c03d",
+        "feb2572276eab3d",
+        "fd724bdc61101b3",
+        "f958bfa2edca568",
+        "fa4f70e229d3036",
+        "fbbe5284cb7214c",
+        "fb95db5ad6b6374",
+        "f48f19e1b91104d",
+        "fe1c6df416a25f3",
+        "f242cf00f212394",
+        "fda82f661043b25",
+        "f96e484fe5ae4c6",
+        "fcee524a7511246",
+        "ff1ce9e030456a9",
+        "f6e9d9532dacaa3",
+        "f51aba6585ee723"
+      ],
+      "evidence": "recovery-events.jsonl:a96d74dc994deb61a4d7abc10f68d56295b3302052375da7cc0f674f47628f8c; recovery-events.jsonl:ef99c6657168eec62636a962daa8f671f34157a185b6bdf0bf950dc86e61b884; recovery-events.jsonl:32bae6ef551617b5db4c6bdb82e06d843dbbd91a322b48fc39c8db395f4a0668; recovery-events.jsonl:fedc0db13b7ebf2bbc3a2fff39bd5c68aa2a3b39334e4b5f69724d056c12b244; recovery-events.jsonl:0130737c794ce4b67975ba8572742f838e0b3a8b5ec77694385e895299a0b8cc; recovery-events.jsonl:b1e563829e24e5ebce8bc2cea4580c1c85d057ff2725663fc6bb018f11fb6fba; recovery-events.jsonl:f2e9c91efdc095c43863b6eb7aa4207b740402a0fae4515251432efd38cd971e; recovery-events.jsonl:e647428e0e5f94d9b7725872cb45381eb509cdaf20b0c59b84acd29203c03c47; recovery-events.jsonl:cbe3d4c31ccc4cc9d0b5983f5cea8fca018e2eb36ca817bb1fe7ce4cef8d7c34; recovery-events.jsonl:c736eda6cdefb346e8ee78a0a751c66b41abdc3b3a1a197615f5d186d6bf9670; recovery-events.jsonl:8b996beb38160db60465c542a15da61179b7d7c6be0d2abd74f5458ee96f50f9; recovery-events.jsonl:221bd66bf1e9ff65c1375678bdce0d17a52aa758014fd3f0709b34befcabfae7; recovery-events.jsonl:4879c66a08f69489b4a730d9700b46d46acd6b1342aa1b4b7aa6b0aefba878b6; recovery-events.jsonl:041c095ef81f0a2c78ccfce52c7a1aec8e41f83d03db43523881fb2bdf4499b2; recovery-events.jsonl:7ad7ab06b2a97fa97937ce38ca89ef63056b8eae6851f192e846c8101cd91c77; recovery-events.jsonl:d0596395c9cbf48057e9c652c9736988ee0bcb28fa50a90ce6b73b7b6097550e; recovery-events.jsonl:8ba07f5161926e24fb33de753d252ced585a547731044e93c0f6a4f8cadc6e65; recovery-events.jsonl:0b7769872f45a541ed3ca86d51cbb939536131508e698c85693d7ca472af121e; recovery-events.jsonl:db0e9d52a556821760ed2156ee8223a11278ba5f5dc0944fe76f0e494b591947",
+      "timing": "first documented observation"
+    },
+    {
+      "time": "2026-11-07T19:58:58.287971+00:00",
+      "kind": "notebook reproduction",
+      "nodes": [
+        "n075"
+      ],
+      "evidence": "reproductions/nfl-20261107T195833Z/manifest.json",
+      "timing": "recorded execution"
+    },
+    {
+      "time": "2026-11-07T20:58:10.830688+00:00",
+      "kind": "data recovery",
+      "nodes": [
+        "f0817e4ac628ddd",
+        "f3cb6e9b6251109"
+      ],
+      "evidence": "recovery-events.jsonl:3a5ebdd2290904ef70d03984640709db7669236e026cadd880cb78fb91aa2e0b; recovery-events.jsonl:7a1d14722bf2f3004438a82c5421f6e98b697d68c2b8eff552d2f25efc868815",
+      "timing": "first documented observation"
+    },
+    {
+      "time": "2026-11-07T20:58:10.830688+00:00",
+      "kind": "notebook reproduction",
+      "nodes": [
+        "fccaade837a8bbb"
+      ],
+      "evidence": "recovery-events.jsonl:7af84f406ba530249442fe388cb630dba16f85f54409ca755f857406338d4a04",
+      "timing": "first documented observation"
+    },
+    {
+      "time": "2026-11-07T21:27:20+00:00",
+      "kind": "notebook reproduction",
+      "nodes": [
+        "n078"
+      ],
+      "evidence": "promotions/2024-08-08-biochemistry.md",
+      "timing": "report committed by this time"
+    },
+    {
+      "time": "2026-11-07T23:42:15.749778+00:00",
+      "kind": "data recovery",
+      "nodes": [
+        "fcff7de78ee425f"
+      ],
+      "evidence": "recovery-events.jsonl:1487ab4e5922df75e8920a46c4bff7f8eec1b73f23479171e8d67c5c1c0887c5",
+      "timing": "first documented observation"
+    },
+    {
+      "time": "2026-11-08T00:13:20+00:00",
+      "kind": "notebook reproduction",
+      "nodes": [
+        "n080"
+      ],
+      "evidence": "promotions/2024-11-11-cytokines.md",
+      "timing": "report committed by this time"
+    },
+    {
+      "time": "2026-11-08T15:38:09.278846+00:00",
+      "kind": "notebook reproduction",
+      "nodes": [
+        "n061"
+      ],
+      "evidence": "reproductions/rerun-2023-11-15-5xfad-nfl-gfap-20261108/reproduction-manifest.json",
+      "timing": "recorded execution"
+    },
+    {
+      "time": "2026-11-08T15:39:29.336308+00:00",
+      "kind": "notebook reproduction",
+      "nodes": [
+        "n063"
+      ],
+      "evidence": "reproductions/rerun-2023-12-18-5xfad-nfl-gfap-frequentist-20261108/reproduction-manifest.json",
+      "timing": "recorded execution"
+    },
+    {
+      "time": "2026-11-08T15:47:32.097082+00:00",
+      "kind": "notebook reproduction",
+      "nodes": [
+        "n058"
+      ],
+      "evidence": "reproductions/maze-20261108/initial-manifest.json",
+      "timing": "recorded execution"
+    },
+    {
+      "time": "2026-11-08T21:46:01.919490+00:00",
+      "kind": "notebook reproduction",
+      "nodes": [
+        "n068"
+      ],
+      "evidence": "reproductions/rerun-2024-02-29-Y-maze-20261108/reproduction-manifest.json",
+      "timing": "recorded execution"
+    },
+    {
+      "time": "2026-11-08T21:46:01.955040+00:00",
+      "kind": "notebook reproduction",
+      "nodes": [
+        "n064"
+      ],
+      "evidence": "reproductions/rerun-2024-01-05-5xfad-nfl-frequentist-20261108/reproduction-manifest.json",
+      "timing": "recorded execution"
+    }
+  ],
+  "duration": 15,
+  "note": "Green notebooks: execution completed; convergence and reference agreement not implied. Generated outputs stay unresolved unless exact-path generation is documented."
+}

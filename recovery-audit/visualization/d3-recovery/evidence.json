@@ -1,0 +1,15 @@
+{
+  "sources": {
+    "baseline/input-inventory.csv": "4c00eb2f3498d986119f66648c82e5bc35ea95c036cccf972edcb4fe255001b4",
+    "baseline/output-producers.csv": "3e4cdd72629d4973a67770bf6a483098aa8f6ca4835140e4d12568f99943d89d",
+    "baseline/notebook-coverage.csv": "5b4cc2c2a831d5ea4113ae31d25ad269ecdf8e65756efd59a0ea99d59eb12ea4",
+    "baseline/notebook-dependencies.mapping.json": "01dcab4aefc2d0a59669108916559721c8cefc9f66edade5f57e67e45043af88",
+    "files.csv": "0697d8ad31ad20c940ca8c8ec0db159872cdd30d803d03e4e300f417d5b0ff8a",
+    "recovery-events.jsonl": "12a654e3dd26ad9faaf03ddd2325d6b0f723cc2c23162703737c0e01ba8a0c20"
+  },
+  "limitations": [
+    "Observation times are bounds, not exact recovery action times.",
+    "Outputs turn green only with recorded file availability; unresolved identities remain amber.",
+    "Notebook execution can retain scientific warnings."
+  ]
+}
