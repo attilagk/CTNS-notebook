@@ -5,12 +5,22 @@
   "duration_seconds": 15,
   "notebook_axis_and_file_band_checks": "passed",
   "rendered_frames": 450,
-  "video_sha256": "522edc306cbe30c49ae370061f52f9bbc712d2743968472f57b20c5659b26988",
-  "visual_inspection": "15-second export regenerated with 0.7-second yellow halo diffusion and fade",
+  "video_sha256": "63936b47e8e3d680fc387e00b38ec621ebbf780051406a74a581304f3a1bd0d2",
+  "visual_inspection": "Arrowhead direction and colors inspected in transition and final frames",
   "halo": {
     "color": "yellow",
     "inner_diameter": "node outer diameter",
     "initial_outer_diameter": "1.25 \u00d7 inner diameter",
     "diffusion_fade_seconds": 0.7
+  },
+  "arrowheads": {
+    "count": 75,
+    "direction": "source to target",
+    "size_pixels": [
+      8,
+      6
+    ],
+    "color": "animated source-node color",
+    "node_boundary_offset_pixels": 9
   }
 }
