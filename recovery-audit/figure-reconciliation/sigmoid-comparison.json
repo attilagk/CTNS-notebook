@@ -1,0 +1,16 @@
+{
+  "reference": "/home/attila/projects/CTNS/recovered-figures/2026-11-25/older-reference-copies/2023-09-26-cell-bayes-assays/0ebbdd8e55999aa5/prior-posterior-curves-sigmoid-4.png",
+  "reproduced": "/home/attila/projects/CTNS/recovered-figures/2026-11-25/selected/2023-09-26-cell-bayes-assays/prior-posterior-curves-sigmoid-4.png",
+  "reference_sha256": "0ebbdd8e55999aa506ed832a8fa2f53096d8a7037c118ffebeab940158784ce5",
+  "reproduced_sha256": "89ded380cd1dcec8e572955bde13ffe29650216fc0c5398fe62e0b0f98e6b051",
+  "dimensions_equal": true,
+  "dimensions": [
+    1131,
+    965
+  ],
+  "mean_absolute_rgb_difference": 3.304416437987994,
+  "byte_identical": false,
+  "visual_review": "qualitative agreement in two panels, axes, observed data points, hypothesis regions and posterior decrease; not pixel-identical",
+  "inference_quality": "27 divergent transitions; max R-hat 1.0082181172367615, min bulk ESS 765.876472811052; finite log likelihood",
+  "scope": "sigmoid-4 figure only; sigmoid-2 failure preserved; full cell-assay notebook not reproduced"
+}

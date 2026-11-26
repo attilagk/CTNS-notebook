@@ -1,0 +1,64 @@
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+CELL 0
+CELL 1
+CELL 2
+CELL 3
+CELL 4
+Traceback (most recent call last):
+  File "/home/attila/projects/CTNS/notebooks/recovery-audit/figure-reconciliation/run_sigmoid.py", line 31, in <module>
+    NotebookClient(nb,km=km,timeout=1800,resources={'metadata':{'path':str(cwd)}},on_cell_start=lambda cell,cell_index,**kw:print('CELL',cell_index,flush=True)).execute();manifest['execution']='passed'
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/attila/miniconda3/envs/bayes/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/attila/miniconda3/envs/bayes/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/attila/miniconda3/envs/bayes/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/home/attila/miniconda3/envs/bayes/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/attila/miniconda3/envs/bayes/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+def extract_regr_data(exper, assay, compound, datad=datad, controls=controls, return_data_reshaped=False):
+    data = datad[exper]
+    group_var, control_treatment, group_level = controls.loc[exper, ['group_var', 'control_treatment', compound]]
+    mask = data.TI.isin([compound, control_treatment])
+    if group_var is not np.nan:
+        mask = mask & (data[group_var] == group_level)
+    data = data.loc[mask]
+    data_reshaped = data[[assay, 'concentration', 'conc_log10']]
+    activity = data_reshaped[assay] / data_reshaped[assay].std() * 10
+    data_reshaped = pd.concat([data_reshaped, activity.to_frame('activity')], axis=1)
+    if return_data_reshaped:
+        return(data_reshaped)
+    y_obs = data_reshaped['activity'].values
+    x_obs = data_reshaped['conc_log10'].values
+    return((y_obs, x_obs))
+
+extract_regr_data('Abeta clearance', 'Aβ42 Ly', 'TI21', return_data_reshaped=True)
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mKeyError[39m                                  Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[5][39m[32m, line 17[39m
+[32m     13[39m     y_obs = data_reshaped[[33m'activity'[39m].values
+[32m     14[39m     x_obs = data_reshaped[[33m'conc_log10'[39m].values
+[32m     15[39m     [38;5;28;01mreturn[39;00m((y_obs, x_obs))
+[32m     16[39m 
+[32m---> [39m[32m17[39m extract_regr_data([33m'Abeta clearance'[39m, [33m'Aβ42 Ly'[39m, [33m'TI21'[39m, return_data_reshaped=[38;5;28;01mTrue[39;00m)
+
+[36mCell[39m[36m [39m[32mIn[5][39m[32m, line 2[39m, in [36mextract_regr_data[39m[34m(exper, assay, compound, datad, controls, return_data_reshaped)[39m
+[32m      1[39m [38;5;28;01mdef[39;00m extract_regr_data(exper, assay, compound, datad=datad, controls=controls, return_data_reshaped=[38;5;28;01mFalse[39;00m):
+[32m----> [39m[32m2[39m     data = datad[exper]
+[32m      3[39m     group_var, control_treatment, group_level = controls.loc[exper, [[33m'group_var'[39m, [33m'control_treatment'[39m, compound]]
+[32m      4[39m     mask = data.TI.isin([compound, control_treatment])
+[32m      5[39m     [38;5;28;01mif[39;00m group_var [38;5;28;01mis[39;00m [38;5;28;01mnot[39;00m np.nan:
+
+[31mKeyError[39m: 'Abeta clearance'
+
+
+RUN /home/attila/projects/CTNS/notebooks/recovery-audit/reproductions/figure-recovery-2023-09-26-cell-bayes-assays-20261125T140246Z STATUS failed
