@@ -1,0 +1,1461 @@
+notebook,cell,expression,literal,resolution,source
+2023-11-07-5xfad-maze-latency,22,'posterior-mean-genotype-and-drug-effects',posterior-mean-genotype-and-drug-effects,literal,"def my_errorbar(df_drug, df_gtype):
+    fig, ax = plt.subplots(figsize=(4.8, 4.8))
+    ys = np.arange(len(df_drug))
+    means = df_drug.loc[:, 'mean']
+    SDs = df_drug.loc[:, 'sd']
+    offset = 0.05
+    color_genotype = 'blue'
+    color_drug = 'red'
+    ax.errorbar(x=df_gtype.loc[:, 'mean'], y=ys - offset, xerr=df_gtype.sd, fmt='o', linewidth=1, color=color_genotype, label='genotype effect')
+    ax.errorbar(x=df_drug.loc[:, 'mean'], y=ys + offset, xerr=df_drug.sd, fmt='o', linewidth=1, color=color_drug, label='drug effect')
+    ax.legend(loc='best')
+    xlim = (means.abs() + SDs).max() * 1.05
+    ax.set_xlim(-xlim, xlim)
+    ax.axvline(0, color='k', linestyle='dashed')
+    ax.set_yticks(ys)
+    yticklabels = 4 * ['WT'] + 2 * ['WT, DMSO'] + ['WT'] + ['5xFAD']
+    #yticklabels = (df_drug.shape[0] - 1) * ['WT'] + ['5xFAD']
+    twin_yticklabels = df_drug.index[: -1].to_list() + ['TUDCA']
+    ax.set_yticklabels(yticklabels, color=color_genotype)
+    ax.set_title(r'Effect, posterior mean $\pm$ SD')
+    twin_ax = ax.twinx()
+    twin_ax.set_yticks(ys)
+    twin_ax.set_ylim(ax.get_ylim())
+    twin_ax.set_yticklabels(twin_yticklabels, color=color_drug)
+    ax.set_xlabel(r'improved $\leftarrow$ rel. learning rate $\beta_1$  $\rightarrow$ worsened')
+    ax.set_ylabel('Genotype treatment', color=color_genotype)
+    twin_ax.set_ylabel('Drug treatment', color=color_drug)
+    ax.grid(axis='y', linestyle='dotted')
+    return((fig, ax))
+
+fig, ax = my_errorbar(condition0_summary, condition1_summary)
+attila_utils.savefig(fig, 'posterior-mean-genotype-and-drug-effects')"
+2023-11-07-5xfad-maze-latency,24,'posterior-mean-base-learning-rate',posterior-mean-base-learning-rate,literal,"fig, ax = plt.subplots(figsize=(4.8, 4.8))
+ax.errorbar(x=day_summary.loc[:, 'mean'], y=np.arange(len(day_summary)), xerr=day_summary.sd, fmt='o', linewidth=1)
+ax.set_xlim(ax.get_xlim()[0], 0)
+ax.set_yticks(np.arange(len(day_summary)))
+ax.set_yticklabels(day_summary.index)
+ax.set_title(r'Base learning rate $\pm$ SD')
+ax.set_xlabel(r'better $\leftarrow$ base learning rate $\beta_2$  $\rightarrow$ worse')
+ax.grid(axis='y', linestyle='dotted')
+attila_utils.savefig(fig, 'posterior-mean-base-learning-rate')"
+2023-11-07-5xfad-maze-latency,25,'condition-posteriors-study1',condition-posteriors-study1,literal,"fig, ax = plt.subplots(2, 1, sharex=True, figsize=(4.8, 6.4))
+az.plot_posterior(idata1['TgReflevel'], var_names='C(Condition, levels=lvl)', ax=ax, textsize=10, hdi_prob=0.95, rope=[-0.1, 1])
+effect_str = ['genotype effect', 'drug effect']
+for i, axi in enumerate(ax):
+    axi.set_title(lvl[i + 1] + ' (' + effect_str[i] + ')')
+    axi.axvline(0, linestyle='dashed', color='k', linewidth=1)
+
+attila_utils.savefig(fig, 'condition-posteriors-study1')"
+2023-11-07-5xfad-maze-latency,26,'drug-genotype-effect-amiloride',drug-genotype-effect-amiloride,literal,"fig, ax = plt.subplots(1, 1, sharex=True, figsize=(4.8, 4.8))
+az.plot_pair(idata1['TgReflevel'], var_names='C(Condition, levels=lvl)', ax=ax, kind='kde', textsize=10)
+ax.set_xlabel('WT (genotype effect)')
+ax.set_ylabel('5xFAD + Amiloride (drug effect)')
+ax.set_title(r'Effect rel. to 5xFAD')
+axislim = 0.4
+ax.set_xlim(-axislim, axislim)
+ax.set_ylim(-axislim, axislim)
+ax.axvline(0, linestyle='dotted', color='k')
+ax.axhline(0, linestyle='dotted', color='k')
+ax.text(- axislim / 2, - axislim / 2, 'both improved\nperformance', va='center', ha='center')
+ax.text(axislim / 2, axislim / 2, 'both worsened\nperformance', va='center', ha='center')
+attila_utils.savefig(fig, 'drug-genotype-effect-amiloride')"
+2023-11-07-5xfad-maze-test-probe,6,'avg-distance-to-platform-vs-fraction-of-time-target-quadrant',avg-distance-to-platform-vs-fraction-of-time-target-quadrant,literal,"fig, ax = plt.subplots(figsize=(4.8, 4.8))
+sns.scatterplot(data=data_probe, y='Avg. distance', x='NE (%)', hue='Condition', ax=ax)
+ax.set_xlabel('% time in target quadrant')
+attila_utils.savefig(fig, 'avg-distance-to-platform-vs-fraction-of-time-target-quadrant')
+ax.set_ylabel('Avg. distance to platform (cm)')
+"
+2023-11-07-5xfad-maze-test-probe,7,'avg-distance-to-platform-stripplot-anova',avg-distance-to-platform-stripplot-anova,literal,"def my_anova(data_probe):
+    dist = dict()
+    for g in data_probe.Group.unique():
+        dist.update({g: data_probe.loc[data_probe.Group == g, 'Avg. distance'].to_numpy()})
+    statistic, pvalue = f_oneway(*dist.values())
+    #statistic, pvalue = f_oneway(dist['A'], dist['B'], dist['C']) # the same
+    return((statistic, pvalue))
+
+def my_stripplot(data_probe):
+    statistic, pvalue = my_anova(data_probe)
+    fig, ax = plt.subplots(figsize=(4.8, 4.8))
+    sns.stripplot(data=data_probe, x='Avg. distance', y='Condition', hue='Condition', ax=ax, legend=False)
+    ax.set_title('Avg. distance to platform; ANOVA $p ={:1.2}$'.format(pvalue))
+    ax.set_xlabel('Avg. distance to platform (cm)')
+    return((fig, ax))
+
+fig, ax = my_stripplot(data_probe)
+attila_utils.savefig(fig, 'avg-distance-to-platform-stripplot-anova')"
+2023-11-07-5xfad-maze-test-probe,8,'avg-distance-to-platform-stripplot-anova-CO28152',avg-distance-to-platform-stripplot-anova-CO28152,literal,"fig, ax = my_stripplot(data_probe2)
+attila_utils.savefig(fig, 'avg-distance-to-platform-stripplot-anova-CO28152')"
+2024-02-29-Y-maze,7,'pct-correct-entries-boxplot-CO26990',pct-correct-entries-boxplot-CO26990,literal,"fig, ax = my_boxplot(data_CO26990, 'Correct Entries %')
+attila_utils.savefig(fig, 'pct-correct-entries-boxplot-CO26990')"
+2024-02-29-Y-maze,8,'pct-correct-entries-w12-boxplot-CO28152',pct-correct-entries-w12-boxplot-CO28152,literal,"fig, ax = my_boxplot(data_CO28152, 'Correct entries %, week 12')
+attila_utils.savefig(fig, 'pct-correct-entries-w12-boxplot-CO28152')"
+2024-02-29-Y-maze,9,'pct-correct-entries-w13-boxplot-CO28152',pct-correct-entries-w13-boxplot-CO28152,literal,"fig, ax = my_boxplot(data_CO28152, 'Correct entries %, week 13')
+attila_utils.savefig(fig, 'pct-correct-entries-w13-boxplot-CO28152')"
+2024-02-29-Y-maze,10,'pct-correct-entries-w12-boxplot-CO28154',pct-correct-entries-w12-boxplot-CO28154,literal,"fig, ax = my_boxplot(data_CO28154, 'Correct entries %, week 12')
+attila_utils.savefig(fig, 'pct-correct-entries-w12-boxplot-CO28154')"
+2024-02-29-Y-maze,11,'pct-correct-entries-w13-boxplot-CO28154',pct-correct-entries-w13-boxplot-CO28154,literal,"fig, ax = my_boxplot(data_CO28154, 'Correct entries %, week 13')
+attila_utils.savefig(fig, 'pct-correct-entries-w13-boxplot-CO28154')"
+2024-05-20-nfl-modeling,4,'lineplot-tg-vs-wt-saline',lineplot-tg-vs-wt-saline,literal,"fig, ax = nfl.plot_dataw(dataw_CO28152, [x for x in dataw_CO28152.Treatment.cat.categories if re.match('.*Saline.*', x)])
+attila_utils.savefig(fig, 'lineplot-tg-vs-wt-saline')"
+2024-05-20-nfl-modeling,5,'lineplot-tg-CO28152',lineplot-tg-CO28152,literal,"fig, ax = nfl.plot_dataw(dataw_CO28152, [x for x in dataw_CO28152.Treatment.cat.categories if not re.match('.* WT', x)])
+attila_utils.savefig(fig, 'lineplot-tg-CO28152')"
+2024-05-20-nfl-modeling,6,'lineplot-HCQ-TUDCA-CO28152',lineplot-HCQ-TUDCA-CO28152,literal,"fig, ax = nfl.plot_dataw(dataw_CO28152, ['Saline TG', 'HCQ TG', 'TUDCA TG'])
+fig.suptitle('Study: CO28152')
+ax[0].set_ylim(200, 1050)
+attila_utils.savefig(fig, 'lineplot-HCQ-TUDCA-CO28152')"
+2024-05-20-nfl-modeling,7,'lineplot-HCQ_TUDCA-CO28152',lineplot-HCQ_TUDCA-CO28152,literal,"fig, ax = nfl.plot_dataw(dataw_CO28154, ['Saline TG', 'TUDCA + HCQ TG'])
+fig.suptitle('Study: CO28154')
+ax[0].set_ylim(200, 1050)
+attila_utils.savefig(fig, 'lineplot-HCQ_TUDCA-CO28152')"
+2024-05-20-nfl-modeling,8,'lineplot-wt-CO28152',lineplot-wt-CO28152,literal,"fig, ax = nfl.plot_dataw(dataw_CO28152, [x for x in dataw_CO28152.Treatment.cat.categories if re.match('.* WT', x)])
+attila_utils.savefig(fig, 'lineplot-wt-CO28152')"
+2024-05-20-nfl-modeling,9,'lineplot-tg-CO28154',lineplot-tg-CO28154,literal,"fig, ax = nfl.plot_dataw(dataw_CO28154, [x for x in dataw_CO28154.Treatment.cat.categories if not re.match('.* WT', x)])
+attila_utils.savefig(fig, 'lineplot-tg-CO28154')"
+2024-05-20-nfl-modeling,10,'lineplot-TUDCA_HCQ-CO28154',lineplot-TUDCA_HCQ-CO28154,literal,"fig, ax = nfl.plot_dataw(dataw_CO28154, [x for x in dataw_CO28154.Treatment.cat.categories if re.match('.*(Saline|TUDCA \+ HCQ).*', x)])
+attila_utils.savefig(fig, 'lineplot-TUDCA_HCQ-CO28154')"
+2024-05-20-nfl-modeling,11,'lineplot-wt-CO28154',lineplot-wt-CO28154,literal,"fig, ax = nfl.plot_dataw(dataw_CO28154, [x for x in dataw_CO28154.Treatment.cat.categories if re.match('.* WT', x)])
+attila_utils.savefig(fig, 'lineplot-wt-CO28154')"
+2024-05-20-nfl-modeling,14,'ttest-saline-vs-TUDCA_HCQ-CO28154',ttest-saline-vs-TUDCA_HCQ-CO28154,literal,"def ttest_plot(treatment_a='Saline TG', treatment_b='TUDCA + HCQ TG', study_a='CO28154', study_b=None, hue='Condition', return_df=False):
+    study_b = study_a if study_b is None else study_b
+    study2dataw = {'CO28152': dataw_CO28152, 'CO28154': dataw_CO28154}
+    dataw_a, dataw_b = [study2dataw[study].copy() for study in [study_a, study_b]]
+    dataw_a['Study'] = study_a
+    dataw_b['Study'] = study_b
+    Z = zip([treatment_a, treatment_b], [dataw_a, dataw_b])
+    df = pd.concat([dataw.loc[dataw.Treatment == treatment] for treatment, dataw in Z], axis=0)
+    id_vars = ['Cohort', 'Group', 'Sex', 'Genotype', 'Treatment', 'Study']
+    data_vars = [x for x in df.columns if re.match('^NF-L week \d{1,2}$', x)]
+    df = df[id_vars + data_vars]
+    df = df.melt(id_vars=id_vars, value_name='NF-L')
+    df['Week'] = df.variable.str.replace('NF-L week ', '').astype('int64')
+    if treatment_a != treatment_b:
+        df['Treatment'] = pd.Categorical(df.Treatment, categories=[treatment_a, treatment_b], ordered=True)
+    df['Condition'] = df.apply(lambda r: r.loc['Treatment'] + ', ' + r.loc['Study'], axis=1)
+    df = df.dropna()
+    if return_df:
+        return(df)
+    fig, ax = plt.subplots(2, 1, sharex=True, figsize=(3.6, 4.8))
+    sns.boxplot(data=df, x='Week', y='NF-L', hue=hue, ax=ax[0], boxprops={'alpha': 0.5})
+    sns.stripplot(data=df, x='Week', y='NF-L', hue=hue, dodge=True, ax=ax[0], legend=False)
+    sns.move_legend(ax[0], 'lower center', bbox_to_anchor=(0.5, 1))
+    #fig.legend([mpatches.Circle((0, 0), color=c for c in ['C0', 'C1']], [treat
+    ax[0].grid(axis='y', which='both')
+    ax[0].set_xlabel('')
+    weeks = [0, 4, 8, 12]
+    pvalues = [nfl.my_ttest(treatment_a, treatment_b, dataw_a, dataw_b, var='NF-L week ' + str(i)).pvalue for i in weeks]
+    ax[1].plot(np.arange(len(weeks)), pvalues, marker='o', linewidth=0, color='k')
+    ax[1].set_yscale('log')
+    ax[1].grid(axis='y', which='both')
+    ax[1].axhline(0.05, color='k', linestyle='dotted', linewidth=2)
+    ax[1].set_xlabel('weeks after treatment')
+    ax[1].set_ylabel(r'$p$-value')
+    return((fig, ax, pvalues))
+
+fig, ax, pvalues = ttest_plot('Saline TG', 'TUDCA + HCQ TG', 'CO28154', hue='Treatment')
+#ax[0].set_title('Study: CO28154')
+attila_utils.savefig(fig, 'ttest-saline-vs-TUDCA_HCQ-CO28154')"
+2024-05-20-nfl-modeling,15,'ttest-CO28152-vs-CO28154-saline',ttest-CO28152-vs-CO28154-saline,literal,"fig, ax, pvalues = ttest_plot('Saline TG', 'Saline TG', 'CO28154', 'CO28152', hue='Condition')
+attila_utils.savefig(fig, 'ttest-CO28152-vs-CO28154-saline')"
+2024-05-20-nfl-modeling,16,'ttest-CO28152-saline-vs-TUDCA_HCQ-CO28154',ttest-CO28152-saline-vs-TUDCA_HCQ-CO28154,literal,"fig, ax, pvalues = ttest_plot('Saline TG', 'TUDCA + HCQ TG', 'CO28152', 'CO28154', hue='Condition')
+attila_utils.savefig(fig, 'ttest-CO28152-saline-vs-TUDCA_HCQ-CO28154')"
+2024-05-20-nfl-modeling,17,'ttest-saline-vs-TUDCA-CO28152',ttest-saline-vs-TUDCA-CO28152,literal,"fig, ax, pvalues = ttest_plot('Saline TG', 'TUDCA TG', 'CO28152', hue='Condition')
+attila_utils.savefig(fig, 'ttest-saline-vs-TUDCA-CO28152')"
+2024-05-20-nfl-modeling,19,'ttest-heatmap-all-tg',ttest-heatmap-all-tg,literal,"def ttest_heatmap(resl, hspace_denom=None):
+    height_ratios = [len(df) for df in resl]
+    hspace_denom = 40 if hspace_denom is None else hspace_denom
+    gridspec_kw = {'hspace': sum(height_ratios) / hspace_denom}
+    fig, ax = plt.subplots(len(resl), 2, figsize=(3.6, sum(height_ratios) * 0.5), height_ratios=height_ratios, squeeze=False, gridspec_kw=gridspec_kw)
+    for i, res in enumerate(resl):
+        axes = ax[i, :]
+        do_cbar = i == 0
+        axes = ttest_heatmap_axes(axes, res, do_cbar=do_cbar)
+        if i < len(resl) - 1:
+            for j in range(2):
+                axes[j].set_xlabel('')
+                axes[j].set_xticklabels('')
+            #[axes[j].set_xlabel('') for j in [0, 1]]
+            #[axes[j].set_xlabel('') for j in [0, 1]]
+    return((fig, ax))
+
+
+def ttest_heatmap_axes(axes, res, do_cbar=True):
+    #fig, axes = plt.subplots(1, 2, figsize=(3.6, res.shape[0] * 0.55), sharey=True)
+    for ax, pvalue in zip(axes, [True, False]):
+        stat = 'p value' if pvalue else 't statistic'
+        data = res.xs(stat, level=1, axis=1)
+        data = data.map(np.log10) if pvalue else data
+        vmax = 0 if pvalue else 4
+        vmin = -3 if pvalue else -vmax
+        cmap = 'hot' if pvalue else 'BrBG_r'
+        label = r'$\log_{10} p$ value' if pvalue else r'$t$ statistic'
+        cbar_kws = {'orientation': 'horizontal', 'location': 'top', 'label': label}
+        axim = ax.imshow(X=data, aspect='auto', vmin=vmin, vmax=vmax, cmap=cmap)
+        #axim = ax.imshow(X=data, aspect='equal', vmin=vmin, vmax=vmax, cmap=cmap)
+        if do_cbar:
+            plt.colorbar(mappable=axim, **cbar_kws)
+        ax.set_yticks(list(range(data.shape[0])) if pvalue else [])
+        if pvalue:
+            ax.set_yticklabels(data.index)
+        ax.set_xticks(list(range(4)))
+        ax.set_xticklabels([str(int(i)) for i in [0, 4, 8, 12]], rotation=0)
+        ax.set_xlabel('weeks')
+    return(axes)
+
+
+resl = [
+    ttest_array(dataw_CO28152, tg=True, reftreatment='Saline TG'),
+    ttest_array(dataw_CO28154, tg=True, reftreatment='Saline TG').loc[:'TUDCA + HCQ TG'],
+    ttest_array(dataw_CO28154, tg=True, reftreatment='Vehicle (Arundine) TG').loc['Vehicle (Arundine) TG':],
+]
+fig, ax = ttest_heatmap(resl, hspace_denom=100)
+attila_utils.savefig(fig, 'ttest-heatmap-all-tg')"
+2024-05-20-nfl-modeling,20,'ttest-heatmap-CO28152-tg',ttest-heatmap-CO28152-tg,literal,"resl = [
+    ttest_array(dataw_CO28152, tg=True, reftreatment='Saline TG'),
+]
+fig, ax = ttest_heatmap(resl)
+attila_utils.savefig(fig, 'ttest-heatmap-CO28152-tg')"
+2024-05-20-nfl-modeling,21,'ttest-heatmap-TUDCA-HCQ-tg',ttest-heatmap-TUDCA-HCQ-tg,literal,"resl = [
+    ttest_array(dataw_CO28152, tg=True, reftreatment='Saline TG').loc[['Saline TG', 'HCQ TG', 'TUDCA TG']],
+    ttest_array(dataw_CO28154, tg=True, reftreatment='Saline TG').loc[:'TUDCA + HCQ TG'],
+]
+fig, ax = ttest_heatmap(resl, hspace_denom=40)
+attila_utils.savefig(fig, 'ttest-heatmap-TUDCA-HCQ-tg')"
+2024-05-20-nfl-modeling,22,'ttest-heatmap-all-wt',ttest-heatmap-all-wt,literal,"resl = [
+    ttest_array(dataw_CO28152, tg=False, reftreatment='Saline WT').drop('DMSO WT'),
+    ttest_array(dataw_CO28154, tg=False, reftreatment='Saline WT').loc[:'TUDCA + HCQ WT'],
+    ttest_array(dataw_CO28154, tg=False, reftreatment='Vehicle (Arundine) WT').loc['Vehicle (Arundine) WT':],
+]
+fig, ax = ttest_heatmap(resl)
+attila_utils.savefig(fig, 'ttest-heatmap-all-wt')"
+2024-05-20-nfl-modeling,24,'nfl_week0-vs-study-sex-cohort',nfl_week0-vs-study-sex-cohort,literal,"dataw = pd.concat([dataw_CO28152, dataw_CO28154], axis=0)
+hues = ['Study', 'Sex', 'Cohort']
+naxis = len(hues)
+fig, ax = plt.subplots(1, naxis, figsize=(4.8 * naxis, 4.8), sharey=True)
+for axi, hue in zip(ax, hues):
+    sns.scatterplot(data=dataw.loc[dataw.Genotype == 'tg/wt'], y='NF-L week 0', x='Lifespan (weeks)', hue=hue, ax=axi)
+    axi.set_ylim(0, 1000)
+
+pvalue = scipy.stats.ttest_ind(*[dataw.loc[dataw.Sex == s, 'NF-L week 0'].dropna() for s in ['m', 'f']]).pvalue
+ax[0].set_title(r't-test on Nfl: $p=$' + str(round(pvalue, 2)), fontsize=10)
+attila_utils.savefig(fig, 'nfl_week0-vs-study-sex-cohort')"
+2024-05-20-nfl-modeling,28,'scatter-vs-max_ΔNfl-lifespan_CO28152',scatter-vs-max_ΔNfl-lifespan_CO28152,literal,"def my_scatter(x='Lifespan (weeks)', dataw=dataw_CO28152):
+    fig, ax = plt.subplots(2, 5, figsize=(10, 5), sharey=True, sharex=True)
+    for t, axi in zip(dataw.Treatment.cat.categories, ax.ravel()):
+        sns.scatterplot(data=dataw.loc[dataw.Treatment == t], y='max_ΔNfl', x=x, ax=axi, hue='Sex', palette=['blue', 'red'], legend=False)
+        axi.set_title(t)
+        axi.set_xlabel('')
+        axi.set_ylabel('')
+    
+    fig.supxlabel(x)
+    fig.supylabel('max_ΔNfl')
+    return((fig, ax))
+
+fig, ax = my_scatter('Lifespan (weeks)', dataw_CO28152)
+attila_utils.savefig(fig, 'scatter-vs-max_ΔNfl-lifespan_CO28152')"
+2024-05-20-nfl-modeling,29,'scatter-vs-max_ΔNfl-lifespan_CO28154',scatter-vs-max_ΔNfl-lifespan_CO28154,literal,"fig, ax = my_scatter('Lifespan (weeks)', dataw_CO28154)
+attila_utils.savefig(fig, 'scatter-vs-max_ΔNfl-lifespan_CO28154')"
+2024-05-20-nfl-modeling,30,'scatter-max_ΔNfl-vs-Nfl-week-0_CO28152',scatter-max_ΔNfl-vs-Nfl-week-0_CO28152,literal,"fig, ax = my_scatter('NF-L week 0', dataw_CO28152)
+attila_utils.savefig(fig, 'scatter-max_ΔNfl-vs-Nfl-week-0_CO28152')"
+2024-05-20-nfl-modeling,31,'scatter-max_ΔNfl-vs-Nfl-week-0_CO28154',scatter-max_ΔNfl-vs-Nfl-week-0_CO28154,literal,"fig, ax = my_scatter('NF-L week 0', dataw_CO28154)
+attila_utils.savefig(fig, 'scatter-max_ΔNfl-vs-Nfl-week-0_CO28154')"
+2024-05-20-nfl-modeling,32,'data-violinplot',data-violinplot,literal,"fig, ax = plt.subplots(1, 2, figsize=(9.6, 4.8))
+for axi, dataw in zip(ax, [dataw_CO28152, dataw_CO28154]):
+    axi.grid()
+    sns.violinplot(data=dataw, x='max_ΔNfl', y='Treatment', ax=axi, width=3.6)
+    axi.axvline(0, color='black')
+    axi.set_ylabel('')
+    axi.set_xlim(-500, 500)
+
+plt.tight_layout()
+attila_utils.savefig(fig, 'data-violinplot')"
+2024-05-20-nfl-modeling,39,'violinplot-CO28152',violinplot-CO28152,literal,"def my_violin(results):
+    nvars = results.posterior['Treatment'].shape[2] + 1
+    ax = az.plot_violin(results, hdi_prob=0.95, var_names=['Intercept', 'Treatment'], grid=(1, nvars), figsize=(14.4, 4.8))
+    for axi in ax:
+        axi.axhline(0, color='black')
+        axi.grid()
+    ax[0].set_ylabel('ΔNfl', fontsize=16)
+    fig = ax[0].get_figure()
+    return((fig, ax))
+
+fig, ax = my_violin(results_CO28152)
+attila_utils.savefig(fig, 'violinplot-CO28152')"
+2024-05-20-nfl-modeling,40,'violinplot-CO28154a',violinplot-CO28154a,literal,"fig, ax = my_violin(results_CO28154a)
+attila_utils.savefig(fig, 'violinplot-CO28154a')"
+2024-05-20-nfl-modeling,41,'violinplot-CO28154b',violinplot-CO28154b,literal,"fig, ax = my_violin(results_CO28154b)
+attila_utils.savefig(fig, 'violinplot-CO28154b')"
+2024-05-20-nfl-modeling,42,'forestplot-CO28152',forestplot-CO28152,literal,"def my_forest(results, var_names='~max_ΔNfl_sigma'):
+    fig, ax = plt.subplots(figsize=(4.8, 4.8))
+    az.plot_forest(results, ax=ax, hdi_prob=0.95, var_names=var_names)
+    ax.grid()
+    ax.axvline(0, color='black')
+    return((fig, ax))
+
+fig, ax = my_forest(results_CO28152)
+attila_utils.savefig(fig, 'forestplot-CO28152')"
+2024-05-20-nfl-modeling,43,'forestplot-CO28154a',forestplot-CO28154a,literal,"fig, ax = my_forest(results_CO28154a)
+attila_utils.savefig(fig, 'forestplot-CO28154a')"
+2024-05-20-nfl-modeling,44,'forestplot-CO28154b',forestplot-CO28154b,literal,"fig, ax = my_forest(results_CO28154b)
+attila_utils.savefig(fig, 'forestplot-CO28154b')"
+2024-05-20-nfl-modeling,51,'fx-size-p-val-all',fx-size-p-val-all,literal,"l_resultsdf = [resultsdf_CO28152, resultsdf_CO28154_TUDCA_HCQ, resultsdf_CO28154_Arundine]
+fig, ax = nfl.result_plotter(l_resultsdf, duration='any duration', hspace_denom=50, x0_lim=(-400, 250), x1_lim=(1e-3, 1))
+attila_utils.savefig(fig, 'fx-size-p-val-all')"
+2024-05-20-nfl-modeling,52,'fx-size-p-val-TUDCA-HCQ',fx-size-p-val-TUDCA-HCQ,literal,"l_resultsdf = [resultsdf_CO28152.loc[resultsdf_CO28152.treatment.isin(['Intercept', 'HCQ TG', 'TUDCA TG'])], resultsdf_CO28154_TUDCA_HCQ]
+fig, ax = nfl.result_plotter(l_resultsdf, duration='any duration', hspace_denom=10, x0_lim=(-400, 100), x1_lim=(1e-2, 1))
+attila_utils.savefig(fig, 'fx-size-p-val-TUDCA-HCQ')"
+2024-06-04-5xfad-behavior-CO28154,5,bname,,dynamic - runtime evidence required,"for k, v in plotd_CO26990.items():
+    fig, ax = mwm.escape_latency_plotter(k, *v)
+    bname = 'latency-' + re.sub('\W+', '-', k)
+    print(bname)
+    attila_utils.savefig(fig, bname)"
+2024-06-04-5xfad-behavior-CO28154,7,bname,,dynamic - runtime evidence required,"for k, v in plotd_CO28152.items():
+    fig, ax = mwm.escape_latency_plotter(k, *v)
+    bname = 'latency-' + re.sub('\W+', '-', k)
+    print(bname)
+    attila_utils.savefig(fig, bname)"
+2024-06-04-5xfad-behavior-CO28154,9,bname,,dynamic - runtime evidence required,"for k, v in plotd_CO28154.items():
+    fig, ax = mwm.escape_latency_plotter(k, *v)
+    bname = 'latency-' + re.sub('\W+', '-', k)
+    print(bname)
+    attila_utils.savefig(fig, bname)"
+2024-06-04-5xfad-behavior-CO28154,39,'model-latency-CO28154-TUDCA_HCQ-TG',model-latency-CO28154-TUDCA_HCQ-TG,literal,"def model_escape_latency_plotter(idata, data, lvl=['Saline TG', 'TUDCA + HCQ TG', 'Saline WT'], colors=['C0', 'C1', 'C4'], ref_lvl='Saline TG', log_yscale=False, exper=''):
+    treatment_lvl = lvl.copy()
+    treatment_lvl.remove(ref_lvl)
+    fig, ax = mwm.escape_latency_plotter(exper, data, lvl=lvl, colors={'f': 'gray', 'm': 'k'}, extra_subplot=True)
+    for color, level, axi in zip(colors, lvl, ax[:-1]):
+        axi = model_escape_latency_plotter_ax(axi, idata, level, ref_lvl, color, log_yscale, do_censor=True)
+        model_escape_latency_plotter_ax(ax[-1], idata, level, ref_lvl, color=color, do_censor=False)
+        axi.set_xlabel('')
+        axi.set_ylabel('')
+    ax[-1].set_title('Overlay')
+    ax[-1].legend()
+    ax[-1].set_xlabel('')
+    ax[-1].set_ylabel('')
+    fig.supxlabel('Day of training', fontsize=14)
+    fig.supylabel(r'better $\leftarrow$ Escape latency $\rightarrow$ worse', x=0.075, fontsize=14)
+    return((fig, ax))
+
+idata = idatas_CO28154.loc['TUDCA + HCQ TG']
+lvl = ['Saline TG', 'TUDCA + HCQ TG', 'Saline WT']
+fig, ax = model_escape_latency_plotter(idata, data_CO28154, lvl=lvl, ref_lvl='Saline TG', log_yscale=False)
+attila_utils.savefig(fig, 'model-latency-CO28154-TUDCA_HCQ-TG')"
+2024-06-04-5xfad-behavior-CO28154,40,'model-latency-CO28154-TUDCA_HCQ-TG-anonym',model-latency-CO28154-TUDCA_HCQ-TG-anonym,literal,"idata = idatas_CO28154.loc['TUDCA + HCQ TG']
+lvl = ['Saline TG', 'TUDCA + HCQ TG', 'Saline WT']
+lvl_anonym = ['saline, TG', 'drug A + drug B, TG', 'saline, WT']
+fig, ax = model_escape_latency_plotter(idata, data_CO28154, lvl=lvl, ref_lvl='Saline TG', log_yscale=False)
+for i, title in enumerate(lvl_anonym):
+    ax[i].set_title(title)
+h, l = ax[-1].get_legend_handles_labels()
+ax[-1].legend(h, lvl_anonym)
+attila_utils.savefig(fig, 'model-latency-CO28154-TUDCA_HCQ-TG-anonym')"
+2024-06-04-5xfad-behavior-CO28154,41,'model-latency-CO28154-TUDCA_HCQ-TG_m',model-latency-CO28154-TUDCA_HCQ-TG_m,literal,"idata = idatas_CO28154_m.loc['TUDCA + HCQ TG']
+lvl = ['Saline TG', 'TUDCA + HCQ TG', 'Saline WT']
+fig, ax = model_escape_latency_plotter(idata, data_CO28154_m, lvl=lvl, ref_lvl='Saline TG', log_yscale=False)
+attila_utils.savefig(fig, 'model-latency-CO28154-TUDCA_HCQ-TG_m')"
+2024-06-04-5xfad-behavior-CO28154,42,'model-latency-CO28154-TUDCA_HCQ-TG-log',model-latency-CO28154-TUDCA_HCQ-TG-log,literal,"idata = idatas_CO28154.loc['TUDCA + HCQ TG']
+fig, ax = model_escape_latency_plotter(idata, data_CO28154, lvl=lvl, ref_lvl='Saline TG', log_yscale=True)
+attila_utils.savefig(fig, 'model-latency-CO28154-TUDCA_HCQ-TG-log')"
+2024-06-04-5xfad-behavior-CO28154,43,'model-latency-CO28154-TUDCA_HCQ-TG-log_m',model-latency-CO28154-TUDCA_HCQ-TG-log_m,literal,"idata = idatas_CO28154_m.loc['TUDCA + HCQ TG']
+fig, ax = model_escape_latency_plotter(idata, data_CO28154_m, lvl=lvl, ref_lvl='Saline TG', log_yscale=True)
+attila_utils.savefig(fig, 'model-latency-CO28154-TUDCA_HCQ-TG-log_m')"
+2024-06-04-5xfad-behavior-CO28154,44,'model-latency-CO28152-TUDCA-HCQ-TG',model-latency-CO28152-TUDCA-HCQ-TG,literal,"idata = idatas_CO28152.loc['CO28152 TG']
+lvl = [
+    'Saline TG',
+    'TUDCA TG',
+    'HCQ TG',
+    'Saline WT',
+]
+colors = ['C0', 'C3', 'C2', 'C4']
+fig, ax = model_escape_latency_plotter(idata, data_CO28152, lvl=lvl, ref_lvl='Saline TG', colors=colors, log_yscale=False)
+attila_utils.savefig(fig, 'model-latency-CO28152-TUDCA-HCQ-TG')"
+2024-06-04-5xfad-behavior-CO28154,45,'model-latency-CO28152-TUDCA-HCQ-TG_m',model-latency-CO28152-TUDCA-HCQ-TG_m,literal,"idata = idatas_CO28152_m.loc['CO28152 TG']
+lvl = [
+    'Saline TG',
+    'TUDCA TG',
+    'HCQ TG',
+    'Saline WT',
+]
+colors = ['C0', 'C3', 'C2', 'C4']
+fig, ax = model_escape_latency_plotter(idata, data_CO28152_m, lvl=lvl, colors=colors, ref_lvl='Saline TG', log_yscale=False)
+attila_utils.savefig(fig, 'model-latency-CO28152-TUDCA-HCQ-TG_m')"
+2024-06-04-5xfad-behavior-CO28154,46,'model-latency-CO28152-TUDCA-HCQ-TG-log',model-latency-CO28152-TUDCA-HCQ-TG-log,literal,"idata = idatas_CO28152.loc['CO28152 TG']
+fig, ax = model_escape_latency_plotter(idata, data_CO28152, lvl=lvl, colors=colors, ref_lvl='Saline TG', log_yscale=True)
+attila_utils.savefig(fig, 'model-latency-CO28152-TUDCA-HCQ-TG-log')"
+2024-06-04-5xfad-behavior-CO28154,47,'model-latency-CO28152-TUDCA-HCQ-TG-log_m',model-latency-CO28152-TUDCA-HCQ-TG-log_m,literal,"idata = idatas_CO28152_m.loc['CO28152 TG']
+fig, ax = model_escape_latency_plotter(idata, data_CO28152_m, lvl=lvl, colors=colors, ref_lvl='Saline TG', log_yscale=True)
+attila_utils.savefig(fig, 'model-latency-CO28152-TUDCA-HCQ-TG-log_m')"
+2024-06-04-5xfad-behavior-CO28154,53,'CI-BF-TUDCA-HCQ-HCQ-analogs',CI-BF-TUDCA-HCQ-HCQ-analogs,literal,"my_palette = ['red', 'magenta', 'blue']
+#my_palette = ['black', 'red', 'pink']
+
+def plot_bf_ax(ax, df, exper, do_legend=False):
+    BF = df.xs(exper, level=0, axis=0).xs('2 log BF', level=1, axis=1).copy()
+    H1_labels = BF.columns.to_list()
+    BF = BF.stack().to_frame('2 log BF')
+    BF['treatment'] = BF.index.get_level_values(0)
+    BF['H1'] = BF.index.get_level_values(1)
+    palette = my_palette
+    sns.barplot(data=BF, x='2 log BF', y='treatment', hue='H1', ax=ax, palette=palette)
+    ax.set_xlabel(r'$2 \times \log \mathrm{BF}$: evidence for $H_1$')
+    evidence_l = ['nonexistent', 'negligible', 'moderate', 'strong', 'very strong']
+    xticks_major = [0, 2, 6, 10]
+    xticks_minor = [-2, 1, 4, 8, 12]
+    ax.set_xticks(xticks_major, minor=False)
+    #ax.set_xticks(xticks_minor, minor=True)
+    xticklabels_minor = len(xticks_minor) * ['']
+    ax.grid(axis='both')
+    for x, evidence in zip(xticks_minor, evidence_l):
+        pass
+        #ax.text(x=x, y=0.5, s=evidence, horizontalalignment='center', verticalalignment='center', rotation=90, fontsize=10)
+    ax.legend_.remove()
+    if do_legend:
+        handles = [Patch(color=c) for c in palette]
+        ax.legend(handles, H1_labels, bbox_to_anchor=(0.5, 1), loc='lower center', title=r'alternative hypothesis $H_1$')
+    return(ax)
+
+
+def plot_ci_bf(BF_all, experl=exper_list, fullfx_lvls=fullfx_lvls, ref_lvls=ref_lvls):
+    height_ratios = [BF_all.xs(e, level=0, axis=0).shape[0] for e in experl]
+    width_ratios = [3, 2]
+    gridspec_kw = {'left': 0.05, 'right': 0.48, 'hspace': sum(height_ratios) / 20}
+    figsize = (12.8, sum(height_ratios) / 2)
+    fig, ax = plt.subplots(len(experl), 2, height_ratios=height_ratios, width_ratios=width_ratios, figsize=figsize, gridspec_kw=gridspec_kw)
+    Z = zip(experl, fullfx_lvls, ref_lvls)
+    for i, t in enumerate(Z):
+        exper, fullfx_lvl, ref_lvl = t
+        df = BF_all.xs(exper, level=0, axis=0, drop_level=False)
+        df_latency = df.xs('log change of escape latency', level=0, axis=1)
+        ax_left = ax[i, 0]
+        ax_left, ax_left_twin = plot_ci_ax(ax_left, df_latency, exper, ref_lvl=ref_lvl, do_set_axlim=False)
+        x_min = -0.8
+        x_max = 0.5
+        ax_left, ax_left_twin = set_axlim(ax_left, ax_left_twin, x_min, x_max)
+        ax_left.set_title('')
+        df_t1 = df.xs('t1', level=1, axis=1)
+        hypotheses = ['full rescue', 'partial rescue', 'slight improvement']
+        palette = my_palette
+        t1s = [df_t1[h].iloc[0] for h in hypotheses]
+        [ax_left.axvline(t1, color=c) for t1, c in zip(t1s, palette)]
+        ax_right = ax[i, 1]
+        do_legend = True if i==0 else False
+        ax_right = plot_bf_ax(ax_right, BF_all, exper, do_legend=do_legend)
+        x2_min = -10
+        x2_max = 20
+        ax_right.set_xlim(x2_min, x2_max)
+        ax_right.set_ylim(ax_right.get_ylim()[1], ax_right.get_ylim()[0])
+        ax_right.set_yticklabels([])
+        ax_right.set_ylabel('')
+        ax_right.grid(linestyle='dotted', axis='y')
+        if i > 0:
+            ax_left_twin.set_xlabel('')
+        if i < len(experl) - 1:
+            ax_left.set_xlabel('')
+            ax_right.set_xlabel('')
+        else:
+            ticks = [-2, 1, 4, 8, 12]
+            labels = [label + 20 * ' ' for label in ['none', 'weak', 'substantial', 'strong', 'decisive']]
+            ax_right.set_xticks(ticks, labels, minor=True, rotation=90, va='center', ha='center', color='gray', weight='bold')
+            ax_right.tick_params(axis='x', which='minor', length=0)
+    return((fig, ax))
+
+fig, ax = plot_ci_bf(BF_all, experl=exper_list[1:3], fullfx_lvls=fullfx_lvls[1:3], ref_lvls=ref_lvls[1:3])
+#axbf = fig.add_axes((0.25, -0.2, 0.25, 0.2))
+attila_utils.savefig(fig, 'CI-BF-TUDCA-HCQ-HCQ-analogs')"
+2024-06-04-5xfad-behavior-CO28154,54,'CI-BF-TUDCA-HCQ-HCQ-analogs_m',CI-BF-TUDCA-HCQ-HCQ-analogs_m,literal,"fig, ax = plot_ci_bf(BF_all_m, experl=exper_list[1:3], fullfx_lvls=fullfx_lvls[1:3], ref_lvls=ref_lvls[1:3])
+attila_utils.savefig(fig, 'CI-BF-TUDCA-HCQ-HCQ-analogs_m')"
+2024-06-04-5xfad-behavior-CO28154,55,'CI-BF-TUDCA-HCQ',CI-BF-TUDCA-HCQ,literal,"exper_list = ['Amiloride 10 TG', 'CO28152 TG', 'TUDCA + HCQ TG', 'Arundine TG']
+
+BF_TUDCA_HCQ = BF_all.loc[[
+    ('CO28152 TG', 'HCQ TG'),
+    ('CO28152 TG', 'TUDCA TG'),
+    ('CO28152 TG', 'Saline WT'),
+    ('TUDCA + HCQ TG', 'TUDCA + HCQ TG'),
+    ('TUDCA + HCQ TG', 'Saline WT'),
+]]
+fig, ax = plot_ci_bf(BF_TUDCA_HCQ, experl=exper_list[1:3], fullfx_lvls=fullfx_lvls[1:3], ref_lvls=ref_lvls[1:3])
+attila_utils.savefig(fig, 'CI-BF-TUDCA-HCQ')"
+2024-06-04-5xfad-behavior-CO28154,56,'CI-BF-TUDCA-HCQ-anonym',CI-BF-TUDCA-HCQ-anonym,literal,"BF_TUDCA_HCQ = BF_all.loc[[
+    ('TUDCA + HCQ TG', 'TUDCA + HCQ TG'),
+    ('TUDCA + HCQ TG', 'Saline WT'),
+    ('CO28152 TG', 'HCQ TG'),
+    ('CO28152 TG', 'TUDCA TG'),
+    ('CO28152 TG', 'Saline WT'),
+]]
+fig, ax = plot_ci_bf(BF_TUDCA_HCQ, experl=['TUDCA + HCQ TG', 'CO28152 TG'], fullfx_lvls=['Saline WT', 'Saline WT'], ref_lvls=['Saline WT', 'Saline WT'])
+ax[0, 0].set_yticklabels(['drug A + drug B, TG', 'saline, WT'])
+ax[1, 0].set_yticklabels(['drug B, TG', 'drug A, TG', 'saline, WT'])
+attila_utils.savefig(fig, 'CI-BF-TUDCA-HCQ-anonym')"
+2024-06-04-5xfad-behavior-CO28154,57,'CI-BF-TUDCA-HCQ_m',CI-BF-TUDCA-HCQ_m,literal,"BF_TUDCA_HCQ_m = BF_all_m.loc[[
+    ('CO28152 TG', 'HCQ TG'),
+    ('CO28152 TG', 'TUDCA TG'),
+    ('CO28152 TG', 'Saline WT'),
+    ('TUDCA + HCQ TG', 'TUDCA + HCQ TG'),
+    ('TUDCA + HCQ TG', 'Saline WT'),
+]]
+fig, ax = plot_ci_bf(BF_TUDCA_HCQ_m, experl=exper_list[1:3], fullfx_lvls=fullfx_lvls[1:3], ref_lvls=ref_lvls[1:3])
+attila_utils.savefig(fig, 'CI-BF-TUDCA-HCQ_m')"
+2024-06-04-5xfad-behavior-CO28154,58,'CI-BF-others',CI-BF-others,literal,"exper_list1 = ['Amiloride 10 TG', 'Arundine TG']
+fullfx_lvls1 = ['Saline WT', 'Vehicle (Arundine) WT']
+ref_lvls1 = ['Saline TG', 'Vehicle (Arundine) TG']
+
+fig, ax = plot_ci_bf(BF_all, experl=exper_list1, fullfx_lvls=fullfx_lvls1, ref_lvls=ref_lvls1)
+attila_utils.savefig(fig, 'CI-BF-others')"
+2024-06-04-5xfad-behavior-CO28154,59,'CI-BF-all',CI-BF-all,literal,"fig, ax = plot_ci_bf(BF_all)
+attila_utils.savefig(fig, 'CI-BF-all')"
+2024-06-04-5xfad-behavior-CO28154,62,'learning-rate-effect-CO26990-Amiloride-10-TG',learning-rate-effect-CO26990-Amiloride-10-TG,literal,"fig, ax = plot_ci(idatas3_CO26990, 'Amiloride 10 TG', 'Saline TG')
+attila_utils.savefig(fig, 'learning-rate-effect-CO26990-Amiloride-10-TG')"
+2024-06-04-5xfad-behavior-CO28154,66,'learning-rate-effect-CO28152-all-TG',learning-rate-effect-CO28152-all-TG,literal,"fig, ax = plot_ci(idatas_CO28152, 'CO28152 TG', 'Saline TG')
+attila_utils.savefig(fig, 'learning-rate-effect-CO28152-all-TG')"
+2024-06-04-5xfad-behavior-CO28154,67,'learning-rate-effect-CO28152-all-WT',learning-rate-effect-CO28152-all-WT,literal,"fig, ax = plot_ci(idatas_CO28152, 'CO28152 WT', 'Saline WT')
+attila_utils.savefig(fig, 'learning-rate-effect-CO28152-all-WT')"
+2024-06-04-5xfad-behavior-CO28154,71,'learning-rate-effect-CO28154-HCQ_TUDCA-TG',learning-rate-effect-CO28154-HCQ_TUDCA-TG,literal,"fig, ax = plot_ci(idatas_CO28154, 'TUDCA + HCQ TG', 'Saline TG')
+attila_utils.savefig(fig, 'learning-rate-effect-CO28154-HCQ_TUDCA-TG')"
+2024-06-04-5xfad-behavior-CO28154,72,'learning-rate-effect-CO28154-Arundine-TG',learning-rate-effect-CO28154-Arundine-TG,literal,"fig, ax = plot_ci(idatas_CO28154, 'Arundine TG', 'Vehicle (Arundine) TG')
+attila_utils.savefig(fig, 'learning-rate-effect-CO28154-Arundine-TG')"
+2024-06-04-5xfad-behavior-CO28154,73,'learning-rate-effect-CO28154-HCQ_TUDCA-WT',learning-rate-effect-CO28154-HCQ_TUDCA-WT,literal,"fig, ax = plot_ci(idatas_CO28154, 'TUDCA + HCQ WT', 'Saline WT')
+attila_utils.savefig(fig, 'learning-rate-effect-CO28154-HCQ_TUDCA-WT')"
+2024-06-04-5xfad-behavior-CO28154,74,'learning-rate-effect-CO28154-Arundine-WT',learning-rate-effect-CO28154-Arundine-WT,literal,"fig, ax = plot_ci(idatas_CO28154, 'Arundine WT', 'Vehicle (Arundine) WT')
+attila_utils.savefig(fig, 'learning-rate-effect-CO28154-Arundine-WT')"
+2024-06-26-mwm-test-probe-CO28154,19,'plotall-all',plotall-all,disabled by if False,"def info_plot(axi, entropies):
+    data = entropies.copy()
+    data.loc[:, 'treatment'] = data.index
+    def helper(axi, x, markerfacecolor):
+        axi = sns.pointplot(data=data, y='treatment', x=x, ax=axi, linestyles='none', markeredgewidth=0.5, markeredgecolor='k', markerfacecolor=markerfacecolor)
+        return(axi)
+    axi = helper(axi, 'information gain', 'gray')
+    axi = helper(axi, 'information gain uniform', 'white')
+    axi.axvline(0, color='k', linewidth=1, linestyle='--')
+    axi.set_title('Information gain')
+    axi.set_xlabel(r'$-\Delta$ entropy: $H_\mathrm{ref} - H_\mathrm{test}$')
+    return(axi)
+
+
+def frac_plot(axi, fractions, stdeviations):
+    cumfrac = fractions.xs('test condition', level=0, axis=1).cumsum(axis=1).copy()
+    stdev = stdeviations.xs('test condition', level=0, axis=1).copy()
+    cumfrac.loc[:, 'treatment'] = cumfrac.index
+    for i in list(range(cumfrac.shape[1]))[3::-1]:
+        axi = sns.barplot(data=cumfrac, y='treatment', x=cumfrac.columns[i], ax=axi)
+        x = cumfrac.columns[i]
+        xerr = stdev.loc[:, x.replace('frac', 'err')]
+        y = np.arange(len(cumfrac[x]))
+        def my_errorbar(x, xerr):
+            axi.errorbar(y=y, x=x, xerr=xerr, color='k', linestyle='none', capsize=4, linewidth=0.5)
+        my_errorbar(cumfrac.loc[:, x], xerr)
+    my_errorbar(np.zeros_like(y), stdev.loc[:, 'err_4'])
+    axi.set_xlabel('fraction of time')
+    axi.set_xlim(0, 1)
+    axi.set_title('ML estimate')
+    return(axi)
+
+
+def pval_plot(axi, results):
+    def helper(axi, test_type='LR test', markerfacecolor='gray'):
+        data = results.xs(test_type, level=0, axis=1).copy()
+        data.loc[:, 'treatment'] = data.index
+        axi = sns.pointplot(data=data, y='treatment', x='p', ax=axi, linestyles='none', markeredgewidth=0.5, markeredgecolor='k', markerfacecolor=markerfacecolor)
+        return(axi)
+    axi = helper(axi, 'LR test', 'gray')
+    axi = helper(axi, 'LR test uniform', 'white')
+    axi.set_xscale('log')
+    axi.set_xlabel(r'$p$-value')
+    axi.set_title('Likelihood ratio test')
+    for alpha in [1e-3, 1e-2, 5e-2]:
+        axi.axvline(alpha, color='k', linewidth=1, linestyle='--')
+    return(axi)
+
+
+def quadrant_legend(fig, bbox_x=0.05, bbox_y=None, loc='lower left'):
+    handles = [mpatches.Patch(edgecolor=c, color=c) for c in ['C3', 'C2', 'C1', 'C0']]
+    labels = ['target', 'adjacent 1', 'adjacent 2', 'opposite']
+    #bbox_y = 1 if bbox_y is None else bbox_y
+    fig.legend(handles=handles, labels=labels, loc=loc, bbox_to_anchor=(bbox_x, bbox_y), title='Quadrants:')
+
+
+def plot_all(l_all, d_sel=None, info_xlims=None, p_xlims=None, hspace_denom=None, bbox_y=None, ref_treatment=None):
+    d_plot = {'fractions': frac_plot, 'information': info_plot, 'p-value': pval_plot}
+    if d_sel is None:
+        df = l_all[0]
+        d_sel = {s: df.xs(s, level=0, axis=0).index.to_list() for s in df.index.get_level_values(0).unique()}
+    height_ratios = [len(v) for v in d_sel.values()]
+    width_ratios = [2, 2, 3]
+    hspace_denom = 40 if hspace_denom is None else hspace_denom
+    gridspec_kw = {'left': 0.05, 'right': 0.48, 'hspace': sum(height_ratios) / hspace_denom}
+    figsize = (12.8, sum(height_ratios) / 3)
+    fig, ax = plt.subplots(len(height_ratios), len(width_ratios), height_ratios=height_ratios, width_ratios=width_ratios,
+                           figsize=figsize, gridspec_kw=gridspec_kw, squeeze=False)
+    mins = [0, 0, 1]
+    maxs = [1, 0, 1e-6]
+    for i, items in enumerate(d_sel.items()):
+        study, l_exper = items
+        results, fractions, stdeviations, entropies = [df.xs(study, level=0, axis=0).loc[l_exper] for df in l_all]
+        d_args = {'fractions': (fractions, stdeviations), 'information': (entropies,), 'p-value': (results,)}
+        for j, plot_type in enumerate(['fractions', 'information', 'p-value']):
+            axi = ax[i, j]
+            plotter = d_plot[plot_type]
+            args = d_args[plot_type]
+            axi = plotter(axi, *args)
+            axi.set_ylabel('')
+            axi.grid(axis='y', linestyle='dotted')
+            if info_xlims is not None and plot_type == 'information':
+                axi.set_xlim(info_xlims)
+            if p_xlims is not None and plot_type == 'p-value':
+                axi.set_xlim(p_xlims)
+            if j > 0:
+                axi.set_ylabel('')
+                axi.set_yticklabels([])
+            if i < len(d_sel) - 1:
+                axi.set_xlabel('')
+            if i > 0:
+                axi.set_title('')
+    bbox_y = 1 if bbox_y is None else bbox_y
+    legend = quadrant_legend(fig, bbox_y=bbox_y)
+    handles1 = [mlines.Line2D([], [], linestyle='none', markeredgewidth=0.5, marker='o', markerfacecolor=c, markeredgecolor='k') for c in ['gray', 'white']]
+    ref_treatment = 'ref. treatment' if ref_treatment is None else ref_treatment
+    labels1 = ['trained control (' + ref_treatment + ')', 'untrained control (uniform dist.)']
+    title1 = r'$H_0$, reference condition'
+    fig.legend(handles=handles1, labels=labels1, loc='lower left', bbox_to_anchor=(0.225, bbox_y), title=title1)
+    return((fig, ax))
+
+
+if False:
+    fig, ax = plot_all(l_all, info_xlims=(-2, 7), p_xlims=(1e-10, 1), hspace_denom=60, bbox_y=0.95)
+    attila_utils.savefig(fig, 'plotall-all')"
+2024-06-26-mwm-test-probe-CO28154,20,'plotall-CO26990-CO28152',plotall-CO26990-CO28152,literal,"d_sel = {
+    'CO26990': results.xs('CO26990').xs('both sexes').index.to_list(),
+    'CO28152': results.xs('CO28152').xs('both sexes').index.to_list(),
+}
+
+fig, ax = plot_all(l_all, d_sel=d_sel, info_xlims=(-2, 7), p_xlims=(1e-10, 1), hspace_denom=40)
+attila_utils.savefig(fig, 'plotall-CO26990-CO28152')"
+2024-06-26-mwm-test-probe-CO28154,21,'plotall-CO28154',plotall-CO28154,literal,"d_sel = {
+    'CO28154': results.xs('CO28154').xs('both sexes').index.to_list(),
+}
+
+fig, ax = plot_all(l_all, d_sel=d_sel, info_xlims=(-2, 7), p_xlims=(1e-10, 1))
+attila_utils.savefig(fig, 'plotall-CO28154')"
+2024-06-26-mwm-test-probe-CO28154,22,'plotall-CO28154_m',plotall-CO28154_m,literal,"d_sel = {
+    'CO28154': results.xs('CO28154').xs('males only').index.to_list(),
+}
+
+fig, ax = plot_all(l_all_m, d_sel=d_sel, info_xlims=(-2, 7), p_xlims=(1e-10, 1))
+attila_utils.savefig(fig, 'plotall-CO28154_m')"
+2024-06-26-mwm-test-probe-CO28154,23,'plotall-arundine',plotall-arundine,disabled by if False,"d_sel = {
+    'CO28154': ['Vehicle (Arundine) TG', 'Vehicle (Arundine) WT', 'Arundine low dose TG', 'Arundine mid dose TG', 'Arundine high dose TG'],
+}
+
+if False:
+    fig, ax = plot_all(l_all, d_sel=d_sel, info_xlims=(-2, 7), p_xlims=(1e-10, 1), hspace_denom=15, ref_treatment='Vehicle (Arundine) TG', bbox_y=1.05)
+    attila_utils.savefig(fig, 'plotall-arundine')"
+2024-06-26-mwm-test-probe-CO28154,24,'plotall-arundine-wt',plotall-arundine-wt,disabled by if False,"d_sel = {
+    'CO28154': ['Vehicle (Arundine) WT', 'Arundine high dose WT'],
+}
+
+if False:
+    fig, ax = plot_all(l_all, d_sel=d_sel, info_xlims=(-2, 7), p_xlims=(1e-10, 1), hspace_denom=15, ref_treatment='Vehicle (Arundine) WT', bbox_y=1.3)
+    attila_utils.savefig(fig, 'plotall-arundine-wt')"
+2024-06-26-mwm-test-probe-CO28154,25,'plotall-TUDCA-HCQ',plotall-TUDCA-HCQ,literal,"d_sel = {
+    'CO28152': ['Saline TG', 'Saline WT', 'TUDCA TG', 'HCQ TG'],
+    'CO28154': ['Saline TG', 'Saline WT', 'TUDCA + HCQ TG'],
+}
+
+fig, ax = plot_all(l_all, d_sel=d_sel, info_xlims=(-2, 7), p_xlims=(1e-10, 1), hspace_denom=15, ref_treatment='Saline TG')
+attila_utils.savefig(fig, 'plotall-TUDCA-HCQ')"
+2024-06-26-mwm-test-probe-CO28154,26,'plotall-TUDCA-HCQ_m',plotall-TUDCA-HCQ_m,literal,"d_sel = {
+    #'CO28152': ['Saline TG', 'Saline WT', 'TUDCA TG', 'HCQ TG'],
+    'CO28154': ['Saline TG', 'Saline WT', 'TUDCA + HCQ TG'],
+}
+
+fig, ax = plot_all(l_all_m, d_sel=d_sel, info_xlims=(-2, 7), p_xlims=(1e-10, 1), hspace_denom=15, ref_treatment='Saline TG')
+attila_utils.savefig(fig, 'plotall-TUDCA-HCQ_m')"
+2024-06-26-mwm-test-probe-CO28154,27,'pie-chart-wt-tg-uniform',pie-chart-wt-tg-uniform,literal,"def plot_pie_strip(l_sel, fractions=fractions, stdeviations=stdeviations):
+    unit_width = 2.4
+    fig, ax = plt.subplots(2, len(l_sel), height_ratios=[4, 1], figsize=(unit_width * len(l_sel), unit_width * 1.25))
+    Z = zip([fractions, stdeviations], [1/4, 0])
+    uniform_fractions, uniform_stdeviations = [df.iloc[[0], :4].copy().map(lambda x: val) for df,val in Z]
+    def plot_one(j, t):
+        ii = np.array([0, 1, 3, 2])
+        if t is None:
+            frac, sdev = [df.iloc[0].loc['test condition'].to_numpy() for df in [uniform_fractions, uniform_stdeviations]]
+        else:
+            frac, sdev = [df.loc[t].loc['test condition'].to_numpy() for df in [fractions, stdeviations]]
+        frac_pie = frac[ii]
+        colors = ['C' + str(int(i)) for i in np.array(3 - ii)]
+        ax_top, ax_bottom = [ax[i, j] for i in [0, 1]]
+        ax_top.pie(frac_pie, colors=colors)
+        ix = pd.MultiIndex.from_product([['test condition'], list(range(4))])
+        #fracdf, sdevdf = [pd.DataFrame(a, columns=[t[1]], index=ix).transpose() for a in [frac, sdev]]
+        fracdf = fractions.loc[[t]].copy() if t is not None else uniform_fractions.copy()
+        fracdf.index = fracdf.index.get_level_values(1)
+        sdevdf = stdeviations.loc[[t]].copy() if t is not None else uniform_stdeviations.copy()
+        sdevdf.index = sdevdf.index.get_level_values(1)
+        if t is None:
+            pass
+        ax_bottom = frac_plot(ax_bottom, fracdf, sdevdf)
+        ax_bottom.set_title('')
+        ax_bottom.set_ylabel('')
+        ax_bottom.set_yticks([])
+        return(None)
+    for j, t in enumerate(l_sel):
+        plot_one(j, t)
+    legend = quadrant_legend(fig, bbox_x=1, bbox_y=0.5)
+    return((fig, ax))
+
+l_sel = [
+    ('CO26990', 'Saline WT'),
+    ('CO26990', 'Saline TG'),
+    None,
+]
+
+fig, ax = plot_pie_strip(l_sel, fractions.xs('both sexes', level=1, axis=0), stdeviations.xs('both sexes', level=1, axis=0))
+for axi, title in zip(ax[0, :], ['Saline WT', 'empirical (Saline TG)', 'theoretical (uniform)']):
+    axi.set_title(title)
+
+attila_utils.savefig(fig, 'pie-chart-wt-tg-uniform')"
+2024-08-08-biochemistry,20,'boxplot-Abeta-TUDCA-and-HCQ',boxplot-Abeta-TUDCA-and-HCQ,literal,"def my_plot_ax(ax, treatments, study, x, hue, subsetd, palette,
+               pairs=None, pvals=None, do_annot=False, Abeta_long=Abeta_long):
+    b = (Abeta_long.Treatment.isin(treatments)) & (Abeta_long.Study == study)
+    b = b & (Abeta_long[list(subsetd.keys())[0]] == list(subsetd.values())[0]) & (Abeta_long[list(subsetd.keys())[1]] == list(subsetd.values())[1])
+    data = Abeta_long.loc[b].copy()
+    data = data.assign(Treatment=data.Treatment.cat.set_categories(treatments, ordered=True))
+    sns.swarmplot(x=x, y='Ab', hue=hue, edgecolor='k', linewidth=0.5, dodge=True, palette=palette, data=data, ax=ax, legend=False)
+    sns.boxplot(x=x, y='Ab', hue=hue, palette=palette, data=data, ax=ax, legend=False, whis=(0, 100))
+    ax.set_yscale('log')
+    ax.set_title(', '.join(list(subsetd.values())))
+    ax.grid(which='both', axis='y', linestyle='dotted')
+    if do_annot and not (pvals is None or pairs is None):
+        annot = Annotator(ax, pairs=pairs, data=data, hue='Treatment', x='Alloform', y='Ab')
+        annot.configure(loc='inside', text_format='star').set_pvalues(pvalues=pvals)
+        #formatstr = r'$p =${:.0g}'
+        #l = [formatstr.format(p) for p in pvals]
+        #annot.set_custom_annotations(l)
+        annot.annotate()
+    return(ax)
+
+def my_plot(treatments=['Saline TG', 'TUDCA + HCQ TG'], study='CO28154', colors=['C0', 'C1'],
+            pairs=[(('Aβ40', 'Saline TG'), ('Aβ40', 'TUDCA + HCQ TG')), (('Aβ42', 'Saline TG'), ('Aβ42', 'TUDCA + HCQ TG'))],
+            ref_cond=['FA', 'cortex'], ttest_res=ttest_res):
+    palette = dict(zip(treatments, colors))
+    fig, ax = plt.subplots(2, 2, figsize=(4.8, 4.8))
+    for i, fraction in enumerate(['FA', 'DEA']):
+        for j, region in enumerate(['cortex', 'hippocampus']):
+            axi = ax[i, j]
+            do_annot = (fraction == ref_cond[0]) & (region == ref_cond[1])
+            pvals_df = ttest_res.xs(study, level='study').xs(region, level='region').xs(fraction, level='fraction')
+            pvals = [pvals_df.xs(p[1][0], level='alloform').loc[(p[0][1], p[1][1]), 'pvalue'] for p in pairs]
+            axi = my_plot_ax(axi, treatments=treatments, study=study, x='Alloform', hue='Treatment',
+                             subsetd={'Fraction': fraction, 'Region': region}, palette=palette,
+                             pairs=pairs, pvals=pvals, do_annot=True)
+            axi.set_xlabel('')
+            axi.set_ylabel('')
+    handles = [mpatches.Patch(color=c) for c in palette.values()]
+    fig.legend(handles=handles, labels=treatments, loc='lower center', bbox_to_anchor=(0.5, 1.0), title='Treatment:')
+    fig.tight_layout()
+    fig.supylabel(r'A$\beta$ level')
+    #fig.supxlabel(r'Alloform')
+    return((fig, ax))
+
+treatments = ['Saline TG', 'TUDCA + HCQ TG']
+colors = ['C0', 'C1']
+pairs = [(('Aβ40', 'Saline TG'), ('Aβ40', 'TUDCA + HCQ TG')), (('Aβ42', 'Saline TG'), ('Aβ42', 'TUDCA + HCQ TG'))]
+#pvals = [results_params[('CO28154', 'TUDCA and HCQ')].loc['Treatment[T.TUDCA + HCQ TG]', ('both sexes', 'pvalues')]]
+fig, ax = my_plot(treatments=treatments, study='CO28154', colors=colors, pairs=pairs)
+attila_utils.savefig(fig, 'boxplot-Abeta-TUDCA-and-HCQ')"
+2024-08-08-biochemistry,21,'boxplot-Abeta-TUDCA-and-HCQ-with-WT',boxplot-Abeta-TUDCA-and-HCQ-with-WT,literal,"treatments = ['Saline TG', 'TUDCA + HCQ TG', 'Saline WT']
+colors = ['C0', 'C1', 'k']
+pairs = [(('Aβ40', 'Saline TG'), ('Aβ40', 'TUDCA + HCQ TG')), (('Aβ42', 'Saline TG'), ('Aβ42', 'TUDCA + HCQ TG')),
+         (('Aβ40', 'Saline TG'), ('Aβ40', 'Saline WT')), (('Aβ42', 'Saline TG'), ('Aβ42', 'Saline WT'))]
+fig, ax = my_plot(treatments=treatments, study='CO28154', colors=colors, pairs=pairs)
+attila_utils.savefig(fig, 'boxplot-Abeta-TUDCA-and-HCQ-with-WT')"
+2024-08-08-biochemistry,22,'boxplot-Abeta-TUDCA-or-HCQ',boxplot-Abeta-TUDCA-or-HCQ,literal,"treatments = ['Saline TG', 'TUDCA TG', 'HCQ TG']
+colors = ['C0', 'C3', 'C2']
+pairs = [(('Aβ40', 'Saline TG'), ('Aβ40', 'TUDCA TG')), (('Aβ42', 'Saline TG'), ('Aβ42', 'TUDCA TG')),
+         (('Aβ40', 'Saline TG'), ('Aβ40', 'HCQ TG')), (('Aβ42', 'Saline TG'), ('Aβ42', 'HCQ TG'))]
+fig, ax = my_plot(treatments=treatments, study='CO28152', colors=colors, pairs=pairs)
+attila_utils.savefig(fig, 'boxplot-Abeta-TUDCA-or-HCQ')"
+2024-08-08-biochemistry,23,'boxplot-Abeta-HCQ-analogs',boxplot-Abeta-HCQ-analogs,literal,"treatments = ['Saline TG', 'HCQ TG', 'HCQ nano TG', 'R-HCQ TG', 'S-HCQ TG']
+colors = ['C0', 'C3', 'C2', 'C4', 'C5', 'C6']
+pairs = [
+    (('Aβ40', 'Saline TG'), ('Aβ40', 'HCQ TG')), (('Aβ42', 'Saline TG'), ('Aβ42', 'HCQ TG')),
+    (('Aβ40', 'Saline TG'), ('Aβ40', 'HCQ nano TG')), (('Aβ42', 'Saline TG'), ('Aβ42', 'HCQ nano TG')),
+    (('Aβ40', 'Saline TG'), ('Aβ40', 'R-HCQ TG')), (('Aβ42', 'Saline TG'), ('Aβ42', 'R-HCQ TG')),
+    (('Aβ40', 'Saline TG'), ('Aβ40', 'S-HCQ TG')), (('Aβ42', 'Saline TG'), ('Aβ42', 'S-HCQ TG')),
+]
+fig, ax = my_plot(treatments=treatments, study='CO28152', colors=colors, pairs=pairs)
+attila_utils.savefig(fig, 'boxplot-Abeta-HCQ-analogs')"
+2024-08-08-biochemistry,24,'boxplot-Abeta-arundine',boxplot-Abeta-arundine,literal,"treatments = ['Vehicle (Arundine) TG', 'Arundine low dose TG', 'Arundine mid dose TG', 'Arundine high dose TG']
+colors = ['C' + str(i) for i, t in enumerate(treatments)]
+pairs = [
+    (('Aβ40', 'Vehicle (Arundine) TG'), ('Aβ40', 'Arundine low dose TG')), (('Aβ42', 'Vehicle (Arundine) TG'), ('Aβ42', 'Arundine low dose TG')),
+    (('Aβ40', 'Vehicle (Arundine) TG'), ('Aβ40', 'Arundine mid dose TG')), (('Aβ42', 'Vehicle (Arundine) TG'), ('Aβ42', 'Arundine mid dose TG')),
+    (('Aβ40', 'Vehicle (Arundine) TG'), ('Aβ40', 'Arundine high dose TG')), (('Aβ42', 'Vehicle (Arundine) TG'), ('Aβ42', 'Arundine high dose TG')),
+]
+pvals = [results_params[('CO28154', 'Arundine')].loc['Treatment[T.' + t + ']', ('both sexes', 'pvalues')] for t in treatments[1:]]
+fig, ax = my_plot(treatments=treatments, study='CO28154', colors=colors, pairs=pairs)
+attila_utils.savefig(fig, 'boxplot-Abeta-arundine')"
+2024-08-08-biochemistry,25,'boxplot-Abeta-arundine-with-WT',boxplot-Abeta-arundine-with-WT,literal,"treatments = ['Vehicle (Arundine) TG', 'Arundine low dose TG', 'Arundine mid dose TG', 'Arundine high dose TG', 'Vehicle (Arundine) WT']
+colors = ['C' + str(i) for i, t in enumerate(treatments)]
+pairs = pairs + [(('Aβ40', 'Vehicle (Arundine) TG'), ('Aβ40', 'Vehicle (Arundine) WT')), (('Aβ42', 'Vehicle (Arundine) TG'), ('Aβ42', 'Vehicle (Arundine) WT'))]
+fig, ax = my_plot(treatments=treatments, study='CO28154', colors=colors, pairs=pairs)
+attila_utils.savefig(fig, 'boxplot-Abeta-arundine-with-WT')"
+2024-11-11-cytokines,5,'swarmplot-TUDCA-and-HCQ',swarmplot-TUDCA-and-HCQ,literal,"df = take_sel_treatments(data_CO28154, treatment_levels_CO28154_TUDCA_HCQ)
+g = plot_data(df)
+attila_utils.savefig(g, 'swarmplot-TUDCA-and-HCQ')"
+2024-11-11-cytokines,17,'estimates-TUDCA-and-orHCQ',estimates-TUDCA-and-orHCQ,literal,"def my_errorbar_ax(ax, experiment='TUDCA or HCQ', estimatesd=estimatesd, sexes='both sexes'):
+    dff = normalize_estimates(estimatesd[experiment]).xs(sexes, level=0, axis=1)
+    l = list(dff.columns.to_frame()[0].drop('Intercept').drop('Treatment[T.Saline WT]').unique())
+    l = ['Treatment[T.Saline WT]'] + l
+    colord = {
+        'TUDCA and HCQ': ['k', 'C1'],
+        'TUDCA or HCQ': ['k', 'C2', 'C3'],
+    }
+    colorl = colord[experiment]
+    Z = zip(l, np.linspace(0.1, -0.1, len(l)), colorl)
+    ax.axvline(0, color='k')
+    for param, offset, color in Z:
+        df = dff[param]
+        label = re.sub('^Treatment\\[T\\.(.*)\\]$', '\\1', param)
+        yticks = np.arange(df.shape[0])
+        ax.errorbar(y=yticks + offset, x=df['params'], xerr=df['bse'], fmt='o', capsize=4, label=label, color=color)
+        pvalues = df['pvalues']
+        for ytick in yticks:
+            pass
+            pvalue = pvalues.iloc[ytick]
+            if pvalue < 1e-2:
+                if pvalue < 5e-2:
+                    s = '*'
+                if pvalue < 1e-2:
+                    s = '**'
+                if pvalue < 1e-3:
+                    s = '***'
+                x = df['params'].iloc[ytick]
+                y = ytick + offset
+                ax.text(y=y, x=x, s=s, horizontalalignment='center', verticalalignment='bottom')
+    ax.set_yticks(list(range(df.shape[0])))
+    ax.set_yticklabels(dff.index)
+    ax.grid(axis='y')
+    ax.legend(loc='lower center', bbox_to_anchor=(0.5, 1.0))
+    return(ax)
+    
+def my_errorbar(experimentl=['TUDCA and HCQ', 'TUDCA or HCQ'], sexesl=['both sexes'] * 2, estimatesd=estimatesd):
+    ncol = len(experimentl)
+    fig, ax = plt.subplots(1, ncol, sharey=True)
+    for axi, experiment, sexes in zip(ax, experimentl, sexesl):
+        my_errorbar_ax(axi, experiment=experiment, estimatesd=estimatesd, sexes=sexes)
+    fig.supxlabel('% change w.r.t Saline TG')
+    fig.supylabel('cytokine')
+    return((fig, ax))
+
+fig, ax = my_errorbar(experimentl=['TUDCA and HCQ', 'TUDCA or HCQ'], sexesl=['both sexes'] * 2, estimatesd=estimatesd)
+attila_utils.savefig(fig, 'estimates-TUDCA-and-orHCQ')"
+2024-11-11-cytokines,18,'estimates-TUDCA-and-orHCQ-males-only',estimates-TUDCA-and-orHCQ-males-only,literal,"fig, ax = my_errorbar(experimentl=['TUDCA and HCQ', 'TUDCA or HCQ'], sexesl=['males only'] * 2, estimatesd=estimatesd)
+attila_utils.savefig(fig, 'estimates-TUDCA-and-orHCQ-males-only')"
+2023-11-15-5xfad-nfl-gfap,4,'NF-L-in-vivo',NF-L-in-vivo,literal,"def line_plotter(nfl_df, x='Week', y='NF-L', marker='', sharey=True):
+    fig, ax = plt.subplots(1, 2, sharey=sharey)
+    for axi, genotype in zip(ax, nfl_df.Genotype.sort_values(ascending=False).unique()):
+        df_genotype = nfl_df.loc[nfl_df.Genotype == genotype]
+        axi.set_title(genotype)
+        axi.set_ylabel('[NF-L], pg/mL')
+        for irn in df_genotype.IRN.unique():
+            df = df_genotype.loc[df_genotype.IRN == irn]
+            sex = df.Sex.unique()[0]
+            color = {'m': 'blue', 'f': 'red'}[sex]
+            #marker = '$' + df.Group.unique()[0] + '$'
+            axi.plot(x, y, data=df, color=color, marker=marker)
+    return((fig, ax))
+
+fig, ax = line_plotter(nfl_invivo, x='Week', y='NF-L')
+fig.suptitle('NF-L in vivo')
+attila_utils.savefig(fig, 'NF-L-in-vivo')"
+2023-11-15-5xfad-nfl-gfap,5,'NF-L-in-vivo-wt-tg',NF-L-in-vivo-wt-tg,literal,"def line_plotter_treatments(nfl_df, group_list, x='Week', y='NF-L', marker='', treatments=treatments, sharey=True):
+    fig, ax = plt.subplots(1, len(group_list), sharey=sharey, figsize=(2.4 * len(group_list), 4.8))
+    linewidth = 1
+    for axi, group in zip(ax, group_list):
+        df_group = nfl_df.loc[nfl_df.Group == group]
+        try:
+            sns.regplot(data=df_group, x=x, y=y, order=2, ax=axi, marker='', line_kws={'lw': linewidth * 4, 'color': 'k'})
+            fit_failed = False
+        except LinAlgError:
+            fit_failed = True
+        axi.set_xlabel('')
+        axi.set_ylabel('')
+        treatment = treatments[group]
+        axi.set_title(treatment)
+        axi.grid(axis='y')
+        axi.set_xticks([0, 4, 8, 12])
+        for irn in df_group.IRN.unique():
+            df = df_group.loc[df_group.IRN == irn]
+            sex = df.Sex.unique()[0]
+            color = {'m': 'blue', 'f': 'red'}[sex]
+            #marker = '$' + df.Group.unique()[0] + '$'
+            axi.plot(x, y, data=df, color=color, marker=marker, lw=linewidth)
+    lines = [AxLine(xy1=(0, 0), xy2=(10, 0), slope=None, color=c, linewidth=lw) for c, lw in zip(['blue', 'red', 'k'], [linewidth, linewidth, 4 * linewidth])]
+    labels = ['male mouse', 'female mouse', 'quadratic fit']
+    if fit_failed:
+        lines.pop()
+        labels.pop()
+    fig.legend(lines, labels, loc='center left', bbox_to_anchor=(0.95 - len(group_list) * 0.01, 0.5))
+    return((fig, ax))
+
+group_list = ['H', 'D']
+fig, ax = line_plotter_treatments(nfl_invivo, group_list, x='Week', y='NF-L', treatments={'D': '5xFAD', 'H': 'WT'})
+fig.suptitle('NF-L in vivo')
+fig.supxlabel('time, week')
+fig.supylabel('[NF-L], pg/mL', x=0)
+attila_utils.savefig(fig, 'NF-L-in-vivo-wt-tg')"
+2023-11-15-5xfad-nfl-gfap,6,'NF-L-in-vivo-wt-tg-sharey-off',NF-L-in-vivo-wt-tg-sharey-off,literal,"group_list = ['H', 'D']
+fig, ax = line_plotter_treatments(nfl_invivo, group_list, x='Week', y='NF-L', treatments={'D': '5xFAD', 'H': 'WT'}, sharey=False)
+fig.suptitle('NF-L in vivo')
+fig.supxlabel('time, week')
+fig.supylabel('[NF-L], pg/mL', x=0)
+ax[1].set_ylim(-30, 1000)
+attila_utils.savefig(fig, 'NF-L-in-vivo-wt-tg-sharey-off')"
+2023-11-15-5xfad-nfl-gfap,7,'NF-L-in-vivo-treatments-tg',NF-L-in-vivo-treatments-tg,literal,"group_list = ['D', 'A', 'B', 'C', 'E', 'F', 'G']
+fig, ax = line_plotter_treatments(nfl_invivo, group_list, x='Week', y='NF-L')
+fig.suptitle('NF-L in vivo: 5xFAD background')
+fig.supxlabel('time, week')
+fig.supylabel('[NF-L], pg/mL', x=0.075)
+attila_utils.savefig(fig, 'NF-L-in-vivo-treatments-tg')"
+2023-11-15-5xfad-nfl-gfap,8,'NF-L-in-vivo-treatments-tg-TUDCA',NF-L-in-vivo-treatments-tg-TUDCA,literal,"group_list = ['H', 'D', 'G']
+fig, ax = line_plotter_treatments(nfl_invivo, group_list, x='Week', y='NF-L')
+fig.supxlabel('weeks after treatment')
+fig.supylabel('plasma Nfl, pg/mL', x=0.025)
+for axi, title in zip(ax, ['WT + saline', '5xFAD + saline', '5xFAD + TUDCA']):
+    axi.set_title(title)
+attila_utils.savefig(fig, 'NF-L-in-vivo-treatments-tg-TUDCA')"
+2023-11-15-5xfad-nfl-gfap,9,'NF-L-in-vivo-treatments-tg-TUDCA-anonym',NF-L-in-vivo-treatments-tg-TUDCA-anonym,literal,"group_list = ['H', 'D', 'G']
+fig, ax = line_plotter_treatments(nfl_invivo, group_list, x='Week', y='NF-L')
+fig.supxlabel('weeks after treatment')
+fig.supylabel('plasma Nfl, pg/mL', x=0.025)
+for axi, title in zip(ax, ['WT + saline', '5xFAD + saline', '5xFAD + drug C']):
+    axi.set_title(title)
+attila_utils.savefig(fig, 'NF-L-in-vivo-treatments-tg-TUDCA-anonym')"
+2023-11-15-5xfad-nfl-gfap,10,'NF-L-in-vivo-treatments-wt',NF-L-in-vivo-treatments-wt,literal,"group_list = ['H', 'I', 'J']
+fig, ax = line_plotter_treatments(nfl_invivo, group_list, x='Week', y='NF-L')
+fig.suptitle('NF-L in vivo: WT background')
+fig.supxlabel('time, week')
+fig.supylabel('[NF-L], pg/mL', x=0)
+attila_utils.savefig(fig, 'NF-L-in-vivo-treatments-wt')"
+2023-11-15-5xfad-nfl-gfap,13,'NF-L-boxplot-wt-tg',NF-L-boxplot-wt-tg,literal,"def my_boxplot(df, group_list=['H', 'I', 'J'], x='NF-L', treatments=treatments, biomarker='NF-L'):
+    data = df.loc[df.Group.isin(group_list)]
+    fig, ax = plt.subplots(figsize=(6.4, 4.8))
+    sns.boxplot(data=data, y='Group', x=x,
+                order=group_list, showfliers=False, color='white', ax=ax)
+    sns.swarmplot(data=data, y='Group', x=x, hue='Sex',
+                  order=group_list, palette={'m': 'blue', 'f': 'red'}, ax=ax)
+    ax.set_xlabel('[' + biomarker + '], pg/ml')
+    ax.set_ylabel('')
+    ax.set_yticklabels([treatments[g] for g in group_list])
+    ax.set_title(biomarker + ' terminal plasma')
+    return((fig, ax))
+
+df = nfl_term_scaled.loc[nfl_term_scaled.Location == 'NF-L terminal plasma']
+fig, ax = my_boxplot(df, group_list=['H', 'D'], treatments={'D': '5xFAD', 'H': 'WT'}, biomarker='NF-L')
+attila_utils.savefig(fig, 'NF-L-boxplot-wt-tg')"
+2023-11-15-5xfad-nfl-gfap,14,'NF-L-boxplot-treatments-tg',NF-L-boxplot-treatments-tg,literal,"df = nfl_term_scaled.loc[nfl_term_scaled.Location == 'NF-L terminal plasma']
+group_list = ['D', 'A', 'B', 'C', 'E', 'F', 'G']
+fig, ax = my_boxplot(df, group_list=group_list, biomarker='NF-L')
+ax.set_title('NF-L terminal plasma: 5xFAD background')
+attila_utils.savefig(fig, 'NF-L-boxplot-treatments-tg')"
+2023-11-15-5xfad-nfl-gfap,15,'NF-L-boxplot-treatments-wt',NF-L-boxplot-treatments-wt,literal,"df = nfl_term_scaled.loc[nfl_term_scaled.Location == 'NF-L terminal plasma']
+group_list = ['H', 'I', 'J']
+fig, ax = my_boxplot(df, group_list=group_list, biomarker='NF-L')
+ax.set_title('NF-L terminal plasma: WT background')
+attila_utils.savefig(fig, 'NF-L-boxplot-treatments-wt')"
+2023-11-15-5xfad-nfl-gfap,16,'NF-L-terminal',NF-L-terminal,literal,"def format_xaxis(fig, ax):
+    fig.suptitle('NF-L in terminal plasma and CSF')
+    for axi in ax:
+        axi.set_xlim([-0.5, 1.5])
+        axi.set_xticks([0, 1])
+        axi.set_xticklabels(['plasma', 'CSF (scaled)'], rotation=45, ha='right')
+    return((fig, ax))
+
+group_list = ['H', 'D']
+fig, ax = line_plotter_treatments(nfl_term_scaled, group_list, x='x', y='NF-L', marker='+', treatments={'D': '5xFAD', 'H': 'WT'})
+fig, ax = format_xaxis(fig, ax)
+fig.supxlabel('location', y=-0.2)
+attila_utils.savefig(fig, 'NF-L-terminal')"
+2023-11-15-5xfad-nfl-gfap,17,'NF-L-terminal-tg',NF-L-terminal-tg,literal,"group_list = ['D', 'A', 'B', 'C', 'E', 'F', 'G']
+fig, ax = line_plotter_treatments(nfl_term_scaled, group_list, x='x', y='NF-L', marker='+')
+fig, ax = format_xaxis(fig, ax)
+fig.supxlabel('location', y=-0.2)
+attila_utils.savefig(fig, 'NF-L-terminal-tg')"
+2023-11-15-5xfad-nfl-gfap,18,'NF-L-terminal-wt',NF-L-terminal-wt,literal,"group_list = ['H', 'I', 'J']
+fig, ax = line_plotter_treatments(nfl_term_scaled, group_list, x='x', y='NF-L', marker='+')
+fig, ax = format_xaxis(fig, ax)
+fig.supxlabel('location', y=-0.2)
+attila_utils.savefig(fig, 'NF-L-terminal-wt')"
+2023-11-15-5xfad-nfl-gfap,20,'NFL-terminal-CSF-scatter',NFL-terminal-CSF-scatter,literal,"fig, ax = plt.subplots(figsize=(4.8, 4.8))
+ax = sns.scatterplot(x='NF-L terminal plasma', y='NF-L terminal CSF', hue='Genotype', hue_order=['wt/wt', 'tg/wt'], data=nfl_term, ax=ax)
+ax.set_xlabel('NF-L')
+ax.set_ylabel('CSF')
+ax.set_title('[NF-L], pg/mL')
+attila_utils.savefig(fig, 'NFL-terminal-CSF-scatter')"
+2023-11-15-5xfad-nfl-gfap,22,'GFAP-boxplot-wt-tg',GFAP-boxplot-wt-tg,literal,"fig, ax = my_boxplot(gfap, group_list=['H', 'D'], x='GFAP terminal plasma', treatments={'D': '5xFAD', 'H': 'WT'}, biomarker='GFAP')
+ax.set_title('GFAP terminal plasma')
+attila_utils.savefig(fig, 'GFAP-boxplot-wt-tg')"
+2023-11-15-5xfad-nfl-gfap,23,'GFAP-boxplot-treatments-tg',GFAP-boxplot-treatments-tg,literal,"group_list = ['D', 'A', 'B', 'C', 'E', 'F', 'G']
+fig, ax = my_boxplot(gfap, group_list=group_list, x='GFAP terminal plasma', biomarker='GFAP')
+ax.set_title('GFAP terminal plasma: 5xFAD background')
+attila_utils.savefig(fig, 'GFAP-boxplot-treatments-tg')"
+2023-11-15-5xfad-nfl-gfap,24,'GFAP-boxplot-treatments-wt',GFAP-boxplot-treatments-wt,literal,"group_list = ['H', 'I', 'J']
+fig, ax = my_boxplot(gfap, group_list=group_list, x='GFAP terminal plasma', biomarker='GFAP')
+ax.set_title('GFAP terminal plasma: WT background')
+attila_utils.savefig(fig, 'GFAP-boxplot-treatments-wt')"
+2023-12-18-5xfad-nfl-gfap-frequentist,4,'NF-L-in-vivo-wt-tg',NF-L-in-vivo-wt-tg,literal,"def fitter(formula, group_list, treatments=treatments, df=nfl_invivo, return_data=False, mixed=True):
+    data = df.loc[df.Group.isin(group_list)].copy()
+    treatment_list = [treatments[g] for g in group_list]
+    s = data.Group.apply(lambda g: treatments[g])
+    data['Treatment'] = pd.Categorical(s, categories=treatment_list, ordered=True)
+    data = data.dropna()
+    if return_data:
+        return(data)
+    if mixed:
+        result = smf.mixedlm(formula, data=data, groups='IRN').fit()
+    else:
+        result = smf.ols(formula, data=data).fit()
+    return(result)
+
+def results_plotter(results, suptitle='', drop_intercept=True):
+    df = pd.concat([results.params.to_frame('mean'),
+                    results.bse.to_frame('bse'),
+                    results.pvalues.to_frame('pval')], axis=1)
+    df['treatment'] = df.index
+    df = df.drop('Intercept') if drop_intercept else df
+    fig, ax = plt.subplots(1, 2, sharey=True, figsize=(9.6, 4.8))
+    ax[0].axvline(0, color='k', linewidth=0.5)
+    ax[0].grid(linestyle='dotted')
+    ax[0].errorbar(y=np.arange(df.shape[0]), x=df['mean'], xerr=df['bse'], linewidth=0, elinewidth=1, marker='d', capsize=0)
+    ax[0].set_title(r'$\hat{\beta}_j \pm \mathrm{SE}_j$')
+    ax[1].axvline(1, color='k', linewidth=0.5)
+    sns.stripplot(x='pval', y='treatment', ax=ax[1], data=df)
+    ax[1].grid(linestyle='dotted')
+    ax[1].set_xscale('log')
+    ax[1].set_xlabel('')
+    ax[1].set_title(r'$p$-value for $H_{0j}: \; \beta_j = 0$')
+    fig.suptitle(suptitle)
+    return((fig, ax))
+
+formula = 'Q(""NF-L"") ~ 1 + Sex * Treatment + Week'
+results = fitter(formula, group_list=['H', 'D'], treatments={'D': '5xFAD', 'H': 'WT'}, df=nfl_invivo)
+fig, ax = results_plotter(results, 'NF-L in vivo', drop_intercept=False)
+attila_utils.savefig(fig, 'NF-L-in-vivo-wt-tg')
+results.summary()"
+2023-12-18-5xfad-nfl-gfap-frequentist,6,'NF-L-in-vivo-treatments-tg',NF-L-in-vivo-treatments-tg,literal,"formula = 'Q(""NF-L"") ~ 1 + Sex + Treatment * Week'
+group_list = ['D', 'A', 'B', 'C', 'E', 'F', 'G']
+formula = 'Q(""NF-L"") ~ 1 + Treatment * Week'
+results = fitter(formula, group_list, treatments=treatments)
+fig, ax = results_plotter(results, 'NF-L in vivo, 5xFAD background')
+attila_utils.savefig(fig, 'NF-L-in-vivo-treatments-tg')
+results.summary()"
+2023-12-18-5xfad-nfl-gfap-frequentist,8,'NF-L-in-vivo-S-HCQ-tg',NF-L-in-vivo-S-HCQ-tg,literal,"formula = 'Q(""NF-L"") ~ 1 + Sex + Treatment * Week'
+group_list = ['D', 'F']
+formula = 'Q(""NF-L"") ~ 1 + Treatment * Week'
+results = fitter(formula, group_list, treatments=treatments)
+fig, ax = results_plotter(results, 'NF-L in vivo, 5xFAD background')
+ax[1].set_xlim([1e-2, 1])
+attila_utils.savefig(fig, 'NF-L-in-vivo-S-HCQ-tg')
+results.summary()"
+2023-12-18-5xfad-nfl-gfap-frequentist,10,'NF-L-in-vivo-S-HCQ-tg-fixed',NF-L-in-vivo-S-HCQ-tg-fixed,literal,"formula = 'Q(""NF-L"") ~ 1 + Sex + Treatment * Week'
+group_list = ['D', 'F']
+formula = 'Q(""NF-L"") ~ 1 + Treatment * Week'
+results = fitter(formula, group_list, treatments=treatments, mixed=False)
+fig, ax = results_plotter(results, 'NF-L in vivo, 5xFAD background, fixed effects')
+ax[1].set_xlim([1e-2, 1])
+attila_utils.savefig(fig, 'NF-L-in-vivo-S-HCQ-tg-fixed')
+results.summary()"
+2023-12-18-5xfad-nfl-gfap-frequentist,12,'NF-L-in-vivo-treatments-wt',NF-L-in-vivo-treatments-wt,literal,"formula = 'Q(""NF-L"") ~ 1 + Sex + Treatment * Week'
+group_list = ['H', 'I', 'J']
+formula = 'Q(""NF-L"") ~ 1 + Treatment * Week'
+results = fitter(formula, group_list, treatments=treatments)
+fig, ax = results_plotter(results, 'NF-L in vivo, WT background')
+ax[1].set_xlim([1e-2, 1])
+attila_utils.savefig(fig, 'NF-L-in-vivo-treatments-wt')
+results.summary()"
+2023-12-18-5xfad-nfl-gfap-frequentist,16,'nfl-week-12-vs-terminal-plasma-tg',nfl-week-12-vs-terminal-plasma-tg,literal,"def nfl_corrplot(genotype='tg/wt', x='NF-L week 12', y='NF-L terminal plasma', nfl=nfl):
+    nfl_genotype = nfl.loc[(nfl.Genotype == genotype)]
+    nrows = int(np.ceil(np.sqrt(len(nfl_genotype.Group.unique()))))
+    n = int(np.ceil(len(nfl_genotype.Group.unique()) / nrows))
+    panelsize = 2.4
+    fig, ax = plt.subplots(n, nrows, sharex=True, sharey=True, figsize=(nrows * panelsize, nrows * panelsize))
+    for g, axi in zip(nfl_genotype.Group.unique(), np.ravel(ax)):
+        axi.axline((0, 0), slope=1, color='k', linestyle='dashed', linewidth=0.5)
+        sel_rows = (nfl_genotype.Group == g) & (nfl_genotype.Location.isin([x, y]))
+        df = nfl_genotype.loc[sel_rows, ['IRN', 'Location', 'NF-L']]
+        axi.scatter(x=x, y=y, data=df.pivot(index='IRN', columns='Location', values='NF-L'))
+        axi.set_title(treatments[g])
+
+    fig.supxlabel(x)
+    fig.supylabel(y)
+    fig.suptitle({'tg/wt': '5xFAD', 'wt/wt': 'WT'}[genotype])
+    return((fig, ax))
+
+fig, ax = nfl_corrplot(genotype='tg/wt', x='NF-L week 12', y='NF-L terminal plasma', nfl=nfl)
+attila_utils.savefig(fig, 'nfl-week-12-vs-terminal-plasma-tg')"
+2023-12-18-5xfad-nfl-gfap-frequentist,17,'nfl-week-12-vs-terminal-plasma-wt',nfl-week-12-vs-terminal-plasma-wt,literal,"fig, ax = nfl_corrplot(genotype='wt/wt', x='NF-L week 12', y='NF-L terminal plasma', nfl=nfl)
+attila_utils.savefig(fig, 'nfl-week-12-vs-terminal-plasma-wt')"
+2023-12-18-5xfad-nfl-gfap-frequentist,18,'nfl-terminal-CSF-vs-terminal-plasma-tg',nfl-terminal-CSF-vs-terminal-plasma-tg,literal,"fig, ax = nfl_corrplot(genotype='tg/wt', x='NF-L terminal CSF', y='NF-L terminal plasma', nfl=nfl)
+attila_utils.savefig(fig, 'nfl-terminal-CSF-vs-terminal-plasma-tg')"
+2023-12-18-5xfad-nfl-gfap-frequentist,19,'nfl-terminal-CSF-vs-terminal-plasma-wt',nfl-terminal-CSF-vs-terminal-plasma-wt,literal,"fig, ax = nfl_corrplot(genotype='wt/wt', x='NF-L terminal CSF', y='NF-L terminal plasma', nfl=nfl)
+attila_utils.savefig(fig, 'nfl-terminal-CSF-vs-terminal-plasma-wt')"
+2023-12-18-5xfad-nfl-gfap-frequentist,20,'NF-L-week12-terminal-plasma-treatments-tg',NF-L-week12-terminal-plasma-treatments-tg,literal,"formula = 'Q(""NF-L"") ~ 1 + Sex + Treatment'
+group_list = ['D', 'A', 'B', 'C', 'E', 'F', 'G']
+df = nfl.loc[(nfl.Genotype == 'tg/wt') & (nfl.Location.isin(['NF-L week 12', 'NF-L terminal plasma']))]
+results = fitter(formula, group_list=group_list, treatments=treatments, df=df)
+fig, ax = results_plotter(results, 'NF-L, week 12 + terminal plasma, 5xFAD background')
+attila_utils.savefig(fig, 'NF-L-week12-terminal-plasma-treatments-tg')
+results.summary()"
+2023-12-18-5xfad-nfl-gfap-frequentist,21,'NF-L-week12-terminal-plasma-S-HCQ-wt',NF-L-week12-terminal-plasma-S-HCQ-wt,literal,"formula = 'Q(""NF-L"") ~ 1 + Sex + Treatment'
+group_list = ['D', 'F']
+df = nfl.loc[(nfl.Genotype == 'tg/wt') & (nfl.Location.isin(['NF-L week 12', 'NF-L terminal plasma']))]
+results = fitter(formula, group_list=group_list, treatments=treatments, df=df)
+fig, ax = results_plotter(results, 'NF-L, week 12 + terminal plasma, 5xFAD background')
+ax[1].set_xlim([1e-2, 1])
+attila_utils.savefig(fig, 'NF-L-week12-terminal-plasma-S-HCQ-wt')
+results.summary()"
+2023-12-18-5xfad-nfl-gfap-frequentist,22,'NF-L-week12-terminal-plasma-treatments-wt',NF-L-week12-terminal-plasma-treatments-wt,literal,"formula = 'Q(""NF-L"") ~ 1 + Sex + Treatment'
+group_list = ['H', 'I', 'J']
+df = nfl.loc[(nfl.Genotype == 'wt/wt') & (nfl.Location.isin(['NF-L week 12', 'NF-L terminal plasma']))]
+results = fitter(formula, group_list=group_list, treatments=treatments, df=df)
+fig, ax = results_plotter(results, 'NF-L, week 12 + terminal plasma, WT background')
+ax[1].set_xlim([1e-2, 1])
+attila_utils.savefig(fig, 'NF-L-week12-terminal-plasma-treatments-wt')
+results.summary()"
+2024-01-05-5xfad-nfl-frequentist,7,'nfl-stripplot-linear-log-scale-CO28152',nfl-stripplot-linear-log-scale-CO28152,literal,"def stripplot_sex(data):
+    fig, ax = plt.subplots(1, 2, sharey=True, figsize=(9.6, 4.8))
+    for axi in ax:
+        axi.axvline(1, color='k')
+        sns.stripplot(data=data, x='NF-L week 0-4 change', y='Treatment', hue='Sex', palette={'m': 'blue', 'f': 'red'}, ax=axi)
+        axi.grid(axis='y')
+    
+    ax[1].grid(axis='x', which='both')
+    ax[1].set_xscale('log')
+    return((fig, ax))
+
+fig, ax = stripplot_sex(data_CO28152)
+attila_utils.savefig(fig, 'nfl-stripplot-linear-log-scale-CO28152')"
+2024-01-05-5xfad-nfl-frequentist,9,'nfl-stripplot-week-4-8-12-CO28152',nfl-stripplot-week-4-8-12-CO28152,literal,"def stripplot_week(datalong):
+    fig, ax = plt.subplots(figsize=(6.4, len(datalong.Treatment.unique()) / 2))
+    ax.axvline(1, color='k')
+    b = datalong.Treatment.apply(lambda x: bool(re.match('.*TG$', x)))
+    sns.stripplot(data=datalong.loc[b], x='NF-L change', y='Treatment', hue='Duration', dodge=False, ax=ax)
+    #sns.stripplot(data=datalong.loc[~ datalong.Treatment.isin(['Saline WT', 'TUDCA WT', 'DMSO WT'])], x='NF-L change', y='Treatment', hue='Duration', dodge=True, ax=ax)
+    ax.grid(axis='x', which='both')
+    ax.grid(axis='y')
+    ax.set_xscale('log')
+    return((fig, ax))
+
+fig, ax = stripplot_week(datalong_CO28152)
+attila_utils.savefig(fig, 'nfl-stripplot-week-4-8-12-CO28152')"
+2024-01-05-5xfad-nfl-frequentist,13,'nfl-stripplot-week-4-8-12-3panels-CO28152',nfl-stripplot-week-4-8-12-3panels-CO28152,literal,"def stripplot_week(datad):
+    fig, ax = plt.subplots(1, 3, sharex=True, sharey=True, figsize=(14.4, 4.8))
+    for axi, x in zip(ax, ['NF-L week 0-4 change', 'NF-L week 0-8 change', 'NF-L week 0-12 change']):
+        axi.axvline(1, color='k')
+        sns.stripplot(data=datad['TG'], x=x, y='Treatment', hue='Sex', palette={'m': 'blue', 'f': 'red'}, ax=axi)
+        axi.set_xscale('log')
+        axi.grid(axis='x', which='both')
+        axi.grid(axis='y')
+    return((fig, ax))
+
+fig, ax = stripplot_week(datad_CO28152)
+attila_utils.savefig(fig, 'nfl-stripplot-week-4-8-12-3panels-CO28152')"
+2024-01-05-5xfad-nfl-frequentist,23,basename,,dynamic - runtime evidence required,"l_duration = resultsdf_CO28152.duration.unique()
+l_resultsdf = [resultsdf_CO28152, resultsdf_CO28154_TUDCA_HCQ, resultsdf_CO28154_Arundine]
+for duration in l_duration:
+    fig, ax = nfl.result_plotter(l_resultsdf, duration=duration, hspace_denom=50, x0_lim=(-0.6, 0.35), x1_lim=(1e-3, 1))
+    basename = 'fx-size-p-val-all-' + re.sub('\W+', '-', duration)
+    print(basename)
+    attila_utils.savefig(fig, basename)"
+2024-01-05-5xfad-nfl-frequentist,25,basename,,dynamic - runtime evidence required,"l_resultsdf = [resultsdf_CO28152.loc[resultsdf_CO28152.treatment.isin(['Intercept', 'HCQ TG', 'TUDCA TG'])], resultsdf_CO28154_TUDCA_HCQ]
+for duration in l_duration:
+    fig, ax = nfl.result_plotter(l_resultsdf, duration=duration, hspace_denom=10, x0_lim=(-0.6, 0.35), x1_lim=(1e-2, 1))
+    basename = 'fx-size-p-val-TUDCA-HCQ-' + re.sub('\W+', '-', duration)
+    print(basename)
+    attila_utils.savefig(fig, basename)"
+2023-10-13-5xfad-maze,5,'data-train-corr-plot-matrix',data-train-corr-plot-matrix,literal,"g = sns.pairplot(data_train1.xs('Day 1', level='day', axis=0).drop('Day', axis=1).rename(columns={'Distance': 'Distance (cm)', 'Velocity': 'Velocity (cm/s)'}), hue='Condition', height=1.5)
+attila_utils.savefig(g, 'data-train-corr-plot-matrix')"
+2023-10-13-5xfad-maze,7,"'training-' + re.sub('[ ()%/]+', '-', yname).strip('-') + '-CO26990'",,dynamic - runtime evidence required,"for yname in data_train1.loc[:, :'Velocity'].columns:
+    fig, ax = data_plotter(yname=yname, data_train=data_train1)
+    attila_utils.savefig(fig, 'training-' + re.sub('[ ()%/]+', '-', yname).strip('-') + '-CO26990')"
+2023-10-13-5xfad-maze,9,"'latency-' + k.replace(' ', '-')",,dynamic - runtime evidence required,"for k, v in experiments.items():
+    fig, ax = latency_plotter(k, *v)
+    attila_utils.savefig(fig, 'latency-' + k.replace(' ', '-'))"
+2023-10-13-5xfad-maze,10,'fraction-of-censored-latencies-CO26990',fraction-of-censored-latencies-CO26990,literal,"def plot_censored_fraction(data_train, group2condition):
+    fig, ax = plt.subplots(1, 2, sharex=True, sharey=True)
+    for title, axi, by in zip(['Days pooled', 'Days separate'], ax, ['group', ['group', 'day']]):
+        s = (data_train['Latency'] >= 60).groupby(by).mean()
+        d = s.unstack() if axi == ax[1] else s
+        d.plot(kind='barh', ax=axi)
+        #(data_train['Latency (s)'] >= 60).groupby(by).mean().unstack().plot(kind='barh', ax=axi)
+        axi.set_yticklabels(group2condition.values())
+        axi.set_xlabel('Fraction of censored latencies')
+        axi.grid(axis='x')
+        axi.set_title(title)
+    return((fig, ax))
+
+fig, ax = plot_censored_fraction(data_train1, group2condition1)
+attila_utils.savefig(fig, 'fraction-of-censored-latencies-CO26990')"
+2023-10-13-5xfad-maze,11,'fraction-of-censored-latencies-CO28152',fraction-of-censored-latencies-CO28152,literal,"fig, ax = plot_censored_fraction(data_train2, group2condition2)
+attila_utils.savefig(fig, 'fraction-of-censored-latencies-CO28152')"
+2023-10-13-5xfad-maze,31,'model-comparison-all',model-comparison-all,literal,"fig, ax = plt.subplots(figsize=(4, compare_train1.shape[0] * 0.5))
+az.plot_compare(compare_train1, ax=ax, textsize=10)
+ax.legend()
+attila_utils.savefig(fig, 'model-comparison-all')"
+2023-10-13-5xfad-maze,33,'model-comparison-randomfx',model-comparison-randomfx,literal,"def compare_sel_mod(sel_mod, idata_train=idata_train1, return_df=False):
+    cmp = az.compare({k: v for k, v in idata_train.items() if k in sel_mod})
+    if return_df:
+        return(cmp)
+    fig, ax = plt.subplots(figsize=(4, cmp.shape[0] * 0.5))
+    g = az.plot_compare(cmp, ax=ax, textsize=10)
+    ax.legend()
+    return((fig, ax))
+
+sel_mod = ['M_2FE', 'M_2FE_Rintcp|IRN', 'M_2FE_Rday|IRN', 'M_2FE_Rintcp+Rday|Cohort/IRN']
+fig, ax = compare_sel_mod(sel_mod)
+attila_utils.savefig(fig, 'model-comparison-randomfx')"
+2023-10-13-5xfad-maze,35,'model-comparison-errordist',model-comparison-errordist,literal,"sel_mod = ['M_2FE', 'M_2FE_gamma']
+fig, ax = compare_sel_mod(sel_mod, idata_train=idata_train1)
+attila_utils.savefig(fig, 'model-comparison-errordist')"
+2023-10-13-5xfad-maze,37,'model-comparison-covariates',model-comparison-covariates,literal,"sel_mod = ['M_2FE', 'M_4FE', 'M_6FE']
+fig, ax = compare_sel_mod(sel_mod, idata_train=idata_train1)
+attila_utils.savefig(fig, 'model-comparison-covariates')"
+2023-10-13-5xfad-maze,39,'mcmc-trace-M_2FE_Rday_IRN',mcmc-trace-M_2FE_Rday_IRN,literal,"ax = az.plot_trace(idata_train1['M_2FE_Rintcp|IRN'], var_names=['Day', 'Group'])
+fig = ax[0, 0].figure
+attila_utils.savefig(fig, 'mcmc-trace-M_2FE_Rday_IRN')"
+2023-10-13-5xfad-maze,43,'model-comparison-94pct_CI',model-comparison-94pct_CI,literal,"sel_models = ['M_2FE', 'M_2FE_uncensored', 'M_4FE', 'M_6FE', 'M_2FE_Rintcp|IRN', 'M_2FE_Rintcp+Rday|IRN']
+fig, ax = plt.subplots(len(sel_models), 1, sharex=True, figsize=(6, 1 * len(sel_models)))
+for m, axi in zip(sel_models, ax):
+    az.plot_forest(idata_train1[m], var_names=['Group'], ax=axi, ess=False)
+    #axi.set_title(m, backgroundcolor= 'white')
+    axi.set_title('')
+    axi.set_ylabel(m, rotation='horizontal', horizontalalignment='right', fontsize=14)
+    axi.set_yticklabels(['Tg+A', 'Tg'], fontsize=10)
+    #axi.set_xticklabels(axi.get_xticklabels())
+    axi.grid(axis='x')
+    axi.axvline(0, color='black')
+
+fig.suptitle('Group effect (rel. WT), 94 % credible intervals', fontsize=14)
+    
+attila_utils.savefig(fig, 'model-comparison-94pct_CI')"
+2023-09-26-cell-bayes-assays,14,"'data_plot_' + assay.replace(' ', '-').replace('/', '-')",,dynamic - runtime evidence required,"for assay in assays_LPS:
+    fig, ax = data_plotter(assay, datad['LPS'], 'Cohort')
+    attila_utils.savefig(fig, 'data_plot_' + assay.replace(' ', '-').replace('/', '-'))"
+2023-09-26-cell-bayes-assays,15,"'data_plot_' + assay.replace(' ', '-').replace('/', '-')",,dynamic - runtime evidence required,"for assay in ['Viability [% VC]']:
+    fig, ax = data_plotter(assay, datad['Abeta Toxicity'])
+    attila_utils.savefig(fig, 'data_plot_' + assay.replace(' ', '-').replace('/', '-'))"
+2023-09-26-cell-bayes-assays,16,"'data_plot_' + assay.replace(' ', '-').replace('/', '-')",,dynamic - runtime evidence required,"for assay in ['Aβ38', 'Aβ40', 'Aβ42']:
+    fig, ax = data_plotter(assay, datad['Abeta release'], 'plate')
+    attila_utils.savefig(fig, 'data_plot_' + assay.replace(' ', '-').replace('/', '-'))"
+2023-09-26-cell-bayes-assays,17,"'data_plot_' + assay.replace(' ', '-').replace('/', '-')",,dynamic - runtime evidence required,"for assay in ['Aβ42 SN', 'Aβ42 Ly']:
+    fig, ax = data_plotter(assay, datad['Abeta clearance'], 'plate')
+    attila_utils.savefig(fig, 'data_plot_' + assay.replace(' ', '-').replace('/', '-'))"
+2023-09-26-cell-bayes-assays,18,"'data_plot_' + assay.replace(' ', '-').replace('/', '-')",,dynamic - runtime evidence required,"for assay in assays_GF_withdrawal:
+    fig, ax = data_plotter(assay, datad['GF withdrawal'])
+    attila_utils.savefig(fig, 'data_plot_' + assay.replace(' ', '-').replace('/', '-'))"
+2023-09-26-cell-bayes-assays,19,"'data_plot_' + assay.replace('/', '-')",,dynamic - runtime evidence required,"for assay in assays_Tau_phosphorylation:
+    fig, ax = data_plotter(assay, datad['Tau phosphorylation'], 'Cohort')
+    attila_utils.savefig(fig, 'data_plot_' + assay.replace('/', '-'))"
+2023-09-26-cell-bayes-assays,20,"'data_plot_' + assay.replace(' ', '-').replace('/', '-')",,dynamic - runtime evidence required,"for assay in assays_NOG:
+    fig, ax = data_plotter(assay, datad['NOG'])
+    attila_utils.savefig(fig, 'data_plot_' + assay.replace(' ', '-').replace('/', '-'))"
+2023-09-26-cell-bayes-assays,27,'mcmc-trace-sigmoid-2',mcmc-trace-sigmoid-2,literal,"ax = az.plot_trace(idata_2, var_names=var_names)
+fig = ax[0, 0].figure
+attila_utils.savefig(fig, 'mcmc-trace-sigmoid-2')"
+2023-09-26-cell-bayes-assays,28,'mcmc-autocorr-sigmoid-2',mcmc-autocorr-sigmoid-2,literal,"ax = az.plot_autocorr(idata_2, var_names=var_names)
+fig = ax[0, 0].figure
+attila_utils.savefig(fig, 'mcmc-autocorr-sigmoid-2')"
+2023-09-26-cell-bayes-assays,29,'mcmc-autocorr-sigmoid-2',mcmc-autocorr-sigmoid-2,literal,"az.plot_rank(idata_2, var_names=var_names)
+fig = ax[0, 0].figure
+attila_utils.savefig(fig, 'mcmc-autocorr-sigmoid-2')"
+2023-09-26-cell-bayes-assays,31,'posterior-sampled-curves-dose-response',posterior-sampled-curves-dose-response,literal,"fig, ax = plt.subplots(figsize=(4.8, 4.8))
+ylim_top = 70
+ax = cba.plot_sampled_curves_sigmoid(ax=ax, idata=idata_2.posterior, data_reshaped=data_reshaped, alpha=0.2, draw_y0_y1=True, H1_increase=False, ylim_top=ylim_top)
+ax = cba.plot_data(ax, data_reshaped)
+ax.set_ylim(0, ylim_top)
+ax.set_xlabel('dose', fontsize=14)
+ax.set_ylabel('response', fontsize=14)
+ax.set_title('drug C, Aβ40 release')
+attila_utils.savefig(fig, 'posterior-sampled-curves-dose-response')"
+2023-09-26-cell-bayes-assays,32,'prior-posterior-curves-sigmoid-2',prior-posterior-curves-sigmoid-2,literal,"def prior_posterior_curves(model, idata, data_reshaped, H1_increase=False):
+    ylim_top = 100
+    H1_posterior_prob = cba.get_H1_posterior_prob(idata.posterior['FC_y'], H1_increase=H1_increase, H1_prior_prob=cba.default_H1_prior_prob)
+    prior = pm.sample_prior_predictive(1000, model, random_seed=1986).prior
+    fig, ax = plt.subplots(1, 2, sharey=False)
+    for axi, data, title in zip(ax, [prior, idata.posterior], ['prior sample', 'posterior sample']):
+        if title == 'posterior sample':
+            axi = cba.plot_data(axi, data_reshaped)
+            H1_prob = H1_posterior_prob
+        else:
+            H1_prob = cba.default_H1_prior_prob
+        axi = cba.plot_sampled_curves_sigmoid(ax=axi, idata=data, data_reshaped=data_reshaped, alpha=0.2, draw_y0_y1=True, H1_increase=H1_increase, ylim_top=ylim_top)
+        axi.axhline(0, color='k', linewidth=0.5)
+        axi.set_title(title)
+        axi.set_ylim(0, ylim_top)
+        axi.set_ylabel('')
+        #axi.text(0.5, 0.9, '$P(H_1) = {:.2g}$'.format(H1_prob), horizontalalignment='center', verticalalignment='center', transform=axi.transAxes)
+    return((fig, ax))
+
+fig, ax = prior_posterior_curves(model_2, idata_2, data_reshaped)
+fig.suptitle('Model: sigmoid 2')
+attila_utils.savefig(fig, 'prior-posterior-curves-sigmoid-2')"
+2023-09-26-cell-bayes-assays,33,'prior-posterior-curves-sigmoid-4',prior-posterior-curves-sigmoid-4,literal,"fig, ax = prior_posterior_curves(model_4, idata_4, data_reshaped)
+fig.suptitle('Model: sigmoid 4')
+attila_utils.savefig(fig, 'prior-posterior-curves-sigmoid-4')"
+2023-09-26-cell-bayes-assays,34,'prior-posterior-density-violin-vertical',prior-posterior-density-violin-vertical,literal,"FC_y_max = 100 / idata_2.posterior['y_0'].mean().values
+
+def FC_y_posterior_vertical_violin_ax(axi, idata=None, FC_y_max=FC_y_max):
+    npoints = 400
+    H1_increase = False
+    yy = np.linspace(0, FC_y_max, npoints)
+    c_left = 'red' if H1_increase else 'green'
+    c_right = 'red' if not H1_increase else 'green'
+    c_center = 'gray'
+    axi.axhline(1, color='k', linewidth=2)
+    t_1 = scipy.stats.gamma.ppf(cba.default_H1_prior_prob, cba.gamma_shape, scale=1/cba.gamma_shape)
+    t_2 = scipy.stats.gamma.ppf(1 - cba.default_H1_prior_prob, cba.gamma_shape, scale=1/cba.gamma_shape)
+    for t in [t_1, t_2]:
+        axi.axhline(t, color='k', linewidth=0.5)
+    b_left = yy <= t_1
+    b_right = yy > t_2
+    b_center = (~ b_left) & (~ b_right)
+    if idata is None:
+        xx = scipy.stats.gamma.pdf(yy, cba.gamma_shape, scale=1/cba.gamma_shape)
+        title = 'prior'
+        P_H1, P_H2 = [cba.default_H1_prior_prob] * 2
+        condition = ''
+        mean = 1
+        stdev = cba.gamma_shape ** (-1/2)
+    else:
+        posterior = idata.posterior['FC_y']
+        l = list(itertools.chain(*posterior.to_numpy()))
+        k = scipy.stats.gaussian_kde(l)
+        xx = k.evaluate(yy)
+        title = 'posterior'
+        P_H1, P_H2 = [cba.get_H1_posterior_prob(posterior, H1_increase=b) for b in [H1_increase, ~ H1_increase]]
+        condition = '|\mathrm{data}'
+        mean = np.mean(l)
+        stdev = np.std(l)
+    for b, c in zip([b_left, b_center, b_right], [c_left, c_center, c_right]):
+        axi.fill_betweenx(yy[b], xx[b], - xx[b], alpha=.5, linewidth=0.5, color=c)
+    axi.errorbar(x=0, y=mean, yerr=stdev, c='yellow', capsize=3, ecolor='yellow')
+    axi.scatter(x=0, y=mean, c='blue', edgecolors='yellow', marker='o', linewidths=1)
+    #ax.scatter(x=1, y=y_base, c=scatter_c, marker='o', linewidths=linewidths_c, edgecolors=scatter_edgecolors)
+    axi.set_xticks([])
+    yticks = [0, t_1, 1, t_2]
+    yticklabels = ['0', '$t_1$', '1', '$t_2$']
+    axi.set_yticks(yticks)
+    axi.set_yticklabels(yticklabels)
+    axi.set_title(title)
+    axi.set_ylim(0, FC_y_max)
+    #axi.set_ylabel('$\mathrm{FC}_y$: fold change')
+    x = 0.5
+    y_1 = t_1 / 2
+    y_0 = 1
+    y_2 = (FC_y_max - t_2) / 2 + t_2
+    P_H0 = 1 - P_H1 - P_H2
+    for y, P_H, i, c in zip([y_1, y_0, y_2], [P_H1, P_H0, P_H2], [1, 0, 2], ['green', 'gray', 'red']):
+        s = '$P(H_' + str(i) + condition + ') = {:.2f}$'.format(P_H)
+        bbox = {'edgecolor': c, 'facecolor': 'white', 'alpha': 1}
+        axi.text(x, y, s, va='center', ha='left', color=c, backgroundcolor='white', bbox=bbox)
+    return(axi)
+
+fig, ax = plt.subplots(1, 2, sharey=True, sharex=True)
+for axi, idata in zip(ax, [None, idata_2]):
+    axi = FC_y_posterior_vertical_violin_ax(axi, idata=idata, FC_y_max=FC_y_max)
+fig.suptitle('Probability density')
+fig.supylabel('$\mathrm{FC}_y$: fold change')
+attila_utils.savefig(fig, 'prior-posterior-density-violin-vertical')"
+2023-09-26-cell-bayes-assays,35,'prior-posterior-density-complex-sigmoid-2',prior-posterior-density-complex-sigmoid-2,literal,"fig, ax = cba.prior_posterior_density_plot_complex(idata_2)
+fig.suptitle('Model: sigmoid 2')
+ylim_01 = 5.25
+ax[0].set_ylim(0, ylim_01)
+ylim_11 = 0.95
+ax[1].set_ylim(0, ylim_11)
+ax[1].grid(axis='y')
+attila_utils.savefig(fig, 'prior-posterior-density-complex-sigmoid-2')"
+2023-09-26-cell-bayes-assays,36,'prior-posterior-density-complex-sigmoid-4',prior-posterior-density-complex-sigmoid-4,literal,"fig, ax = cba.prior_posterior_density_plot_complex(idata_4)
+fig.suptitle('Model: sigmoid 4')
+ax[0].set_ylim(0, ylim_01)
+ax[1].set_ylim(0, ylim_11)
+ax[1].grid(axis='y')
+attila_utils.savefig(fig, 'prior-posterior-density-complex-sigmoid-4')"
+2023-09-26-cell-bayes-assays,39,'H1-prob-posterior-vs-prior',H1-prob-posterior-vs-prior,literal,"fig, ax = plt.subplots(figsize=(4.5, 4.8))
+for p, color in zip(model_names, ['C6', 'C7']):
+    ax.plot('prior', p, data=posteriors_priors_example, marker='o', linestyle='dotted', linewidth=2, color=color)
+
+fig.legend(loc='upper center', bbox_to_anchor=(0.5, 1.05))
+ax.set_xscale('log')
+ax.set_yscale('log')
+ax.set_xlabel('prior, $P(H_1)$')
+ax.set_ylabel('posterior, $P(H_1 | \mathrm{data})$')
+ax.set_title('How the posterior depends on the prior')
+lim_0 = posteriors_priors_example.min().min() * 0.9
+lim_1 = 1.2
+ax.set_xlim(lim_0, lim_1)
+ax.set_ylim(lim_0, lim_1)
+ax.axline((lim_0, lim_0), (lim_1, lim_1), color='k')
+ax.grid(which='both')
+x_0_min = 4/9
+for x_0, my_text, color in zip([x_0_min, 1 - x_0_min], ['protective', 'adverse'], ['green', 'red']):
+    ax.text(x_0, 1 - x_0, my_text, horizontalalignment='center', verticalalignment='center',
+            rotation=45, transform=ax.transAxes, fontsize=14, color=color, backgroundcolor='white')
+
+attila_utils.savefig(fig, 'H1-prob-posterior-vs-prior')"
+2023-09-26-cell-bayes-assays,54,'H10-bayes-factors',H10-bayes-factors,literal,"fig = cba.plot_BF(BF10)
+attila_utils.savefig(fig, 'H10-bayes-factors')"
+2023-09-26-cell-bayes-assays,55,'H10-bayes-factors-anonym_drugs',H10-bayes-factors-anonym_drugs,literal,"fig = cba.plot_BF(BF10, anonym_drugs=True)
+attila_utils.savefig(fig, 'H10-bayes-factors-anonym_drugs')"
+2023-09-26-cell-bayes-assays,56,'H10-bayes-factors2',H10-bayes-factors2,literal,"fig = cba.plot_BF(BF10.drop('Cysteamine', level=-1, axis=0))
+attila_utils.savefig(fig, 'H10-bayes-factors2')"
+2023-09-26-cell-bayes-assays,57,'H102_posteriors-exper-mean-barchart',H102_posteriors-exper-mean-barchart,literal,"fig, ax = cba.barchart_H102_posteriors(H102_posteriors.groupby(level=0, axis=0).mean(), e2l_textbox=False)
+attila_utils.savefig(fig, 'H102_posteriors-exper-mean-barchart')"
+2023-09-26-cell-bayes-assays,58,'H102_posteriors-exper-mean-barchart-avg',H102_posteriors-exper-mean-barchart-avg,literal,"fig, ax = cba.barchart_H102_posteriors(H102_posteriors.groupby(level=0, axis=0).mean(), e2l_textbox=False, plot_avg=True)
+attila_utils.savefig(fig, 'H102_posteriors-exper-mean-barchart-avg')"
+2023-09-26-cell-bayes-assays,59,'H102_posteriors-barchart-e2l_textbox',H102_posteriors-barchart-e2l_textbox,literal,"fig, ax = cba.barchart_H102_posteriors(H102_posteriors, e2l_textbox=True)
+attila_utils.savefig(fig, 'H102_posteriors-barchart-e2l_textbox')"
+2023-09-26-cell-bayes-assays,60,'H102_posteriors-barchart-e2l_textbox-avg',H102_posteriors-barchart-e2l_textbox-avg,literal,"fig, ax = cba.barchart_H102_posteriors(H102_posteriors, e2l_textbox=True, plot_avg=True)
+attila_utils.savefig(fig, 'H102_posteriors-barchart-e2l_textbox-avg')"
+2023-09-26-cell-bayes-assays,61,'H102_posteriors-barchart',H102_posteriors-barchart,literal,"fig, ax = cba.barchart_H102_posteriors(H102_posteriors, e2l_textbox=False, legend=False)
+attila_utils.savefig(fig, 'H102_posteriors-barchart')"
+2023-09-26-cell-bayes-assays,63,fname,,dynamic - runtime evidence required,"for ix in ideal_H1_increase.sort_values(['experiment (nice)', 'assay (nice)']).index:
+    exper, assay = ix
+    fname = 'posterior-curves-' + exper + '-' + assay
+    fname = fname.replace('/', '-').replace(' ', '-')
+    if True:
+    #if not os.path.exists('named-figure/' + fname + '.pdf'):
+        fig = plot_sampled_curves_all_compounds(exper, assay)
+        attila_utils.savefig(fig, fname)"
+2023-09-26-cell-bayes-assays,64,'violin-posterior-pdf-legend',violin-posterior-pdf-legend,literal,"fig, ax = cba.violin_posterior_pdf(idatadf, poor_fits, text_box=True, H_legend=True)
+attila_utils.savefig(fig, 'violin-posterior-pdf-legend')"
+2023-09-26-cell-bayes-assays,65,'violin-posterior-pdf-legend-avg',violin-posterior-pdf-legend-avg,literal,"fig, ax = cba.violin_posterior_pdf(idatadf, poor_fits, text_box=True, H_legend=True, plot_avg=True)
+attila_utils.savefig(fig, 'violin-posterior-pdf-legend-avg')"
+2023-09-26-cell-bayes-assays,66,'violin-posterior-pdf',violin-posterior-pdf,literal,"fig, ax = cba.violin_posterior_pdf(idatadf, poor_fits, text_box=False, H_legend=False)
+attila_utils.savefig(fig, 'violin-posterior-pdf')"
+2023-09-26-cell-bayes-assays,67,'violin-posterior-pdf-avg',violin-posterior-pdf-avg,literal,"fig, ax = cba.violin_posterior_pdf(idatadf, poor_fits, text_box=False, H_legend=False, plot_avg=True)
+attila_utils.savefig(fig, 'violin-posterior-pdf-avg')"
+2023-09-26-cell-bayes-assays,70,'violin-color-bg-ideal-increase',violin-color-bg-ideal-increase,literal,"fig = violin_color_bg_all(H1_increase=True, text_box=True)
+attila_utils.savefig(fig, 'violin-color-bg-ideal-increase')"
+2023-09-26-cell-bayes-assays,71,'violin-color-bg-ideal-decrease',violin-color-bg-ideal-decrease,literal,"fig = violin_color_bg_all(H1_increase=False, text_box=False)
+attila_utils.savefig(fig, 'violin-color-bg-ideal-decrease')"
+2023-09-26-cell-bayes-assays,74,'dunnett-bayes-scatter',dunnett-bayes-scatter,literal,"fig, ax = dunnett_bayes_scatter(dunnett=dunnett, H102_posteriors=H102_posteriors, numbered_markers=False)
+attila_utils.savefig(fig, 'dunnett-bayes-scatter')"
+2023-09-26-cell-bayes-assays,75,'dunnett-bayes-scatter-numbered',dunnett-bayes-scatter-numbered,literal,"fig, ax = dunnett_bayes_scatter(dunnett=dunnett, H102_posteriors=H102_posteriors)
+attila_utils.savefig(fig, 'dunnett-bayes-scatter-numbered')"
+2023-09-26-cell-bayes-assays,76,'dunnett-bayes-scatter-numbered-color',dunnett-bayes-scatter-numbered-color,literal,"discrepancy_dict = {
+    'H1': {'Dunnett true': [13, 15, 69, 16], 'Bayes true': [42, 40, 39, 38, 2]},
+    'H0': {'Dunnett true': [39, 40, 42, 38, 24], 'Bayes true': [65, 61, 13, 15]},
+    'H2': {'Dunnett true': [65, 61], 'Bayes true': [24, 25, 4]},
+}
+fig, ax = dunnett_bayes_scatter(dunnett=dunnett, H102_posteriors=H102_posteriors, discrepancy_dict=discrepancy_dict)
+attila_utils.savefig(fig, 'dunnett-bayes-scatter-numbered-color')"
+2023-09-26-cell-bayes-assays,77,'dunnett-bayes-scatter-numbered-color-' + H,,dynamic - runtime evidence required,"for H, name in zip(['H1', 'H0', 'H2'], ['protective', 'neutral', 'adverse']):
+    fig, axi = plt.subplots(figsize=(6.4, 6.4))
+    axi = dunnett_bayes_scatter_ax(axi, H, name, discrepancy_dict=discrepancy_dict)
+    fig.supylabel('frequentist score: $-\sum \log_{10}p$', x=-0.05)
+    fig.supxlabel('Bayesian score: $P(H_i | \mathrm{data})$', y=0)
+    attila_utils.savefig(fig, 'dunnett-bayes-scatter-numbered-color-' + H)"
+2023-09-26-cell-bayes-assays,79,"'dunnett-bayes-curves-' + H + '-' + which_true.replace(' ', '-')",,dynamic - runtime evidence required,"for H, d in discrepancy_dict.items():
+    for which_true in d.keys():
+        fig, ax = plot_sampled_curves_dunnett_bayes(hypothesis=H, which_true=which_true)
+        attila_utils.savefig(fig, 'dunnett-bayes-curves-' + H + '-' + which_true.replace(' ', '-'))"

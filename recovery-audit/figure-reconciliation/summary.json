@@ -1,0 +1,53 @@
+{
+  "expected_figure_files": 313,
+  "legacy_or_extra_files": 453,
+  "copies": 2064,
+  "statuses": {
+    "verified_rerun_survives": 154,
+    "documented_rerun_survives_corroborated": 159
+  },
+  "per_notebook": {
+    "2023-11-07-5xfad-maze-latency": {
+      "documented_rerun_survives_corroborated": 8
+    },
+    "2023-11-07-5xfad-maze-test-probe": {
+      "documented_rerun_survives_corroborated": 9
+    },
+    "2024-02-29-Y-maze": {
+      "verified_rerun_survives": 10
+    },
+    "2024-05-20-nfl-modeling": {
+      "documented_rerun_survives_corroborated": 56,
+      "verified_rerun_survives": 4
+    },
+    "2024-06-04-5xfad-behavior-CO28154": {
+      "documented_rerun_survives_corroborated": 74
+    },
+    "2024-06-26-mwm-test-probe-CO28154": {
+      "documented_rerun_survives_corroborated": 12
+    },
+    "2024-08-08-biochemistry": {
+      "verified_rerun_survives": 12
+    },
+    "2024-11-11-cytokines": {
+      "verified_rerun_survives": 6
+    },
+    "2023-11-15-5xfad-nfl-gfap": {
+      "verified_rerun_survives": 34
+    },
+    "2023-12-18-5xfad-nfl-gfap-frequentist": {
+      "verified_rerun_survives": 24
+    },
+    "2024-01-05-5xfad-nfl-frequentist": {
+      "verified_rerun_survives": 22
+    },
+    "2023-10-13-5xfad-maze": {
+      "verified_rerun_survives": 40
+    },
+    "2023-09-26-cell-bayes-assays": {
+      "verified_rerun_survives": 2
+    }
+  },
+  "dynamic_savefig_sites_requiring_runtime_names": 7,
+  "dynamic_savefig_sites_outside_requested_cell_figure": 10
+}

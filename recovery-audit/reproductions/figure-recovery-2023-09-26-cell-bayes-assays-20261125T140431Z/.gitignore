@@ -1,0 +1,5 @@
+work/
+*.ipynb
+fits/
+references/
+mplconfig/

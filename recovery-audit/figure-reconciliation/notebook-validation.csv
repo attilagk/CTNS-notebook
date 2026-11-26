@@ -1,0 +1,14 @@
+notebook,export_files,fresh_files,preserved_prior_files,reference_status,limitations
+2023-11-07-5xfad-maze-latency,8,0,8,prior target validation documented,Historical target means differed by up to 0.001; retained Pareto-k warnings. Existing successful run and source snapshot corroborate preserved exports.
+2023-11-07-5xfad-maze-test-probe,9,0,9,prior target validation documented,Historical Dirichlet statistics/p-values agree at displayed precision. The scatter export still precedes the centimeter ylabel assignment; this accepted pre-existing label defect remains.
+2024-02-29-Y-maze,10,10,0,execution-only,No numerical reference comparison newly established; target screenshot alias is separately mapped to the first CO26990 boxplot.
+2024-05-20-nfl-modeling,60,0,60,four targets previously validated,Four declared target PNGs have exact historical reproduction/canonical checksum matches; other exports corroborated by successful run and matching source snapshot.
+2024-06-04-5xfad-behavior-CO28154,74,0,74,partial reference reproduction,Unresolved CO26990/Amiloride mean 0.070 vs reference 0.298; WT -0.261 vs -0.299. Other target differences and exploratory divergences remain documented in the promotion report.
+2024-06-26-mwm-test-probe-CO28154,12,0,12,prior table agreement; figures regenerated,Fractions table agreement documented; two target figures were generated. Report does not establish exhaustive pixel/numerical equivalence of every figure. Three if False exports excluded.
+2024-08-08-biochemistry,12,12,0,prior target validation; fresh exports recovered,Prior table check: 66/66 cells pass; target figure visually matched. Fresh run passed; exploratory rank deficiencies and small-sample warnings retained.
+2024-11-11-cytokines,6,6,0,prior qualified target agreement; fresh exports recovered,Prior comparison: 398/400 visible table values match; two last-digit differences; target figure visually consistent. Fresh run passed; design rank warnings retained.
+2023-11-15-5xfad-nfl-gfap,34,34,0,execution-only,No historical target agreement assessed. Existing polynomial regression catches and warnings retained.
+2023-12-18-5xfad-nfl-gfap-frequentist,24,24,0,execution-only,No historical target agreement assessed. Singular covariance and boundary warnings retained.
+2024-01-05-5xfad-nfl-frequentist,22,22,0,execution-only,No historical target agreement assessed. Existing analysis retained.
+2023-10-13-5xfad-maze,40,40,0,execution-only,"Reference agreement not assessed; known severe divergences, low ESS and problematic LOO retained; November user accepted these limits."
+2023-09-26-cell-bayes-assays,2,2,0,focused visual reproduction; inference caveat,"Only sigmoid-4 case rerun. Visual qualitative agreement; 27 divergences, max R-hat 1.008218, min bulk ESS 765.876; finite likelihood. Sigmoid-2 comparison failed; no model/prior changes made."

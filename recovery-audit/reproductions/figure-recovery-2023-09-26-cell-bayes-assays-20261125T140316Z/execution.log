@@ -1,0 +1,94 @@
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+CELL 0
+CELL 1
+CELL 2
+CELL 3
+CELL 4
+CELL 5
+CELL 6
+Traceback (most recent call last):
+  File "/home/attila/projects/CTNS/notebooks/recovery-audit/figure-reconciliation/run_sigmoid.py", line 31, in <module>
+    NotebookClient(nb,km=km,timeout=1800,resources={'metadata':{'path':str(cwd)}},on_cell_start=lambda cell,cell_index,**kw:print('CELL',cell_index,flush=True)).execute();manifest['execution']='passed'
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/attila/miniconda3/envs/bayes/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/attila/miniconda3/envs/bayes/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/attila/miniconda3/envs/bayes/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/home/attila/miniconda3/envs/bayes/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/attila/miniconda3/envs/bayes/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+exper = 'Abeta release'
+assay = 'Aβ40'
+compound = 'TI21'
+data_reshaped = extract_regr_data(exper, assay, compound, datad=datad, controls=controls, return_data_reshaped=True)
+model_2, idata_2 = [cba.sample_sigmoid_2(*extract_regr_data(exper, assay, compound), return_model=b) for b in [True, False]]
+model_4, idata_4 = [cba.sample_sigmoid_4(*extract_regr_data(exper, assay, compound), return_model=b) for b in [True, False]]
+------------------
+
+----- stderr -----
+Auto-assigning NUTS sampler...
+----- stderr -----
+Initializing NUTS using jitter+adapt_diag...
+----- stderr -----
+/home/attila/projects/CTNS/notebooks/src/cellbayesassay.py:296: SyntaxWarning: invalid escape sequence '\m'
+  labels = ['$y_0$', '$y_0 t_1$', '$y_0 \mathrm{FC}_y$', '$y_0 t_2$']
+/home/attila/projects/CTNS/notebooks/src/cellbayesassay.py:336: SyntaxWarning: invalid escape sequence '\m'
+  ax.set_xlabel('$\mathrm{FC}_y = y_1 / y_0$: fold change of activity')
+/home/attila/projects/CTNS/notebooks/src/cellbayesassay.py:352: SyntaxWarning: invalid escape sequence '\m'
+  ax[1].set_xticklabels(['$P(H_1)$', '$P(H_1|\mathrm{data})$'], rotation=0)
+/home/attila/projects/CTNS/notebooks/src/cellbayesassay.py:603: SyntaxWarning: invalid escape sequence '\m'
+  fig.supxlabel('$P(H_i|\mathrm{data})$', y=0.03 if H102_posteriors.shape[0] > 15 else -0.01)
+/home/attila/projects/CTNS/notebooks/src/cellbayesassay.py:738: SyntaxWarning: invalid escape sequence '\m'
+  fig.supxlabel('$\mathrm{FC}_y$: fold change', y=0.025)
+------------------
+
+[31m---------------------------------------------------------------------------[39m
+[31mSamplingError[39m                             Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[7][39m[32m, line 5[39m
+[32m      1[39m exper = [33m'Abeta release'[39m
+[32m      2[39m assay = [33m'Aβ40'[39m
+[32m      3[39m compound = [33m'TI21'[39m
+[32m      4[39m data_reshaped = extract_regr_data(exper, assay, compound, datad=datad, controls=controls, return_data_reshaped=[38;5;28;01mTrue[39;00m)
+[32m----> [39m[32m5[39m model_2, idata_2 = [cba.sample_sigmoid_2(*extract_regr_data(exper, assay, compound), return_model=b) [38;5;28;01mfor[39;00m b [38;5;28;01min[39;00m [[38;5;28;01mTrue[39;00m, [38;5;28;01mFalse[39;00m]]
+[32m      6[39m model_4, idata_4 = [cba.sample_sigmoid_4(*extract_regr_data(exper, assay, compound), return_model=b) [38;5;28;01mfor[39;00m b [38;5;28;01min[39;00m [[38;5;28;01mTrue[39;00m, [38;5;28;01mFalse[39;00m]]
+
+[36mFile [39m[32m~/projects/CTNS/notebooks/src/cellbayesassay.py:75[39m, in [36msample_sigmoid_2[39m[34m(y_obs, x_obs, return_model)[39m
+[32m     73[39m [38;5;28;01mif[39;00m return_model:
+[32m     74[39m     [38;5;28;01mreturn[39;00m(mymodel)
+[32m---> [39m[32m75[39m mcmc = [30;43mpm[39;49m[30;43m.[39;49m[30;43msample[39;49m[30;43m([39;49m[30;43mreturn_inferencedata[39;49m[30;43m=[39;49m[30;43;01mTrue[39;49;00m[30;43m,[39;49m[30;43m [39;49m[30;43midata_kwargs[39;49m[30;43m=[39;49m[30;43m{[39;49m[30;43m'[39;49m[30;43mlog_likelihood[39;49m[30;43m'[39;49m[30;43m:[39;49m[30;43m [39;49m[30;43;01mTrue[39;49;00m[30;43m}[39;49m[30;43m,[39;49m[30;43m [39;49m[30;43mrandom_seed[39;49m[30;43m=[39;49m[30;43mmcmc_random_seed[39;49m[30;43m)[39;49m
+[32m     76[39m [38;5;28;01mreturn[39;00m(mcmc)
+
+[36mFile [39m[32m~/miniconda3/envs/bayes/lib/python3.12/site-packages/pymc/sampling/mcmc.py:772[39m, in [36msample[39m[34m(draws, tune, chains, cores, random_seed, progressbar, progressbar_theme, step, var_names, nuts_sampler, initvals, init, jitter_max_retries, n_init, trace, discard_tuned_samples, compute_convergence_checks, keep_warning_stat, return_inferencedata, idata_kwargs, nuts_sampler_kwargs, callback, mp_ctx, blas_cores, model, **kwargs)[39m
+[32m    770[39m ip: [38;5;28mdict[39m[[38;5;28mstr[39m, np.ndarray]
+[32m    771[39m [38;5;28;01mfor[39;00m ip [38;5;129;01min[39;00m initial_points:
+[32m--> [39m[32m772[39m     [30;43mmodel[39;49m[30;43m.[39;49m[30;43mcheck_start_vals[39;49m[30;43m([39;49m[30;43mip[39;49m[30;43m)[39;49m
+[32m    773[39m     _check_start_shape(model, ip)
+[32m    775[39m [38;5;28;01mif[39;00m var_names [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+
+[36mFile [39m[32m~/miniconda3/envs/bayes/lib/python3.12/site-packages/pymc/model/core.py:1793[39m, in [36mModel.check_start_vals[39m[34m(self, start)[39m
+[32m   1790[39m initial_eval = [38;5;28mself[39m.point_logps(point=elem)
+[32m   1792[39m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28mall[39m(np.isfinite(v) [38;5;28;01mfor[39;00m v [38;5;129;01min[39;00m initial_eval.values()):
+[32m-> [39m[32m1793[39m     [38;5;28;01mraise[39;00m SamplingError(
+[32m   1794[39m         [33m"[39m[33mInitial evaluation of model at starting point failed![39m[38;5;130;01m\n[39;00m[33m"[39m
+[32m   1795[39m         [33mf[39m[33m"[39m[33mStarting values:[39m[38;5;130;01m\n[39;00m[38;5;132;01m{[39;00melem[38;5;132;01m}[39;00m[38;5;130;01m\n[39;00m[38;5;130;01m\n[39;00m[33m"[39m
+[32m   1796[39m         [33mf[39m[33m"[39m[33mLogp initial evaluation results:[39m[38;5;130;01m\n[39;00m[38;5;132;01m{[39;00minitial_eval[38;5;132;01m}[39;00m[38;5;130;01m\n[39;00m[33m"[39m
+[32m   1797[39m         [33m"[39m[33mYou can call `model.debug()` for more details.[39m[33m"[39m
+[32m   1798[39m     )
+
+[31mSamplingError[39m: Initial evaluation of model at starting point failed!
+Starting values:
+{'EC_50': array(-4.63383888), 'y_0_log__': array(4.0742794), 'FC_y_log__': array(0.70803182), 'k_log__': array(-0.43762796), 'σ_log__': array(3.8127927)}
+
+Logp initial evaluation results:
+{'EC_50': -1.73, 'y_0': -4.04, 'FC_y': -1.74, 'k': -1.24, 'σ': nan, 'y': -218.4}
+You can call `model.debug()` for more details.
+
+
+RUN /home/attila/projects/CTNS/notebooks/recovery-audit/reproductions/figure-recovery-2023-09-26-cell-bayes-assays-20261125T140316Z STATUS failed
